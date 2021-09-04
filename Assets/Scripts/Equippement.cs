@@ -17,7 +17,7 @@ public class Equippement : MonoBehaviourPunCallbacks
     private float currentcoolDown;
     public GameObject camera_player;
 
-    private float distanceMelee = 1f;
+    private float distanceMelee = 1.5f;
     public LayerMask ignoreLayers;
 
     public int health;
@@ -165,7 +165,6 @@ public class Equippement : MonoBehaviourPunCallbacks
     void Hit()
     {
         
-
         int damageWeapon = eqquipmentList[currentIndex].damage;
 
         if (Physics.Raycast(camera_player.transform.position, camera_player.transform.forward, out hit, distanceMelee, ~ignoreLayers))

@@ -31,8 +31,8 @@ public class HealthBar : MonoBehaviour
             transform.LookAt(transform.position + Camera.main.transform.forward);
         }
         
-        transform.Translate(transform.forward *-1f, Space.World);
+        transform.Translate(transform.forward * -0.5f, Space.World);
 
-        image.transform.localScale = new Vector3(GetComponentInParent<Resources>().GetHealth(), 1, 0.5f);
+        image.transform.localScale = new Vector3(GetComponentInParent<Resources>().GetHealth(), 1f, 0.5f);
     }
 }

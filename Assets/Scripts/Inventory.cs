@@ -30,12 +30,9 @@ public class Inventory : MonoBehaviourPunCallbacks
 
     private void Update()
     {
-        if (!photonView.IsMine)
-        {
-            return;
-        }
 
-        { photonView.RPC("CollectItems", RpcTarget.All); }
+        photonView.RPC("CollectItems", RpcTarget.All);
+
     }
 
     [PunRPC]
@@ -90,7 +87,8 @@ public class Inventory : MonoBehaviourPunCallbacks
                 slots[i].empty = false;
                 slots[i].UpdateSlot();
                 GameManager.instance.UpdateText(item.name, quantity);
-                prefab.SetActive(false);
+                //prefab.SetActive(false);
+                PhotonNetwork.Destroy(prefab.gameObject);
                 return;
             }
 

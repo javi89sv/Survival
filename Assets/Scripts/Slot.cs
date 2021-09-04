@@ -4,6 +4,7 @@ using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.EventSystems;
 using TMPro;
+using Photon.Pun;
 
 public class Slot : MonoBehaviour, IPointerClickHandler, IPointerEnterHandler, IPointerExitHandler
 {
@@ -159,11 +160,12 @@ public class Slot : MonoBehaviour, IPointerClickHandler, IPointerEnterHandler, I
             GameManager.instance.weapon.gameObject.SetActive(false);
         }
 
-        prefab.SetActive(true);
-        prefab.GetComponent<InteractiveItem>().quantity = amount;
-        prefab.transform.position = new Vector3(player.transform.position.x, player.transform.position.y + 1f, player.transform.position.z);
-        prefab.transform.parent = null;
-        prefab.GetComponent<Rigidbody>().AddForce(player.transform.forward * 200);
+        GameObject newPrefab = PhotonNetwork.Instantiate("Resource/" + prefab.name, transform.position, Quaternion.identity);
+        //prefab.SetActive(true);
+        newPrefab.GetComponent<InteractiveItem>().quantity = amount;
+        //prefab.transform.position = new Vector3(player.transform.position.x, player.transform.position.y + 1f, player.transform.position.z);
+        //prefab.transform.parent = null;
+        newPrefab.GetComponent<Rigidbody>().AddForce(player.transform.forward * 200);
 
         CleanSlot();
 

@@ -160,10 +160,6 @@ public class Player : MonoBehaviourPunCallbacks
 
     }
 
-    private void FixedUpdate()
-    {
-       
-    }
 
     private void HeadBob(float z, float x_intensity, float y_intensity)
     {
