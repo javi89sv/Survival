@@ -962,3 +962,4 @@ Received Import Request.
   path: Assets/Resources/Resource/Tree01.prefab
   artifactKey: Guid(2906c5a4de5f6fa4ea6dec8c78d71d5a) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
 Start importing Assets/Resources/Resource/Tree01.prefab using Guid(2906c5a4de5f6fa4ea6dec8c78d71d5a) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '2a2e08c977071394a383037251a1577c') in 0.014581 seconds 
+AssetImportWorkerClient::OnTransportError - code=2 error=End of file

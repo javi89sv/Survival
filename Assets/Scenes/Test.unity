@@ -468,7 +468,7 @@ MonoBehaviour:
   playerCount: {fileID: 1601883395}
   Log: {fileID: 791648146}
   maxPlayerperRoom: 4
-  minPlayerperRoom: 1
+  minPlayerperRoom: 2
 --- !u!114 &644273370 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 6061528781712645532, guid: a43f364a136d1554d983b07a49f0e5a7, type: 3}
