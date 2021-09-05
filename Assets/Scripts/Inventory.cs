@@ -33,11 +33,11 @@ public class Inventory : Photon.Pun.MonoBehaviourPun
     private void Update()
     {
 
-        CollectItems();
+        photonView.RPC("CollectItems", RpcTarget.All);
 
     }
 
-    //[PunRPC]
+    [PunRPC]
     private void CollectItems()
     {
         RaycastHit hit;
@@ -89,7 +89,11 @@ public class Inventory : Photon.Pun.MonoBehaviourPun
                 slots[i].empty = false;
                 slots[i].UpdateSlot();
                 GameManager.instance.UpdateText(item.name, quantity);
-                PhotonNetwork.Destroy(prefab.gameObject);
+                if (photonView.IsMine)
+                {
+                    PhotonNetwork.Destroy(prefab.gameObject);
+                }
+                
                 return;
             }
 
