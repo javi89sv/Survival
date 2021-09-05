@@ -5,7 +5,7 @@ using Photon.Pun;
 
 
 
-public class Inventory : MonoBehaviourPunCallbacks
+public class Inventory : Photon.Pun.MonoBehaviourPun
 {
     public static Inventory instance;
 
@@ -15,6 +15,8 @@ public class Inventory : MonoBehaviourPunCallbacks
 
     public float distanceCollect;
     LayerMask ignoreLayer;
+
+    GameObject itemPickedUp;
 
 
 
@@ -31,11 +33,11 @@ public class Inventory : MonoBehaviourPunCallbacks
     private void Update()
     {
 
-        photonView.RPC("CollectItems", RpcTarget.All);
+        CollectItems();
 
     }
 
-    [PunRPC]
+    //[PunRPC]
     private void CollectItems()
     {
         RaycastHit hit;
@@ -45,7 +47,7 @@ public class Inventory : MonoBehaviourPunCallbacks
             {
                 if (Input.GetKeyDown(KeyCode.E))
                 {
-                    GameObject itemPickedUp = hit.collider.gameObject;
+                    itemPickedUp = hit.collider.gameObject;
 
                     InteractiveItem item = itemPickedUp.GetComponent<InteractiveItem>();
 
@@ -87,7 +89,6 @@ public class Inventory : MonoBehaviourPunCallbacks
                 slots[i].empty = false;
                 slots[i].UpdateSlot();
                 GameManager.instance.UpdateText(item.name, quantity);
-                //prefab.SetActive(false);
                 PhotonNetwork.Destroy(prefab.gameObject);
                 return;
             }
@@ -167,6 +168,14 @@ public class Inventory : MonoBehaviourPunCallbacks
         }
 
     }
+
+    [PunRPC]
+    public void DestroyItems(GameObject item)
+    {
+        PhotonNetwork.Destroy(item.gameObject);
+    }
+
+
 
     //public void DamageItem(Item item)
     //{

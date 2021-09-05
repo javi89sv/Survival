@@ -334,7 +334,7 @@ MonoBehaviour:
   weaponManager: {fileID: 0}
   weapon: {fileID: 0}
   playerPrefab: {fileID: 3543370769948636059, guid: fd9030ae4e1dc3a47a779c864e752235, type: 3}
-  spawnPlayer: {x: 0, y: 10, z: 0}
+  spawnPlayer: {x: 5, y: 5, z: 5}
   isWeaponEquipped: 0
   menuInventory: {fileID: 1425148416}
   menuCrafting: {fileID: 678102384}
@@ -401,10 +401,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   spawnItems:
   - {fileID: 7766254603189957790, guid: 74733a5bb8f521d47939c9351d55ee77, type: 3}
-  - {fileID: 528981455469617175, guid: 5551396a75f7d344493cd44625afa0a3, type: 3}
-  - {fileID: 6258097095937876570, guid: 0b1aa3749e804fd4c828dea0a3736f72, type: 3}
-  - {fileID: 4825881343226066103, guid: cce308429506f6646b9faebc18be09a1, type: 3}
-  spawnPosition: {x: 0, y: 2, z: 0}
+  - {fileID: 7766254603189957790, guid: 74733a5bb8f521d47939c9351d55ee77, type: 3}
 --- !u!114 &28950379
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -20889,6 +20886,67 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1325089373}
   m_CullTransparentMesh: 1
+--- !u!1001 &1337158930
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 1638492821984400582, guid: 77c5b3cb710d0e444b7a74843f86b529, type: 3}
+      propertyPath: drop.Array.data[0]
+      value: 
+      objectReference: {fileID: 7766254603189957790, guid: 74733a5bb8f521d47939c9351d55ee77, type: 3}
+    - target: {fileID: 2454768465482010532, guid: 77c5b3cb710d0e444b7a74843f86b529, type: 3}
+      propertyPath: m_Name
+      value: Wood Box
+      objectReference: {fileID: 0}
+    - target: {fileID: 2979912104394528030, guid: 77c5b3cb710d0e444b7a74843f86b529, type: 3}
+      propertyPath: m_RootOrder
+      value: 9
+      objectReference: {fileID: 0}
+    - target: {fileID: 2979912104394528030, guid: 77c5b3cb710d0e444b7a74843f86b529, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 9.93
+      objectReference: {fileID: 0}
+    - target: {fileID: 2979912104394528030, guid: 77c5b3cb710d0e444b7a74843f86b529, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2979912104394528030, guid: 77c5b3cb710d0e444b7a74843f86b529, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 14.04
+      objectReference: {fileID: 0}
+    - target: {fileID: 2979912104394528030, guid: 77c5b3cb710d0e444b7a74843f86b529, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2979912104394528030, guid: 77c5b3cb710d0e444b7a74843f86b529, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2979912104394528030, guid: 77c5b3cb710d0e444b7a74843f86b529, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2979912104394528030, guid: 77c5b3cb710d0e444b7a74843f86b529, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2979912104394528030, guid: 77c5b3cb710d0e444b7a74843f86b529, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2979912104394528030, guid: 77c5b3cb710d0e444b7a74843f86b529, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2979912104394528030, guid: 77c5b3cb710d0e444b7a74843f86b529, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 77c5b3cb710d0e444b7a74843f86b529, type: 3}
 --- !u!1 &1344105031
 GameObject:
   m_ObjectHideFlags: 0
@@ -32805,7 +32863,7 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1313128595}
   m_HandleRect: {fileID: 1313128594}
   m_Direction: 2
-  m_Value: 1.0000004
+  m_Value: 1.0000006
   m_Size: 0.7531222
   m_NumberOfSteps: 0
   m_OnValueChanged:

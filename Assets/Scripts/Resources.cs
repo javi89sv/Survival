@@ -4,7 +4,7 @@ using UnityEngine;
 using UnityEngine.EventSystems;
 using Photon.Pun;
 
-public class Resources : Photon.Pun.MonoBehaviourPun, IPointerEnterHandler, IPointerExitHandler
+public class Resources : Photon.Pun.MonoBehaviourPun
 {
     public string type;
     public int quantity;
@@ -66,7 +66,8 @@ public class Resources : Photon.Pun.MonoBehaviourPun, IPointerEnterHandler, IPoi
         {
             quantity -= amount;
         }
-    } //Farming estilo rust
+    } 
+    
 
     public void TakeDamage(int damage)
     {
@@ -80,13 +81,4 @@ public class Resources : Photon.Pun.MonoBehaviourPun, IPointerEnterHandler, IPoi
         health -= damage;
     }
 
-    public void OnPointerEnter(PointerEventData eventData)
-    {
-        healthBar.SetActive(true);
-    }
-
-    public void OnPointerExit(PointerEventData eventData)
-    {
-        healthBar.SetActive(false);
-    }
 }
