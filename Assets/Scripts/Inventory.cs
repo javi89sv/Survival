@@ -24,10 +24,7 @@ public class Inventory : Photon.Pun.MonoBehaviourPun
     void Start()
     {
         instance = this;
-
-
         slots = slotHolder.transform.GetComponentsInChildren<Slot>();
-
     }
 
     private void Update()
@@ -50,7 +47,6 @@ public class Inventory : Photon.Pun.MonoBehaviourPun
                     itemPickedUp = hit.collider.gameObject;
 
                     InteractiveItem item = itemPickedUp.GetComponent<InteractiveItem>();
-
 
                     AddItem(itemPickedUp, item.item, item.id, item.quantity, item.item.maxDegradable);
                     Debug.Log("Add Item!!");
@@ -89,11 +85,16 @@ public class Inventory : Photon.Pun.MonoBehaviourPun
                 slots[i].empty = false;
                 slots[i].UpdateSlot();
                 GameManager.instance.UpdateText(item.name, quantity);
-                if (photonView.IsMine)
+                int pvID = prefab.gameObject.GetComponent<PhotonView>().ViewID;
+
+                if (PhotonNetwork.IsMasterClient)
                 {
-                    PhotonNetwork.Destroy(prefab.gameObject);
+                    photonView.RPC("DestroyItems", RpcTarget.All, pvID);
                 }
                 
+
+
+
                 return;
             }
 
@@ -174,9 +175,9 @@ public class Inventory : Photon.Pun.MonoBehaviourPun
     }
 
     [PunRPC]
-    public void DestroyItems(GameObject item)
+    public void DestroyItems(int id)
     {
-        PhotonNetwork.Destroy(item.gameObject);
+        PhotonNetwork.Destroy(PhotonView.Find(id));
     }
 
 
