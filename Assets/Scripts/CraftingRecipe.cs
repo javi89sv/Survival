@@ -47,15 +47,20 @@ public class CraftingRecipe : ScriptableObject
             {
                 Inventory.instance.RemoveItem(itemAmount.item, itemAmount.amount);
             }
-            Debug.Log("CRAFT ITEM");
-            GameObject go = Instantiate(result.prefab);
-            Inventory.instance.AddItem(go, result, result.id, amountResult, go.GetComponent<Item>().maxDegradable);
+            Crafting();
         }
         else
         {
             Debug.Log("not enought material");
         }
 
+    }
+
+    private void Crafting()
+    {
+        Debug.Log("CRAFT ITEM");
+        GameObject go = Instantiate(result.prefab);
+        Inventory.instance.AddItem(go, result, result.id, amountResult, result.maxDegradable);
     }
 
 
