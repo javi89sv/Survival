@@ -2,9 +2,8 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using Photon.Pun;
 
-public class Equippement : MonoBehaviourPunCallbacks
+public class Equippement : MonoBehaviour
 {
 
     public Weapon[] eqquipmentList;
@@ -37,43 +36,42 @@ public class Equippement : MonoBehaviourPunCallbacks
         //    { photonView.RPC("Equip", RpcTarget.All, 0); }
         //}
 
-        if (photonView.IsMine && Input.GetKeyDown(KeyCode.Alpha2))
+        if (Input.GetKeyDown(KeyCode.Alpha2))
         {
-            { photonView.RPC("Equip", RpcTarget.All, 1); }
+            //Equip();
         }
 
 
         if (currentWeapon != null)
         {
-            if (photonView.IsMine)
+
+            Aim((Input.GetMouseButton(1)));
+
+
+            if (Input.GetMouseButtonDown(0) && currentcoolDown >= eqquipmentList[currentIndex].firerate)
             {
-                Aim((Input.GetMouseButton(1)));
-
-
-                if (Input.GetMouseButtonDown(0) && currentcoolDown >= eqquipmentList[currentIndex].firerate)
+                if (eqquipmentList[currentIndex].type == type.ranged)
                 {
-                    if(eqquipmentList[currentIndex].type == type.ranged)
-                    {
-                        Debug.Log("Shoot!!");
-                        { photonView.RPC("Shoot", RpcTarget.All); }
-                        currentcoolDown = 0f;
-                    }
-                    else
-                    {
-                        Debug.Log("Hit!!");
-                        currentWeapon.GetComponentInChildren<WeaponAnim>().PlayAnim();
-                        { photonView.RPC("Hit", RpcTarget.All); }
-                        currentcoolDown = 0f;
-                    }
-                    
+                    Debug.Log("Shoot!!");
+                    Shoot();
+                    currentcoolDown = 0f;
+                }
+                else
+                {
+                    Debug.Log("Hit!!");
+                    currentWeapon.GetComponentInChildren<WeaponAnim>().PlayAnim();
+                    Hit();
+                    currentcoolDown = 0f;
                 }
 
             }
 
+
+
         }
     }
 
-    // [PunRPC]
+   
     public void Equip(int index)
     {
         if (currentWeapon != null)
@@ -88,7 +86,7 @@ public class Equippement : MonoBehaviourPunCallbacks
         newEqquipment.transform.localEulerAngles = Vector3.zero;
         currentWeapon = newEqquipment;
 
-        
+
         Destroy(newEqquipment.GetComponent<Rigidbody>());
         Destroy(newEqquipment.GetComponent<BoxCollider>());
         //newEqquipment.GetComponent<Rigidbody>().useGravity = false;
@@ -119,7 +117,7 @@ public class Equippement : MonoBehaviourPunCallbacks
         }
     }
 
-    [PunRPC]
+
     void Shoot()
     {
 
@@ -144,13 +142,12 @@ public class Equippement : MonoBehaviourPunCallbacks
             Destroy(newHole, 5f);
 
             //shooting other player on network
-            if (photonView.IsMine)
-            {
+
                 if (hit.collider.gameObject.layer == 6)
                 {
                     //RPC call to damage Player
                 }
-            }
+            
 
         }
 
@@ -161,10 +158,10 @@ public class Equippement : MonoBehaviourPunCallbacks
 
     }
 
-    [PunRPC]
+  
     void Hit()
     {
-        
+
         int damageWeapon = eqquipmentList[currentIndex].damage;
 
         if (Physics.Raycast(camera_player.transform.position, camera_player.transform.forward, out hit, distanceMelee, ~ignoreLayers))

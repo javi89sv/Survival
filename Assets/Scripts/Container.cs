@@ -1,9 +1,9 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using Photon.Pun;
 
-public class Container : MonoBehaviourPun
+
+public class Container : MonoBehaviour
 {
 
     public int health;
@@ -22,10 +22,6 @@ public class Container : MonoBehaviourPun
 
     private void Update()
     {
-        if (!PhotonNetwork.IsMasterClient)
-        {
-            return;
-        }
 
         if (health <= 0)
         {
@@ -33,9 +29,9 @@ public class Container : MonoBehaviourPun
             int numberItems = drop.Length;
             GameObject go = Instantiate(boxBroken, transform.position, transform.rotation);
             go.GetComponent<Rigidbody>().AddExplosionForce(forceBrokekBox, transform.position, 1f);
-            PhotonNetwork.Instantiate("Consumables/" + drop[Random.Range(0, numberItems)].name, transform.position, transform.rotation);
-            PhotonNetwork.Instantiate("Consumables/" + drop[Random.Range(0, numberItems)].name, transform.position, transform.rotation);
-            PhotonNetwork.Destroy(this.gameObject);
+            Instantiate(drop[Random.Range(0, numberItems)], transform.position, transform.rotation);
+            Instantiate(drop[Random.Range(0, numberItems)], transform.position, transform.rotation);
+            Destroy(this.gameObject);
 
         }
     }

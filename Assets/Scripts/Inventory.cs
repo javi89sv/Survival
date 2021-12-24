@@ -1,11 +1,10 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using Photon.Pun;
 
 
 
-public class Inventory : Photon.Pun.MonoBehaviourPun
+public class Inventory : MonoBehaviour
 {
     public static Inventory instance;
 
@@ -30,11 +29,11 @@ public class Inventory : Photon.Pun.MonoBehaviourPun
     private void Update()
     {
 
-        photonView.RPC("CollectItems", RpcTarget.All);
+        CollectItems();
 
     }
 
-    [PunRPC]
+    
     private void CollectItems()
     {
         RaycastHit hit;
@@ -67,9 +66,9 @@ public class Inventory : Photon.Pun.MonoBehaviourPun
 
                 slots[i].amount += quantity;
                 slots[i].condition = condition;
-                prefab.SetActive(false);
                 slots[i].UpdateSlot();
                 GameManager.instance.UpdateText(item.name, quantity);
+                Destroy(prefab);
 
                 return;
             }
@@ -85,15 +84,6 @@ public class Inventory : Photon.Pun.MonoBehaviourPun
                 slots[i].empty = false;
                 slots[i].UpdateSlot();
                 GameManager.instance.UpdateText(item.name, quantity);
-                int pvID = prefab.gameObject.GetComponent<PhotonView>().ViewID;
-
-                if (PhotonNetwork.IsMasterClient)
-                {
-                    photonView.RPC("DestroyItems", RpcTarget.All, pvID);
-                }
-                
-
-
 
                 return;
             }
@@ -174,11 +164,6 @@ public class Inventory : Photon.Pun.MonoBehaviourPun
 
     }
 
-    [PunRPC]
-    public void DestroyItems(int id)
-    {
-        PhotonNetwork.Destroy(PhotonView.Find(id));
-    }
 
 
 

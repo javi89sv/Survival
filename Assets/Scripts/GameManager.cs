@@ -3,10 +3,10 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
-using Photon.Pun;
 
 
-public class GameManager : Photon.Pun.MonoBehaviourPun
+
+public class GameManager : MonoBehaviour
 {
     public static GameManager instance;
     public TextMeshProUGUI counterText;
@@ -31,7 +31,7 @@ public class GameManager : Photon.Pun.MonoBehaviourPun
     {
         instance = this;
         weaponManager = GameObject.FindGameObjectWithTag("WeaponManager");
-        PhotonNetwork.Instantiate(playerPrefab.name, spawnPlayer, Quaternion.identity);
+        Instantiate(playerPrefab, spawnPlayer, Quaternion.identity);
     }
 
 

@@ -1,7 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using Photon.Pun;
+
 
 public class SpawnItems : MonoBehaviour
 {
@@ -18,13 +18,10 @@ public class SpawnItems : MonoBehaviour
 
     private void SpawnItem()
     {
-        if (PhotonNetwork.IsMasterClient == false)
-        {
-            return;
-        }
+
         for (int i = 0; i < spawnItems.Length; i++)
         {
-            PhotonNetwork.Instantiate("Equippement/" + spawnItems[i].name, spawnPosition, Quaternion.identity);
+            Instantiate(spawnItems[i], spawnPosition, Quaternion.identity);
         }
     }
 

@@ -1,10 +1,9 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using Photon.Pun;
 using UnityEngine.UI;
 
-public class Player : MonoBehaviourPunCallbacks
+public class Player : MonoBehaviour
 {
 
     public float speed;
@@ -26,7 +25,7 @@ public class Player : MonoBehaviourPunCallbacks
     private Vector3 weaponParentOrigin;
     private Vector3 targetWeaponBobPosition;
 
-    
+
     [HideInInspector]
     public float currentHealth, currentFood, currentDrink;
     public float maxHealth, maxFood, maxDrink;
@@ -40,7 +39,7 @@ public class Player : MonoBehaviourPunCallbacks
     private void Awake()
     {
         weaponParentOrigin = weaponParent.localPosition;
-      
+
     }
 
     void Start()
@@ -49,27 +48,11 @@ public class Player : MonoBehaviourPunCallbacks
         currentHealth = maxHealth;
         currentFood = maxFood;
         currentDrink = maxDrink;
-        if (photonView.IsMine)
-        {
-            ui_healthbar = GameObject.Find("StatusPlayer/HealthBar");
-            ui_foodbar = GameObject.Find("StatusPlayer/FoodBar");
-            ui_drinkbar = GameObject.Find("StatusPlayer/DrinkBar"); 
-        }
-       
-       
-        if (photonView.IsMine)
-        {
-            cameraParent.SetActive(true);
-        }
-        else
-        {
-            cameraParent.SetActive(false);
-        }
 
-        if (!photonView.IsMine)
-        {
-            gameObject.layer = 6;
-        }
+        ui_healthbar = GameObject.Find("StatusPlayer/HealthBar");
+        ui_foodbar = GameObject.Find("StatusPlayer/FoodBar");
+        ui_drinkbar = GameObject.Find("StatusPlayer/DrinkBar");
+
 
         baseFOV = normalCam.fieldOfView;
         rig = GetComponent<Rigidbody>();
@@ -78,10 +61,7 @@ public class Player : MonoBehaviourPunCallbacks
     }
     private void Update()
     {
-        if (!photonView.IsMine)
-        {
-            return;
-        }
+
 
         ManagerStatesPlayer();
 
@@ -168,15 +148,14 @@ public class Player : MonoBehaviourPunCallbacks
 
     private void TakeDamage(int damage)
     {
-        if (photonView.IsMine)
-        {
+
             currentHealth -= damage;
             Debug.Log(currentHealth);
             if (currentHealth < 0)
             {
-                PhotonNetwork.Destroy(gameObject);
+                Destroy(gameObject);
             }
-        }
+        
     }
 
     private void ManagerStatesPlayer()

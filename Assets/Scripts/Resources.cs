@@ -2,9 +2,8 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.EventSystems;
-using Photon.Pun;
 
-public class Resources : Photon.Pun.MonoBehaviourPun
+public class Resources : MonoBehaviour
 {
     public string type;
     public int quantity;
@@ -19,12 +18,12 @@ public class Resources : Photon.Pun.MonoBehaviourPun
 
     public Vector3 offset = new Vector3(0f, 0.5f, 0f);
 
-    PhotonView view;
+
 
     // Start is called before the first frame update
     void Start()
     {
-        view = GetComponent<PhotonView>();
+        
         health = maxhealth;
         healthBar.gameObject.SetActive(true);
     }
@@ -42,20 +41,16 @@ public class Resources : Photon.Pun.MonoBehaviourPun
             Destroy(gameObject);
         }
 
-        if (!PhotonNetwork.IsMasterClient)
-        {
-            return;
-        }
 
         if (health <= 0)
         {
 
             for (int i = 0; i < drop.Length; i++)
             {
-                PhotonNetwork.Instantiate("Resource/" + drop[i].name, transform.position + offset, Quaternion.identity);
+                Instantiate(drop[i], transform.position + offset, Quaternion.identity);
             }
 
-            PhotonNetwork.Destroy(this.gameObject);
+            Destroy(this.gameObject);
 
         }
     }
@@ -71,14 +66,9 @@ public class Resources : Photon.Pun.MonoBehaviourPun
 
     public void TakeDamage(int damage)
     {
-        view.RPC("TakeDamageRPC", RpcTarget.All, damage);
-        
+        health -= damage;
+
     }    
     
-    [PunRPC]
-    public void TakeDamageRPC(int damage)
-    {
-        health -= damage;
-    }
 
 }
