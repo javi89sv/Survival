@@ -4,11 +4,11 @@ using UnityEngine;
 
 
 
-public class Inventory : MonoBehaviour
+public class InventoryManager : MonoBehaviour
 {
-    public static Inventory instance;
+    public static InventoryManager instance;
 
-    public Slot[] slots;
+    public Slot[] slot;
     public List<InteractiveItem> items;
     public GameObject slotHolder;
 
@@ -23,7 +23,7 @@ public class Inventory : MonoBehaviour
     void Start()
     {
         instance = this;
-        slots = slotHolder.transform.GetComponentsInChildren<Slot>();
+        slot = slotHolder.transform.GetComponentsInChildren<Slot>();
     }
 
     private void Update()
@@ -47,7 +47,7 @@ public class Inventory : MonoBehaviour
 
                     InteractiveItem item = itemPickedUp.GetComponent<InteractiveItem>();
 
-                    AddItem(itemPickedUp, item.item, item.id, item.quantity, item.item.maxDegradable);
+                    AddItem(itemPickedUp, item.item, item.id, item.quantity);
                     Debug.Log("Add Item!!");
                 }
             }
@@ -55,34 +55,32 @@ public class Inventory : MonoBehaviour
     }
 
 
-    public void AddItem(GameObject prefab, Item item, int id, int quantity, int condition)
+    public void AddItem(GameObject prefab, Item item, int id, int quantity)
     {
 
-        for (int i = 0; i < slots.Length; i++)
+        for (int i = 0; i < slot.Length; i++)
         {
 
-            if (!slots[i].empty && slots[i].id == id && item.isStackable && slots[i].maxStackSize != true)
+            if (!slot[i].empty && slot[i].id == id && item.isStackable && slot[i].maxStackSize != true)
             {
 
-                slots[i].amount += quantity;
-                slots[i].condition = condition;
-                slots[i].UpdateSlot();
+                slot[i].amount += quantity;
+                slot[i].UpdateSlot();
                 GameManager.instance.UpdateText(item.name, quantity);
                 Destroy(prefab);
 
                 return;
             }
-            else if (slots[i].empty)
+            else if (slot[i].empty)
             {
-                slots[i].prefab = prefab;
+                slot[i].prefab = prefab;
                 items.Add(prefab.GetComponent<InteractiveItem>());
-                prefab.transform.parent = slots[i].transform;
-                slots[i].item = item;
-                slots[i].id = id;
-                slots[i].amount = quantity;
-                slots[i].condition = condition;
-                slots[i].empty = false;
-                slots[i].UpdateSlot();
+                prefab.transform.parent = slot[i].transform;
+                slot[i].item = item;
+                slot[i].id = id;
+                slot[i].amount = quantity;
+                slot[i].empty = false;
+                slot[i].UpdateSlot();
                 GameManager.instance.UpdateText(item.name, quantity);
 
                 return;
@@ -103,12 +101,12 @@ public class Inventory : MonoBehaviour
     {
         int num = 0;
 
-        for (int i = 0; i < slots.Length; i++)
+        for (int i = 0; i < slot.Length; i++)
         {
-            if (slots[i].GetComponent<Slot>().id == id)
+            if (slot[i].GetComponent<Slot>().id == id)
             {
 
-                num += slots[i].amount;
+                num += slot[i].amount;
 
             }
 
@@ -118,14 +116,14 @@ public class Inventory : MonoBehaviour
 
     public void CheckMaxStack()
     {
-        for (int i = 0; i < slots.Length; i++)
+        for (int i = 0; i < slot.Length; i++)
         {
-            if (!slots[i].empty)
+            if (!slot[i].empty)
             {
-                if (slots[i].GetComponent<Slot>().amount == slots[i].GetComponent<Slot>().item.maxStack)
+                if (slot[i].GetComponent<Slot>().amount == slot[i].GetComponent<Slot>().item.maxStack)
                 {
 
-                    slots[i].GetComponent<Slot>().maxStackSize = true;
+                    slot[i].GetComponent<Slot>().maxStackSize = true;
 
                 }
             }
@@ -136,9 +134,9 @@ public class Inventory : MonoBehaviour
     public bool ContainItem(Item item, int amount)
     {
 
-        for (int i = 0; i < slots.Length; i++)
+        for (int i = 0; i < slot.Length; i++)
         {
-            if (slots[i].GetComponent<Slot>().item == item && slots[i].GetComponent<Slot>().amount >= amount)
+            if (slot[i].GetComponent<Slot>().item == item && slot[i].GetComponent<Slot>().amount >= amount)
             {
 
 
@@ -153,18 +151,28 @@ public class Inventory : MonoBehaviour
     public void RemoveItem(Item item, int amount)
     {
 
-        for (int i = 0; i < slots.Length; i++)
+        for (int i = 0; i < slot.Length; i++)
         {
-            if (slots[i].GetComponent<Slot>().item == item && slots[i].GetComponent<Slot>().amount >= amount)
+            if (slot[i].GetComponent<Slot>().item == item && slot[i].GetComponent<Slot>().amount >= amount)
             {
 
-                slots[i].GetComponent<Slot>().amount -= amount;
+                slot[i].GetComponent<Slot>().amount -= amount;
+                slot[i].UpdateSlot();
             }
         }
 
     }
 
+    IEnumerator CraftTimer(float time)
+    {
+        yield return new WaitForSeconds(time);
+        Debug.Log("CRAFT ITEM");
+    }
 
+    public void StartCraft(float time)
+    {
+        StartCoroutine(CraftTimer(time));
+    }
 
 
     //public void DamageItem(Item item)

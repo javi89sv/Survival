@@ -28,7 +28,7 @@ public class CraftingRecipe : ScriptableObject
     {
         foreach (ItemAmount itemAmount in Material)
         {
-            if (!Inventory.instance.ContainItem(itemAmount.item, itemAmount.amount))
+            if (!InventoryManager.instance.ContainItem(itemAmount.item, itemAmount.amount))
             {
                 return false;
             }
@@ -43,9 +43,11 @@ public class CraftingRecipe : ScriptableObject
     {
         if (CanCraft() == true)
         {
+            
+
             foreach (ItemAmount itemAmount in Material)
             {
-                Inventory.instance.RemoveItem(itemAmount.item, itemAmount.amount);
+                InventoryManager.instance.RemoveItem(itemAmount.item, itemAmount.amount);
             }
             Crafting();
         }
@@ -58,21 +60,13 @@ public class CraftingRecipe : ScriptableObject
 
     private void Crafting()
     {
-        Debug.Log("CRAFT ITEM");
+        
         GameObject go = Instantiate(result.prefab);
-        Inventory.instance.AddItem(go, result, result.id, amountResult, result.maxDegradable);
+        InventoryManager.instance.AddItem(go, result, result.id, amountResult);
     }
 
 
-    //IEnumerator CraftTimer(float time)
-    //{
-    //    yield return new WaitForSeconds(time);
-    //    Debug.Log("CRAFT ITEM");
-    //    Inventory.instance.RemoveItem(item, amount);
-    //    GameObject go = Instantiate(result.prefab);
-    //    Inventory.instance.AddItem(go, result, result.id, amountResult);
 
-    //}
 
 }
 

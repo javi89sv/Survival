@@ -198,7 +198,7 @@ public class Slot : MonoBehaviour, IPointerClickHandler, IPointerEnterHandler, I
                 UpdateSlot();
                 Debug.Log("Usamos item ");
             }
-            else
+            else if(item.type == Item.Type.equippable)
             {
                 int listWeapons = player.GetComponent<Equippement>().eqquipmentList.Length;
 
@@ -212,6 +212,10 @@ public class Slot : MonoBehaviour, IPointerClickHandler, IPointerEnterHandler, I
 
                 UpdateSlot();
                 Debug.Log("Equipamos item ");
+            }
+            else
+            {
+                Debug.Log("Cant use this");
             }
 
         }

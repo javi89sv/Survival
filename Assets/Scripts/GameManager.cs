@@ -31,7 +31,7 @@ public class GameManager : MonoBehaviour
     {
         instance = this;
         weaponManager = GameObject.FindGameObjectWithTag("WeaponManager");
-        Instantiate(playerPrefab, spawnPlayer, Quaternion.identity);
+  
     }
 
 

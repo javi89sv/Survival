@@ -7,7 +7,7 @@ public class Arrow : MonoBehaviour
 {
 
     private Rigidbody rb;
-    private float lifeTime = 2f;
+    //private float lifeTime = 2f;
     public float timer;
 
     // Start is called before the first frame update

@@ -56,7 +56,7 @@ public class Equippement : MonoBehaviour
                     Shoot();
                     currentcoolDown = 0f;
                 }
-                else
+                else if(eqquipmentList[currentIndex].type == type.melee)
                 {
                     Debug.Log("Hit!!");
                     currentWeapon.GetComponentInChildren<WeaponAnim>().PlayAnim();
