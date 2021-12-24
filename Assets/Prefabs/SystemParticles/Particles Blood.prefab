@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 1823191864671603448}
   - component: {fileID: 1823191864671603449}
   - component: {fileID: 1823191864671603454}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Particles Blood
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -3669,7 +3669,7 @@ ParticleSystem:
         m_NumAlphaKeys: 2
     range: {x: 0, y: 1}
   CollisionModule:
-    enabled: 1
+    enabled: 0
     serializedVersion: 4
     type: 1
     collisionMode: 0
@@ -3842,7 +3842,7 @@ ParticleSystem:
     radiusScale: 1
     collidesWith:
       serializedVersion: 2
-      m_Bits: 4294967231
+      m_Bits: 0
     maxCollisionShapes: 256
     quality: 0
     voxelSize: 0.5

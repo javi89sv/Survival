@@ -14,7 +14,6 @@ GameObject:
   - component: {fileID: 1481218372841648278}
   - component: {fileID: 254608883766914806}
   - component: {fileID: 2186412601842555295}
-  - component: {fileID: -1641889788553974749}
   m_Layer: 0
   m_Name: Cord
   m_TagString: Item
@@ -131,25 +130,3 @@ MonoBehaviour:
   item: {fileID: 11400000, guid: 389312d9921363c4aaa54b59767d978b, type: 2}
   id: 0
   quantity: 10
---- !u!114 &-1641889788553974749
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4990515988016403425}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: aa584fbee541324448dd18d8409c7a41, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  ObservedComponentsFoldoutOpen: 1
-  Group: 0
-  prefixField: -1
-  Synchronization: 3
-  OwnershipTransfer: 0
-  observableSearch: 2
-  ObservedComponents: []
-  sceneViewId: 0
-  InstantiationId: 0
-  isRuntimeInstantiated: 0

@@ -4991,7 +4991,6 @@ GameObject:
   - component: {fileID: 8932577025752395402}
   - component: {fileID: 5044517065291089861}
   - component: {fileID: 8084979542778774460}
-  - component: {fileID: -6036063240655525357}
   m_Layer: 0
   m_Name: Tree02
   m_TagString: Resource
@@ -5101,28 +5100,6 @@ MonoBehaviour:
   typeResource: {fileID: 5887120300090589467, guid: f33719816df54f6439b46cad0ccae95c, type: 3}
   particles: {fileID: 3227436118154032412}
   offset: {x: 0, y: 0.5, z: 0}
---- !u!114 &-6036063240655525357
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3819958156232626284}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: aa584fbee541324448dd18d8409c7a41, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  ObservedComponentsFoldoutOpen: 1
-  Group: 0
-  prefixField: -1
-  Synchronization: 3
-  OwnershipTransfer: 0
-  observableSearch: 2
-  ObservedComponents: []
-  sceneViewId: 0
-  InstantiationId: 0
-  isRuntimeInstantiated: 0
 --- !u!1 &5614743462203699482
 GameObject:
   m_ObjectHideFlags: 0

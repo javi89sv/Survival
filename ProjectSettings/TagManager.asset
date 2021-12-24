@@ -12,6 +12,7 @@ TagManager:
   - Container
   - DragLayer
   - Enemy
+  - Bullet
   layers:
   - Default
   - TransparentFX
@@ -23,7 +24,7 @@ TagManager:
   - Arrow
   - Gun
   - LocalPlayer
-  - 
+  - Particles
   - 
   - 
   - 

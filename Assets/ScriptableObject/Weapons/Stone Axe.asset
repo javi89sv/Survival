@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9624f338aee94b049a4cc90c28c96e16, type: 3}
   m_Name: Stone Axe
   m_EditorClassIdentifier: 
-  name: StoneAxe
+  name: Stone Axe
   type: 0
   damage: 10
   firerate: 1
