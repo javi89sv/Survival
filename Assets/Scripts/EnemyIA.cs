@@ -1,10 +1,12 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class EnemyIA : MonoBehaviour
 {
     public int health;
+    public int maxhealth;
     public int damage;
 
     private float timerAttack;
@@ -14,26 +16,31 @@ public class EnemyIA : MonoBehaviour
     public float rangeDetection;
     public float rangeAttack;
 
+    public HealthBar healthBar;
+
     public ParticleSystem particles;
 
     public bool isDead;
 
     public GameObject[] drop;
 
-    GameObject player;
+    Player player;
+    GameObject playerPrefab;
 
     Vector3 initialPosition;
 
     public void TakeDamage(int damage)
     {
         health -= damage;
+        healthBar.UpdateHealth((float)health / (float)maxhealth);
     }
 
 
     // Start is called before the first frame update
     void Start()
     {
-        player = GameObject.FindGameObjectWithTag("Player");
+        player = GetComponent<Player>();
+        playerPrefab = GameObject.FindGameObjectWithTag("Player");
     }
 
     // Update is called once per frame
@@ -43,33 +50,33 @@ public class EnemyIA : MonoBehaviour
 
         Vector3 target = initialPosition;
 
-        float dist = Vector3.Distance(player.transform.position, transform.position);
+        float dist = Vector3.Distance(playerPrefab.transform.position, transform.position);
 
-        if(dist < rangeDetection)
+        if (dist < rangeDetection)
         {
-            target = player.transform.position;
+            target = playerPrefab.transform.position;
             float fixSpeed = speed * Time.deltaTime;
-            transform.position = Vector3.MoveTowards(transform.position, player.transform.position, fixSpeed);
-            Vector3 position = player.transform.position - transform.position;
+            transform.position = Vector3.MoveTowards(transform.position, playerPrefab.transform.position, fixSpeed);
+            Vector3 position = playerPrefab.transform.position - transform.position;
             Quaternion rotation = Quaternion.LookRotation(position);
             transform.rotation = rotation;
 
         }
 
-        if(health <= 0)
+        if (health <= 0)
         {
             isDead = true;
-            for(int i = 0; i < drop.Length; i++)
+            for (int i = 0; i < drop.Length; i++)
             {
                 Instantiate(drop[i], transform.position, transform.rotation);
             }
             Destroy(this.gameObject);
         }
 
-        if(dist < rangeAttack && timerAttack >= cooldownAttack)
+        if (dist < rangeAttack && timerAttack >= cooldownAttack)
         {
             Debug.Log("Attacking");
-           // GameManager.instance.TakeDamage(damage);
+            playerPrefab.GetComponent<Player>().TakeDamage(damage);
             timerAttack = 0;
         }
 

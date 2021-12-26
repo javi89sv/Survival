@@ -8,33 +8,28 @@ public class HealthBar : MonoBehaviour
 
     public GameObject image;
 
-    Resources resources;
-
     public Vector3 offset;
-
-
-
 
 
     // Start is called before the first frame update
     void Start()
     {
         transform.position += offset;
-        resources = GetComponentInParent<Resources>();
+
     }
 
 
     // Update is called once per frame
     void Update()
     {
-        UpdateHealth();
+        
         // transform.LookAt(2 * transform.position - Camera.main.transform.position);
         transform.rotation = Quaternion.LookRotation(transform.position - Camera.main.transform.position);
-        transform.Translate(transform.forward, Space.World);
+
     }
 
-    public void UpdateHealth()
+    public void UpdateHealth(float fraction)
     {
-        image.GetComponent<Image>().fillAmount = resources.health / resources.maxhealth;
+        image.GetComponent<Image>().fillAmount = fraction;
     }
 }

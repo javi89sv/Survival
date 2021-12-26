@@ -59,7 +59,7 @@ public class Player : MonoBehaviour
 
 
     }
-    private void Update()
+    private void FixedUpdate()
     {
 
 
@@ -146,16 +146,16 @@ public class Player : MonoBehaviour
         targetWeaponBobPosition = weaponParentOrigin + new Vector3(Mathf.Cos(z * 2) * x_intensity, Mathf.Sin(z * 2) * y_intensity, 0);
     }
 
-    private void TakeDamage(int damage)
+    public void TakeDamage(int damage)
     {
 
-            currentHealth -= damage;
-            Debug.Log(currentHealth);
-            if (currentHealth < 0)
-            {
-                Destroy(gameObject);
-            }
-        
+        currentHealth -= damage;
+        Debug.Log(currentHealth);
+        if (currentHealth < 0)
+        {
+            Destroy(gameObject);
+        }
+
     }
 
     private void ManagerStatesPlayer()

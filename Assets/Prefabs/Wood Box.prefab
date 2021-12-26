@@ -129,7 +129,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   health: 100
   drop:
-  - {fileID: 1274224873874482281, guid: 74733a5bb8f521d47939c9351d55ee77, type: 3}
   - {fileID: 5157859071150991556, guid: 9fac695a178c18b4b8fbff5b0aabfc49, type: 3}
   - {fileID: 3419646254672889039, guid: 88e8c6f57bed3b54a80634d490ffb0fd, type: 3}
   - {fileID: 7874142519221677958, guid: d0849252f1e64304399ad6ec8cccfe0b, type: 3}

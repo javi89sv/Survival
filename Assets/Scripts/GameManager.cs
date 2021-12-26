@@ -31,6 +31,7 @@ public class GameManager : MonoBehaviour
     {
         instance = this;
         weaponManager = GameObject.FindGameObjectWithTag("WeaponManager");
+        
   
     }
 
@@ -46,17 +47,19 @@ public class GameManager : MonoBehaviour
 
         if (inventoryEnable)
         {
+            
             menuInventory.SetActive(true);
             Cursor.lockState = CursorLockMode.None;
-            //GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerController>().horizontalSpeed = 0;
-            //GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerController>().verticalSpeed = 0;
+            GameObject.FindGameObjectWithTag("Player").GetComponent<Look>().ySensitivity = 0;
+            GameObject.FindGameObjectWithTag("Player").GetComponent<Look>().xSensitivity = 0;
         }
         else
         {
+            
             menuInventory.SetActive(false);
             Cursor.lockState = CursorLockMode.Locked;
-            //GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerController>().horizontalSpeed = 500;
-            //GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerController>().verticalSpeed = 500;
+            GameObject.FindGameObjectWithTag("Player").GetComponent<Look>().ySensitivity = 300;
+            GameObject.FindGameObjectWithTag("Player").GetComponent<Look>().xSensitivity = 300;
         }
 
     }
