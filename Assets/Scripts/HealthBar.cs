@@ -1,38 +1,40 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class HealthBar : MonoBehaviour
 {
 
     public GameObject image;
 
-    GameObject player;
+    Resources resources;
 
-    Vector3 pivot;
+    public Vector3 offset;
+
+
 
 
 
     // Start is called before the first frame update
     void Start()
     {
-        pivot = transform.position;
-        player = GameObject.FindGameObjectWithTag("Player");
+        transform.position += offset;
+        resources = GetComponentInParent<Resources>();
     }
 
-    
+
     // Update is called once per frame
     void Update()
     {
+        UpdateHealth();
+        // transform.LookAt(2 * transform.position - Camera.main.transform.position);
+        transform.rotation = Quaternion.LookRotation(transform.position - Camera.main.transform.position);
+        transform.Translate(transform.forward, Space.World);
+    }
 
-        transform.position = pivot;
-        if (Camera.main)
-        {
-            transform.LookAt(transform.position + Camera.main.transform.forward);
-        }
-        
-        transform.Translate(transform.forward * -0.5f, Space.World);
-
-        image.transform.localScale = new Vector3(GetComponentInParent<Resources>().GetHealth(), 1f, 0.5f);
+    public void UpdateHealth()
+    {
+        image.GetComponent<Image>().fillAmount = resources.health / resources.maxhealth;
     }
 }

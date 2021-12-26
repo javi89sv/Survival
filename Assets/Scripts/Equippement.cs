@@ -56,22 +56,18 @@ public class Equippement : MonoBehaviour
                     Shoot();
                     currentcoolDown = 0f;
                 }
-                else if(eqquipmentList[currentIndex].type == type.melee)
+                else if (eqquipmentList[currentIndex].type == type.melee)
                 {
                     Debug.Log("Hit!!");
                     currentWeapon.GetComponentInChildren<WeaponAnim>().PlayAnim();
-                    Hit();
+                    Invoke("Hit", 0.4f);
                     currentcoolDown = 0f;
                 }
 
             }
-
-
-
         }
-    }
 
-   
+    }
     public void Equip(int index)
     {
         if (currentWeapon != null)
@@ -143,11 +139,11 @@ public class Equippement : MonoBehaviour
 
             //shooting other player on network
 
-                if (hit.collider.gameObject.layer == 6)
-                {
-                    //RPC call to damage Player
-                }
-            
+            if (hit.collider.gameObject.layer == 6)
+            {
+                //RPC call to damage Player
+            }
+
 
         }
 
@@ -158,7 +154,7 @@ public class Equippement : MonoBehaviour
 
     }
 
-  
+
     void Hit()
     {
 
@@ -206,3 +202,5 @@ public class Equippement : MonoBehaviour
     }
 
 }
+
+
