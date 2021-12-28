@@ -24,8 +24,11 @@ public class EnemyIA : MonoBehaviour
 
     public GameObject[] drop;
 
+    public GameObject healthImage;
+
     Player player;
     GameObject playerPrefab;
+    Rigidbody rb;
 
     Vector3 initialPosition;
 
@@ -41,6 +44,7 @@ public class EnemyIA : MonoBehaviour
     {
         player = GetComponent<Player>();
         playerPrefab = GameObject.FindGameObjectWithTag("Player");
+        rb = GetComponent<Rigidbody>();
     }
 
     // Update is called once per frame
@@ -52,7 +56,7 @@ public class EnemyIA : MonoBehaviour
 
         float dist = Vector3.Distance(playerPrefab.transform.position, transform.position);
 
-        if (dist < rangeDetection)
+        if (dist < rangeDetection && !isDead)
         {
             target = playerPrefab.transform.position;
             float fixSpeed = speed * Time.deltaTime;
@@ -66,11 +70,10 @@ public class EnemyIA : MonoBehaviour
         if (health <= 0)
         {
             isDead = true;
-            for (int i = 0; i < drop.Length; i++)
-            {
-                Instantiate(drop[i], transform.position, transform.rotation);
-            }
-            Destroy(this.gameObject);
+            LootItems();
+            health = 1;
+            healthImage.SetActive(false);
+            Destroy(this.gameObject, 3f);
         }
 
         if (dist < rangeAttack && timerAttack >= cooldownAttack)
@@ -81,6 +84,14 @@ public class EnemyIA : MonoBehaviour
         }
 
 
+    }
+
+    private void LootItems()
+    {
+        for (int i = 0; i < drop.Length; i++)
+        {
+            Instantiate(drop[i], transform.position, transform.rotation);
+        }
     }
 
     private void OnDrawGizmos()

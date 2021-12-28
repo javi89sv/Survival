@@ -5,7 +5,7 @@ using UnityEngine.UI;
 using UnityEngine.EventSystems;
 using TMPro;
 
-public class Slot : MonoBehaviour, IPointerClickHandler, IPointerEnterHandler, IPointerExitHandler
+public class Slot : MonoBehaviour, IPointerClickHandler
 {
 
     public Item item;
@@ -225,13 +225,12 @@ public class Slot : MonoBehaviour, IPointerClickHandler, IPointerEnterHandler, I
     public void OnPointerClick(PointerEventData pointerEventData)
     {
 
-        if (pointerEventData.button == PointerEventData.InputButton.Left)
+        if (pointerEventData.button == PointerEventData.InputButton.Left && item)
         {
-
+            panelInfo.SetActive(true);
+            ShowInfoItem();
         }
 
-        else if (pointerEventData.button == PointerEventData.InputButton.Middle)
-            Debug.Log("Middle click");
         else if (pointerEventData.button == PointerEventData.InputButton.Right)
             UseItem();
 
@@ -248,19 +247,23 @@ public class Slot : MonoBehaviour, IPointerClickHandler, IPointerEnterHandler, I
         textInfo.text = item.name.ToString() + "\r\n" + item.description.ToString();
     }
 
-    public void OnPointerEnter(PointerEventData eventData)
-    {
-        if (item)
-        {
-            panelInfo.SetActive(true);
-            ShowInfoItem();
-        }
+    //public void OnPointerEnter(PointerEventData eventData)
+    //{
+    //    if (item)
+    //    {
+    //        panelInfo.SetActive(true);
+    //        ShowInfoItem();
+    //    }
+    //    else
+    //    {
+    //        panelInfo.SetActive(false);
+    //    }
 
-    }
+    //}
 
-    public void OnPointerExit(PointerEventData eventData)
-    {
-        panelInfo.SetActive(false);
-    }
+    //public void OnPointerExit(PointerEventData eventData)
+    //{
+    //    panelInfo.SetActive(false);
+    //}
 }
 

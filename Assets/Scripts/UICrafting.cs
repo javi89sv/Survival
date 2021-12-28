@@ -9,13 +9,10 @@ public class UICrafting : MonoBehaviour
     public static UICrafting instance;
 
     public GameObject uiRecipe;
-
     public GameObject slotMaterial;
     public TextMeshProUGUI[] uiMaterial;
-
     public TextMeshProUGUI textMaterial;
     public CraftingRecipe recipe;
-
     public Button buttonCraft;
 
 

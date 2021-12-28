@@ -111,17 +111,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 786eb1cc5f0a6a64e808b025a44f5ca7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  type: Wood
-  quantity: 1000
   hardness: 10
   health: 0
   maxhealth: 100
-  drop:
-  - {fileID: 5887120300090589467, guid: f33719816df54f6439b46cad0ccae95c, type: 3}
   healthBar: {fileID: 0}
-  typeResource: {fileID: 5887120300090589467, guid: f33719816df54f6439b46cad0ccae95c, type: 3}
   particles: {fileID: 693854527204961942, guid: 618f5fcbd9ed8c840a9701086bdf47f9, type: 3}
-  offset: {x: 0, y: 0.5, z: 0}
+  offsetSpawn: {x: 0, y: 0.5, z: 0}
+  loot:
+  - lootItem: {fileID: 5887120300090589467, guid: f33719816df54f6439b46cad0ccae95c, type: 3}
+    minSpawn: 100
+    maxSpawn: 200
+    spawn: {x: 0, y: 0, z: 0}
 --- !u!1001 &418133730667185694
 PrefabInstance:
   m_ObjectHideFlags: 0
