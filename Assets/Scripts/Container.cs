@@ -1,7 +1,18 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using System;
+using Random = UnityEngine.Random;
 
+[Serializable]
+public struct LootContainer
+{
+    public GameObject lootItem;
+    public int amount;
+    public float minSpawn;
+    public float maxSpawn;
+    public Vector3 offsetSpawn;
+}
 
 public class Container : MonoBehaviour
 {
@@ -13,6 +24,8 @@ public class Container : MonoBehaviour
     public ParticleSystem particles;
 
     public float forceBrokekBox;
+
+    public LootContainer[] lootContainer;
 
     public void TakeDamage(int damage)
     {
@@ -29,8 +42,15 @@ public class Container : MonoBehaviour
             int numberItems = drop.Length;
             GameObject go = Instantiate(boxBroken, transform.position, transform.rotation);
             go.GetComponent<Rigidbody>().AddExplosionForce(forceBrokekBox, transform.position, 1f);
-            Instantiate(drop[Random.Range(0, numberItems)], transform.position, transform.rotation);
-            Instantiate(drop[Random.Range(0, numberItems)], transform.position, transform.rotation);
+
+            for (int i = 0; i < lootContainer.Length; i++)
+            {
+
+                GameObject lootPrefab = Instantiate(lootContainer[i].lootItem, transform.position + lootContainer[i].offsetSpawn, Quaternion.identity);
+                lootPrefab.GetComponent<InteractiveItem>().quantity = (int)Random.Range(lootContainer[i].minSpawn, lootContainer[i].maxSpawn);
+
+            }
+
             Destroy(this.gameObject);
 
         }

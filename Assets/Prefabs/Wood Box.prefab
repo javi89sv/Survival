@@ -138,6 +138,27 @@ MonoBehaviour:
   boxBroken: {fileID: 8016037213671640246, guid: 59cd9fc5b2798a243919c25810bdf684, type: 3}
   particles: {fileID: 509133692604973237}
   forceBrokekBox: 0.1
+  lootContainer:
+  - lootItem: {fileID: 6311570502231103618, guid: d0680103a16a32b40a2fb1f652f8388f, type: 3}
+    minSpawn: 1
+    maxSpawn: 1
+    spawn: {x: 0, y: 0, z: 0}
+  - lootItem: {fileID: 7874142519221677958, guid: d0849252f1e64304399ad6ec8cccfe0b, type: 3}
+    minSpawn: 1
+    maxSpawn: 1
+    spawn: {x: 0, y: 0, z: 0}
+  - lootItem: {fileID: 3419646254672889039, guid: 88e8c6f57bed3b54a80634d490ffb0fd, type: 3}
+    minSpawn: 1
+    maxSpawn: 1
+    spawn: {x: 0, y: 0, z: 0}
+  - lootItem: {fileID: 5157859071150991556, guid: 9fac695a178c18b4b8fbff5b0aabfc49, type: 3}
+    minSpawn: 1
+    maxSpawn: 1
+    spawn: {x: 0, y: 0, z: 0}
+  - lootItem: {fileID: 5965492570146472687, guid: dcb1f12e9351e364e99e8f744b7baa5d, type: 3}
+    minSpawn: 1
+    maxSpawn: 1
+    spawn: {x: 0, y: 0, z: 0}
 --- !u!1001 &2188055841842989644
 PrefabInstance:
   m_ObjectHideFlags: 0
