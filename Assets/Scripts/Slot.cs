@@ -51,6 +51,7 @@ public class Slot : MonoBehaviour, IPointerClickHandler
     private TextMeshProUGUI textAmount;
     public TextMeshProUGUI textInfo;
     public GameObject panelInfo;
+    public Image imageInfo;
     public Image iconSlot;
     private Image conditionBar;
     // public Canvas canvas;
@@ -243,7 +244,7 @@ public class Slot : MonoBehaviour, IPointerClickHandler
 
     public void ShowInfoItem()
     {
-
+        imageInfo.sprite = item.icon;
         textInfo.text = item.name.ToString() + "\r\n" + item.description.ToString();
     }
 

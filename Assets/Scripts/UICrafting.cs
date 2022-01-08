@@ -12,8 +12,12 @@ public class UICrafting : MonoBehaviour
     public GameObject slotMaterial;
     public TextMeshProUGUI[] uiMaterial;
     public TextMeshProUGUI textMaterial;
+    public TextMeshProUGUI textCraftingItem;
+    public Image countDownBar;
     public CraftingRecipe recipe;
     public Button buttonCraft;
+
+    float remainingTime;
 
 
     private void Start()
@@ -26,11 +30,11 @@ public class UICrafting : MonoBehaviour
     {
         if (recipe)
         {
-            CleanText();          
+            CleanText();
 
             for (int i = 0; i < recipe.Material.Count; i++)
             {
-                
+
                 uiMaterial[i].text = recipe.Material[i].item.name + " " + recipe.Material[i].amount;
 
             }
@@ -46,16 +50,67 @@ public class UICrafting : MonoBehaviour
         }
     }
 
-    public void ButtonCraft()
+
+    private bool CanCraft()
     {
-        if (recipe)
+        foreach (ItemAmount itemAmount in recipe.Material)
         {
-            recipe.Craft();
+            if (!InventoryManager.instance.ContainItem(itemAmount.item, itemAmount.amount))
+            {
+                return false;
+            }
+
         }
-        
+        return true;
+
     }
 
-    
+    public void Craft()
+    {
+        if (CanCraft() == true)
+        {
+
+            foreach (ItemAmount itemAmount in recipe.Material)
+            {
+                InventoryManager.instance.RemoveItem(itemAmount.item, itemAmount.amount);
+            }
+            textCraftingItem.text = recipe.name;
+            remainingTime = recipe.time;
+            StartCoroutine(Countdown(recipe.time));
+            StartCoroutine(Timer());
+        }
+        else
+        {
+            Debug.Log("Not enought material");
+        }
+
+    }
+
+    IEnumerator Countdown(float value)
+    {
+        yield return new WaitForSeconds(value);
+        Crafting();
+        textCraftingItem.text = "";
+    }
+
+    IEnumerator Timer()
+    {
+        while(remainingTime >= 0)
+        {
+            
+            countDownBar.fillAmount = Mathf.InverseLerp(0, recipe.time, remainingTime);
+            remainingTime--;
+            yield return new WaitForSeconds(1f);
+        }      
+    }
+
+    private void Crafting()
+    {
+        
+        GameObject go = Instantiate(recipe.result.prefab);
+        InventoryManager.instance.AddItem(go, recipe.result, recipe.result.id, recipe.amountResult);
+    }
+
 
 }
 

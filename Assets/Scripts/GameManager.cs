@@ -22,17 +22,18 @@ public class GameManager : MonoBehaviour
 
     // UI
     private bool inventoryEnable;
-    private bool craftingEnable;
     public GameObject menuInventory;
     public GameObject menuCrafting;
+    public GameObject menuItemInfo;
+    public TextMeshProUGUI textInfo;
+    public Image imageInfo;
 
 
     void Start()
     {
         instance = this;
         weaponManager = GameObject.FindGameObjectWithTag("WeaponManager");
-        
-  
+
     }
 
 
@@ -60,6 +61,9 @@ public class GameManager : MonoBehaviour
             Cursor.lockState = CursorLockMode.Locked;
             GameObject.FindGameObjectWithTag("Player").GetComponent<Look>().ySensitivity = 300;
             GameObject.FindGameObjectWithTag("Player").GetComponent<Look>().xSensitivity = 300;
+            textInfo.text = "";
+            imageInfo.sprite = null;
+            menuItemInfo.SetActive(false);
         }
 
     }
@@ -74,23 +78,7 @@ public class GameManager : MonoBehaviour
         counterText.CrossFadeAlpha(0.0f, 5f, false);
     }
 
-    //public void SelectWeapon(int id)
-    //{
-    //    weaponManager = GameObject.FindGameObjectWithTag("WeaponManager");
 
-    //    int allWeapons = weaponManager.transform.childCount;
-
-    //    for (int i = 0; i < allWeapons; i++)
-    //    {
-
-    //        if (weaponManager.transform.GetChild(i).gameObject.GetComponent<InteractiveItem>().id == id)
-    //        {
-    //            weapon = weaponManager.transform.GetChild(i).gameObject;
-    //        }
-
-    //    }
-
-    //}
 
 
 
