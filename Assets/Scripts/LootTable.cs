@@ -12,6 +12,9 @@ public class LootTable : ScriptableObject
     {
         public int chanceLoot;
         public GameObject prefabLoot;
+        public int minAmount;
+        public int maxAmount;
+        public Vector3 SpawnOffset;
     }
 
     public Chance[] chance;

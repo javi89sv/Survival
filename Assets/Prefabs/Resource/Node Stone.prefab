@@ -54,7 +54,6 @@ MeshRenderer:
   m_CastShadows: 1
   m_ReceiveShadows: 1
   m_DynamicOccludee: 1
-  m_StaticShadowCaster: 0
   m_MotionVectors: 1
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
@@ -114,20 +113,10 @@ MonoBehaviour:
   hardness: 15
   health: 0
   maxhealth: 100
-  drop:
-  - {fileID: 3111021737438970822, guid: 22360521201890343b7021a3354f18aa, type: 3}
   healthBar: {fileID: 0}
   particles: {fileID: 8592697662694939701}
   offsetSpawn: {x: 0, y: 0.5, z: 0}
-  loot:
-  - lootItem: {fileID: 3111021737438970822, guid: 22360521201890343b7021a3354f18aa, type: 3}
-    minSpawn: 50
-    maxSpawn: 100
-    spawn: {x: 0, y: 0, z: 0}
-  - lootItem: {fileID: 2906584955070484097, guid: 1b24f76ee77eaef45a68d154230e365e, type: 3}
-    minSpawn: 5
-    maxSpawn: 20
-    spawn: {x: 0, y: 0, z: 0}
+  lootTable: {fileID: 11400000, guid: f02e9dc0e85d378468f6383aa3fee91b, type: 2}
 --- !u!1001 &9123859618892346019
 PrefabInstance:
   m_ObjectHideFlags: 0

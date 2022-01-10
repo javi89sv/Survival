@@ -13,7 +13,7 @@ public class DropItem : MonoBehaviour, IDropHandler
 
         if (!this.GetComponent<Slot>())
         {
-            Debug.Log("Drop item!!");
+            
             eventData.pointerDrag.GetComponent<Slot>().DropItem();
         }
         else

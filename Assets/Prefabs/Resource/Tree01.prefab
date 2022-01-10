@@ -55,7 +55,6 @@ MeshRenderer:
   m_CastShadows: 1
   m_ReceiveShadows: 1
   m_DynamicOccludee: 1
-  m_StaticShadowCaster: 0
   m_MotionVectors: 1
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
@@ -112,16 +111,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 786eb1cc5f0a6a64e808b025a44f5ca7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  type: Wood
-  quantity: 1000
   hardness: 10
+  health: 0
   maxhealth: 100
-  drop:
-  - {fileID: 5887120300090589467, guid: f33719816df54f6439b46cad0ccae95c, type: 3}
   healthBar: {fileID: 1452357945726760390}
-  typeResource: {fileID: 5887120300090589467, guid: f33719816df54f6439b46cad0ccae95c, type: 3}
   particles: {fileID: 3764584461683050743}
-  offset: {x: 0, y: 0.5, z: 0}
+  offsetSpawn: {x: 0, y: 0.5, z: 0}
+  lootTable: {fileID: 11400000, guid: 0e320bf5988d82240a0ac644e0cfe12f, type: 2}
 --- !u!1001 &3275025985077035534
 PrefabInstance:
   m_ObjectHideFlags: 0

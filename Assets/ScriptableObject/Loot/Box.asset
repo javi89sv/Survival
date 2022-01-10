@@ -12,4 +12,19 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 31cfbd7226a54f94d926fa1f25c263a2, type: 3}
   m_Name: Box
   m_EditorClassIdentifier: 
-  chance: []
+  chance:
+  - chanceLoot: 80
+    prefabLoot: {fileID: 3419646254672889039, guid: 88e8c6f57bed3b54a80634d490ffb0fd, type: 3}
+    minAmount: 1
+    maxAmount: 1
+    SpawnOffset: {x: 0, y: 0.5, z: 0}
+  - chanceLoot: 40
+    prefabLoot: {fileID: 4990515988016403425, guid: 71ec983a8634ce94ba6202a2ffd49222, type: 3}
+    minAmount: 10
+    maxAmount: 50
+    SpawnOffset: {x: 0, y: 0.5, z: 0}
+  - chanceLoot: 20
+    prefabLoot: {fileID: 7766254603189957790, guid: 74733a5bb8f521d47939c9351d55ee77, type: 3}
+    minAmount: 1
+    maxAmount: 1
+    SpawnOffset: {x: 0, y: 0.5, z: 0}

@@ -22,10 +22,7 @@ public class Resources : MonoBehaviour
     public float maxhealth;
     public GameObject healthBar;
     public ParticleSystem particles;
-
-    public Vector3 offsetSpawn = new Vector3(0f, 0.5f, 0f);
-
-    public Loot[] loot;
+    public LootTable lootTable;
 
 
 
@@ -33,7 +30,6 @@ public class Resources : MonoBehaviour
     void Start()
     {
         health = maxhealth;
-        Debug.Log(loot.Length);
     }
 
     public float GetHealth()
@@ -49,13 +45,7 @@ public class Resources : MonoBehaviour
         if (health <= 0)
         {
 
-            for (int i = 0; i < loot.Length; i++)
-            {
-
-                GameObject lootPrefab = Instantiate(loot[i].lootItem, transform.position + offsetSpawn, Quaternion.identity);
-                lootPrefab.GetComponent<InteractiveItem>().quantity = (int)Random.Range(loot[i].minSpawn, loot[i].maxSpawn);
-
-            }
+            LootSystem.instance.Loot(lootTable,transform.position);
 
             Destroy(this.gameObject);
 

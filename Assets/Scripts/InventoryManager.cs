@@ -46,6 +46,9 @@ public class InventoryManager : MonoBehaviour
                     itemPickedUp = hit.collider.gameObject;
 
                     InteractiveItem item = itemPickedUp.GetComponent<InteractiveItem>();
+                    itemPickedUp.GetComponent<Renderer>().enabled = false;
+                    itemPickedUp.GetComponent<Collider>().enabled = false;
+                    itemPickedUp.GetComponent<Rigidbody>().isKinematic = true;
 
                     AddItem(itemPickedUp, item.item, item.id, item.quantity);
                     Debug.Log("Add Item!!");

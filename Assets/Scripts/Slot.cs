@@ -160,10 +160,16 @@ public class Slot : MonoBehaviour, IPointerClickHandler
             GameManager.instance.weapon.gameObject.SetActive(false);
         }
 
-        GameObject newPrefab = Instantiate(item.prefab, transform.position, Quaternion.identity);
-        newPrefab.GetComponent<InteractiveItem>().quantity = amount;
-        newPrefab.transform.position = new Vector3(player.transform.position.x, player.transform.position.y + 1f, player.transform.position.z);
-        newPrefab.GetComponent<Rigidbody>().AddForce(player.transform.forward * 200);
+        GameObject goDropped = GetComponentInChildren<InteractiveItem>().gameObject;
+
+        Debug.Log("Drop item!!");
+        goDropped.transform.SetParent(null);
+        goDropped.GetComponent<Renderer>().enabled = true;
+        goDropped.GetComponent<Collider>().enabled = true;
+        goDropped.GetComponent<Rigidbody>().isKinematic = false;
+        goDropped.GetComponent<InteractiveItem>().quantity = amount;
+        goDropped.transform.position = new Vector3(player.transform.position.x, player.transform.position.y + 1f, player.transform.position.z);
+        goDropped.GetComponent<Rigidbody>().AddForce(player.transform.forward * 200);
 
         CleanSlot();
 
