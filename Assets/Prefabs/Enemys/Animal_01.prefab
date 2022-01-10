@@ -56,7 +56,6 @@ MeshRenderer:
   m_CastShadows: 1
   m_ReceiveShadows: 1
   m_DynamicOccludee: 1
-  m_StaticShadowCaster: 0
   m_MotionVectors: 1
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
@@ -138,9 +137,7 @@ MonoBehaviour:
   healthBar: {fileID: 186282173860588425}
   particles: {fileID: 4949583652913957623}
   isDead: 0
-  drop:
-  - {fileID: 5157859071150991556, guid: 9fac695a178c18b4b8fbff5b0aabfc49, type: 3}
-  - {fileID: 4203427089207493090, guid: fab2b77c641d43144bd981f1d8bdf3b1, type: 3}
+  lootTable: {fileID: 11400000, guid: ea4617770d968e342bbc1ca4f7190fc0, type: 2}
   healthImage: {fileID: 186282173860588427}
 --- !u!1001 &1976879766135681249
 PrefabInstance:

@@ -22,7 +22,7 @@ public class EnemyIA : MonoBehaviour
 
     public bool isDead;
 
-    public GameObject[] drop;
+    public LootTable lootTable;
 
     public GameObject healthImage;
 
@@ -70,7 +70,7 @@ public class EnemyIA : MonoBehaviour
         if (health <= 0)
         {
             isDead = true;
-            LootItems();
+            LootSystem.instance.Loot(lootTable,transform.position);
             health = 1;
             healthImage.SetActive(false);
             Destroy(this.gameObject, 3f);
@@ -84,14 +84,6 @@ public class EnemyIA : MonoBehaviour
         }
 
 
-    }
-
-    private void LootItems()
-    {
-        for (int i = 0; i < drop.Length; i++)
-        {
-            Instantiate(drop[i], transform.position, transform.rotation);
-        }
     }
 
     private void OnDrawGizmos()
