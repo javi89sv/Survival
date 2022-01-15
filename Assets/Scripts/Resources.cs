@@ -24,7 +24,7 @@ public class Resources : MonoBehaviour
     public ParticleSystem particles;
     public LootTable lootTable;
 
-
+    private int penalty;
 
     // Start is called before the first frame update
     void Start()
@@ -55,6 +55,7 @@ public class Resources : MonoBehaviour
 
     public void TakeDamage(int damage)
     {
+        
         health -= damage;
 
     }
