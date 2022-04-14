@@ -5,7 +5,6 @@ using UnityEngine.UI;
 using TMPro;
 
 
-
 public class GameManager : MonoBehaviour
 {
     public static GameManager instance;
@@ -51,16 +50,13 @@ public class GameManager : MonoBehaviour
             
             menuInventory.SetActive(true);
             Cursor.lockState = CursorLockMode.None;
-            GameObject.FindGameObjectWithTag("Player").GetComponent<Look>().ySensitivity = 0;
-            GameObject.FindGameObjectWithTag("Player").GetComponent<Look>().xSensitivity = 0;
+            
         }
         else
         {
             
             menuInventory.SetActive(false);
             Cursor.lockState = CursorLockMode.Locked;
-            GameObject.FindGameObjectWithTag("Player").GetComponent<Look>().ySensitivity = 300;
-            GameObject.FindGameObjectWithTag("Player").GetComponent<Look>().xSensitivity = 300;
             textInfo.text = "";
             imageInfo.sprite = null;
             menuItemInfo.SetActive(false);
