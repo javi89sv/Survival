@@ -215,3 +215,109 @@ AssetImportParameters requested are different than current active one (requested
   custom:container-demuxer-ogg: 62fdf1f143b41e24485cea50d1cbac27 -> 
   custom:video-decoder-webm-vp8: 9c59270c3fd7afecdb556c50c9e8de78 -> 
   custom:audio-decoder-ogg-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
+========================================================================
+Received Prepare
+Registering precompiled user dll's ...
+Registered in 0.002834 seconds.
+Begin MonoManager ReloadAssembly
+Native extension for WindowsStandalone target not found
+Refreshing native plugins compatible for Editor in 0.33 ms, found 2 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Mono: successfully reloaded assembly
+- Completed reload, in  0.806 seconds
+Domain Reload Profiling:
+	ReloadAssembly (806ms)
+		BeginReloadAssembly (118ms)
+			ExecutionOrderSort (0ms)
+			DisableScriptedObjects (6ms)
+			BackupInstance (0ms)
+			ReleaseScriptingObjects (0ms)
+			CreateAndSetChildDomain (26ms)
+		EndReloadAssembly (601ms)
+			LoadAssemblies (60ms)
+			RebuildTransferFunctionScriptingTraits (0ms)
+			SetupTypeCache (171ms)
+			ReleaseScriptCaches (1ms)
+			RebuildScriptCaches (35ms)
+			SetupLoadedEditorAssemblies (288ms)
+				LogAssemblyErrors (0ms)
+				InitializePlatformSupportModulesInManaged (12ms)
+				SetLoadedEditorAssemblies (0ms)
+				RefreshPlugins (0ms)
+				BeforeProcessingInitializeOnLoad (47ms)
+				ProcessInitializeOnLoadAttributes (197ms)
+				ProcessInitializeOnLoadMethodAttributes (24ms)
+				AfterProcessingInitializeOnLoad (7ms)
+				EditorAssembliesLoaded (0ms)
+			ExecutionOrderSort2 (0ms)
+			AwakeInstancesAfterBackupRestoration (5ms)
+Platform modules already initialized, skipping
+Refreshing native plugins compatible for Editor in 0.40 ms, found 2 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Unloading 1648 Unused Serialized files (Serialized files now loaded: 0)
+Unloading 14 unused Assets / (24.6 KB). Loaded Objects now: 2145.
+Memory consumption went from 74.6 MB to 74.6 MB.
+Total: 2.589300 ms (FindLiveObjects: 0.183200 ms CreateObjectMapping: 0.120500 ms MarkObjects: 2.264900 ms  DeleteObjects: 0.019700 ms)
+
+AssetImportParameters requested are different than current active one (requested -> active):
+  custom:video-decoder-ogg-theora: a1e56fd34408186e4bbccfd4996cb3dc -> 
+  custom:container-muxer-webm: aa71ff27fc2769a1b78a27578f13a17b -> 
+  custom:container-demuxer-webm: 4f35f7cbe854078d1ac9338744f61a02 -> 
+  custom:video-encoder-webm-vp8: eb34c28f22e8b96e1ab97ce403110664 -> 
+  custom:audio-encoder-webm-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
+  custom:framework-win-MediaFoundation: 216162199b28c13a410421893ffa2e32 -> 
+  custom:container-demuxer-ogg: 62fdf1f143b41e24485cea50d1cbac27 -> 
+  custom:video-decoder-webm-vp8: 9c59270c3fd7afecdb556c50c9e8de78 -> 
+  custom:audio-decoder-ogg-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
+========================================================================
+Received Import Request.
+  Time since last request: 237.525596 seconds.
+  path: Assets/Prefabs/Player Weapons/Pistol.prefab
+  artifactKey: Guid(72f978f616af103408a14dd58a052291) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Prefabs/Player Weapons/Pistol.prefab using Guid(72f978f616af103408a14dd58a052291) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '032faa9350f406275e442a9d18f88c0b') in 0.263430 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000018 seconds.
+  path: Assets/Prefabs/Player Weapons/Stone Pick.prefab
+  artifactKey: Guid(28a86bb5e96925b46ba3057c469c126d) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Prefabs/Player Weapons/Stone Pick.prefab using Guid(28a86bb5e96925b46ba3057c469c126d) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '5c1f686f6f7dfacfe86c63f4d79d62d0') in 0.010852 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000020 seconds.
+  path: Assets/Prefabs/Player Weapons/Stone Axe.prefab
+  artifactKey: Guid(3a10a1f93ee0831479d5dd27ae88d8d9) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Prefabs/Player Weapons/Stone Axe.prefab using Guid(3a10a1f93ee0831479d5dd27ae88d8d9) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '36d6130b1d6d02916157ef135e77211b') in 0.015049 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.724602 seconds.
+  path: Assets/Prefabs/Bullet.prefab
+  artifactKey: Guid(d82b5c83fc78de2418caa6ead9e5109f) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Prefabs/Bullet.prefab using Guid(d82b5c83fc78de2418caa6ead9e5109f) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'aac801b2d96045540dac0eccdcf05616') in 0.089588 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000014 seconds.
+  path: Assets/Prefabs/Cube.prefab
+  artifactKey: Guid(565ee0728b01af04fa8ef36ae7830967) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Prefabs/Cube.prefab using Guid(565ee0728b01af04fa8ef36ae7830967) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '07009565d4042978b61039f6e929cce7') in 0.005487 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000018 seconds.
+  path: Assets/Prefabs/Wood Box.prefab
+  artifactKey: Guid(77c5b3cb710d0e444b7a74843f86b529) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Prefabs/Wood Box.prefab using Guid(77c5b3cb710d0e444b7a74843f86b529) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '74871e6011432efca18e5af415b68668') in 0.024744 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000040 seconds.
+  path: Assets/Prefabs/Piece Wood.prefab
+  artifactKey: Guid(5a08253abcb7076489ae151df3c67cc8) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Prefabs/Piece Wood.prefab using Guid(5a08253abcb7076489ae151df3c67cc8) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'fa6637867384a8b2fe3f09b5786d4222') in 0.006444 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000013 seconds.
+  path: Assets/Prefabs/Piece Box.prefab
+  artifactKey: Guid(5a13627e015f221458445dbbefd52695) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Prefabs/Piece Box.prefab using Guid(5a13627e015f221458445dbbefd52695) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '7c2f7c8cc84c2039a1ace284442a9d9e') in 0.007864 seconds 
+Editor requested this worker to shutdown with reason: Scaling down because of idle timeout
+AssetImportWorker is now disconnected from the server
+Process exiting
+Exiting without the bug reporter. Application will terminate with return code 0

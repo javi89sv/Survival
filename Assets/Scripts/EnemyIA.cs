@@ -12,9 +12,21 @@ public class EnemyIA : MonoBehaviour
     private float timerAttack;
     public float cooldownAttack;
 
-    public float speed;
     public float rangeDetection;
     public float rangeAttack;
+
+    public float moveSpeed = 0.2f;
+
+    Vector3 stopPosition;
+
+    float walkTime;
+    public float walkCounter;
+    float waitTime;
+    public float waitCounter;
+
+    int WalkDirection;
+
+    public bool isWalking;
 
     public HealthBar healthBar;
 
@@ -26,7 +38,7 @@ public class EnemyIA : MonoBehaviour
 
     public GameObject healthImage;
 
-    Player player;
+    PlayerManager player;
     GameObject playerPrefab;
     Rigidbody rb;
 
@@ -42,7 +54,16 @@ public class EnemyIA : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        player = GetComponent<Player>();
+        walkTime = Random.Range(3, 6);
+        waitTime = Random.Range(5, 7);
+
+
+        waitCounter = waitTime;
+        walkCounter = walkTime;
+
+        ChooseDirection();
+
+        player = GetComponent<PlayerManager>();
         playerPrefab = GameObject.FindGameObjectWithTag("Player");
         rb = GetComponent<Rigidbody>();
     }
@@ -50,6 +71,8 @@ public class EnemyIA : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        //ATTACKING
+
         timerAttack += Time.deltaTime;
 
         Vector3 target = initialPosition;
@@ -59,7 +82,7 @@ public class EnemyIA : MonoBehaviour
         if (dist < rangeDetection && !isDead)
         {
             target = playerPrefab.transform.position;
-            float fixSpeed = speed * Time.deltaTime;
+            float fixSpeed = moveSpeed * Time.deltaTime;
             transform.position = Vector3.MoveTowards(transform.position, playerPrefab.transform.position, fixSpeed);
             Vector3 position = playerPrefab.transform.position - transform.position;
             Quaternion rotation = Quaternion.LookRotation(position);
@@ -79,8 +102,58 @@ public class EnemyIA : MonoBehaviour
         if (dist < rangeAttack && timerAttack >= cooldownAttack)
         {
             Debug.Log("Attacking");
-            playerPrefab.GetComponent<Player>().TakeDamage(damage);
+            playerPrefab.GetComponent<PlayerManager>().TakeDamage(damage);
             timerAttack = 0;
+        }
+
+        //MOVEMENT
+        if (isWalking)
+        {
+
+            walkCounter -= Time.deltaTime;
+
+            switch (WalkDirection)
+            {
+                case 0:
+                    transform.localRotation = Quaternion.Euler(0f, 0f, 0f);
+                    transform.position += transform.forward * moveSpeed * Time.deltaTime;
+                    break;
+                case 1:
+                    transform.localRotation = Quaternion.Euler(0f, 90, 0f);
+                    transform.position += transform.forward * moveSpeed * Time.deltaTime;
+                    break;
+                case 2:
+                    transform.localRotation = Quaternion.Euler(0f, -90, 0f);
+                    transform.position += transform.forward * moveSpeed * Time.deltaTime;
+                    break;
+                case 3:
+                    transform.localRotation = Quaternion.Euler(0f, 180, 0f);
+                    transform.position += transform.forward * moveSpeed * Time.deltaTime;
+                    break;
+            }
+
+            if (walkCounter <= 0)
+            {
+                stopPosition = new Vector3(transform.position.x, transform.position.y, transform.position.z);
+                isWalking = false;
+                //stop movement
+                transform.position = stopPosition;
+                //reset the waitCounter
+                waitCounter = waitTime;
+            }
+
+        }
+        else
+        {
+
+            waitCounter -= Time.deltaTime;
+
+
+            if (waitCounter <= 0)
+            {
+                ChooseDirection();
+            }
+
         }
 
 
@@ -90,5 +163,15 @@ public class EnemyIA : MonoBehaviour
     {
         Gizmos.color = Color.red;
         Gizmos.DrawWireSphere(transform.position, rangeDetection);
+    }
+
+    public void ChooseDirection()
+    {
+
+        WalkDirection = Random.Range(0, 4);
+
+        isWalking = true;
+        walkCounter = walkTime;
+
     }
 }

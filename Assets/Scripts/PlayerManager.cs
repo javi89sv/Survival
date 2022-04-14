@@ -3,20 +3,28 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class Player : MonoBehaviour
+public class PlayerManager : MonoBehaviour
 {
-
+    [Header("--Movement--")]
+    public CharacterController controller;
     public float speed;
     public float sprintModifier;
-    public float jumpForce;
+    public float jumpHeight;
+    public float gravity = -9.81f * 2;
+
+    public float groundDistance = 0.4f;
+    public LayerMask groundMask;
+    public Transform groundCheck;
+    private bool isGrounded;
+
+    private Vector3 velocity;
 
     public Camera normalCam;
     public GameObject cameraParent;
-    public LayerMask ground;
-    public Transform groundDetector;
+
+
     public Transform weaponParent;
 
-    private Rigidbody rig;
     private float baseFOV;
     private float sprintFOVModifier = 1.2f;
     private float movementCounter;
@@ -28,7 +36,9 @@ public class Player : MonoBehaviour
 
     [HideInInspector]
     public float currentHealth, currentFood, currentDrink;
-    public float maxHealth, maxFood, maxDrink;
+    [Header("--Player Stats--")]
+    public float maxHealth;
+    public float maxFood, maxDrink;
     public float healthIncreaseRate, drinkIncreaseRate, foodIncreaseRate;
 
     //UI
@@ -55,7 +65,7 @@ public class Player : MonoBehaviour
 
 
         baseFOV = normalCam.fieldOfView;
-        rig = GetComponent<Rigidbody>();
+
 
 
     }
@@ -71,19 +81,14 @@ public class Player : MonoBehaviour
 
         //Controls
         bool sprint = Input.GetKey(KeyCode.LeftShift) || Input.GetKey(KeyCode.RightShift);
-        bool jump = Input.GetKeyDown(KeyCode.Space);
+        bool jump = Input.GetButtonDown("Jump");
 
         //States
 
-        bool isGrounded = Physics.Raycast(groundDetector.position, Vector3.down, 0.05f, ground);
+
         bool isJumping = jump && isGrounded;
         bool isSprinting = sprint && vmove > 0 && !isJumping;
 
-        //Jumping
-        if (isJumping)
-        {
-            rig.AddForce(Vector3.up * jumpForce);
-        }
 
         if (Input.GetKeyDown(KeyCode.P))
         {
@@ -111,20 +116,36 @@ public class Player : MonoBehaviour
         }
 
 
-        //Movement
-        Vector3 direction = new Vector3(hmove, 0, vmove);
-        direction.Normalize();
+        //MOVEMENT
 
-        float adjustedSpeed = speed;
+        //checking if we hit the ground to reset our falling velocity, otherwise we will fall faster the next time
+        isGrounded = Physics.CheckSphere(groundCheck.position, groundDistance, groundMask);
 
-        if (isSprinting)
+        if (isGrounded && velocity.y < 0)
         {
-            adjustedSpeed *= sprintModifier;
+            velocity.y = -2f;
         }
 
-        Vector3 targetVelocity = transform.TransformDirection(direction) * adjustedSpeed * Time.deltaTime;
-        targetVelocity.y = rig.velocity.y;
-        rig.velocity = targetVelocity;
+
+        float x = Input.GetAxis("Horizontal");
+        float z = Input.GetAxis("Vertical");
+
+        //right is the red Axis, foward is the blue axis
+        Vector3 move = transform.right * x + transform.forward * z;
+
+        controller.Move(move * speed * Time.deltaTime);
+
+        //check if the player is on the ground so he can jump
+        if (Input.GetButtonDown("Jump") && isGrounded)
+        {
+            //the equation for jumping
+            velocity.y = Mathf.Sqrt(jumpHeight * -2f * gravity);
+        }
+
+
+        velocity.y += gravity * Time.deltaTime;
+
+        controller.Move(velocity * Time.deltaTime);
 
 
         //Field of View

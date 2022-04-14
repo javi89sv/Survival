@@ -11,6 +11,7 @@ public class DragItem : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDrag
     private Vector3 startPosition;
     private Transform startParent;
     private Transform slot;
+    private GameObject objectDrag;
 
 
     private void Start()
@@ -24,11 +25,14 @@ public class DragItem : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDrag
     {
         if (dragItem.item != null)
         {
+            objectDrag = GetComponentInChildren<InteractiveItem>().gameObject;
             itemDragging = gameObject;
             dragImage.sprite = dragItem.item.icon;
             dragImage.transform.position = Input.mousePosition;
             dragImage.enabled = true;
-            
+
+            objectDrag.transform.SetParent(transform.root);
+
             canvasGroup.blocksRaycasts = false;
             canvasGroup.alpha = 0.6f;
 
