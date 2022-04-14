@@ -21,7 +21,7 @@ public class Container : MonoBehaviour
     public GameObject[] drop;
     public GameObject boxBroken;
     public ParticleSystem particles;
-    public float forceBrokekBox;
+    public float forceBrokenBox;
     public LootTable lootTable;
 
     public void TakeDamage(int damage)
@@ -38,7 +38,7 @@ public class Container : MonoBehaviour
             if (boxBroken)
             {
                 GameObject go = Instantiate(boxBroken, transform.position, transform.rotation);
-                go.GetComponent<Rigidbody>().AddExplosionForce(forceBrokekBox, transform.position, 1f);
+                go.GetComponent<Rigidbody>().AddExplosionForce(forceBrokenBox, transform.position, 1f);
                 Destroy(go, 3f);
             }
             

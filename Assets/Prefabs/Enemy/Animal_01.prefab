@@ -31,6 +31,7 @@ Transform:
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 1, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 4949583652913957622}
   - {fileID: 1559339821030855563}
@@ -132,15 +133,17 @@ MonoBehaviour:
   maxhealth: 0
   damage: 15
   cooldownAttack: 3
-  speed: 5
   rangeDetection: 10
   rangeAttack: 5
+  moveSpeed: 0.2
+  walkCounter: 0
+  waitCounter: 0
+  isWalking: 0
   healthBar: {fileID: 1559339821030855562}
   particles: {fileID: 4949583652913957623}
   isDead: 0
-  drop:
-  - {fileID: 5157859071150991556, guid: 9fac695a178c18b4b8fbff5b0aabfc49, type: 3}
-  - {fileID: 4203427089207493090, guid: fab2b77c641d43144bd981f1d8bdf3b1, type: 3}
+  lootTable: {fileID: 11400000, guid: ea4617770d968e342bbc1ca4f7190fc0, type: 2}
+  healthImage: {fileID: 0}
 --- !u!1001 &889852645214537954
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -238,11 +241,6 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 02b1f702b03df974099e806a2a3ea592, type: 3}
---- !u!224 &1559339821030855563 stripped
-RectTransform:
-  m_CorrespondingSourceObject: {fileID: 1871957072428276585, guid: 02b1f702b03df974099e806a2a3ea592, type: 3}
-  m_PrefabInstance: {fileID: 889852645214537954}
-  m_PrefabAsset: {fileID: 0}
 --- !u!114 &1559339821030855562 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 1871957072428276584, guid: 02b1f702b03df974099e806a2a3ea592, type: 3}
@@ -254,6 +252,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 570d98ef8b245a74f8a84e5e5cf9be41, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!224 &1559339821030855563 stripped
+RectTransform:
+  m_CorrespondingSourceObject: {fileID: 1871957072428276585, guid: 02b1f702b03df974099e806a2a3ea592, type: 3}
+  m_PrefabInstance: {fileID: 889852645214537954}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &6772625819923005454
 PrefabInstance:
   m_ObjectHideFlags: 0

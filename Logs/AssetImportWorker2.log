@@ -803,3 +803,121 @@ AssetImportParameters requested are different than current active one (requested
   custom:container-demuxer-ogg: 62fdf1f143b41e24485cea50d1cbac27 -> 
   custom:video-decoder-webm-vp8: 9c59270c3fd7afecdb556c50c9e8de78 -> 
   custom:audio-decoder-ogg-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
+========================================================================
+Received Import Request.
+  Time since last request: 2563059.041695 seconds.
+  path: Assets/Prefabs/Enemy/Animal_01.prefab
+  artifactKey: Guid(cfca036578a6f6947b327fb96d2d6082) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Prefabs/Enemy/Animal_01.prefab using Guid(cfca036578a6f6947b327fb96d2d6082) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '1d79c59a59052ab53572c022000ae085') in 0.212686 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 13.259451 seconds.
+  path: Assets/ScriptableObject/Loot/Box.asset
+  artifactKey: Guid(47e81348b991f334cab9084ea583d64d) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/ScriptableObject/Loot/Box.asset using Guid(47e81348b991f334cab9084ea583d64d) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '599d1329ea8d28d88c7cff66a7aacd21') in 0.007574 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000021 seconds.
+  path: Assets/ScriptableObject/Loot/Tree.asset
+  artifactKey: Guid(0e320bf5988d82240a0ac644e0cfe12f) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/ScriptableObject/Loot/Tree.asset using Guid(0e320bf5988d82240a0ac644e0cfe12f) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '1e51c9bbb1c9678b9eb4b7685aa9a041') in 0.002838 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000017 seconds.
+  path: Assets/ScriptableObject/Loot/Node Stone.asset
+  artifactKey: Guid(f02e9dc0e85d378468f6383aa3fee91b) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/ScriptableObject/Loot/Node Stone.asset using Guid(f02e9dc0e85d378468f6383aa3fee91b) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'e807e4f9f83f0bc3e2a422393c0e6e99') in 0.002947 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 1.897326 seconds.
+  path: Assets/Prefabs/Enemy/Animal_01.prefab
+  artifactKey: Guid(cfca036578a6f6947b327fb96d2d6082) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Prefabs/Enemy/Animal_01.prefab using Guid(cfca036578a6f6947b327fb96d2d6082) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '630a07ba7647956e93d9c36ba8a8cd0f') in 0.012891 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 13.234660 seconds.
+  path: Assets/Prefabs/Enemys/Animal_01.prefab
+  artifactKey: Guid(2f0ec4bf8dff6a44389500cbd527e599) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Prefabs/Enemys/Animal_01.prefab using Guid(2f0ec4bf8dff6a44389500cbd527e599) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '8793aa7176015ca3ef874cbfec8ae0ca') in 0.012398 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 11.032216 seconds.
+  path: Assets/Prefabs/Consumable/Apple.prefab
+  artifactKey: Guid(d0680103a16a32b40a2fb1f652f8388f) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Prefabs/Consumable/Apple.prefab using Guid(d0680103a16a32b40a2fb1f652f8388f) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '8f7b45ffd60fff25416aafd58ea0a407') in 0.015118 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000013 seconds.
+  path: Assets/Prefabs/Consumable/Meat.prefab
+  artifactKey: Guid(9fac695a178c18b4b8fbff5b0aabfc49) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Prefabs/Consumable/Meat.prefab using Guid(9fac695a178c18b4b8fbff5b0aabfc49) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '79f305cbec9ba4f905f07cfc106e67cc') in 0.009553 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000013 seconds.
+  path: Assets/Prefabs/Consumable/Bottle Water.prefab
+  artifactKey: Guid(88e8c6f57bed3b54a80634d490ffb0fd) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Prefabs/Consumable/Bottle Water.prefab using Guid(88e8c6f57bed3b54a80634d490ffb0fd) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'ba4e5183b06ed36d24a8d554b141322c') in 0.012715 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000018 seconds.
+  path: Assets/Prefabs/Consumable/Mushrom.prefab
+  artifactKey: Guid(dcb1f12e9351e364e99e8f744b7baa5d) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Prefabs/Consumable/Mushrom.prefab using Guid(dcb1f12e9351e364e99e8f744b7baa5d) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '9b341cdfdee26d629080664c81f64641') in 0.011841 seconds 
+========================================================================
+Received Prepare
+Registering precompiled user dll's ...
+Registered in 0.002942 seconds.
+Begin MonoManager ReloadAssembly
+Native extension for WindowsStandalone target not found
+Refreshing native plugins compatible for Editor in 0.55 ms, found 2 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Mono: successfully reloaded assembly
+- Completed reload, in  0.832 seconds
+Domain Reload Profiling:
+	ReloadAssembly (833ms)
+		BeginReloadAssembly (133ms)
+			ExecutionOrderSort (0ms)
+			DisableScriptedObjects (5ms)
+			BackupInstance (0ms)
+			ReleaseScriptingObjects (0ms)
+			CreateAndSetChildDomain (31ms)
+		EndReloadAssembly (585ms)
+			LoadAssemblies (66ms)
+			RebuildTransferFunctionScriptingTraits (0ms)
+			SetupTypeCache (166ms)
+			ReleaseScriptCaches (1ms)
+			RebuildScriptCaches (35ms)
+			SetupLoadedEditorAssemblies (282ms)
+				LogAssemblyErrors (0ms)
+				InitializePlatformSupportModulesInManaged (13ms)
+				SetLoadedEditorAssemblies (1ms)
+				RefreshPlugins (1ms)
+				BeforeProcessingInitializeOnLoad (43ms)
+				ProcessInitializeOnLoadAttributes (188ms)
+				ProcessInitializeOnLoadMethodAttributes (27ms)
+				AfterProcessingInitializeOnLoad (9ms)
+				EditorAssembliesLoaded (0ms)
+			ExecutionOrderSort2 (0ms)
+			AwakeInstancesAfterBackupRestoration (6ms)
+Platform modules already initialized, skipping
+Refreshing native plugins compatible for Editor in 0.42 ms, found 2 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Unloading 1648 Unused Serialized files (Serialized files now loaded: 0)
+Unloading 16 unused Assets / (25.5 KB). Loaded Objects now: 2173.
+Memory consumption went from 78.7 MB to 78.7 MB.
+Total: 2.591400 ms (FindLiveObjects: 0.191600 ms CreateObjectMapping: 0.110200 ms MarkObjects: 2.249700 ms  DeleteObjects: 0.037900 ms)
+
+AssetImportParameters requested are different than current active one (requested -> active):
+  custom:video-decoder-ogg-theora: a1e56fd34408186e4bbccfd4996cb3dc -> 
+  custom:container-muxer-webm: aa71ff27fc2769a1b78a27578f13a17b -> 
+  custom:container-demuxer-webm: 4f35f7cbe854078d1ac9338744f61a02 -> 
+  custom:video-encoder-webm-vp8: eb34c28f22e8b96e1ab97ce403110664 -> 
+  custom:audio-encoder-webm-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
+  custom:framework-win-MediaFoundation: 216162199b28c13a410421893ffa2e32 -> 
+  custom:container-demuxer-ogg: 62fdf1f143b41e24485cea50d1cbac27 -> 
+  custom:video-decoder-webm-vp8: 9c59270c3fd7afecdb556c50c9e8de78 -> 
+  custom:audio-decoder-ogg-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
+Editor requested this worker to shutdown with reason: Scaling down because of idle timeout
+AssetImportWorker is now disconnected from the server
+Process exiting
+Exiting without the bug reporter. Application will terminate with return code 0

@@ -20,7 +20,9 @@ public class GameManager : MonoBehaviour
     public bool isWeaponEquipped;
 
     // UI
-    private bool inventoryEnable;
+    [SerializeField]
+    public bool inventoryEnable;
+
     public GameObject menuInventory;
     public GameObject menuCrafting;
     public GameObject menuItemInfo;

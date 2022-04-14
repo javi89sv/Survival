@@ -10,8 +10,8 @@ public class DragItem : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDrag
     public CanvasGroup canvasGroup;
     private Vector3 startPosition;
     private Transform startParent;
-    private Transform slot;
-    private GameObject objectDrag;
+
+    private GameObject itemBeingDragged;
 
 
     private void Start()
@@ -25,13 +25,16 @@ public class DragItem : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDrag
     {
         if (dragItem.item != null)
         {
-            objectDrag = GetComponentInChildren<InteractiveItem>().gameObject;
-            itemDragging = gameObject;
+            itemBeingDragged = GetComponentInChildren<InteractiveItem>().gameObject;
+
             dragImage.sprite = dragItem.item.icon;
             dragImage.transform.position = Input.mousePosition;
             dragImage.enabled = true;
 
-            objectDrag.transform.SetParent(transform.root);
+            startPosition = itemBeingDragged.transform.position;
+            startParent = itemBeingDragged.transform.parent;
+
+            itemBeingDragged.transform.SetParent(transform.root);
 
             canvasGroup.blocksRaycasts = false;
             canvasGroup.alpha = 0.6f;
@@ -47,11 +50,16 @@ public class DragItem : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDrag
 
     public void OnEndDrag(PointerEventData eventData)
     {
-        itemDragging = null;
+        
+
+
+
         GetComponent<Image>().raycastTarget = true;
         canvasGroup.blocksRaycasts = true;
         canvasGroup.alpha = 1f;
         dragImage.enabled = false;
+
+        itemBeingDragged = null;
 
     }
 

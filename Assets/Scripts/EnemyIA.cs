@@ -19,26 +19,24 @@ public class EnemyIA : MonoBehaviour
 
     Vector3 stopPosition;
 
-    float walkTime;
-    public float walkCounter;
-    float waitTime;
-    public float waitCounter;
+    private float walkTime;
+    private float walkCounter;
+    private float waitTime;
+    private float waitCounter;
 
     int WalkDirection;
 
     public bool isWalking;
+    public bool isDead;
 
     public HealthBar healthBar;
 
     public ParticleSystem particles;
 
-    public bool isDead;
-
     public LootTable lootTable;
 
     public GameObject healthImage;
 
-    PlayerManager player;
     GameObject playerPrefab;
     Rigidbody rb;
 
@@ -51,24 +49,21 @@ public class EnemyIA : MonoBehaviour
     }
 
 
-    // Start is called before the first frame update
     void Start()
     {
         walkTime = Random.Range(3, 6);
         waitTime = Random.Range(5, 7);
-
 
         waitCounter = waitTime;
         walkCounter = walkTime;
 
         ChooseDirection();
 
-        player = GetComponent<PlayerManager>();
         playerPrefab = GameObject.FindGameObjectWithTag("Player");
         rb = GetComponent<Rigidbody>();
     }
 
-    // Update is called once per frame
+
     void Update()
     {
         //ATTACKING
@@ -93,7 +88,7 @@ public class EnemyIA : MonoBehaviour
         if (health <= 0)
         {
             isDead = true;
-            LootSystem.instance.Loot(lootTable,transform.position);
+            LootSystem.instance.Loot(lootTable, transform.position);
             health = 1;
             healthImage.SetActive(false);
             Destroy(this.gameObject, 3f);
