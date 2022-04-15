@@ -8,11 +8,6 @@ public class DropItem : MonoBehaviour, IDropHandler
     public void OnDrop(PointerEventData eventData)
     {
 
-
-        Debug.Log("On Drop");
-        Debug.Log(DragItem.itemDragging);
-        DragItem.itemDragging.transform.SetParent(transform);
-
         if (!this.GetComponent<Slot>())
         {
             
@@ -36,6 +31,7 @@ public class DropItem : MonoBehaviour, IDropHandler
                 {
                     GameManager.instance.weapon.gameObject.SetActive(false);
                 }
+                DragItem.itemDragging.transform.SetParent(transform);
                 Debug.Log("On Drop");
                 this.GetComponent<Slot>().item = eventData.pointerDrag.GetComponent<Slot>().item;
                 this.GetComponent<Slot>().prefab = eventData.pointerDrag.GetComponent<Slot>().prefab;

@@ -33,7 +33,7 @@ public class DragItem : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDrag
             startPosition = itemDragging.transform.position;
             startParent = itemDragging.transform.parent;
 
-            itemDragging.transform.SetParent(transform.root);
+            //itemDragging.transform.SetParent(transform.root);
 
             canvasGroup.blocksRaycasts = false;
             canvasGroup.alpha = 0.6f;
@@ -44,7 +44,6 @@ public class DragItem : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDrag
     public void OnDrag(PointerEventData eventData)
     {
         dragImage.transform.position = Input.mousePosition;
-        Debug.Log(eventData.pointerCurrentRaycast);
 
     }
 
