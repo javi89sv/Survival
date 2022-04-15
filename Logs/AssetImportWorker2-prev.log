@@ -155,3 +155,21 @@ AssetImportParameters requested are different than current active one (requested
   custom:container-demuxer-ogg: 62fdf1f143b41e24485cea50d1cbac27 -> 
   custom:video-decoder-webm-vp8: 9c59270c3fd7afecdb556c50c9e8de78 -> 
   custom:audio-decoder-ogg-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
+========================================================================
+Received Import Request.
+  Time since last request: 2585767.218435 seconds.
+  path: Assets/Scripts/DragItem.cs
+  artifactKey: Guid(e450aa6078e40e04eb8dbea883b04502) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Scripts/DragItem.cs using Guid(e450aa6078e40e04eb8dbea883b04502) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'fd054265c5c95e22f29a6ade7302dfde') in 0.014946 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 7.009080 seconds.
+  path: Assets/Scripts/EnemyIA.cs
+  artifactKey: Guid(391eb3fdecb469743bc38976d45cffab) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Scripts/EnemyIA.cs using Guid(391eb3fdecb469743bc38976d45cffab) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '818f0cd50d66f87d84eb2cc2894c9fbe') in 0.001298 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 37.034915 seconds.
+  path: Assets/Prefabs/Wood Box.prefab
+  artifactKey: Guid(77c5b3cb710d0e444b7a74843f86b529) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Prefabs/Wood Box.prefab using Guid(77c5b3cb710d0e444b7a74843f86b529) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '6bdd635a5f57a3cb26494a0c35ac6f77') in 0.100347 seconds 
