@@ -58,7 +58,11 @@ The following packages were updated:
   com.unity.textmeshpro from version 3.0.1 to 3.0.6
   com.unity.timeline from version 1.4.4 to 1.5.6
 
+<<<<<<< HEAD
 === Thu Apr 14 19:48:49 2022
+=======
+=== Fri Jan 14 20:05:38 2022
+>>>>>>> 240c2b09491fabba015087f4fd5e32e604b73ae5
 
 Packages were changed.
 Update Mode: updateDependencies

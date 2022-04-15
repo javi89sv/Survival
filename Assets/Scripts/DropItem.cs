@@ -10,6 +10,8 @@ public class DropItem : MonoBehaviour, IDropHandler
 
 
         Debug.Log("On Drop");
+        Debug.Log(DragItem.itemDragging);
+        DragItem.itemDragging.transform.SetParent(transform);
 
         if (!this.GetComponent<Slot>())
         {

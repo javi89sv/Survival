@@ -11,7 +11,6 @@ public class DragItem : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDrag
     private Vector3 startPosition;
     private Transform startParent;
 
-    private GameObject itemBeingDragged;
 
 
     private void Start()
@@ -25,16 +24,16 @@ public class DragItem : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDrag
     {
         if (dragItem.item != null)
         {
-            itemBeingDragged = GetComponentInChildren<InteractiveItem>().gameObject;
+            itemDragging = GetComponentInChildren<InteractiveItem>().gameObject;
 
             dragImage.sprite = dragItem.item.icon;
             dragImage.transform.position = Input.mousePosition;
             dragImage.enabled = true;
 
-            startPosition = itemBeingDragged.transform.position;
-            startParent = itemBeingDragged.transform.parent;
+            startPosition = itemDragging.transform.position;
+            startParent = itemDragging.transform.parent;
 
-            itemBeingDragged.transform.SetParent(transform.root);
+            itemDragging.transform.SetParent(transform.root);
 
             canvasGroup.blocksRaycasts = false;
             canvasGroup.alpha = 0.6f;
@@ -45,6 +44,7 @@ public class DragItem : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDrag
     public void OnDrag(PointerEventData eventData)
     {
         dragImage.transform.position = Input.mousePosition;
+        Debug.Log(eventData.pointerCurrentRaycast);
 
     }
 
@@ -52,14 +52,21 @@ public class DragItem : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDrag
     {
         
 
+        if (itemDragging.transform.parent == startParent || itemDragging.transform.parent == transform.root)
+        {
+            //itemBeingDragged.transform.position = startPosition;
+            itemDragging.transform.SetParent(startParent);
 
+        }
+
+      
 
         GetComponent<Image>().raycastTarget = true;
         canvasGroup.blocksRaycasts = true;
         canvasGroup.alpha = 1f;
         dragImage.enabled = false;
 
-        itemBeingDragged = null;
+        
 
     }
 

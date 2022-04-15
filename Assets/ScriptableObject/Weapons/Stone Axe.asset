@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Stone Axe
   m_EditorClassIdentifier: 
   name: Stone Axe
-  type: 0
+  type: 2
   damage: 20
   firerate: 1
   bloom: 0
