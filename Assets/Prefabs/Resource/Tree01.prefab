@@ -30,6 +30,7 @@ Transform:
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 3764584461683050742}
   - {fileID: 1452357945726760391}
@@ -55,6 +56,7 @@ MeshRenderer:
   m_CastShadows: 1
   m_ReceiveShadows: 1
   m_DynamicOccludee: 1
+  m_StaticShadowCaster: 0
   m_MotionVectors: 1
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
@@ -115,8 +117,8 @@ MonoBehaviour:
   health: 0
   maxhealth: 100
   healthBar: {fileID: 1452357945726760390}
-  particles: {fileID: 3764584461683050743}
-  offsetSpawn: {x: 0, y: 0.5, z: 0}
+  particlesGather: {fileID: 1823191864671603449, guid: 3bac236df9361194a89b53ae307e4a8f, type: 3}
+  particlesDestroy: {fileID: 0}
   lootTable: {fileID: 11400000, guid: 0e320bf5988d82240a0ac644e0cfe12f, type: 2}
 --- !u!1001 &3275025985077035534
 PrefabInstance:
@@ -182,11 +184,6 @@ PrefabInstance:
 --- !u!4 &3764584461683050742 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 1823191864671603448, guid: 3bac236df9361194a89b53ae307e4a8f, type: 3}
-  m_PrefabInstance: {fileID: 3275025985077035534}
-  m_PrefabAsset: {fileID: 0}
---- !u!198 &3764584461683050743 stripped
-ParticleSystem:
-  m_CorrespondingSourceObject: {fileID: 1823191864671603449, guid: 3bac236df9361194a89b53ae307e4a8f, type: 3}
   m_PrefabInstance: {fileID: 3275025985077035534}
   m_PrefabAsset: {fileID: 0}
 --- !u!1001 &8301293444169032728

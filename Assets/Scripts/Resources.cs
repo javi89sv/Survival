@@ -21,7 +21,9 @@ public class Resources : MonoBehaviour
     public float health;
     public float maxhealth;
     public GameObject healthBar;
-    public ParticleSystem particles;
+    public ParticleSystem particlesGather;
+    public ParticleSystem particlesDestroy;
+
     public LootTable lootTable;
 
     private int penalty;
@@ -46,7 +48,7 @@ public class Resources : MonoBehaviour
         {
 
             LootSystem.instance.Loot(lootTable,transform.position);
-
+            particlesDestroy.Play();
             Destroy(this.gameObject);
 
         }

@@ -116,7 +116,8 @@ MonoBehaviour:
   health: 0
   maxhealth: 100
   healthBar: {fileID: 0}
-  particles: {fileID: 8954132015418239635}
+  particlesGather: {fileID: 1823191864671603449, guid: ea2dbb03e8e52bc479a773c8f9bd894d, type: 3}
+  particlesDestroy: {fileID: 1823191864671603449, guid: 51b7e823fa205a143b31d00d2737d2fa, type: 3}
   lootTable: {fileID: 11400000, guid: f02e9dc0e85d378468f6383aa3fee91b, type: 2}
 --- !u!1001 &7281811488574464106
 PrefabInstance:
@@ -178,10 +179,5 @@ PrefabInstance:
 --- !u!4 &8954132015418239634 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 1823191864671603448, guid: ea2dbb03e8e52bc479a773c8f9bd894d, type: 3}
-  m_PrefabInstance: {fileID: 7281811488574464106}
-  m_PrefabAsset: {fileID: 0}
---- !u!198 &8954132015418239635 stripped
-ParticleSystem:
-  m_CorrespondingSourceObject: {fileID: 1823191864671603449, guid: ea2dbb03e8e52bc479a773c8f9bd894d, type: 3}
   m_PrefabInstance: {fileID: 7281811488574464106}
   m_PrefabAsset: {fileID: 0}

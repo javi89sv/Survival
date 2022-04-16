@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 1823191864671603449}
   - component: {fileID: 1823191864671603454}
   m_Layer: 10
-  m_Name: Particles Wood
+  m_Name: Particles Wood Gather
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -26,7 +26,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1823191864671603455}
   m_LocalRotation: {x: -0.7071068, y: 0, z: 0, w: 0.7071068}
-  m_LocalPosition: {x: 0.3508041, y: 1.5882773, z: 7.699272}
+  m_LocalPosition: {x: -0.1806958, y: 1.784245, z: 10.806944}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []

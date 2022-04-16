@@ -169,8 +169,8 @@ public class Equippement : MonoBehaviour
             if (hit.transform.CompareTag("Resource"))
             {
 
-                hit.collider.GetComponent<Resources>().particles.transform.position = impact;
-                hit.collider.GetComponent<Resources>().particles.Play();
+                hit.collider.GetComponent<Resources>().particlesGather.transform.position = impact;
+                hit.collider.GetComponent<Resources>().particlesGather.Play();
 
                 hit.collider.GetComponent<Resources>().TakeDamage(damageWeapon);
 
