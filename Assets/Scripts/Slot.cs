@@ -54,7 +54,8 @@ public class Slot : MonoBehaviour, IPointerClickHandler
     public Image imageInfo;
     public Image iconSlot;
     private Image conditionBar;
-    // public Canvas canvas;
+
+    public GameObject[] slotsBar;
 
 
     void Start()
@@ -252,7 +253,10 @@ public class Slot : MonoBehaviour, IPointerClickHandler
     {
         imageInfo.sprite = item.icon;
         textInfo.text = item.name.ToString() + "\r\n" + item.description.ToString();
+        ButtonSelect.instance.go = this.gameObject;
     }
+
+
 
     //public void OnPointerEnter(PointerEventData eventData)
     //{
