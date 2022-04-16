@@ -8,16 +8,16 @@ public class ButtonSelect : MonoBehaviour
     public static ButtonSelect instance;
 
     public GameObject go;
-    public Slot slot;
-    // Start is called before the first frame update
+
+
+    private void Start()
+    {
+        instance = this;
+    }
 
     public void UseItem()
     {
         go.GetComponent<Slot>().UseItem();
     }
 
-    private void Start()
-    {
-        instance = this;
-    }
 }

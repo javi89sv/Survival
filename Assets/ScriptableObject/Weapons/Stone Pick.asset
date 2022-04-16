@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Stone Pick
   m_EditorClassIdentifier: 
   name: Stone Pick
-  type: 3
+  type: 0
   damage: 10
   firerate: 1
   bloom: 0

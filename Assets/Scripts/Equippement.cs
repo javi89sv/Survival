@@ -16,7 +16,7 @@ public class Equippement : MonoBehaviour
     private float currentcoolDown;
     public GameObject camera_player;
 
-    private float distanceMelee = 1.5f;
+    public float distanceMelee = 2f;
     public LayerMask ignoreLayers;
 
     public int health;
