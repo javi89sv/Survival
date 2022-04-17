@@ -2,7 +2,7 @@
 using UnityEngine.UI;
 using UnityEngine.EventSystems;
 
-public class DragItem : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDragHandler
+public class DragDropWarehouse : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDragHandler
 {
     private Slot dragItem;
     public static GameObject itemDragging;
@@ -17,7 +17,7 @@ public class DragItem : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDrag
     {
 
         dragItem = GetComponent<Slot>();
-        
+
     }
 
     public void OnBeginDrag(PointerEventData eventData)
@@ -49,7 +49,7 @@ public class DragItem : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDrag
 
     public void OnEndDrag(PointerEventData eventData)
     {
-        
+
 
         if (itemDragging.transform.parent == startParent || itemDragging.transform.parent == transform.root)
         {
@@ -58,14 +58,12 @@ public class DragItem : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDrag
 
         }
 
-      
+
 
         GetComponent<Image>().raycastTarget = true;
         canvasGroup.blocksRaycasts = true;
         canvasGroup.alpha = 1f;
         dragImage.enabled = false;
-
-        
 
     }
 

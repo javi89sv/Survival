@@ -1,6 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!1 &6894640559484777665
+--- !u!1 &753935588723820595
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -8,49 +8,48 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 6117436009604411003}
-  - component: {fileID: 7154711513736438238}
-  - component: {fileID: 4948984845666129172}
-  - component: {fileID: 1696341074098050377}
-  - component: {fileID: 1057398674751689849}
-  - component: {fileID: 2401582794331334688}
+  - component: {fileID: 89320755520131721}
+  - component: {fileID: 3932363023000788268}
+  - component: {fileID: 1258325208956611046}
+  - component: {fileID: 5808208189200541222}
+  - component: {fileID: 306008360554634035}
   m_Layer: 0
-  m_Name: Torch
-  m_TagString: Item
+  m_Name: Chest
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &6117436009604411003
+--- !u!4 &89320755520131721
 Transform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6894640559484777665}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 2.887, y: 0.745, z: 0}
+  m_GameObject: {fileID: 753935588723820595}
+  m_LocalRotation: {x: 0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!33 &7154711513736438238
+--- !u!33 &3932363023000788268
 MeshFilter:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6894640559484777665}
-  m_Mesh: {fileID: 4749707353668628313, guid: 3c409e4ba4b2996448d6c88b4f1e86f5, type: 3}
---- !u!23 &4948984845666129172
+  m_GameObject: {fileID: 753935588723820595}
+  m_Mesh: {fileID: 2534964839176971238, guid: 4f315b58c2124fd468f2956535006e70, type: 3}
+--- !u!23 &1258325208956611046
 MeshRenderer:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6894640559484777665}
+  m_GameObject: {fileID: 753935588723820595}
   m_Enabled: 1
   m_CastShadows: 1
   m_ReceiveShadows: 1
@@ -86,48 +85,32 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!54 &1696341074098050377
+--- !u!54 &5808208189200541222
 Rigidbody:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6894640559484777665}
+  m_GameObject: {fileID: 753935588723820595}
   serializedVersion: 2
   m_Mass: 1
   m_Drag: 0
   m_AngularDrag: 0.05
-  m_UseGravity: 1
+  m_UseGravity: 0
   m_IsKinematic: 0
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
---- !u!136 &1057398674751689849
-CapsuleCollider:
+--- !u!65 &306008360554634035
+BoxCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6894640559484777665}
+  m_GameObject: {fileID: 753935588723820595}
   m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_Enabled: 1
-  m_Radius: 0.10835051
-  m_Height: 1.1092874
-  m_Direction: 1
-  m_Center: {x: 0.000058054924, y: 0.5534788, z: 0.00000009313226}
---- !u!114 &2401582794331334688
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6894640559484777665}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d2709f39cb029324291c9d8db361dabd, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  item: {fileID: 11400000, guid: ed5224a3570b7c84a87874ae3ebc812f, type: 2}
-  id: 0
-  quantity: 1
+  serializedVersion: 2
+  m_Size: {x: 1.5000002, y: 1.1782938, z: 1.0000002}
+  m_Center: {x: -0.000000029802322, y: 0.5905166, z: 0}

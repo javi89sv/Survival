@@ -1,20 +1,8 @@
 fileFormatVersion: 2
-guid: 3c409e4ba4b2996448d6c88b4f1e86f5
+guid: 4f315b58c2124fd468f2956535006e70
 ModelImporter:
   serializedVersion: 21202
-  internalIDToNameTable:
-  - first:
-      74: 1036771113397305288
-    second: Torch|Hit
-  - first:
-      74: -5878577582047145496
-    second: Torch|Idle
-  - first:
-      74: 6556929228716305832
-    second: Torch|Shot
-  - first:
-      74: 505141014279895062
-    second: Torch|Show
+  internalIDToNameTable: []
   externalObjects:
   - first:
       type: UnityEngine:Material
@@ -31,7 +19,7 @@ ModelImporter:
     bakeSimulation: 0
     resampleCurves: 1
     optimizeGameObjects: 0
-    removeConstantScaleCurves: 0
+    removeConstantScaleCurves: 1
     motionNodeName: 
     rigImportErrors: 
     rigImportWarnings: 
@@ -61,7 +49,7 @@ ModelImporter:
     importBlendShapes: 1
     importCameras: 1
     importLights: 1
-    nodeNameCollisionStrategy: 0
+    nodeNameCollisionStrategy: 1
     fileIdsGeneration: 2
     swapUVChannels: 0
     generateSecondaryUV: 0

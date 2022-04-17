@@ -20,18 +20,11 @@ public class PlayerManager : MonoBehaviour
     private Vector3 velocity;
 
     public Camera normalCam;
-    public GameObject cameraParent;
-
 
     public Transform weaponParent;
 
     private float baseFOV;
     private float sprintFOVModifier = 1.2f;
-    private float movementCounter;
-    private float idleCounter;
-
-    private Vector3 weaponParentOrigin;
-    private Vector3 targetWeaponBobPosition;
 
 
     [HideInInspector]
@@ -46,11 +39,6 @@ public class PlayerManager : MonoBehaviour
     private GameObject ui_foodbar;
     private GameObject ui_drinkbar;
 
-    private void Awake()
-    {
-        weaponParentOrigin = weaponParent.localPosition;
-
-    }
 
     void Start()
     {
@@ -65,8 +53,6 @@ public class PlayerManager : MonoBehaviour
 
 
         baseFOV = normalCam.fieldOfView;
-
-
 
     }
     private void FixedUpdate()
@@ -94,26 +80,6 @@ public class PlayerManager : MonoBehaviour
         {
             TakeDamage(10);
         }
-
-        ////HeadBob
-        //if (hmove == 0 && vmove == 0)
-        //{
-        //    HeadBob(idleCounter, 0.025f, 0.025f);
-        //    idleCounter += Time.deltaTime;
-        //    weaponParent.localPosition = Vector3.Lerp(weaponParent.localPosition, targetWeaponBobPosition, Time.deltaTime * 2);
-        //}
-        //else if (!isSprinting)
-        //{
-        //    HeadBob(movementCounter, 0.035f, 0.035f);
-        //    movementCounter += Time.deltaTime * 3f;
-        //    weaponParent.localPosition = Vector3.Lerp(weaponParent.localPosition, targetWeaponBobPosition, Time.deltaTime * 6);
-        //}
-        //else
-        //{
-        //    HeadBob(movementCounter, 0.05f, 0.05f);
-        //    movementCounter += Time.deltaTime * 7f;
-        //    weaponParent.localPosition = Vector3.Lerp(weaponParent.localPosition, targetWeaponBobPosition, Time.deltaTime * 10);
-        //}
 
 
         //MOVEMENT
@@ -161,11 +127,6 @@ public class PlayerManager : MonoBehaviour
 
     }
 
-
-    private void HeadBob(float z, float x_intensity, float y_intensity)
-    {
-        targetWeaponBobPosition = weaponParentOrigin + new Vector3(Mathf.Cos(z * 2) * x_intensity, Mathf.Sin(z * 2) * y_intensity, 0);
-    }
 
     public void TakeDamage(int damage)
     {

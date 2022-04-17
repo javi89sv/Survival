@@ -57,8 +57,8 @@ public class Equippement : MonoBehaviour
                 else if (eqquipmentList[currentIndex].type == type.melee)
                 {
                     Debug.Log("Hit!!");
-                    currentWeapon.GetComponentInChildren<WeaponAnim>().PlayAnim();
-                    Invoke("Hit", 0.4f);
+                    Invoke("Hit", 0.6f);
+                    currentWeapon.GetComponentInChildren<WeaponAnim>().PlayAnim();                   
                     currentcoolDown = 0f;
                 }
 
