@@ -76,10 +76,9 @@ public class InventoryManager : MonoBehaviour
             }
             else if (slot[i].empty)
             {
-                slot[i].prefab = prefab;
+                slot[i].item = item;
                 items.Add(prefab.GetComponent<InteractiveItem>());
                 prefab.transform.parent = slot[i].transform;
-                slot[i].item = item;
                 slot[i].id = id;
                 slot[i].amount = quantity;
                 slot[i].empty = false;

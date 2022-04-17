@@ -14,11 +14,12 @@ public class LootWarehouse : MonoBehaviour
 
     public GameObject menuUI;
 
+    public bool isOpen = false;
+
     private void Start()
     {
         slots = slotHolder.transform.GetComponentsInChildren<Slot>();
-        UpdateSlots();
-        AddItem();
+
     }
 
     private void Update()
@@ -28,30 +29,62 @@ public class LootWarehouse : MonoBehaviour
 
     private void UpdateSlots()
     {
+        
         foreach (Slot slot in slots)
-        {
-            if (!slot.item)
-            {
-                slot.empty = true;
-            }
-        }
-    }
-
-    private void AddItem()
-    {
-        foreach(Slot slot in slots)
         {
             if (slot.empty)
             {
-                for(int i = 0; i < loot.Length; i++)
+                for (int i = 0; i < loot.Length; i++)
                 {
-
-                    loot[i] = slot.prefab;
+                    Debug.Log("Item Selected");
+                    slot.item = loot[i].GetComponent<InteractiveItem>().item;
+                    
 
                 }
-                return;
+
             }
             
+        }
+    }
+
+    private void AddItemSlot()
+    {
+        foreach (GameObject item in loot)
+        {
+            if (item != null)
+            {
+                for (int i = 0; i < slots.Length; i++)
+                {
+
+                    slots[i].item = item.GetComponent<InteractiveItem>().item;
+                    slots[i].prefab = item.GetComponent<InteractiveItem>().item.prefab;
+                    slots[i].amount = item.GetComponent<InteractiveItem>().quantity;
+                    slots[i].empty = false;
+                    slots[i].UpdateSlot();
+                    
+                }
+                
+            }
+
+        }
+    }   
+
+    private void AddItem()
+    {
+        foreach (Slot slot in slots)
+        {
+            
+        }
+    }
+
+    private void DeleteItem()
+    {
+        foreach (Slot slot in slots)
+        {
+            slot.item = null;
+            slot.prefab = null;
+            slot.amount = 0;
+            slot.UpdateSlot();
         }
     }
 
@@ -61,9 +94,12 @@ public class LootWarehouse : MonoBehaviour
         {
             Debug.Log("Collision");
 
-                menuUI.gameObject.SetActive(true);
-          
             
+            menuUI.gameObject.SetActive(true);
+            AddItemSlot();
+            isOpen = true;
+            
+
         }
     }
     private void OnTriggerExit(Collider other)
@@ -72,10 +108,14 @@ public class LootWarehouse : MonoBehaviour
         {
             Debug.Log("Collision");
 
+            
             menuUI.gameObject.SetActive(false);
-
+            DeleteItem();
+            isOpen = false;
+            
 
         }
     }
+
 
 }

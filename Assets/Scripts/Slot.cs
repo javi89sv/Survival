@@ -10,6 +10,8 @@ public class Slot : MonoBehaviour, IPointerClickHandler
 
     public Item item;
     public InteractiveItem interactiveItem;
+    public GameObject prefab;
+
     public int id;
     public bool maxStackSize;
     public bool empty;
@@ -47,7 +49,6 @@ public class Slot : MonoBehaviour, IPointerClickHandler
     }
 
     public GameObject player;
-    public GameObject prefab;
     private TextMeshProUGUI textAmount;
     public TextMeshProUGUI textInfo;
     public GameObject panelInfo;
@@ -104,6 +105,7 @@ public class Slot : MonoBehaviour, IPointerClickHandler
         UpdateAmount();
         UpdateIcon();
         UpdateConditionBar();
+        UpdatePrefab();
     }
 
     void UpdateAmount()
@@ -116,6 +118,19 @@ public class Slot : MonoBehaviour, IPointerClickHandler
         {
             textAmount.enabled = true;
             textAmount.text = this.amount.ToString();
+
+        }
+    }
+    
+    void UpdatePrefab()
+    {
+        if (item == null || this.empty)
+        {
+            prefab = null;
+        }
+        else
+        {
+            prefab = item.prefab;
 
         }
     }
@@ -276,5 +291,8 @@ public class Slot : MonoBehaviour, IPointerClickHandler
     //{
     //    panelInfo.SetActive(false);
     //}
+
+
+
 }
 
