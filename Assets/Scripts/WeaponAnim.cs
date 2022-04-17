@@ -20,7 +20,6 @@ public class WeaponAnim : MonoBehaviour
         {
             if (Input.GetMouseButtonDown(0))
             {
-                Debug.Log("animation!!");
                 anim.SetTrigger("Shoot");
             }
         }

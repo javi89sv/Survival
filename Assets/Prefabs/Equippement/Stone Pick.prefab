@@ -11,8 +11,8 @@ GameObject:
   - component: {fileID: 5369249050760991571}
   - component: {fileID: 9087405031146381736}
   - component: {fileID: 6482938206471001442}
-  - component: {fileID: 4285621016149294449}
   - component: {fileID: 393181571550487452}
+  - component: {fileID: 1566335701804907198}
   - component: {fileID: 2439921271505032842}
   m_Layer: 0
   m_Name: Stone Pick
@@ -28,13 +28,14 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4825881343226066103}
-  m_LocalRotation: {x: 0, y: 0.7071068, z: 0, w: 0.7071068}
-  m_LocalPosition: {x: 0.45, y: -0.92, z: 1.07}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 90, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!33 &9087405031146381736
 MeshFilter:
   m_ObjectHideFlags: 0
@@ -42,7 +43,7 @@ MeshFilter:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4825881343226066103}
-  m_Mesh: {fileID: 4493585093827132993, guid: 292c8a2146793e64a8ef5178d7c558dd, type: 3}
+  m_Mesh: {fileID: -1023400368327318597, guid: 292c8a2146793e64a8ef5178d7c558dd, type: 3}
 --- !u!23 &6482938206471001442
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -85,19 +86,6 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!65 &4285621016149294449
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4825881343226066103}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 1.067048, y: 1.2170871, z: 0.084926076}
-  m_Center: {x: 0, y: 0.60778195, z: 0}
 --- !u!54 &393181571550487452
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -114,6 +102,19 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
+--- !u!65 &1566335701804907198
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4825881343226066103}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.084926076, y: 1.2170871, z: 1.067048}
+  m_Center: {x: 0, y: 0.60778195, z: 0}
 --- !u!114 &2439921271505032842
 MonoBehaviour:
   m_ObjectHideFlags: 0

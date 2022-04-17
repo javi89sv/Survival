@@ -45,8 +45,6 @@ public class Equippement : MonoBehaviour
         if (currentWeapon != null)
         {
 
-            Aim((Input.GetMouseButton(1)));
-
 
             if (Input.GetMouseButtonDown(0) && currentcoolDown >= eqquipmentList[currentIndex].firerate)
             {
@@ -78,15 +76,12 @@ public class Equippement : MonoBehaviour
         currentIndex = index;
 
         GameObject newEqquipment = Instantiate(eqquipmentList[index].prefab, weaponParent.position, weaponParent.rotation, weaponParent);
-        newEqquipment.transform.localPosition = Vector3.zero;
-        newEqquipment.transform.localEulerAngles = Vector3.zero;
         currentWeapon = newEqquipment;
 
 
         Destroy(newEqquipment.GetComponent<Rigidbody>());
         Destroy(newEqquipment.GetComponent<BoxCollider>());
-        //newEqquipment.GetComponent<Rigidbody>().useGravity = false;
-        //newEqquipment.GetComponent<Rigidbody>().isKinematic = true;
+
     }
 
     public void Dregrade(int amount)
@@ -95,23 +90,23 @@ public class Equippement : MonoBehaviour
     }
 
 
-    private void Aim(bool isAiming)
-    {
-        Transform anchor = currentWeapon.transform.Find("Anchor");
-        Transform state_ads = currentWeapon.transform.Find("States/ADS");
-        Transform state_hip = currentWeapon.transform.Find("States/Hip");
+    //private void Aim(bool isAiming)
+    //{
+    //    Transform anchor = currentWeapon.transform.Find("Anchor");
+    //    Transform state_ads = currentWeapon.transform.Find("States/ADS");
+    //    Transform state_hip = currentWeapon.transform.Find("States/Hip");
 
-        if (isAiming)
-        {
-            //aim
-            anchor.position = Vector3.Lerp(anchor.position, state_ads.position, Time.deltaTime * eqquipmentList[currentIndex].aimSpeed);
-        }
-        else
-        {
-            //hip
-            anchor.position = Vector3.Lerp(anchor.position, state_hip.position, Time.deltaTime * eqquipmentList[currentIndex].aimSpeed);
-        }
-    }
+    //    if (isAiming)
+    //    {
+    //        //aim
+    //        anchor.position = Vector3.Lerp(anchor.position, state_ads.position, Time.deltaTime * eqquipmentList[currentIndex].aimSpeed);
+    //    }
+    //    else
+    //    {
+    //        //hip
+    //        anchor.position = Vector3.Lerp(anchor.position, state_hip.position, Time.deltaTime * eqquipmentList[currentIndex].aimSpeed);
+    //    }
+    //}
 
 
     void Shoot()
