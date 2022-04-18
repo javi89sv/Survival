@@ -24,12 +24,15 @@ public class LootWarehouse : MonoBehaviour
 
     private void Update()
     {
+        if (isOpen)
+        {
 
+        }
     }
 
     private void UpdateSlots()
     {
-        
+
         foreach (Slot slot in slots)
         {
             if (slot.empty)
@@ -38,17 +41,18 @@ public class LootWarehouse : MonoBehaviour
                 {
                     Debug.Log("Item Selected");
                     slot.item = loot[i].GetComponent<InteractiveItem>().item;
-                    
+
 
                 }
 
             }
-            
+
         }
     }
 
     private void AddItemSlot()
     {
+
         foreach (GameObject item in loot)
         {
             if (item != null)
@@ -61,19 +65,41 @@ public class LootWarehouse : MonoBehaviour
                     slots[i].amount = item.GetComponent<InteractiveItem>().quantity;
                     slots[i].empty = false;
                     slots[i].UpdateSlot();
-                    
+                    AddItem();
+                    return;
                 }
                 
+
             }
 
         }
-    }   
+    }
 
     private void AddItem()
     {
+
         foreach (Slot slot in slots)
         {
-            
+            if (slot.empty == false)
+            {
+
+                for (int i = 0; i < loot.Length; i++)
+                {
+                    if (loot[i] == null)
+                    {
+
+                        loot[i] = slot.prefab;
+                        break;
+
+
+                    }
+                    
+                }
+             
+
+            }
+
+
         }
     }
 
@@ -88,34 +114,33 @@ public class LootWarehouse : MonoBehaviour
         }
     }
 
-    private void OnTriggerEnter(Collider other)
-    {
-        if (other.CompareTag("Player"))
-        {
-            Debug.Log("Collision");
+    //private void OnTriggerEnter(Collider other)
+    //{
+    //    if (other.CompareTag("Player"))
+    //    {
+    //        Debug.Log("Collision");
 
-            
-            menuUI.gameObject.SetActive(true);
-            AddItemSlot();
-            isOpen = true;
-            
 
-        }
-    }
-    private void OnTriggerExit(Collider other)
-    {
-        if (other.CompareTag("Player"))
-        {
-            Debug.Log("Collision");
+    //        menuUI.gameObject.SetActive(true);           
+    //        isOpen = true;
 
-            
-            menuUI.gameObject.SetActive(false);
-            DeleteItem();
-            isOpen = false;
-            
 
-        }
-    }
+    //    }
+    //}
+    //private void OnTriggerExit(Collider other)
+    //{
+    //    if (other.CompareTag("Player"))
+    //    {
+    //        Debug.Log("Collision");
+
+
+    //        menuUI.gameObject.SetActive(false);
+    //        DeleteItem();
+    //        isOpen = false;
+
+
+    //    }
+    //}
 
 
 }

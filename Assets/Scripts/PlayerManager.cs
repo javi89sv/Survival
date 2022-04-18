@@ -26,6 +26,8 @@ public class PlayerManager : MonoBehaviour
     private float baseFOV;
     private float sprintFOVModifier = 1.2f;
 
+    private float distanceInteract = 2f;
+
 
     [HideInInspector]
     public float currentHealth, currentFood, currentDrink;
@@ -70,8 +72,6 @@ public class PlayerManager : MonoBehaviour
         bool jump = Input.GetButtonDown("Jump");
 
         //States
-
-
         bool isJumping = jump && isGrounded;
         bool isSprinting = sprint && vmove > 0 && !isJumping;
 
@@ -123,6 +123,24 @@ public class PlayerManager : MonoBehaviour
         else
         {
             normalCam.fieldOfView = Mathf.Lerp(normalCam.fieldOfView, baseFOV, Time.deltaTime * 8f);
+        }
+
+        //Inputs
+
+        RaycastHit hit;
+        if (Physics.Raycast(Camera.main.transform.position, Camera.main.transform.forward, out hit, distanceInteract))
+        {
+            if (hit.collider.tag == "Storage")
+            {
+                if (Input.GetKeyDown(KeyCode.E))
+                {
+                    LootWarehouse chest = hit.transform.GetComponent<LootWarehouse>();
+                    chest.isOpen = true;
+                    chest.menuUI.gameObject.SetActive(true);
+                    GameManager.instance.inventoryEnable = true;
+                }
+            }
+
         }
 
     }

@@ -12,12 +12,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9624f338aee94b049a4cc90c28c96e16, type: 3}
   m_Name: Torch
   m_EditorClassIdentifier: 
-  name: 
+  name: Torch
   type: 0
-  damage: 0
-  firerate: 0
+  damage: 5
+  firerate: 1
   bloom: 0
   recoil: 0
   kickback: 0
   aimSpeed: 0
-  prefab: {fileID: 0}
+  prefab: {fileID: 4945326620971950362, guid: 4324680aed0e7db45a2ce16871ec485c, type: 3}

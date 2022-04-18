@@ -26,6 +26,7 @@ public class GameManager : MonoBehaviour
     public GameObject menuInventory;
     public GameObject menuCrafting;
     public GameObject menuItemInfo;
+    public GameObject menuLoot;
     public TextMeshProUGUI textInfo;
     public Image imageInfo;
 
@@ -62,6 +63,7 @@ public class GameManager : MonoBehaviour
             textInfo.text = "";
             imageInfo.sprite = null;
             menuItemInfo.SetActive(false);
+            menuLoot.SetActive(false);
         }
 
     }
