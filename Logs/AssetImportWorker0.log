@@ -1022,3 +1022,80 @@ Received Import Request.
   path: Assets/Prefabs/Resource/Tree02.prefab
   artifactKey: Guid(f37ff43935cb5dc46b1b6c94fef8edef) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
 Start importing Assets/Prefabs/Resource/Tree02.prefab using Guid(f37ff43935cb5dc46b1b6c94fef8edef) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'f4526755261b508ece932e7c60f43170') in 0.072464 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 84.993016 seconds.
+  path: Assets/ScriptableObject/Loot/Enemy.asset
+  artifactKey: Guid(ea4617770d968e342bbc1ca4f7190fc0) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/ScriptableObject/Loot/Enemy.asset using Guid(ea4617770d968e342bbc1ca4f7190fc0) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'f6ce5a2b391fbe7d6505cb41a099b403') in 0.065689 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000027 seconds.
+  path: Assets/ScriptableObject/Loot/Tree.asset
+  artifactKey: Guid(0e320bf5988d82240a0ac644e0cfe12f) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/ScriptableObject/Loot/Tree.asset using Guid(0e320bf5988d82240a0ac644e0cfe12f) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '7ab5eac8411d1c8b7b762c0f4f541e1a') in 0.007423 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000034 seconds.
+  path: Assets/ScriptableObject/Loot/Node Stone.asset
+  artifactKey: Guid(f02e9dc0e85d378468f6383aa3fee91b) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/ScriptableObject/Loot/Node Stone.asset using Guid(f02e9dc0e85d378468f6383aa3fee91b) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '4f26bc31b1614166250bcc577d70a9b0') in 0.004187 seconds 
+========================================================================
+Received Prepare
+Registering precompiled user dll's ...
+Registered in 0.004912 seconds.
+Begin MonoManager ReloadAssembly
+Symbol file LoadedFromMemory is not a mono symbol file
+Native extension for WindowsStandalone target not found
+Refreshing native plugins compatible for Editor in 0.30 ms, found 2 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Mono: successfully reloaded assembly
+- Completed reload, in  1.032 seconds
+Domain Reload Profiling:
+	ReloadAssembly (1033ms)
+		BeginReloadAssembly (149ms)
+			ExecutionOrderSort (0ms)
+			DisableScriptedObjects (6ms)
+			BackupInstance (0ms)
+			ReleaseScriptingObjects (0ms)
+			CreateAndSetChildDomain (29ms)
+		EndReloadAssembly (763ms)
+			LoadAssemblies (110ms)
+			RebuildTransferFunctionScriptingTraits (0ms)
+			SetupTypeCache (183ms)
+			ReleaseScriptCaches (1ms)
+			RebuildScriptCaches (48ms)
+			SetupLoadedEditorAssemblies (382ms)
+				LogAssemblyErrors (0ms)
+				InitializePlatformSupportModulesInManaged (15ms)
+				SetLoadedEditorAssemblies (1ms)
+				RefreshPlugins (0ms)
+				BeforeProcessingInitializeOnLoad (61ms)
+				ProcessInitializeOnLoadAttributes (256ms)
+				ProcessInitializeOnLoadMethodAttributes (35ms)
+				AfterProcessingInitializeOnLoad (14ms)
+				EditorAssembliesLoaded (0ms)
+			ExecutionOrderSort2 (0ms)
+			AwakeInstancesAfterBackupRestoration (9ms)
+Platform modules already initialized, skipping
+Refreshing native plugins compatible for Editor in 1.45 ms, found 2 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Unloading 1659 Unused Serialized files (Serialized files now loaded: 0)
+Unloading 9 unused Assets / (24.7 KB). Loaded Objects now: 2210.
+Memory consumption went from 79.3 MB to 79.2 MB.
+Total: 3.572000 ms (FindLiveObjects: 0.176000 ms CreateObjectMapping: 0.051200 ms MarkObjects: 3.327300 ms  DeleteObjects: 0.016200 ms)
+
+AssetImportParameters requested are different than current active one (requested -> active):
+  custom:video-decoder-ogg-theora: a1e56fd34408186e4bbccfd4996cb3dc -> 
+  custom:container-muxer-webm: aa71ff27fc2769a1b78a27578f13a17b -> 
+  custom:container-demuxer-webm: 4f35f7cbe854078d1ac9338744f61a02 -> 
+  custom:video-encoder-webm-vp8: eb34c28f22e8b96e1ab97ce403110664 -> 
+  custom:audio-encoder-webm-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
+  custom:framework-win-MediaFoundation: 216162199b28c13a410421893ffa2e32 -> 
+  custom:container-demuxer-ogg: 62fdf1f143b41e24485cea50d1cbac27 -> 
+  custom:video-decoder-webm-vp8: 9c59270c3fd7afecdb556c50c9e8de78 -> 
+  custom:audio-decoder-ogg-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
+Editor requested this worker to shutdown with reason: Scaling down because of idle timeout
+AssetImportWorker is now disconnected from the server
+Process exiting
+Exiting without the bug reporter. Application will terminate with return code 0

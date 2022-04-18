@@ -12,7 +12,7 @@ TagManager:
   - Container
   - DragLayer
   - Enemy
-  - Bullet
+  - Storage
   layers:
   - Default
   - TransparentFX

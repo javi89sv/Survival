@@ -75,6 +75,9 @@ public class DragDropInventory : MonoBehaviour, IBeginDragHandler, IDragHandler,
 
             eventData.pointerDrag.GetComponent<Slot>().DropItem();
         }
+
+        
+
         else
         {
             if (!this.GetComponent<Slot>().empty && this.GetComponent<Slot>().id == eventData.pointerDrag.GetComponent<Slot>().id && this.GetComponent<Slot>().maxStackSize != true)

@@ -121,7 +121,7 @@ public class Slot : MonoBehaviour, IPointerClickHandler
 
         }
     }
-    
+
     void UpdatePrefab()
     {
         if (item == null || this.empty)
@@ -184,8 +184,8 @@ public class Slot : MonoBehaviour, IPointerClickHandler
         goDropped.GetComponent<Collider>().enabled = true;
         goDropped.GetComponent<Rigidbody>().isKinematic = false;
         goDropped.GetComponent<InteractiveItem>().quantity = amount;
-        goDropped.transform.position = new Vector3(player.transform.position.x, player.transform.position.y + 1f, player.transform.position.z);
-        goDropped.GetComponent<Rigidbody>().AddForce(player.transform.forward * 200);
+        goDropped.transform.position = new Vector3(player.transform.position.x + 1f, player.transform.position.y + 1f, player.transform.position.z + 1f);
+        goDropped.GetComponent<Rigidbody>().AddForce(player.transform.forward * 100);
 
         CleanSlot();
 
@@ -221,7 +221,7 @@ public class Slot : MonoBehaviour, IPointerClickHandler
                 UpdateSlot();
                 Debug.Log("Usamos item ");
             }
-            else if(item.type == Item.Type.equippable)
+            else if (item.type == Item.Type.equippable)
             {
                 int listWeapons = player.GetComponent<Equippement>().eqquipmentList.Length;
 
