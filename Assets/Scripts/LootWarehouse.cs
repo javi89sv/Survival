@@ -8,7 +8,7 @@ using TMPro;
 public class LootWarehouse : MonoBehaviour
 {
 
-    public GameObject[] loot;
+    public List <GameObject> loot;
     public Slot[] slots;
 
     public GameObject menuUI;
@@ -34,6 +34,8 @@ public class LootWarehouse : MonoBehaviour
 
         slots = slotHolder.transform.GetComponentsInChildren<Slot>();
 
+        Transform canvasParent = canvas.transform.GetChild(4);
+
         player = GameObject.FindGameObjectWithTag("Player");
 
         //nameContainer.text = this.name;
@@ -51,12 +53,18 @@ public class LootWarehouse : MonoBehaviour
             menuUI.SetActive(false);
             isOpen = false;
             GameManager.instance.inventoryEnable = false;
+
         }
         if (GameManager.instance.inventoryEnable == false)
         {
             isOpen = false;
             menuUI.SetActive(false);
+        }
+
+        if(Input.GetKey(KeyCode.I) && isOpen)
+        {
             CloseContainer();
+
         }
 
     }
@@ -64,19 +72,22 @@ public class LootWarehouse : MonoBehaviour
     public void OpenContainer()
     {
 
-        foreach (Slot slot in slots)
+        foreach (GameObject loot in loot)
         {
-            
-            
-                for (int i = 0; i < loot.Length; i++)
+            if(loot != null)
+            {
+                for (int i = 0; i < slots.Length; i++)
                 {
-                    if (loot[i] != null)
+                    if (slots[i].empty)
                     {
-                        slot.item = loot[i].GetComponent<InteractiveItem>().item;
+                        slots[i].item = loot.GetComponent<InteractiveItem>().item;
+                        slots[i].amount = loot.GetComponent<InteractiveItem>().quantity;
                         
                     }
+                   
+
                 }               
-            
+            }
         }
     }
 
@@ -100,7 +111,7 @@ public class LootWarehouse : MonoBehaviour
             if (slot.empty == false)
             {
 
-                for (int i = 0; i < loot.Length; i++)
+                for (int i = 0; i < loot.Count; i++)
                 {
                     if (loot[i] == null)
                     {
