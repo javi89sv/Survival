@@ -63,14 +63,14 @@ public class GameManager : MonoBehaviour
             textInfo.text = "";
             imageInfo.sprite = null;
             menuItemInfo.SetActive(false);
-            menuLoot.SetActive(false);
+           // menuLoot.SetActive(false);
         }
 
     }
 
     
 
-    //Muestra en pantalla el objeto que obtenemos
+    //Muestra en pantalla el objeto que recogemos
     public void UpdateText(string name, int amount)
     {
         counterText.CrossFadeAlpha(1f, 0f, false);

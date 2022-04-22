@@ -108,6 +108,9 @@ public class UICrafting : MonoBehaviour
     {
         
         GameObject go = Instantiate(recipe.result.prefab);
+        go.GetComponent<MeshRenderer>().enabled = false;
+        go.GetComponent<Collider>().enabled = false;
+        go.GetComponent<Rigidbody>().isKinematic = true;
         InventoryManager.instance.AddItem(go, recipe.result, recipe.result.id, recipe.amountResult);
     }
 

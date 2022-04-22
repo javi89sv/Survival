@@ -11,9 +11,13 @@ public class Slot : MonoBehaviour, IPointerClickHandler
     public Item item;
     public InteractiveItem interactiveItem;
     public GameObject prefab;
+    public Image iconSlot;
 
+    [HideInInspector]
     public int id;
+    [HideInInspector]
     public bool maxStackSize;
+    [HideInInspector]
     public bool empty;
 
     private int _amount;
@@ -48,20 +52,19 @@ public class Slot : MonoBehaviour, IPointerClickHandler
         }
     }
 
-    public GameObject player;
+    private GameObject player;
     private TextMeshProUGUI textAmount;
-    public TextMeshProUGUI textInfo;
-    public GameObject panelInfo;
-    public Image imageInfo;
-    public Image iconSlot;
     private Image conditionBar;
+    [Header("--Panel Info--")]
+    public ShowInfoItem infoUI;
 
-    public GameObject[] slotsBar;
+
 
 
     void Start()
     {
 
+        infoUI = FindObjectOfType<ShowInfoItem>();
         player = GameObject.FindGameObjectWithTag("Player");
         iconSlot = transform.GetChild(0).GetComponent<Image>();
         textAmount = transform.GetChild(1).GetComponent<TextMeshProUGUI>();
@@ -92,11 +95,15 @@ public class Slot : MonoBehaviour, IPointerClickHandler
             CleanSlot();
         }
 
-        if (amount >= 1000)
+        if (item)
         {
-            maxStackSize = true;
-
+            if (amount >= item.maxStack)
+            {
+                maxStackSize = true;
+            }
         }
+
+
 
     }
 
@@ -250,8 +257,7 @@ public class Slot : MonoBehaviour, IPointerClickHandler
 
         if (pointerEventData.button == PointerEventData.InputButton.Left && item)
         {
-            panelInfo.SetActive(true);
-            ShowInfoItem();
+            infoUI.ShowInfo(this);
         }
 
         else if (pointerEventData.button == PointerEventData.InputButton.Right)
@@ -263,14 +269,6 @@ public class Slot : MonoBehaviour, IPointerClickHandler
     {
         condition -= damage;
     }
-
-    public void ShowInfoItem()
-    {
-        imageInfo.sprite = item.icon;
-        textInfo.text = item.name.ToString() + "\r\n" + item.description.ToString();
-        ButtonSelect.instance.go = this.gameObject;
-    }
-
 
 
     //public void OnPointerEnter(PointerEventData eventData)

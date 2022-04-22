@@ -1,6 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!1 &753935588723820595
+--- !u!1 &4314006651321892035
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -8,11 +8,12 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 89320755520131721}
-  - component: {fileID: 3932363023000788268}
-  - component: {fileID: 1258325208956611046}
-  - component: {fileID: 5808208189200541222}
-  - component: {fileID: 306008360554634035}
+  - component: {fileID: 3500913870091249273}
+  - component: {fileID: 520839794197653980}
+  - component: {fileID: 2368491263727574294}
+  - component: {fileID: 7003674449770582742}
+  - component: {fileID: 3861769226716360643}
+  - component: {fileID: 3826606382483087910}
   m_Layer: 0
   m_Name: Chest
   m_TagString: Storage
@@ -20,36 +21,36 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &89320755520131721
+--- !u!4 &3500913870091249273
 Transform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 753935588723820595}
-  m_LocalRotation: {x: 0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -0, y: 0, z: 0}
+  m_GameObject: {fileID: 4314006651321892035}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: -24.26}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!33 &3932363023000788268
+--- !u!33 &520839794197653980
 MeshFilter:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 753935588723820595}
+  m_GameObject: {fileID: 4314006651321892035}
   m_Mesh: {fileID: 2534964839176971238, guid: 4f315b58c2124fd468f2956535006e70, type: 3}
---- !u!23 &1258325208956611046
+--- !u!23 &2368491263727574294
 MeshRenderer:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 753935588723820595}
+  m_GameObject: {fileID: 4314006651321892035}
   m_Enabled: 1
   m_CastShadows: 1
   m_ReceiveShadows: 1
@@ -85,13 +86,13 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!54 &5808208189200541222
+--- !u!54 &7003674449770582742
 Rigidbody:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 753935588723820595}
+  m_GameObject: {fileID: 4314006651321892035}
   serializedVersion: 2
   m_Mass: 1
   m_Drag: 0
@@ -101,16 +102,52 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
---- !u!65 &306008360554634035
+--- !u!65 &3861769226716360643
 BoxCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 753935588723820595}
+  m_GameObject: {fileID: 4314006651321892035}
   m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
   m_Size: {x: 1.5000002, y: 1.1782938, z: 1.0000002}
   m_Center: {x: -0.000000029802322, y: 0.5905166, z: 0}
+--- !u!114 &3826606382483087910
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4314006651321892035}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fcbbbcbda957f0744946ca7b4e463d46, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  loot:
+  - {fileID: 5157859071150991556, guid: 9fac695a178c18b4b8fbff5b0aabfc49, type: 3}
+  slots:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  menuUI: {fileID: 0}
+  nameContainer: {fileID: 0}
+  canvas: {fileID: 0}
+  panelUI: {fileID: 0}
+  isOpen: 1
+  radius: 3

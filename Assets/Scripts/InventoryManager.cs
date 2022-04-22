@@ -24,6 +24,9 @@ public class InventoryManager : MonoBehaviour
     {
         instance = this;
         slot = slotHolder.transform.GetComponentsInChildren<Slot>();
+
+        RefreshItemList();
+
     }
 
     private void Update()
@@ -33,7 +36,7 @@ public class InventoryManager : MonoBehaviour
 
     }
 
-    
+
     private void CollectItems()
     {
         RaycastHit hit;
@@ -41,7 +44,7 @@ public class InventoryManager : MonoBehaviour
         {
             if (hit.collider.tag == "Item")
             {
-                if (Input.GetKeyDown(KeyCode.E))
+                if (Input.GetKey(KeyCode.E))
                 {
                     itemPickedUp = hit.collider.gameObject;
 
@@ -159,6 +162,11 @@ public class InventoryManager : MonoBehaviour
             {
 
                 slot[i].GetComponent<Slot>().amount -= amount;
+                GameObject prefab = slot[i].GetComponentInChildren<InteractiveItem>().gameObject;
+                if (slot[i].amount == 0)
+                {
+                    Destroy(prefab);
+                }
                 slot[i].UpdateSlot();
             }
         }
@@ -190,6 +198,19 @@ public class InventoryManager : MonoBehaviour
 
     //    }
     //}
+
+    void RefreshItemList()
+    {
+        for (int i = 0; i < slot.Length; i++)
+        {
+            if (slot[i].GetComponentInChildren<InteractiveItem>())
+            {
+                Debug.Log("entramos en bucle");
+                items.Add(slot[i].GetComponentInChildren<InteractiveItem>());
+            }
+
+        }
+    }
 
 
 
