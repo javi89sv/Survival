@@ -86,9 +86,7 @@ public class LootWarehouse : MonoBehaviour
                         slots[i].UpdateSlot();
                         break;
                         
-                    }
-                   
-
+                    }                 
                 }               
             }
         }

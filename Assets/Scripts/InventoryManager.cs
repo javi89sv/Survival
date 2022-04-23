@@ -9,7 +9,8 @@ public class InventoryManager : MonoBehaviour
     public static InventoryManager instance;
 
     public Slot[] slot;
-    public List<InteractiveItem> items;
+    // public List<GameObject> items;
+    public Dictionary<string, int> items = new Dictionary<string, int>();
     public GameObject slotHolder;
 
     public float distanceCollect;
@@ -25,15 +26,11 @@ public class InventoryManager : MonoBehaviour
         instance = this;
         slot = slotHolder.transform.GetComponentsInChildren<Slot>();
 
-        RefreshItemList();
-
     }
 
     private void Update()
     {
-
         CollectItems();
-
     }
 
 
@@ -73,20 +70,20 @@ public class InventoryManager : MonoBehaviour
                 slot[i].amount += quantity;
                 slot[i].UpdateSlot();
                 GameManager.instance.UpdateText(item.name, quantity);
-                Destroy(prefab);
+
 
                 return;
             }
             else if (slot[i].empty)
             {
+                items.Add(prefab.name, quantity);
                 slot[i].item = item;
-                items.Add(prefab.GetComponent<InteractiveItem>());
-                prefab.transform.parent = slot[i].transform;
                 slot[i].id = id;
                 slot[i].amount = quantity;
                 slot[i].empty = false;
                 slot[i].UpdateSlot();
                 GameManager.instance.UpdateText(item.name, quantity);
+                Destroy(prefab);
 
                 return;
             }
@@ -98,8 +95,6 @@ public class InventoryManager : MonoBehaviour
         Destroy(prefab);
         goReyected.GetComponent<Rigidbody>().AddForce(transform.forward * 200);
     }
-
-
 
 
     public int GetItemAmount(int id)
@@ -183,36 +178,5 @@ public class InventoryManager : MonoBehaviour
     {
         StartCoroutine(CraftTimer(time));
     }
-
-
-    //public void DamageItem(Item item)
-    //{
-    //    for (int i = 0; i < slots.Length; i++)
-    //    {
-    //        if (item.id == slots[i].GetComponent<Slot>().item.id)
-    //        {
-    //            slots[i].TakeDamage(10);
-    //            slots[i].UpdateSlot();
-
-    //        }
-
-    //    }
-    //}
-
-    void RefreshItemList()
-    {
-        for (int i = 0; i < slot.Length; i++)
-        {
-            if (slot[i].GetComponentInChildren<InteractiveItem>())
-            {
-                Debug.Log("entramos en bucle");
-                items.Add(slot[i].GetComponentInChildren<InteractiveItem>());
-            }
-
-        }
-    }
-
-
-
 
 }

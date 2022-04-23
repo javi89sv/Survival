@@ -5,12 +5,8 @@ using UnityEngine.EventSystems;
 public class DragDropInventory : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDragHandler, IDropHandler
 {
     private Slot dragItem;
-    public static GameObject itemDragging;
     public Image dragImage;
     public CanvasGroup canvasGroup;
-    private Vector3 startPosition;
-    private Transform startParent;
-
 
 
     private void Start()
@@ -24,16 +20,10 @@ public class DragDropInventory : MonoBehaviour, IBeginDragHandler, IDragHandler,
     {
         if (dragItem.item != null)
         {
-            itemDragging = GetComponent<Slot>().prefab;
 
             dragImage.sprite = dragItem.item.icon;
             dragImage.transform.position = Input.mousePosition;
             dragImage.enabled = true;
-
-            startPosition = itemDragging.transform.position;
-            startParent = itemDragging.transform.parent;
-
-            //itemDragging.transform.SetParent(transform.root);
 
             canvasGroup.blocksRaycasts = false;
             canvasGroup.alpha = 0.6f;
@@ -49,17 +39,7 @@ public class DragDropInventory : MonoBehaviour, IBeginDragHandler, IDragHandler,
 
     public void OnEndDrag(PointerEventData eventData)
     {
-        
-
-        if (itemDragging.transform.parent == startParent || itemDragging.transform.parent == transform.root)
-        {
-            //itemBeingDragged.transform.position = startPosition;
-            itemDragging.transform.SetParent(startParent);
-
-        }
-
-      
-
+       
         GetComponent<Image>().raycastTarget = true;
         canvasGroup.blocksRaycasts = true;
         canvasGroup.alpha = 1f;
@@ -72,11 +52,8 @@ public class DragDropInventory : MonoBehaviour, IBeginDragHandler, IDragHandler,
 
         if (!this.GetComponent<Slot>())
         {
-
             eventData.pointerDrag.GetComponent<Slot>().DropItem();
         }
-
-        
 
         else
         {
@@ -84,8 +61,8 @@ public class DragDropInventory : MonoBehaviour, IBeginDragHandler, IDragHandler,
             {
                 this.GetComponent<Slot>().amount += eventData.pointerDrag.GetComponent<Slot>().amount;
                 this.GetComponent<Slot>().empty = false;
-                eventData.pointerDrag.GetComponent<Slot>().CleanSlot();
                 this.GetComponent<Slot>().UpdateSlot();
+                eventData.pointerDrag.GetComponent<Slot>().CleanSlot();
 
 
             }
@@ -99,16 +76,14 @@ public class DragDropInventory : MonoBehaviour, IBeginDragHandler, IDragHandler,
                
                 Debug.Log("On Drop");
                 this.GetComponent<Slot>().item = eventData.pointerDrag.GetComponent<Slot>().item;
-                this.GetComponent<Slot>().prefab = eventData.pointerDrag.GetComponent<Slot>().prefab;
-                this.GetComponent<Slot>().id = eventData.pointerDrag.GetComponent<Slot>().id;
-                this.GetComponent<Slot>().amount = eventData.pointerDrag.GetComponent<Slot>().amount;
+                this.GetComponent<Slot>().amount = eventData.pointerDrag.GetComponent<Slot>().amount;               
                 this.GetComponent<Slot>().empty = false;
+                this.GetComponent<Slot>().UpdateSlot();
                 if (eventData.pointerDrag.GetComponent<Slot>().maxStackSize)
                 {
                     eventData.pointerDrag.GetComponent<Slot>().maxStackSize = false;
                 }
                 eventData.pointerDrag.GetComponent<Slot>().CleanSlot();
-                this.GetComponent<Slot>().UpdateSlot();
 
             }
 
