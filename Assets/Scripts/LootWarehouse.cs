@@ -82,6 +82,9 @@ public class LootWarehouse : MonoBehaviour
                     {
                         slots[i].item = loot.GetComponent<InteractiveItem>().item;
                         slots[i].amount = loot.GetComponent<InteractiveItem>().quantity;
+                        slots[i].empty = false;
+                        slots[i].UpdateSlot();
+                        break;
                         
                     }
                    

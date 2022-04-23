@@ -183,7 +183,7 @@ public class Slot : MonoBehaviour, IPointerClickHandler
             GameManager.instance.weapon.gameObject.SetActive(false);
         }
 
-        GameObject goDropped = GetComponentInChildren<InteractiveItem>().gameObject;
+        GameObject goDropped = Instantiate(prefab);
 
         Debug.Log("Drop item!!");
         goDropped.transform.SetParent(null);

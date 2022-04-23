@@ -24,7 +24,7 @@ public class DragDropInventory : MonoBehaviour, IBeginDragHandler, IDragHandler,
     {
         if (dragItem.item != null)
         {
-            itemDragging = GetComponentInChildren<InteractiveItem>().gameObject;
+            itemDragging = GetComponent<Slot>().prefab;
 
             dragImage.sprite = dragItem.item.icon;
             dragImage.transform.position = Input.mousePosition;
@@ -96,7 +96,7 @@ public class DragDropInventory : MonoBehaviour, IBeginDragHandler, IDragHandler,
                 {
                     GameManager.instance.weapon.gameObject.SetActive(false);
                 }
-                DragDropInventory.itemDragging.transform.SetParent(transform);
+               
                 Debug.Log("On Drop");
                 this.GetComponent<Slot>().item = eventData.pointerDrag.GetComponent<Slot>().item;
                 this.GetComponent<Slot>().prefab = eventData.pointerDrag.GetComponent<Slot>().prefab;

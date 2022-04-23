@@ -132,15 +132,14 @@ public class PlayerManager : MonoBehaviour
         {
             if (hit.collider.tag == "Storage")
             {
+                LootWarehouse chest = hit.transform.GetComponent<LootWarehouse>();
 
-                if (Input.GetKey(KeyCode.E))
+                if (Input.GetKeyDown(KeyCode.E) && chest.isOpen != true)
                 {
-                    LootWarehouse chest = hit.transform.GetComponent<LootWarehouse>();
                     chest.isOpen = true;
                     chest.menuUI.gameObject.SetActive(true);
                     chest.OpenContainer();
                     GameManager.instance.inventoryEnable = true;
-
                 }   
             }
         }
