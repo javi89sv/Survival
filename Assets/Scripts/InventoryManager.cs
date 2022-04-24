@@ -2,15 +2,21 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+public struct AddItem
+{
+    public Item item;
+    public int amount;
 
+}
 
 public class InventoryManager : MonoBehaviour
 {
     public static InventoryManager instance;
 
     public Slot[] slot;
-    // public List<GameObject> items;
-    public Dictionary<string, int> items = new Dictionary<string, int>();
+    //public List<GameObject> items;
+    public Dictionary<string, int> listItems = new Dictionary<string, int>();
+    
     public GameObject slotHolder;
 
     public float distanceCollect;
@@ -76,7 +82,7 @@ public class InventoryManager : MonoBehaviour
             }
             else if (slot[i].empty)
             {
-                items.Add(prefab.name, quantity);
+                listItems.Add(prefab.name,quantity);
                 slot[i].item = item;
                 slot[i].id = id;
                 slot[i].amount = quantity;

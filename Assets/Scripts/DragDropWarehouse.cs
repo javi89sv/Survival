@@ -5,12 +5,8 @@ using UnityEngine.EventSystems;
 public class DragDropWarehouse : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDragHandler
 {
     private Slot dragItem;
-    public static GameObject itemDragging;
     public Image dragImage;
     public CanvasGroup canvasGroup;
-    private Vector3 startPosition;
-    private Transform startParent;
-
 
 
     private void Start()
@@ -24,16 +20,10 @@ public class DragDropWarehouse : MonoBehaviour, IBeginDragHandler, IDragHandler,
     {
         if (dragItem.item != null)
         {
-            itemDragging = GetComponentInChildren<InteractiveItem>().gameObject;
 
             dragImage.sprite = dragItem.item.icon;
             dragImage.transform.position = Input.mousePosition;
             dragImage.enabled = true;
-
-            startPosition = itemDragging.transform.position;
-            startParent = itemDragging.transform.parent;
-
-            //itemDragging.transform.SetParent(transform.root);
 
             canvasGroup.blocksRaycasts = false;
             canvasGroup.alpha = 0.6f;
@@ -50,20 +40,68 @@ public class DragDropWarehouse : MonoBehaviour, IBeginDragHandler, IDragHandler,
     public void OnEndDrag(PointerEventData eventData)
     {
 
-
-        if (itemDragging.transform.parent == startParent || itemDragging.transform.parent == transform.root)
-        {
-            //itemBeingDragged.transform.position = startPosition;
-            itemDragging.transform.SetParent(startParent);
-
-        }
-
-
-
         GetComponent<Image>().raycastTarget = true;
         canvasGroup.blocksRaycasts = true;
         canvasGroup.alpha = 1f;
         dragImage.enabled = false;
+
+    }
+
+    public void OnDrop(PointerEventData eventData)
+    {
+
+        if (!this.GetComponent<Slot>())
+        {
+            eventData.pointerDrag.GetComponent<Slot>().DropItem();
+        }
+
+        else
+        {
+            if (!this.GetComponent<Slot>().empty && this.GetComponent<Slot>().id == eventData.pointerDrag.GetComponent<Slot>().id && this.GetComponent<Slot>().maxStackSize != true)
+            {
+                this.GetComponent<Slot>().amount += eventData.pointerDrag.GetComponent<Slot>().amount;
+                this.GetComponent<Slot>().empty = false;
+                this.GetComponent<Slot>().UpdateSlot();
+                eventData.pointerDrag.GetComponent<Slot>().CleanSlot();
+
+            }
+
+            if (this.GetComponent<Slot>().empty && !this.GetComponent<Slot>().maxStackSize)
+            {
+                if (GameManager.instance.weapon != null)
+                {
+                    GameManager.instance.weapon.gameObject.SetActive(false);
+                }
+
+                Debug.Log("On Drop");
+                this.GetComponent<Slot>().item = eventData.pointerDrag.GetComponent<Slot>().item;
+                this.GetComponent<Slot>().amount = eventData.pointerDrag.GetComponent<Slot>().amount;
+                this.GetComponent<Slot>().empty = false;
+                this.GetComponent<Slot>().UpdateSlot();
+                LootWarehouse lootWarehouse = ChestManager.instance.openChestCurrent.GetComponent<LootWarehouse>();
+
+                for (int i = 0; i < lootWarehouse.loot.Count; i++)
+                {
+                    if (lootWarehouse.loot[i] == null)
+                    {
+
+                        lootWarehouse.loot[i] = eventData.pointerDrag.GetComponent<Slot>().prefab;
+                        break;
+                    }
+                }
+
+
+
+                if (eventData.pointerDrag.GetComponent<Slot>().maxStackSize)
+                {
+                    eventData.pointerDrag.GetComponent<Slot>().maxStackSize = false;
+                }
+                eventData.pointerDrag.GetComponent<Slot>().CleanSlot();
+
+            }
+
+        }
+
 
     }
 

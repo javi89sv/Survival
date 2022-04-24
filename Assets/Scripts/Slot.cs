@@ -12,8 +12,10 @@ public class Slot : MonoBehaviour, IPointerClickHandler
     public InteractiveItem interactiveItem;
     public GameObject prefab;
     public Image iconSlot;
+    public TextMeshProUGUI textAmount;
+    public Image conditionBar;
 
-    [HideInInspector]
+    
     public int id;
     [HideInInspector]
     public bool maxStackSize;
@@ -53,8 +55,8 @@ public class Slot : MonoBehaviour, IPointerClickHandler
     }
 
     private GameObject player;
-    private TextMeshProUGUI textAmount;
-    private Image conditionBar;
+    
+    
     [Header("--Panel Info--")]
     public ShowInfoItem infoUI;
 
@@ -65,11 +67,8 @@ public class Slot : MonoBehaviour, IPointerClickHandler
     {
 
         infoUI = FindObjectOfType<ShowInfoItem>();
-        player = GameObject.FindGameObjectWithTag("Player");
-        iconSlot = transform.GetChild(0).GetComponent<Image>();
-        textAmount = transform.GetChild(1).GetComponent<TextMeshProUGUI>();
-        conditionBar = transform.GetChild(2).GetComponent<Image>();
-
+        player = GameObject.FindGameObjectWithTag("Player");       
+        
         CheckEmpty();
 
     }
@@ -103,8 +102,6 @@ public class Slot : MonoBehaviour, IPointerClickHandler
             }
         }
 
-
-
     }
 
     public void UpdateSlot()
@@ -113,6 +110,7 @@ public class Slot : MonoBehaviour, IPointerClickHandler
         UpdateIcon();
         UpdateConditionBar();
         UpdatePrefab();
+        UpdateID();
     }
 
     void UpdateAmount()
@@ -125,7 +123,6 @@ public class Slot : MonoBehaviour, IPointerClickHandler
         {
             textAmount.enabled = true;
             textAmount.text = this.amount.ToString();
-
         }
     }
 
@@ -152,6 +149,18 @@ public class Slot : MonoBehaviour, IPointerClickHandler
         {
             iconSlot.enabled = true;
             iconSlot.sprite = item.icon;
+        }
+    }
+
+    void UpdateID()
+    {
+        if(item == null)
+        {
+            id = 0;
+        }
+        else
+        {
+            id = item.id;
         }
     }
 
@@ -193,6 +202,8 @@ public class Slot : MonoBehaviour, IPointerClickHandler
         goDropped.GetComponent<InteractiveItem>().quantity = amount;
         goDropped.transform.position = new Vector3(player.transform.position.x + 1f, player.transform.position.y + 1f, player.transform.position.z + 1f);
         goDropped.GetComponent<Rigidbody>().AddForce(player.transform.forward * 100);
+
+        InventoryManager.instance.listItems.Remove(prefab.name, out _amount);
 
         CleanSlot();
 
@@ -269,27 +280,6 @@ public class Slot : MonoBehaviour, IPointerClickHandler
     {
         condition -= damage;
     }
-
-
-    //public void OnPointerEnter(PointerEventData eventData)
-    //{
-    //    if (item)
-    //    {
-    //        panelInfo.SetActive(true);
-    //        ShowInfoItem();
-    //    }
-    //    else
-    //    {
-    //        panelInfo.SetActive(false);
-    //    }
-
-    //}
-
-    //public void OnPointerExit(PointerEventData eventData)
-    //{
-    //    panelInfo.SetActive(false);
-    //}
-
 
 
 }

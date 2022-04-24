@@ -5,6 +5,8 @@ using UnityEngine.UI;
 using UnityEngine.EventSystems;
 using TMPro;
 
+public enum size { big, small}
+
 public class LootWarehouse : MonoBehaviour
 {
 
@@ -15,26 +17,33 @@ public class LootWarehouse : MonoBehaviour
     public GameObject slotHolder;
 
     private TextMeshProUGUI nameContainer;
-
-    private GameObject canvas;
-
     private GameObject player;
 
     public bool isOpen = false;
 
     public float radius;
 
+    public size size;
+
+    private void Awake()
+    {
+
+    }
+
     private void Start()
     {
-        canvas = GameObject.FindGameObjectWithTag("Canvas");
-
-        menuUI = GameObject.Find("Big Loot Menu");
+        if(size == size.big)
+        {
+           menuUI = ChestManager.instance.bigContainerUI;
+        }
+        if(size == size.small)
+        {
+            menuUI = ChestManager.instance.smallContainerUI;
+        }
 
         slotHolder = menuUI.transform.GetChild(0).gameObject;
 
-        slots = slotHolder.transform.GetComponentsInChildren<Slot>();
-
-        Transform canvasParent = canvas.transform.GetChild(4);
+        slots = menuUI.GetComponentsInChildren<Slot>();
 
         player = GameObject.FindGameObjectWithTag("Player");
 
@@ -67,10 +76,16 @@ public class LootWarehouse : MonoBehaviour
 
         }
 
+        if (isOpen)
+        {
+            AddItem();
+        }
+
     }
 
     public void OpenContainer()
     {
+        ChestManager.instance.openChestCurrent = this.gameObject;
 
         foreach (GameObject loot in loot)
         {
@@ -94,6 +109,7 @@ public class LootWarehouse : MonoBehaviour
 
     public void CloseContainer()
     {
+
         for (int i = 0; i < slots.Length; i++)
         {
             if (!slots[i].empty)

@@ -13,7 +13,7 @@ public class DragDropInventory : MonoBehaviour, IBeginDragHandler, IDragHandler,
     {
 
         dragItem = GetComponent<Slot>();
-        
+
     }
 
     public void OnBeginDrag(PointerEventData eventData)
@@ -39,7 +39,7 @@ public class DragDropInventory : MonoBehaviour, IBeginDragHandler, IDragHandler,
 
     public void OnEndDrag(PointerEventData eventData)
     {
-       
+
         GetComponent<Image>().raycastTarget = true;
         canvasGroup.blocksRaycasts = true;
         canvasGroup.alpha = 1f;
@@ -50,44 +50,45 @@ public class DragDropInventory : MonoBehaviour, IBeginDragHandler, IDragHandler,
     public void OnDrop(PointerEventData eventData)
     {
 
-        if (!this.GetComponent<Slot>())
+        if (!this.GetComponent<Slot>().empty)
         {
-            eventData.pointerDrag.GetComponent<Slot>().DropItem();
+            return;
+        }
+
+        else if (this.GetComponent<Slot>().id == eventData.pointerDrag.GetComponent<Slot>().id && eventData.pointerDrag.GetComponent<Slot>().item.isStackable)
+        {
+            this.GetComponent<Slot>().amount += eventData.pointerDrag.GetComponent<Slot>().amount;
+            this.GetComponent<Slot>().empty = false;
+            this.GetComponent<Slot>().UpdateSlot();
+            eventData.pointerDrag.GetComponent<Slot>().CleanSlot();
+
+        }
+
+        else if(this.GetComponent<Slot>().empty && !this.GetComponent<Slot>().maxStackSize)
+        {
+            if (GameManager.instance.weapon != null)
+            {
+                GameManager.instance.weapon.gameObject.SetActive(false);
+            }
+
+            Debug.Log("On Drop");
+            this.GetComponent<Slot>().item = eventData.pointerDrag.GetComponent<Slot>().item;
+            this.GetComponent<Slot>().amount = eventData.pointerDrag.GetComponent<Slot>().amount;
+            this.GetComponent<Slot>().empty = false;
+            this.GetComponent<Slot>().UpdateSlot();
+            if (eventData.pointerDrag.GetComponent<Slot>().maxStackSize)
+            {
+                eventData.pointerDrag.GetComponent<Slot>().maxStackSize = false;
+            }
+            eventData.pointerDrag.GetComponent<Slot>().CleanSlot();
+
         }
 
         else
         {
-            if (!this.GetComponent<Slot>().empty && this.GetComponent<Slot>().id == eventData.pointerDrag.GetComponent<Slot>().id && this.GetComponent<Slot>().maxStackSize != true)
-            {
-                this.GetComponent<Slot>().amount += eventData.pointerDrag.GetComponent<Slot>().amount;
-                this.GetComponent<Slot>().empty = false;
-                this.GetComponent<Slot>().UpdateSlot();
-                eventData.pointerDrag.GetComponent<Slot>().CleanSlot();
-
-
-            }
-
-            if (this.GetComponent<Slot>().empty && !this.GetComponent<Slot>().maxStackSize)
-            {
-                if (GameManager.instance.weapon != null)
-                {
-                    GameManager.instance.weapon.gameObject.SetActive(false);
-                }
-               
-                Debug.Log("On Drop");
-                this.GetComponent<Slot>().item = eventData.pointerDrag.GetComponent<Slot>().item;
-                this.GetComponent<Slot>().amount = eventData.pointerDrag.GetComponent<Slot>().amount;               
-                this.GetComponent<Slot>().empty = false;
-                this.GetComponent<Slot>().UpdateSlot();
-                if (eventData.pointerDrag.GetComponent<Slot>().maxStackSize)
-                {
-                    eventData.pointerDrag.GetComponent<Slot>().maxStackSize = false;
-                }
-                eventData.pointerDrag.GetComponent<Slot>().CleanSlot();
-
-            }
-
+            eventData.pointerDrag.GetComponent<Slot>().DropItem();
         }
+
 
 
     }
