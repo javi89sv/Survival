@@ -163,11 +163,7 @@ public class InventoryManager : MonoBehaviour
             {
 
                 slot[i].GetComponent<Slot>().amount -= amount;
-                GameObject prefab = slot[i].GetComponentInChildren<InteractiveItem>().gameObject;
-                if (slot[i].amount == 0)
-                {
-                    Destroy(prefab);
-                }
+                GameObject prefab = slot[i].prefab.gameObject;
                 slot[i].UpdateSlot();
             }
         }

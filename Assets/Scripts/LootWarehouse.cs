@@ -5,12 +5,12 @@ using UnityEngine.UI;
 using UnityEngine.EventSystems;
 using TMPro;
 
-public enum size { big, small}
+public enum size { big, small }
 
 public class LootWarehouse : MonoBehaviour
 {
 
-    public List <GameObject> loot;
+    public List<GameObject> loot;
     public Slot[] slots;
 
     public GameObject menuUI;
@@ -32,11 +32,11 @@ public class LootWarehouse : MonoBehaviour
 
     private void Start()
     {
-        if(size == size.big)
+        if (size == size.big)
         {
-           menuUI = ChestManager.instance.bigContainerUI;
+            menuUI = ChestManager.instance.bigContainerUI;
         }
-        if(size == size.small)
+        if (size == size.small)
         {
             menuUI = ChestManager.instance.smallContainerUI;
         }
@@ -70,15 +70,10 @@ public class LootWarehouse : MonoBehaviour
             menuUI.SetActive(false);
         }
 
-        if(Input.GetKey(KeyCode.I) && isOpen)
+        if (Input.GetKey(KeyCode.I) && isOpen)
         {
             CloseContainer();
 
-        }
-
-        if (isOpen)
-        {
-            AddItem();
         }
 
     }
@@ -89,7 +84,7 @@ public class LootWarehouse : MonoBehaviour
 
         foreach (GameObject loot in loot)
         {
-            if(loot != null)
+            if (loot != null)
             {
                 for (int i = 0; i < slots.Length; i++)
                 {
@@ -100,15 +95,17 @@ public class LootWarehouse : MonoBehaviour
                         slots[i].empty = false;
                         slots[i].UpdateSlot();
                         break;
-                        
-                    }                 
-                }               
+
+                    }
+                }
             }
         }
     }
 
     public void CloseContainer()
     {
+
+        RefreshItems();
 
         for (int i = 0; i < slots.Length; i++)
         {
@@ -120,7 +117,7 @@ public class LootWarehouse : MonoBehaviour
         }
     }
 
-    private void AddItem()
+    private void RefreshItems()
     {
 
         foreach (Slot slot in slots)
@@ -128,21 +125,14 @@ public class LootWarehouse : MonoBehaviour
             if (slot.empty == false)
             {
 
-                for (int i = 0; i < loot.Count; i++)
-                {
-                    if (loot[i] == null)
-                    {
-
-                        loot[i] = slot.prefab;
-                        break;
-                    }
-                }
+                loot.Add(slot.prefab);
+                
             }
         }
     }
 
 
-   
+
 
     //private void OnTriggerEnter(Collider other)
     //{

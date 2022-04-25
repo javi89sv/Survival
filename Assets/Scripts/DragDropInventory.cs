@@ -49,13 +49,18 @@ public class DragDropInventory : MonoBehaviour, IBeginDragHandler, IDragHandler,
 
     public void OnDrop(PointerEventData eventData)
     {
+        if (!this.GetComponent<Slot>())
+        {
+            eventData.pointerDrag.GetComponent<Slot>().DropItem();
+            return;
+        }
 
         if (!this.GetComponent<Slot>().empty)
         {
             return;
         }
 
-        else if (this.GetComponent<Slot>().id == eventData.pointerDrag.GetComponent<Slot>().id && eventData.pointerDrag.GetComponent<Slot>().item.isStackable)
+        if (this.GetComponent<Slot>().id == eventData.pointerDrag.GetComponent<Slot>().id && eventData.pointerDrag.GetComponent<Slot>().item.isStackable)
         {
             this.GetComponent<Slot>().amount += eventData.pointerDrag.GetComponent<Slot>().amount;
             this.GetComponent<Slot>().empty = false;
@@ -64,7 +69,7 @@ public class DragDropInventory : MonoBehaviour, IBeginDragHandler, IDragHandler,
 
         }
 
-        else if(this.GetComponent<Slot>().empty && !this.GetComponent<Slot>().maxStackSize)
+        if (this.GetComponent<Slot>().empty && !this.GetComponent<Slot>().maxStackSize)
         {
             if (GameManager.instance.weapon != null)
             {
@@ -83,13 +88,6 @@ public class DragDropInventory : MonoBehaviour, IBeginDragHandler, IDragHandler,
             eventData.pointerDrag.GetComponent<Slot>().CleanSlot();
 
         }
-
-        else
-        {
-            eventData.pointerDrag.GetComponent<Slot>().DropItem();
-        }
-
-
 
     }
 
