@@ -63,7 +63,7 @@ public class GameManager : MonoBehaviour
             textInfo.text = "";
             imageInfo.sprite = null;
             menuItemInfo.SetActive(false);
-           // menuLoot.SetActive(false);
+           
         }
 
     }

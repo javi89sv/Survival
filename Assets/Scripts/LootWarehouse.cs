@@ -84,6 +84,7 @@ public class LootWarehouse : MonoBehaviour
 
         foreach (GameObject loot in loot)
         {
+
             if (loot != null)
             {
                 for (int i = 0; i < slots.Length; i++)
@@ -129,6 +130,7 @@ public class LootWarehouse : MonoBehaviour
                 
             }
         }
+
     }
 
 

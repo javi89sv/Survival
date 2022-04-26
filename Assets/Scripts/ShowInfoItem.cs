@@ -20,6 +20,13 @@ public class ShowInfoItem : MonoBehaviour
         gameObject.SetActive(true);
     }
 
+    public void ResetInfo()
+    {
+        //nameInfo.text = "";
+        descriptionInfo.text = "";
+        imageInfo.sprite = null;
+    }
+
     public void HideInfo()
     {
         gameObject.SetActive(false);
