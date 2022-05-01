@@ -80,7 +80,7 @@ public class Slot : MonoBehaviour, IPointerClickHandler
 
     void UpdatePrefab()
     {
-        if (item == null || this.empty)
+        if (item == null)
         {
             prefab = null;
         }

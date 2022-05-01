@@ -75,16 +75,15 @@ public class InventoryManager : MonoBehaviour
                 slot[i].UpdateSlot();
                 GameManager.instance.UpdateText(item.name, quantity);
 
-
                 return;
             }
-            else if (slot[i].empty)
+
+            if (slot[i].empty)
             {
                 this.GetComponent<ItemCollection>().Add(item, quantity);
                 slot[i].item = item;
                 slot[i].id = id;
                 slot[i].amount = quantity;
-                slot[i].empty = false;
                 slot[i].UpdateSlot();
                 GameManager.instance.UpdateText(item.name, quantity);
                 Destroy(prefab);
@@ -185,24 +184,14 @@ public class InventoryManager : MonoBehaviour
         {
             if (slot[i].empty)
             {
-                foreach (var item in itemCollection.m_Items)
+                for (int j = 0; j < itemCollection.m_Items.Count; j++)
                 {
-                    slot[i].item = item;
-
-
-                    foreach (var item2 in itemCollection.m_Amounts)
-                    {
-                        slot[i].amount = item2;
-                        slot[i].UpdateSlot();
-
-                        
-                    }
-                }
-                
-            } 
-
+                    slot[i].item = itemCollection.m_Items[j];
+                    slot[i].UpdateSlot();
+                    
+                }             
+            }
         }
-
     }
 
 }
