@@ -72,7 +72,7 @@ public class UICrafting : MonoBehaviour
 
             foreach (ItemAmount itemAmount in recipe.Material)
             {
-                InventoryManager.instance.RemoveItem(itemAmount.item, itemAmount.amount);
+                InventoryManager.instance.RemoveItemsCraft(itemAmount.item, itemAmount.amount);
             }
             textCraftingItem.text = recipe.name;
             remainingTime = recipe.time;

@@ -2,27 +2,24 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public struct AddItem
-{
-    public Item item;
-    public int amount;
-
-}
-
 public class InventoryManager : MonoBehaviour
 {
     public static InventoryManager instance;
 
     public Slot[] slot;
-    //public List<GameObject> items;
-    public Dictionary<string, int> listItems = new Dictionary<string, int>();
-    
+
+    public ItemCollection itemCollection;
+
     public GameObject slotHolder;
 
     public float distanceCollect;
     LayerMask ignoreLayer;
 
     GameObject itemPickedUp;
+
+    public Slot slotSelected;
+
+    public ItemContainer openChestCurrent;
 
 
 
@@ -31,7 +28,8 @@ public class InventoryManager : MonoBehaviour
     {
         instance = this;
         slot = slotHolder.transform.GetComponentsInChildren<Slot>();
-
+        itemCollection = GetComponent<ItemCollection>();
+        RefreshSlot();
     }
 
     private void Update()
@@ -82,7 +80,7 @@ public class InventoryManager : MonoBehaviour
             }
             else if (slot[i].empty)
             {
-                listItems.Add(prefab.name,quantity);
+                this.GetComponent<ItemCollection>().Add(item, quantity);
                 slot[i].item = item;
                 slot[i].id = id;
                 slot[i].amount = quantity;
@@ -145,7 +143,6 @@ public class InventoryManager : MonoBehaviour
             if (slot[i].GetComponent<Slot>().item == item && slot[i].GetComponent<Slot>().amount >= amount)
             {
 
-
                 return true;
 
             }
@@ -154,7 +151,7 @@ public class InventoryManager : MonoBehaviour
         return false;
     }
 
-    public void RemoveItem(Item item, int amount)
+    public void RemoveItemsCraft(Item item, int amount)
     {
 
         for (int i = 0; i < slot.Length; i++)
@@ -179,6 +176,33 @@ public class InventoryManager : MonoBehaviour
     public void StartCraft(float time)
     {
         StartCoroutine(CraftTimer(time));
+    }
+
+
+    public void RefreshSlot()
+    {
+        for (int i = 0; i < slot.Length; i++)
+        {
+            if (slot[i].empty)
+            {
+                foreach (var item in itemCollection.m_Items)
+                {
+                    slot[i].item = item;
+
+
+                    foreach (var item2 in itemCollection.m_Amounts)
+                    {
+                        slot[i].amount = item2;
+                        slot[i].UpdateSlot();
+
+                        
+                    }
+                }
+                
+            } 
+
+        }
+
     }
 
 }

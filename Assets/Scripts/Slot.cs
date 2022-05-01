@@ -15,84 +15,35 @@ public class Slot : MonoBehaviour, IPointerClickHandler
     public TextMeshProUGUI textAmount;
     public Image conditionBar;
 
-    
     public int id;
-    [HideInInspector]
+
     public bool maxStackSize;
-    [HideInInspector]
+    
     public bool empty;
-
-    private int _amount;
-    public int amount
-    {
-        get { return _amount; }
-        set
-        {
-
-            if (item == null) _amount = 0; // Can't have an amount of no item.
-            else if (value > item.maxStack) _amount = item.maxStack; // Ensure we don't end up with more items than can stack.
-            else if (value < 1) _amount = 0; // Can't have a minus amount of something.
-            else _amount = value;
-
-
-        }
-    }
-
-    private int _condition;
-    public int condition
-    {
-        get { return _condition; }
-        set
-        {
-
-            if (item == null) _condition = 0;
-            else if (value > item.maxDegradable) _condition = item.maxDegradable;
-            else if (value < 1) _condition = 0;
-            else _condition = value;
-
-
-        }
-    }
+    public int amount;
+    public int condition;
 
     private GameObject player;
-    
-    
+
     [Header("--Panel Info--")]
     public ShowInfoItem infoUI;
 
-
-
+    private void Awake()
+    {
+        UpdateSlot();
+    }
 
     void Start()
     {
 
         infoUI = FindObjectOfType<ShowInfoItem>();
-        player = GameObject.FindGameObjectWithTag("Player");       
+        player = GameObject.FindGameObjectWithTag("Player");
         
-        CheckEmpty();
 
-    }
-
-
-    private void CheckEmpty()
-    {
-        if (item == null)
-        {
-            empty = true;
-        }
-        else
-        {
-            empty = false;
-        }
     }
 
     private void Update()
     {
-
-        if (amount == 0)
-        {
-            CleanSlot();
-        }
 
         if (item)
         {
@@ -111,6 +62,7 @@ public class Slot : MonoBehaviour, IPointerClickHandler
         UpdateConditionBar();
         UpdatePrefab();
         UpdateID();
+        UpdateEmpty();
     }
 
     void UpdateAmount()
@@ -141,7 +93,7 @@ public class Slot : MonoBehaviour, IPointerClickHandler
 
     void UpdateIcon()
     {
-        if (item == null || this.empty)
+        if (item == null)
         {
             iconSlot.enabled = false;
         }
@@ -154,7 +106,7 @@ public class Slot : MonoBehaviour, IPointerClickHandler
 
     void UpdateID()
     {
-        if(item == null)
+        if (item == null)
         {
             id = 0;
         }
@@ -184,8 +136,21 @@ public class Slot : MonoBehaviour, IPointerClickHandler
         }
     }
 
+    void UpdateEmpty()
+    {
+        if (item == null)
+        {
+            empty = true;
+        }
+        else
+        {
+            empty = false;
+        }
+    }
+
     public void DropItem()
     {
+        
 
         if (GameManager.instance.weapon != null)
         {
@@ -195,6 +160,7 @@ public class Slot : MonoBehaviour, IPointerClickHandler
         GameObject goDropped = Instantiate(prefab);
 
         Debug.Log("Drop item!!");
+        goDropped.name = goDropped.name.Replace("(Clone)", "");
         goDropped.transform.SetParent(null);
         goDropped.GetComponent<Renderer>().enabled = true;
         goDropped.GetComponent<Collider>().enabled = true;
@@ -203,7 +169,7 @@ public class Slot : MonoBehaviour, IPointerClickHandler
         goDropped.transform.position = new Vector3(player.transform.position.x + 1f, player.transform.position.y + 1f, player.transform.position.z + 1f);
         goDropped.GetComponent<Rigidbody>().AddForce(player.transform.forward * 100);
 
-        InventoryManager.instance.listItems.Remove(prefab.name, out _amount);
+        InventoryManager.instance.GetComponent<ItemCollection>().Remove(item, amount);
 
         CleanSlot();
 
@@ -239,7 +205,8 @@ public class Slot : MonoBehaviour, IPointerClickHandler
                 UpdateSlot();
                 Debug.Log("Usamos item ");
             }
-            else if (item.type == Item.Type.equippable)
+
+            if (item.type == Item.Type.equippable)
             {
                 int listWeapons = player.GetComponent<Equippement>().eqquipmentList.Length;
 
@@ -269,6 +236,7 @@ public class Slot : MonoBehaviour, IPointerClickHandler
         if (pointerEventData.button == PointerEventData.InputButton.Left && item)
         {
             infoUI.ShowInfo(this);
+            InventoryManager.instance.slotSelected = this;
         }
 
         else if (pointerEventData.button == PointerEventData.InputButton.Right)

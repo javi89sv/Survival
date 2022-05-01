@@ -35,6 +35,7 @@ public class GameManager : MonoBehaviour
     {
         instance = this;
         weaponManager = GameObject.FindGameObjectWithTag("WeaponManager");
+        playerPrefab = GameObject.FindGameObjectWithTag("Player");
 
     }
 

@@ -8,7 +8,7 @@ public enum type { melee, ranged, axe, pickaxe }
 public class Weapon : ScriptableObject
 {
 
-    public string name;
+    public string weaponName;
     public type type;
     public int damage;
 

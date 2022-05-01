@@ -14,6 +14,7 @@ GameObject:
   - component: {fileID: 4363594933077969549}
   - component: {fileID: 2369473041539716106}
   - component: {fileID: 2973465448273982037}
+  - component: {fileID: 1800571612679456633}
   m_Layer: 0
   m_Name: Sword
   m_TagString: Item
@@ -31,6 +32,7 @@ Transform:
   m_LocalRotation: {x: -0, y: 0.7071068, z: -0, w: 0.7071068}
   m_LocalPosition: {x: 0.496, y: 0.26100004, z: 0.967}
   m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
@@ -130,3 +132,17 @@ MonoBehaviour:
   item: {fileID: 11400000, guid: 4f0959356d6bf934eb6595bc233a0adf, type: 2}
   id: 0
   quantity: 1
+--- !u!114 &1800571612679456633
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6258097095937876570}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1af52482dd16e4b40902d868e3ee7bdc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  title: Sword
+  instruction: 

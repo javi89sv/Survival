@@ -14,6 +14,7 @@ GameObject:
   - component: {fileID: 393181571550487452}
   - component: {fileID: 1566335701804907198}
   - component: {fileID: 2439921271505032842}
+  - component: {fileID: -7256148970935208230}
   m_Layer: 0
   m_Name: Stone Pick
   m_TagString: Item
@@ -130,3 +131,17 @@ MonoBehaviour:
   item: {fileID: 11400000, guid: de10b02347b4e174c96eaae85953fdd6, type: 2}
   id: 0
   quantity: 1
+--- !u!114 &-7256148970935208230
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4825881343226066103}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1af52482dd16e4b40902d868e3ee7bdc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  title: Stone Pick
+  instruction: 

@@ -10,7 +10,7 @@ public enum size { big, small }
 public class LootWarehouse : MonoBehaviour
 {
 
-    public List<GameObject> loot;
+    public List<GameObject> database;
     public Slot[] slots;
 
     public GameObject menuUI;
@@ -80,9 +80,10 @@ public class LootWarehouse : MonoBehaviour
 
     public void OpenContainer()
     {
+       // InventoryManager.instance.openChestCurrent = this;
         ChestManager.instance.openChestCurrent = this.gameObject;
 
-        foreach (GameObject loot in loot)
+        foreach (GameObject loot in database)
         {
 
             if (loot != null)
@@ -105,8 +106,7 @@ public class LootWarehouse : MonoBehaviour
 
     public void CloseContainer()
     {
-
-        RefreshItems();
+        InventoryManager.instance.openChestCurrent = null;
 
         for (int i = 0; i < slots.Length; i++)
         {
@@ -126,11 +126,39 @@ public class LootWarehouse : MonoBehaviour
             if (slot.empty == false)
             {
 
-                loot.Add(slot.prefab);
-                
+                database.Add(slot.prefab);
+
             }
         }
 
+    }
+
+    public void AddStack(GameObject go)
+    {
+        for (int i = 0; i < database.Count; i++)
+        {
+            if (database[i] == go)
+            {
+                Debug.Log("añadimos stack");
+            }
+        }
+    }
+
+    public GameObject GetPrefab(string name)
+    {
+        foreach (GameObject item in database)
+        {
+            if (item.name == name)
+            {
+                return item;
+            }
+        }
+        return null;
+    }
+
+    public void RemoveItem(GameObject go)
+    {
+        database.Remove(go);
     }
 
 

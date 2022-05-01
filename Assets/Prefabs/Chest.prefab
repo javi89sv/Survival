@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 3500913870091249273}
   - component: {fileID: 2595219527307772653}
   - component: {fileID: 4841405257756062607}
-  - component: {fileID: 3826606382483087910}
+  - component: {fileID: 6562909753680705285}
   m_Layer: 0
   m_Name: Chest
   m_TagString: Storage
@@ -64,7 +64,7 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
---- !u!114 &3826606382483087910
+--- !u!114 &6562909753680705285
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -73,31 +73,12 @@ MonoBehaviour:
   m_GameObject: {fileID: 4314006651321892035}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fcbbbcbda957f0744946ca7b4e463d46, type: 3}
+  m_Script: {fileID: 11500000, guid: b08d9c8e0ac829a49a24be896e1d58ee, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  loot: []
-  slots:
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  menuUI: {fileID: 0}
-  slotHolder: {fileID: 0}
-  isOpen: 1
-  radius: 3
-  size: 0
+  m_Items: []
+  m_Amounts: 
+  isOpen: 0
 --- !u!1001 &4915924776664629254
 PrefabInstance:
   m_ObjectHideFlags: 0

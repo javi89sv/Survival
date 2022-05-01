@@ -32,4 +32,22 @@ public class ShowInfoItem : MonoBehaviour
         gameObject.SetActive(false);
     }
 
+    public void DropItem()
+    {
+        if(InventoryManager.instance.slotSelected != null)
+        {
+            InventoryManager.instance.slotSelected.DropItem();
+            HideInfo();
+        }
+    }
+
+    public void UseItem()
+    {
+        if (InventoryManager.instance.slotSelected != null)
+        {
+            InventoryManager.instance.slotSelected.DropItem();
+            UseItem();
+        }
+    }
+
 }

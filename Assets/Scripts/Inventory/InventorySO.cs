@@ -21,4 +21,6 @@ public struct ListItems
     public Item item;
 
     public bool isEmpty;
+
+    
 }
