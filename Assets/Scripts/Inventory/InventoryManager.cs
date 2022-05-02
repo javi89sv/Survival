@@ -8,8 +8,6 @@ public class InventoryManager : MonoBehaviour
 
     public Slot[] slot;
 
-    public ItemCollection itemCollection;
-
     public GameObject slotHolder;
 
     public float distanceCollect;
@@ -28,13 +26,14 @@ public class InventoryManager : MonoBehaviour
     {
         instance = this;
         slot = slotHolder.transform.GetComponentsInChildren<Slot>();
-        itemCollection = GetComponent<ItemCollection>();
         RefreshSlot();
+
     }
 
     private void Update()
     {
         CollectItems();
+
     }
 
 
@@ -80,9 +79,8 @@ public class InventoryManager : MonoBehaviour
 
             if (slot[i].empty)
             {
-                this.GetComponent<ItemCollection>().Add(item, quantity);
+               // this.GetComponent<ItemCollection>().Add(item, quantity);
                 slot[i].item = item;
-                slot[i].id = id;
                 slot[i].amount = quantity;
                 slot[i].UpdateSlot();
                 GameManager.instance.UpdateText(item.name, quantity);
@@ -180,18 +178,8 @@ public class InventoryManager : MonoBehaviour
 
     public void RefreshSlot()
     {
-        for (int i = 0; i < slot.Length; i++)
-        {
-            if (slot[i].empty)
-            {
-                for (int j = 0; j < itemCollection.m_Items.Count; j++)
-                {
-                    slot[i].item = itemCollection.m_Items[j];
-                    slot[i].UpdateSlot();
-                    
-                }             
-            }
-        }
+
     }
+
 
 }

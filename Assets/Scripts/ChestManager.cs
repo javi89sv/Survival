@@ -11,13 +11,11 @@ public class ChestManager : MonoBehaviour
 
     public GameObject openChestCurrent;
 
-    public ItemCollection[] lootContainer;
+
 
     private void Awake()
     {
         instance = this;
-
-        lootContainer = FindObjectsOfType<ItemCollection>();
 
     }
 

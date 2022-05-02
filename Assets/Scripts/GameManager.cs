@@ -20,10 +20,10 @@ public class GameManager : MonoBehaviour
     public bool isWeaponEquipped;
 
     // UI
-    [SerializeField]
-    public bool inventoryEnable;
 
     public GameObject menuInventory;
+    public bool inventoryEnable;
+
     public GameObject menuCrafting;
     public GameObject menuItemInfo;
     public GameObject menuLoot;
@@ -44,27 +44,27 @@ public class GameManager : MonoBehaviour
     {
         
 
-        if (Input.GetKeyDown(KeyCode.I))
+        if (Input.GetKeyDown(KeyCode.Tab))
         {
             inventoryEnable = !inventoryEnable;
         }
 
         if (inventoryEnable)
         {
-            
+
             menuInventory.SetActive(true);
             Cursor.lockState = CursorLockMode.None;
-            
+
         }
         else
         {
-            
+
             menuInventory.SetActive(false);
             Cursor.lockState = CursorLockMode.Locked;
             textInfo.text = "";
             imageInfo.sprite = null;
             menuItemInfo.SetActive(false);
-           
+
         }
 
     }

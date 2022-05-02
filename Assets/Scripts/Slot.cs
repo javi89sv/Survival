@@ -7,18 +7,23 @@ using TMPro;
 
 public class Slot : MonoBehaviour, IPointerClickHandler
 {
+    public enum TypeSlot
+    {
+        slotInventory,
+        slotHotbar,
+        slotContainer
+    }
+
+    public TypeSlot typeSlot;
 
     public Item item;
-    public InteractiveItem interactiveItem;
     public GameObject prefab;
     public Image iconSlot;
     public TextMeshProUGUI textAmount;
     public Image conditionBar;
 
     public int id;
-
     public bool maxStackSize;
-    
     public bool empty;
     public int amount;
     public int condition;
@@ -38,7 +43,6 @@ public class Slot : MonoBehaviour, IPointerClickHandler
 
         infoUI = FindObjectOfType<ShowInfoItem>();
         player = GameObject.FindGameObjectWithTag("Player");
-        
 
     }
 
@@ -52,17 +56,22 @@ public class Slot : MonoBehaviour, IPointerClickHandler
                 maxStackSize = true;
             }
         }
+        if(amount < 1)
+        {
+            CleanSlot();
+        }
 
     }
 
     public void UpdateSlot()
     {
+        UpdateEmpty();
         UpdateAmount();
         UpdateIcon();
         UpdateConditionBar();
         UpdatePrefab();
         UpdateID();
-        UpdateEmpty();
+        
     }
 
     void UpdateAmount()
@@ -168,8 +177,6 @@ public class Slot : MonoBehaviour, IPointerClickHandler
         goDropped.GetComponent<InteractiveItem>().quantity = amount;
         goDropped.transform.position = new Vector3(player.transform.position.x + 1f, player.transform.position.y + 1f, player.transform.position.z + 1f);
         goDropped.GetComponent<Rigidbody>().AddForce(player.transform.forward * 100);
-
-        InventoryManager.instance.GetComponent<ItemCollection>().Remove(item, amount);
 
         CleanSlot();
 

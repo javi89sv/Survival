@@ -5,6 +5,7 @@ using UnityEngine.EventSystems;
 
 public class DropArea : MonoBehaviour, IDropHandler
 {
+
     public void OnDrop(PointerEventData eventData)
     {
         GameObject droppedItem = eventData.pointerDrag;
@@ -13,14 +14,8 @@ public class DropArea : MonoBehaviour, IDropHandler
 
         if (!this.GetComponent<Slot>())
         {
-
-            if (droppedItem.CompareTag("SlotContainer"))
-            {
-              // InventoryManager.instance.openChestCurrent.GetComponent<ItemCollection>().Remove(InventoryManager.instance.openChestCurrent.GetPrefab(droppedItem.GetComponent<Slot>().item.prefab.name));
-            }
-
             droppedItem.GetComponent<Slot>().DropItem();
-            
+
             return;
         }
 
@@ -30,14 +25,12 @@ public class DropArea : MonoBehaviour, IDropHandler
         }
 
 
-        // Si ya tenemmos este item, lo stackeamos.
+
+       // Si ya tenemmos este item, lo stackeamos.
 
         if (this.GetComponent<Slot>().id == droppedItem.GetComponent<Slot>().id && droppedItem.GetComponent<Slot>().item.isStackable)
         {
-            if (chest)
-            {
-                
-            }
+
             this.GetComponent<Slot>().amount += droppedItem.GetComponent<Slot>().amount;
             this.GetComponent<Slot>().empty = false;
             this.GetComponent<Slot>().UpdateSlot();
@@ -55,13 +48,13 @@ public class DropArea : MonoBehaviour, IDropHandler
 
             if (this.CompareTag("SlotContainer"))
             {
-                InventoryManager.instance.openChestCurrent.GetComponent<ItemCollection>().Add(droppedItem.GetComponent<Slot>().item, droppedItem.GetComponent<Slot>().amount);
+                //InventoryManager.instance.openChestCurrent.GetComponent<ItemCollection>().Add(droppedItem.GetComponent<Slot>().item, droppedItem.GetComponent<Slot>().amount);
             }
 
 
             if (this.GetComponent<Slot>() && droppedItem.CompareTag("SlotContainer"))
             {
-               // InventoryManager.instance.openChestCurrent.database.Remove(InventoryManager.instance.openChestCurrent.GetPrefab(droppedItem.GetComponent<Slot>().item.prefab.name));
+                // InventoryManager.instance.openChestCurrent.database.Remove(InventoryManager.instance.openChestCurrent.GetPrefab(droppedItem.GetComponent<Slot>().item.prefab.name));
             }
 
             this.GetComponent<Slot>().item = droppedItem.GetComponent<Slot>().item;
@@ -69,7 +62,7 @@ public class DropArea : MonoBehaviour, IDropHandler
             this.GetComponent<Slot>().empty = false;
             this.GetComponent<Slot>().UpdateSlot();
 
-            
+
 
             if (droppedItem.GetComponent<Slot>().maxStackSize)
             {

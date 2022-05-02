@@ -132,7 +132,7 @@ public class PlayerManager : MonoBehaviour
         {
             if (hit.collider.tag == "Storage")
             {
-                LootWarehouse chest = hit.transform.GetComponent<LootWarehouse>();
+                ItemContainer chest = hit.transform.GetComponent<ItemContainer>();
 
                 if (Input.GetKeyDown(KeyCode.E) && chest.isOpen != true)
                 {

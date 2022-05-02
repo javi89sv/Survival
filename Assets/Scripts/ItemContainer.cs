@@ -7,7 +7,7 @@ using TMPro;
 
 public enum size { big, small }
 
-public class LootWarehouse : MonoBehaviour
+public class ItemContainer : MonoBehaviour
 {
 
     public List<GameObject> database;
@@ -160,37 +160,5 @@ public class LootWarehouse : MonoBehaviour
     {
         database.Remove(go);
     }
-
-
-
-
-    //private void OnTriggerEnter(Collider other)
-    //{
-    //    if (other.CompareTag("Player"))
-    //    {
-    //        Debug.Log("Collision");
-
-
-    //        menuUI.gameObject.SetActive(true);           
-    //        isOpen = true;
-
-
-    //    }
-    //}
-    //private void OnTriggerExit(Collider other)
-    //{
-    //    if (other.CompareTag("Player"))
-    //    {
-    //        Debug.Log("Collision");
-
-
-    //        menuUI.gameObject.SetActive(false);
-    //        DeleteItem();
-    //        isOpen = false;
-
-
-    //    }
-    //}
-
 
 }
