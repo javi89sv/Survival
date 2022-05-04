@@ -5,6 +5,8 @@ using UnityEngine.UI;
 
 public class PlayerManager : MonoBehaviour
 {
+    public static PlayerManager instance;
+
     [Header("--Movement--")]
     public CharacterController controller;
     public float speed;
@@ -41,6 +43,10 @@ public class PlayerManager : MonoBehaviour
     private GameObject ui_foodbar;
     private GameObject ui_drinkbar;
 
+    private void Awake()
+    {
+        instance = this;
+    }
 
     void Start()
     {

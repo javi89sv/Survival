@@ -203,9 +203,7 @@ public class Slot : MonoBehaviour, IPointerClickHandler
             {
                 Consumable consumable = prefab.GetComponent<Consumable>();
 
-                player.GetComponent<PlayerManager>().currentHealth += consumable.health;
-                player.GetComponent<PlayerManager>().currentFood += consumable.food;
-                player.GetComponent<PlayerManager>().currentDrink += consumable.drink;
+                consumable.UseConsumable();
 
                 amount -= 1;
 
@@ -228,6 +226,7 @@ public class Slot : MonoBehaviour, IPointerClickHandler
                 UpdateSlot();
                 Debug.Log("Equipamos item ");
             }
+
             else
             {
                 Debug.Log("Cant use this");

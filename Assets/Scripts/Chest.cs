@@ -10,6 +10,7 @@ public class Chest : MonoBehaviour
 
     public GameObject chestUI;
 
+  
     public List<Item> items = new List<Item>();
 
     public void AddItems()
