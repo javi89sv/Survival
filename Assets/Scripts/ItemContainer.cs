@@ -92,8 +92,8 @@ public class ItemContainer : MonoBehaviour
                 {
                     if (slots[i].empty)
                     {
-                        slots[i].item = loot.GetComponent<InteractiveItem>().item;
-                        slots[i].amount = loot.GetComponent<InteractiveItem>().quantity;
+                        slots[i].item = loot.GetComponent<InteractiveItem>().itemScript;
+                        slots[i].amount = loot.GetComponent<InteractiveItem>().amountObject;
                         slots[i].empty = false;
                         slots[i].UpdateSlot();
                         break;

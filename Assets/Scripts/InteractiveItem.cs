@@ -5,15 +5,21 @@ using UnityEngine;
 
 public class InteractiveItem : MonoBehaviour
 {
-    public Item item;
+    public Item itemScript;
     public int id;
-    public int quantity;
+    public int amountObject;
 
 
 
     private void Start()
     {
-        id = item.id;
+        id = itemScript.id;
+    }
+
+    public InteractiveItem(Item item, int amount)
+    {
+        item  = itemScript;
+        amount = amountObject;
     }
 
 

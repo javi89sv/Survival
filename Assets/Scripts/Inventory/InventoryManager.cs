@@ -53,7 +53,7 @@ public class InventoryManager : MonoBehaviour
                     itemPickedUp.GetComponent<Collider>().enabled = false;
                     itemPickedUp.GetComponent<Rigidbody>().isKinematic = true;
 
-                    AddItem(itemPickedUp, item.item, item.id, item.quantity);
+                    AddItem(itemPickedUp, item.itemScript, item.id, item.amountObject);
                     Debug.Log("Add Item!!");
                 }
             }

@@ -174,7 +174,7 @@ public class Slot : MonoBehaviour, IPointerClickHandler
         goDropped.GetComponent<Renderer>().enabled = true;
         goDropped.GetComponent<Collider>().enabled = true;
         goDropped.GetComponent<Rigidbody>().isKinematic = false;
-        goDropped.GetComponent<InteractiveItem>().quantity = amount;
+        goDropped.GetComponent<InteractiveItem>().amountObject = amount;
         goDropped.transform.position = new Vector3(player.transform.position.x + 1f, player.transform.position.y + 1f, player.transform.position.z + 1f);
         goDropped.GetComponent<Rigidbody>().AddForce(player.transform.forward * 100);
 

@@ -27,6 +27,10 @@ public class Chest : MonoBehaviour
         {
             AddItems();
         }
+        if (Input.GetKey(KeyCode.S))
+        {
+            ClearList();
+        }
     }
 
     public void AddItems()
@@ -61,10 +65,10 @@ public class Chest : MonoBehaviour
 
     public void ClearList()
     {
-
-
-        
-        
+        foreach (Slot slot in chestScript.slots)
+        {
+            slot.CleanSlot();
+        }
     }
 
 

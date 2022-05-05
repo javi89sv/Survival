@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class ChestScript : InventoryManager
+public class ChestScript : MonoBehaviour
 {
 
     [SerializeField]
@@ -11,9 +11,5 @@ public class ChestScript : InventoryManager
     public List<Slot> slots;
     
 
-    private void Awake()
-    {
-       // AddSlots(15);
-    }
 
 }
