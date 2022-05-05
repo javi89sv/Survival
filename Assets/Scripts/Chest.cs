@@ -10,22 +10,60 @@ public class Chest : MonoBehaviour
 
     public GameObject chestUI;
 
+    public ChestScript chestScript;
+
   
     public List<Item> items = new List<Item>();
 
+
+    private void Start()
+    {
+        StoreItems();
+    }
+
+    private void Update()
+    {
+        if (Input.GetKey(KeyCode.A))
+        {
+            AddItems();
+        }
+    }
+
     public void AddItems()
     {
-        if(items != null)
+        foreach (var slot in chestScript.slots)
         {
-            foreach (var item in items)
+            if (!slot.empty)
             {
-
+                return;
+            }
+            else
+            {
+                foreach (var item in items)
+                {
+                    slot.item = item;
+                    slot.UpdateSlot();
+                }
             }
         }
     }
 
     public void StoreItems()
     {
+        foreach (Slot slot in chestScript.slots)
+        {
+            if (!slot.empty)
+            {
+                items.Add(slot.item);
+            }
+        }
+    }
+
+    public void ClearList()
+    {
+
+
+        
         
     }
 
