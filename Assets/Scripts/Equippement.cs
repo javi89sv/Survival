@@ -36,10 +36,10 @@ public class Equippement : MonoBehaviour
         //    { photonView.RPC("Equip", RpcTarget.All, 0); }
         //}
 
-        if (Input.GetKeyDown(KeyCode.Alpha2))
-        {
-            //Equip();
-        }
+        //if (Input.GetKeyDown(KeyCode.Alpha2))
+        //{
+        //    //Equip();
+        //}
 
 
         if (currentWeapon != null)

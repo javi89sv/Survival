@@ -7,14 +7,10 @@ TagManager:
   - Floor
   - Item
   - Resource
-  - WeaponManager
-  - Arrow
   - Container
-  - DragLayer
-  - Enemy
   - Storage
   - Canvas
-  - SlotContainer
+  - Enemy
   layers:
   - Default
   - TransparentFX
@@ -23,9 +19,9 @@ TagManager:
   - Water
   - UI
   - Player
-  - Arrow
-  - Gun
-  - LocalPlayer
+  - Interactable
+  - 
+  - 
   - Particles
   - 
   - 

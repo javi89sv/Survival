@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 3471270057256821267}
   - component: {fileID: 7628887593473177846}
   - component: {fileID: 6818095999285421051}
-  - component: {fileID: 1195494795702428549}
+  - component: {fileID: -2779162300808251003}
   m_Layer: 0
   m_Name: Stone
   m_TagString: Item
@@ -31,6 +31,7 @@ Transform:
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 1.7626476, y: 2.000005, z: 1.1785986}
   m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
@@ -54,6 +55,7 @@ MeshRenderer:
   m_CastShadows: 1
   m_ReceiveShadows: 1
   m_DynamicOccludee: 1
+  m_StaticShadowCaster: 0
   m_MotionVectors: 1
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
@@ -113,7 +115,7 @@ SphereCollider:
   serializedVersion: 2
   m_Radius: 0.2
   m_Center: {x: 0.007515028, y: 0.18505362, z: -0.013508312}
---- !u!114 &1195494795702428549
+--- !u!114 &-2779162300808251003
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -122,9 +124,8 @@ MonoBehaviour:
   m_GameObject: {fileID: 3111021737438970822}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d2709f39cb029324291c9d8db361dabd, type: 3}
+  m_Script: {fileID: 11500000, guid: 7fb392a13f1b74248afdd06cf3b0d225, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  item: {fileID: 11400000, guid: 41243673a9f474f488227e48381f3f19, type: 2}
-  id: 0
-  quantity: 100
+  item: {fileID: 11400000, guid: 24909fa2f4e4a6341b6d495904f077a6, type: 2}
+  amount: 1

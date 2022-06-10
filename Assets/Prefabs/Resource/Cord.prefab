@@ -13,7 +13,6 @@ GameObject:
   - component: {fileID: 6791748924241588788}
   - component: {fileID: 1481218372841648278}
   - component: {fileID: 254608883766914806}
-  - component: {fileID: 2186412601842555295}
   m_Layer: 0
   m_Name: Cord
   m_TagString: Item
@@ -31,6 +30,7 @@ Transform:
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
@@ -115,18 +115,3 @@ CapsuleCollider:
   m_Height: 1.54
   m_Direction: 0
   m_Center: {x: 0.014929414, y: 0.10836577, z: 0.011576958}
---- !u!114 &2186412601842555295
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4990515988016403425}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d2709f39cb029324291c9d8db361dabd, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  item: {fileID: 11400000, guid: 389312d9921363c4aaa54b59767d978b, type: 2}
-  id: 0
-  quantity: 10

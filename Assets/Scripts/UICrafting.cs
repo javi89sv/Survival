@@ -20,99 +20,99 @@ public class UICrafting : MonoBehaviour
     float remainingTime;
 
 
-    private void Start()
-    {
-        instance = this;
-        uiMaterial = slotMaterial.GetComponentsInChildren<TextMeshProUGUI>();
-    }
+    //private void Start()
+    //{
+    //    instance = this;
+    //    uiMaterial = slotMaterial.GetComponentsInChildren<TextMeshProUGUI>();
+    //}
 
-    public void UpdateSlot()
-    {
-        if (recipe)
-        {
-            CleanText();
+    //public void UpdateSlot()
+    //{
+    //    if (recipe)
+    //    {
+    //        CleanText();
 
-            for (int i = 0; i < recipe.Material.Count; i++)
-            {
+    //        for (int i = 0; i < recipe.Material.Count; i++)
+    //        {
 
-                uiMaterial[i].text = recipe.Material[i].item.name + " " + recipe.Material[i].amount;
+    //            uiMaterial[i].text = recipe.Material[i].item.name + " " + recipe.Material[i].amount;
 
-            }
-        }
-    }
+    //        }
+    //    }
+    //}
 
-    public void CleanText()
-    {
-        for (int i = 0; i < uiMaterial.Length; i++)
-        {
-            uiMaterial[i].text = "";
+    //public void CleanText()
+    //{
+    //    for (int i = 0; i < uiMaterial.Length; i++)
+    //    {
+    //        uiMaterial[i].text = "";
 
-        }
-    }
+    //    }
+    //}
 
 
-    private bool CanCraft()
-    {
-        foreach (ItemAmount itemAmount in recipe.Material)
-        {
-            if (!InventoryManager.instance.ContainItem(itemAmount.item, itemAmount.amount))
-            {
-                return false;
-            }
+    //private bool CanCraft()
+    //{
+    //    foreach (ItemAmount itemAmount in recipe.Material)
+    //    {
+    //        if (!InventoryManager.instance.ContainItem(itemAmount.item, itemAmount.amount))
+    //        {
+    //            return false;
+    //        }
 
-        }
-        return true;
+    //    }
+    //    return true;
 
-    }
+    //}
 
-    public void Craft()
-    {
-        if (CanCraft() == true)
-        {
+    //public void Craft()
+    //{
+    //    if (CanCraft() == true)
+    //    {
 
-            foreach (ItemAmount itemAmount in recipe.Material)
-            {
-                InventoryManager.instance.RemoveItemsCraft(itemAmount.item, itemAmount.amount);
-            }
-            textCraftingItem.text = recipe.name;
-            remainingTime = recipe.time;
-            StartCoroutine(Countdown(recipe.time));
-            StartCoroutine(Timer());
-        }
-        else
-        {
-            Debug.Log("Not enought material");
-        }
+    //        foreach (ItemAmount itemAmount in recipe.Material)
+    //        {
+    //            InventoryManager.instance.RemoveItemsCraft(itemAmount.item, itemAmount.amount);
+    //        }
+    //        textCraftingItem.text = recipe.name;
+    //        remainingTime = recipe.time;
+    //        StartCoroutine(Countdown(recipe.time));
+    //        StartCoroutine(Timer());
+    //    }
+    //    else
+    //    {
+    //        Debug.Log("Not enought material");
+    //    }
 
-    }
+    //}
 
-    IEnumerator Countdown(float value)
-    {
-        yield return new WaitForSeconds(value);
-        Crafting();
-        textCraftingItem.text = "";
-    }
+    //IEnumerator Countdown(float value)
+    //{
+    //    yield return new WaitForSeconds(value);
+    //    Crafting();
+    //    textCraftingItem.text = "";
+    //}
 
-    IEnumerator Timer()
-    {
-        while(remainingTime >= 0)
-        {
+    //IEnumerator Timer()
+    //{
+    //    while(remainingTime >= 0)
+    //    {
             
-            countDownBar.fillAmount = Mathf.InverseLerp(0, recipe.time, remainingTime);
-            remainingTime--;
-            yield return new WaitForSeconds(1f);
-        }      
-    }
+    //        countDownBar.fillAmount = Mathf.InverseLerp(0, recipe.time, remainingTime);
+    //        remainingTime--;
+    //        yield return new WaitForSeconds(1f);
+    //    }      
+    //}
 
-    private void Crafting()
-    {
+    //private void Crafting()
+    //{
         
-        GameObject go = Instantiate(recipe.result.prefab);
-        go.GetComponent<MeshRenderer>().enabled = false;
-        go.GetComponent<Collider>().enabled = false;
-        go.GetComponent<Rigidbody>().isKinematic = true;
-        InventoryManager.instance.AddItem(go, recipe.result, recipe.result.id, recipe.amountResult);
-    }
+    //    GameObject go = Instantiate(recipe.result.prefab);
+    //    go.GetComponent<MeshRenderer>().enabled = false;
+    //    go.GetComponent<Collider>().enabled = false;
+    //    go.GetComponent<Rigidbody>().isKinematic = true;
+    //    InventoryManager.instance.AddItem(go, recipe.result, recipe.result.id, recipe.amountResult);
+    //}
 
 
 }

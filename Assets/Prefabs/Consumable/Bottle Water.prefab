@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 6828974826934861341}
   - component: {fileID: 4644397449569356792}
   - component: {fileID: -7625812990209971006}
-  - component: {fileID: -8817012097186599640}
+  - component: {fileID: 6018322056404428894}
   m_Layer: 0
   m_Name: Bottle Water
   m_TagString: Item
@@ -32,6 +32,7 @@ Transform:
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
@@ -55,6 +56,7 @@ MeshRenderer:
   m_CastShadows: 1
   m_ReceiveShadows: 1
   m_DynamicOccludee: 1
+  m_StaticShadowCaster: 0
   m_MotionVectors: 1
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
@@ -127,11 +129,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b82d5f96adfbd264785201d9705c5b7d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _type: 1
   health: 0
   food: 0
   drink: 30
---- !u!114 &-8817012097186599640
+--- !u!114 &6018322056404428894
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -140,9 +141,8 @@ MonoBehaviour:
   m_GameObject: {fileID: 3419646254672889039}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d2709f39cb029324291c9d8db361dabd, type: 3}
+  m_Script: {fileID: 11500000, guid: 7fb392a13f1b74248afdd06cf3b0d225, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  item: {fileID: 11400000, guid: da70dc7aecff3364f9bfe1fe5ed27f27, type: 2}
-  id: 0
-  quantity: 1
+  item: {fileID: 11400000, guid: 974d803ea69f6b442b215f1f26b8b013, type: 2}
+  amount: 1

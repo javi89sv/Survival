@@ -12,9 +12,8 @@ GameObject:
   - component: {fileID: 7154711513736438238}
   - component: {fileID: 4948984845666129172}
   - component: {fileID: 1696341074098050377}
-  - component: {fileID: 1057398674751689849}
-  - component: {fileID: 2401582794331334688}
-  - component: {fileID: 7004244375708966044}
+  - component: {fileID: -1832072742133347074}
+  - component: {fileID: 8788319733864072413}
   m_Layer: 0
   m_Name: Torch
   m_TagString: Item
@@ -103,8 +102,22 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
---- !u!136 &1057398674751689849
-CapsuleCollider:
+--- !u!114 &-1832072742133347074
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6894640559484777665}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7fb392a13f1b74248afdd06cf3b0d225, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  item: {fileID: 11400000, guid: 81f117d915b1a4f4c8e23ce9f088c9bb, type: 2}
+  amount: 1
+--- !u!64 &8788319733864072413
+MeshCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -113,36 +126,7 @@ CapsuleCollider:
   m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_Enabled: 1
-  m_Radius: 0.10835051
-  m_Height: 1.1092874
-  m_Direction: 1
-  m_Center: {x: 0.000058054924, y: 0.5534788, z: 0.00000009313226}
---- !u!114 &2401582794331334688
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6894640559484777665}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d2709f39cb029324291c9d8db361dabd, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  item: {fileID: 11400000, guid: ed5224a3570b7c84a87874ae3ebc812f, type: 2}
-  id: 0
-  quantity: 1
---- !u!114 &7004244375708966044
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6894640559484777665}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1af52482dd16e4b40902d868e3ee7bdc, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  title: Torch
-  instruction: 
+  serializedVersion: 4
+  m_Convex: 1
+  m_CookingOptions: 30
+  m_Mesh: {fileID: 4749707353668628313, guid: 3c409e4ba4b2996448d6c88b4f1e86f5, type: 3}

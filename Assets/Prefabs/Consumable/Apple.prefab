@@ -13,8 +13,7 @@ GameObject:
   - component: {fileID: 5519108148947728727}
   - component: {fileID: 2213714366735082214}
   - component: {fileID: 3742197790100445729}
-  - component: {fileID: 9032035894221019861}
-  - component: {fileID: 368505185931657811}
+  - component: {fileID: -8509463076476909954}
   m_Layer: 0
   m_Name: Apple
   m_TagString: Item
@@ -116,7 +115,7 @@ SphereCollider:
   serializedVersion: 2
   m_Radius: 0.20000002
   m_Center: {x: 0, y: 0.2049362, z: 0}
---- !u!114 &9032035894221019861
+--- !u!114 &-8509463076476909954
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -125,25 +124,8 @@ MonoBehaviour:
   m_GameObject: {fileID: 6311570502231103618}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b82d5f96adfbd264785201d9705c5b7d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _type: 0
-  health: 0
-  food: 20
-  drink: 0
---- !u!114 &368505185931657811
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6311570502231103618}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d2709f39cb029324291c9d8db361dabd, type: 3}
+  m_Script: {fileID: 11500000, guid: 7fb392a13f1b74248afdd06cf3b0d225, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   item: {fileID: 11400000, guid: f970d7933ee63964f86313c5cb3fe485, type: 2}
-  id: 0
-  quantity: 1
+  amount: 1

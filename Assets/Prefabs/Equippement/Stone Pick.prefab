@@ -12,9 +12,8 @@ GameObject:
   - component: {fileID: 9087405031146381736}
   - component: {fileID: 6482938206471001442}
   - component: {fileID: 393181571550487452}
-  - component: {fileID: 1566335701804907198}
-  - component: {fileID: 2439921271505032842}
-  - component: {fileID: -7256148970935208230}
+  - component: {fileID: -1520856898704800230}
+  - component: {fileID: 699537461196728059}
   m_Layer: 0
   m_Name: Stone Pick
   m_TagString: Item
@@ -103,8 +102,22 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
---- !u!65 &1566335701804907198
-BoxCollider:
+--- !u!114 &-1520856898704800230
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4825881343226066103}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7fb392a13f1b74248afdd06cf3b0d225, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  item: {fileID: 11400000, guid: 7b0bba16e5ce8634f8b9e27a57ab0550, type: 2}
+  amount: 1
+--- !u!64 &699537461196728059
+MeshCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -113,35 +126,7 @@ BoxCollider:
   m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 0.084926076, y: 1.2170871, z: 1.067048}
-  m_Center: {x: 0, y: 0.60778195, z: 0}
---- !u!114 &2439921271505032842
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4825881343226066103}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d2709f39cb029324291c9d8db361dabd, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  item: {fileID: 11400000, guid: de10b02347b4e174c96eaae85953fdd6, type: 2}
-  id: 0
-  quantity: 1
---- !u!114 &-7256148970935208230
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4825881343226066103}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1af52482dd16e4b40902d868e3ee7bdc, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  title: Stone Pick
-  instruction: 
+  serializedVersion: 4
+  m_Convex: 1
+  m_CookingOptions: 30
+  m_Mesh: {fileID: -1023400368327318597, guid: 292c8a2146793e64a8ef5178d7c558dd, type: 3}

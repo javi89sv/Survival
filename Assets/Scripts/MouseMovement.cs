@@ -20,7 +20,7 @@ public class MouseMovement : MonoBehaviour
 
     void Update()
     {
-        if (GameManager.instance.inventoryEnable == false)
+        if (Interactor.isInteraction == false)
         {
             float mouseX = Input.GetAxis("Mouse X") * mouseSensitivity * Time.deltaTime;
             float mouseY = Input.GetAxis("Mouse Y") * mouseSensitivity * Time.deltaTime;

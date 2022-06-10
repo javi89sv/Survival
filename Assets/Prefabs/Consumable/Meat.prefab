@@ -13,8 +13,7 @@ GameObject:
   - component: {fileID: 6671125239353870609}
   - component: {fileID: 5428258870237315018}
   - component: {fileID: 2988941943308161996}
-  - component: {fileID: -1662828880292889060}
-  - component: {fileID: -2942893705170321369}
+  - component: {fileID: 1929109842180763710}
   m_Layer: 0
   m_Name: Meat
   m_TagString: Item
@@ -32,6 +31,7 @@ Transform:
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
@@ -115,7 +115,7 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
---- !u!114 &-1662828880292889060
+--- !u!114 &1929109842180763710
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -124,25 +124,8 @@ MonoBehaviour:
   m_GameObject: {fileID: 5157859071150991556}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b82d5f96adfbd264785201d9705c5b7d, type: 3}
+  m_Script: {fileID: 11500000, guid: 7fb392a13f1b74248afdd06cf3b0d225, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _type: 0
-  health: 0
-  food: 50
-  drink: 0
---- !u!114 &-2942893705170321369
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5157859071150991556}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d2709f39cb029324291c9d8db361dabd, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  item: {fileID: 11400000, guid: 58d9a145da6deba41bc21e59a08c2635, type: 2}
-  id: 0
-  quantity: 1
+  item: {fileID: 11400000, guid: f113a37bd8991dd4db803100a355585d, type: 2}
+  amount: 1

@@ -11,8 +11,9 @@ GameObject:
   - component: {fileID: 1963550824178546652}
   - component: {fileID: 5823993822916711821}
   - component: {fileID: 5937693413898799650}
-  - component: {fileID: 4442276537283459637}
-  m_Layer: 0
+  - component: {fileID: 7237078601927071458}
+  - component: {fileID: 5422010609200005045}
+  m_Layer: 7
   m_Name: Furnace
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -65,7 +66,7 @@ CapsuleCollider:
   m_Height: 2.42
   m_Direction: 1
   m_Center: {x: 0, y: 1, z: 0}
---- !u!114 &4442276537283459637
+--- !u!114 &7237078601927071458
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -74,16 +75,30 @@ MonoBehaviour:
   m_GameObject: {fileID: 1185642689985916262}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fcbbbcbda957f0744946ca7b4e463d46, type: 3}
+  m_Script: {fileID: 11500000, guid: 974fd7ef256cc4447abc5e5b406b9b0d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  loot: []
-  slots: []
-  menuUI: {fileID: 0}
-  slotHolder: {fileID: 0}
-  isOpen: 0
-  radius: 3
-  size: 1
+  wood: {fileID: 11400000, guid: 4f6cb6cd1d8ca6c40b52598358c7ebc0, type: 2}
+  itemAccepted:
+  - {fileID: 0}
+  coal: {fileID: 11400000, guid: c8b71e12059b8fd44b62aba3b5cd0166, type: 2}
+  speedBurn: 3
+--- !u!114 &5422010609200005045
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1185642689985916262}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ecb8991a5e60fce449f25fa952a9ff68, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  nameContainer: Furnace
+  sizeInventory: 5
+  primaryInventorySystem:
+    inventorySlots: []
 --- !u!1001 &788426633050769559
 PrefabInstance:
   m_ObjectHideFlags: 0

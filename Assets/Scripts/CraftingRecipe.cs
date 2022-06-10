@@ -6,7 +6,7 @@ using System;
 [Serializable]
 public struct ItemAmount
 {
-    public Item item;
+    public ItemObject item;
     [Range(1, 999)]
     public int amount;
 
@@ -17,7 +17,7 @@ public struct ItemAmount
 public class CraftingRecipe : ScriptableObject
 {
     public List<ItemAmount> Material;
-    public Item result;
+    public ItemObject result;
     public int amountResult;
     public float time;
 

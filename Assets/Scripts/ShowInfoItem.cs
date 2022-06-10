@@ -11,7 +11,7 @@ public class ShowInfoItem : MonoBehaviour
     public TextMeshProUGUI descriptionInfo;
     public Image imageInfo;
 
-    public void ShowInfo(Slot slot)
+    public void ShowInfo(InventorySlot slot)
     {
         //nameInfo.text = slot.item.name.ToString();
         descriptionInfo.text = slot.item.name.ToString();
@@ -32,22 +32,22 @@ public class ShowInfoItem : MonoBehaviour
         gameObject.SetActive(false);
     }
 
-    public void DropItem()
-    {
-        if(InventoryManager.instance.slotSelected != null)
-        {
-            InventoryManager.instance.slotSelected.DropItem();
-            HideInfo();
-        }
-    }
+    //public void DropItem()
+    //{
+    //    if(InventoryManager.instance.slotSelected != null)
+    //    {
+    //        InventoryManager.instance.slotSelected.DropItem();
+    //        HideInfo();
+    //    }
+    //}
 
-    public void UseItem()
-    {
-        if (InventoryManager.instance.slotSelected != null)
-        {
-            InventoryManager.instance.slotSelected.DropItem();
-            UseItem();
-        }
-    }
+    //public void UseItem()
+    //{
+    //    if (InventoryManager.instance.slotSelected != null)
+    //    {
+    //        InventoryManager.instance.slotSelected.DropItem();
+    //        UseItem();
+    //    }
+    //}
 
 }

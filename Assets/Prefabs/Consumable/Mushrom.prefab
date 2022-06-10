@@ -13,8 +13,7 @@ GameObject:
   - component: {fileID: 5316872725501813562}
   - component: {fileID: 2470636734070263584}
   - component: {fileID: 7826102919353290409}
-  - component: {fileID: -2128202922332138199}
-  - component: {fileID: -4516468567531035220}
+  - component: {fileID: -1655924068185921277}
   m_Layer: 0
   m_Name: Mushrom
   m_TagString: Item
@@ -117,7 +116,7 @@ CapsuleCollider:
   m_Height: 0.36
   m_Direction: 1
   m_Center: {x: -0.000000007450581, y: 0.17090692, z: 0.000000014901161}
---- !u!114 &-2128202922332138199
+--- !u!114 &-1655924068185921277
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -126,25 +125,8 @@ MonoBehaviour:
   m_GameObject: {fileID: 5965492570146472687}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b82d5f96adfbd264785201d9705c5b7d, type: 3}
+  m_Script: {fileID: 11500000, guid: 7fb392a13f1b74248afdd06cf3b0d225, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _type: 0
-  health: 0
-  food: 10
-  drink: 0
---- !u!114 &-4516468567531035220
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5965492570146472687}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d2709f39cb029324291c9d8db361dabd, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  item: {fileID: 11400000, guid: 717b65258b6b3a54f9fff13ebb999c9e, type: 2}
-  id: 0
-  quantity: 1
+  item: {fileID: 11400000, guid: 693679e10d3f9d2439ff117b40f6965c, type: 2}
+  amount: 1

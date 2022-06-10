@@ -13,8 +13,7 @@ GameObject:
   - component: {fileID: 8522620938853699155}
   - component: {fileID: 7077091981372139842}
   - component: {fileID: 1240466292396271917}
-  - component: {fileID: 2291965425397932395}
-  - component: {fileID: 1432162865736985241}
+  - component: {fileID: 7668404362651345767}
   m_Layer: 0
   m_Name: Banana
   m_TagString: Item
@@ -117,7 +116,7 @@ CapsuleCollider:
   m_Height: 0.94
   m_Direction: 0
   m_Center: {x: 0.0413948, y: 0.11094882, z: -0.023001932}
---- !u!114 &2291965425397932395
+--- !u!114 &7668404362651345767
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -126,25 +125,8 @@ MonoBehaviour:
   m_GameObject: {fileID: 7874142519221677958}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b82d5f96adfbd264785201d9705c5b7d, type: 3}
+  m_Script: {fileID: 11500000, guid: 7fb392a13f1b74248afdd06cf3b0d225, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _type: 0
-  health: 0
-  food: 20
-  drink: 0
---- !u!114 &1432162865736985241
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7874142519221677958}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d2709f39cb029324291c9d8db361dabd, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  item: {fileID: 11400000, guid: eba98aa9b9945f041b9354287d7fb216, type: 2}
-  id: 0
-  quantity: 1
+  item: {fileID: 11400000, guid: 1ec9b1ee975d01747bf64e768bc6ceb9, type: 2}
+  amount: 1

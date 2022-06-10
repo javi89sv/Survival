@@ -13,7 +13,6 @@ GameObject:
   - component: {fileID: 2401947861233705015}
   - component: {fileID: -20671816469911692}
   - component: {fileID: 1824410009208319815}
-  - component: {fileID: 3692105154896041056}
   m_Layer: 0
   m_Name: Bone
   m_TagString: Item
@@ -31,6 +30,7 @@ Transform:
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
@@ -115,18 +115,3 @@ CapsuleCollider:
   m_Height: 1.43
   m_Direction: 0
   m_Center: {x: 0.010568947, y: 0.06810343, z: -0.0013684481}
---- !u!114 &3692105154896041056
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4203427089207493090}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d2709f39cb029324291c9d8db361dabd, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  item: {fileID: 11400000, guid: fcbca6b182917a8478ba5197aa58bc8b, type: 2}
-  id: 0
-  quantity: 5

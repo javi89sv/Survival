@@ -45,7 +45,7 @@ public class EnemyIA : MonoBehaviour
     public void TakeDamage(int damage)
     {
         health -= damage;
-        healthBar.UpdateHealth((float)health / (float)maxhealth);
+      //  healthBar.UpdateHealth((float)health / (float)maxhealth);
     }
 
 

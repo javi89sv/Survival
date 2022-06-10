@@ -1,0 +1,24 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f8958bd80330ead4c94df643ba4f90fd, type: 3}
+  m_Name: Meat Raw
+  m_EditorClassIdentifier: 
+  prefab: {fileID: 1681005778286227430, guid: c3698dc6515409648861a40bc4dc36c6, type: 3}
+  type: 0
+  icon: {fileID: 21300000, guid: f64a21dc78e27794ea8c7e11092e8885, type: 3}
+  id: 0
+  itemName: Meat Raw
+  description: 
+  maxStackSize: 10
+  restoreHealth: 10
+  restoreHungry: 10
+  restoreThirst: 0

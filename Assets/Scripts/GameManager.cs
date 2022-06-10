@@ -34,7 +34,7 @@ public class GameManager : MonoBehaviour
     void Start()
     {
         instance = this;
-        weaponManager = GameObject.FindGameObjectWithTag("WeaponManager");
+        //weaponManager = GameObject.FindGameObjectWithTag("WeaponManager");
         playerPrefab = GameObject.FindGameObjectWithTag("Player");
 
     }
@@ -44,28 +44,28 @@ public class GameManager : MonoBehaviour
     {
         
 
-        if (Input.GetKeyDown(KeyCode.Tab))
-        {
-            inventoryEnable = !inventoryEnable;
-        }
+        //if (Input.GetKeyDown(KeyCode.Tab))
+        //{
+        //    inventoryEnable = !inventoryEnable;
+        //}
 
-        if (inventoryEnable)
-        {
+        //if (inventoryEnable)
+        //{
 
-            menuInventory.SetActive(true);
-            Cursor.lockState = CursorLockMode.None;
+        //    menuInventory.SetActive(true);
+        //    Cursor.lockState = CursorLockMode.None;
 
-        }
-        else
-        {
+        //}
+        //else
+        //{
 
-            menuInventory.SetActive(false);
-            Cursor.lockState = CursorLockMode.Locked;
-            textInfo.text = "";
-            imageInfo.sprite = null;
-            menuItemInfo.SetActive(false);
+        //    menuInventory.SetActive(false);
+        //    Cursor.lockState = CursorLockMode.Locked;
+        //    textInfo.text = "";
+        //    imageInfo.sprite = null;
+        //    menuItemInfo.SetActive(false);
 
-        }
+        //}
 
     }
 

@@ -131,21 +131,29 @@ public class PlayerManager : MonoBehaviour
             normalCam.fieldOfView = Mathf.Lerp(normalCam.fieldOfView, baseFOV, Time.deltaTime * 8f);
         }
 
-        //Inputs
+        //Recoge Items
 
         RaycastHit hit;
+
         if (Physics.Raycast(Camera.main.transform.position, Camera.main.transform.forward, out hit, distanceInteract))
         {
-            if (hit.collider.tag == "Storage")
+            if (hit.collider.GetComponent<ItemPickUp>())
             {
-                ItemContainer chest = hit.transform.GetComponent<ItemContainer>();
-
-                if (Input.GetKeyDown(KeyCode.E) && chest.isOpen != true)
+                var itemPickUp = hit.collider.GetComponent<ItemPickUp>();
+                
+                if (Input.GetKeyDown(KeyCode.E))
                 {
-                    chest.isOpen = true;
-                    chest.menuUI.gameObject.SetActive(true);
-                    chest.OpenContainer();
-                    GameManager.instance.inventoryEnable = true;
+                    var inventory = GetComponent<PlayerInventoryHolder>();
+
+                    if (!inventory)
+                    {
+                        return;
+                    }
+
+                    if (inventory.AddToInventory(itemPickUp.item, itemPickUp.amount))
+                    {
+                        Destroy(itemPickUp.gameObject);
+                    }
                 }   
             }
         }

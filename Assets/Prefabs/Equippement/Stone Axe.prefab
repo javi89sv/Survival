@@ -12,9 +12,8 @@ GameObject:
   - component: {fileID: 7089838482924906399}
   - component: {fileID: 408056892676505347}
   - component: {fileID: 4274675726428202182}
-  - component: {fileID: 248240248996221882}
-  - component: {fileID: 6536088721308159819}
-  - component: {fileID: 8573078879973139418}
+  - component: {fileID: 8932087647575466609}
+  - component: {fileID: -1767783022320330293}
   m_Layer: 0
   m_Name: Stone Axe
   m_TagString: Item
@@ -103,8 +102,22 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
---- !u!65 &248240248996221882
-BoxCollider:
+--- !u!114 &8932087647575466609
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7766254603189957790}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7fb392a13f1b74248afdd06cf3b0d225, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  item: {fileID: 11400000, guid: 583186d29babfec4eacf312e204edee3, type: 2}
+  amount: 1
+--- !u!64 &-1767783022320330293
+MeshCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -113,35 +126,7 @@ BoxCollider:
   m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 0.5401965, y: 1.2170871, z: 0.084926076}
-  m_Center: {x: -0.2276352, y: 0.60778195, z: 0}
---- !u!114 &6536088721308159819
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7766254603189957790}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d2709f39cb029324291c9d8db361dabd, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  item: {fileID: 11400000, guid: 7baba1fe14365cd44a1433106f7faf25, type: 2}
-  id: 0
-  quantity: 1
---- !u!114 &8573078879973139418
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7766254603189957790}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1af52482dd16e4b40902d868e3ee7bdc, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  title: Stone Axe
-  instruction: 
+  serializedVersion: 4
+  m_Convex: 1
+  m_CookingOptions: 30
+  m_Mesh: {fileID: -5495902117074765545, guid: 49718b2c8f8e20149a7f776ec657716f, type: 3}
