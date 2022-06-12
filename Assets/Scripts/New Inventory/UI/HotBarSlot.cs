@@ -6,7 +6,7 @@ using UnityEngine;
 public class HotBarSlot : MonoBehaviour
 {
     public GameObject[] eqquipment;
-    public GameObject[] slots;
+    public InventorySlotUI[] slots;
 
     //public KeyCode key;
 
@@ -15,45 +15,62 @@ public class HotBarSlot : MonoBehaviour
 
         if (Input.GetKey(KeyCode.Alpha1))
         {
+            Deseqquip();
             Eqquip(0);
         }
         if (Input.GetKey(KeyCode.Alpha2))
         {
+            Deseqquip();
             Eqquip(1);
         }
         if (Input.GetKey(KeyCode.Alpha3))
         {
-            //equipamos slot[3];
+            Deseqquip();
+            Eqquip(2);
         }
         if (Input.GetKey(KeyCode.Alpha4))
         {
-            //equipamos slot[4];
+            Deseqquip();
+            Eqquip(3);
         }
         if (Input.GetKey(KeyCode.Alpha5))
         {
-            //equipamos slot[5];
+            Deseqquip();
+            Eqquip(4);
         }
         if (Input.GetKey(KeyCode.Alpha6))
         {
-            //equipamos slot[6];
+            Deseqquip();
+            Eqquip(5);
         }
     }
 
     private void Eqquip(int index)
     {
-        var slot = GetComponent<InventorySlotUI>();
-
-        if (slot.asiggnedInventorySlot.item != null)
+        for (int j = 0; j < slots.Length; j++)
         {
-            if (slot.asiggnedInventorySlot.item.type == ItemType.Equipment)
+            if(slots[index].asiggnedInventorySlot.item != null && slots[index].asiggnedInventorySlot.item.type == ItemType.Equipment)
             {
                 for (int i = 0; i < eqquipment.Length; i++)
                 {
-                    if (eqquipment[index].name == slot.asiggnedInventorySlot.item.name)
+                    if (eqquipment[i].name == slots[index].asiggnedInventorySlot.item.name)
                     {
-                        eqquipment[index].gameObject.SetActive(true);
+                        eqquipment[i].gameObject.SetActive(true);
                     }
+
                 }
+            }
+
+        }
+ 
+    }
+    private void Deseqquip()
+    {
+        for (int i = 0; i < eqquipment.Length; i++)
+        {
+            if (eqquipment[i].activeInHierarchy)
+            {
+                eqquipment[i].SetActive(false);
             }
         }
     }

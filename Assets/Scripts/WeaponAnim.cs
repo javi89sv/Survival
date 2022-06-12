@@ -13,7 +13,7 @@ public class WeaponAnim : MonoBehaviour
         anim = GetComponent<Animator>();
     }
 
-    public void PlayAnim()
+    private void Update()
     {
         //IGNORA LOS CLICKS EN LA UI
         if (!EventSystem.current.IsPointerOverGameObject())
@@ -24,4 +24,5 @@ public class WeaponAnim : MonoBehaviour
             }
         }
     }
+
 }

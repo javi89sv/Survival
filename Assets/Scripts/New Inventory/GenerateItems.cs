@@ -7,13 +7,14 @@ public class GenerateItems : MonoBehaviour
 {
     public ItemObject[] items;
     public Button button;
-    // Start is called before the first frame update
+
 
     public void Generate()
     {
         foreach (var item in items)
         {
-            Instantiate(item.prefab);
+           GameObject go = Instantiate(item.prefab);
+           go.name = go.name.Replace("(Clone)", "");
         }
     }
 

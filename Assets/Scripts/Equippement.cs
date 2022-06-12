@@ -54,7 +54,7 @@ public class Equippement : MonoBehaviour
                 {
                     Debug.Log("Hit!!");
                     Invoke("Hit", 0.6f);
-                    currentWeapon.GetComponentInChildren<WeaponAnim>().PlayAnim();                   
+                    //currentWeapon.GetComponentInChildren<WeaponAnim>().PlayAnim();                   
                     currentcoolDown = 0f;
                 }
 
