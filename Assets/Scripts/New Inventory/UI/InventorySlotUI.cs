@@ -6,7 +6,7 @@ using UnityEngine.UI;
 using UnityEngine.EventSystems;
 using System;
 
-public class InventorySlotUI : MonoBehaviour /*IPointerDownHandler*/
+public class InventorySlotUI : MonoBehaviour, IPointerDownHandler
 {
     public Image itemIcon;
     public TextMeshProUGUI itemAmount;
@@ -69,6 +69,21 @@ public class InventorySlotUI : MonoBehaviour /*IPointerDownHandler*/
         parentInventory?.SlotClicked(this);
     }
 
+    public void UseItemSlot()
+    {
+        if (asiggnedInventorySlot.item != null && asiggnedInventorySlot.item.type == ItemType.Consumable)
+        {
+            asiggnedInventorySlot.item.UseItem();
+            asiggnedInventorySlot.RemoveFromStack(1);
+            if(asiggnedInventorySlot.amount < 1)
+            {
+                asiggnedInventorySlot.ClearSlot();
+            }
+            UpdateSlotUI();
+        }
+
+    }
+
     public void ClearSLot()
     {
         asiggnedInventorySlot?.ClearSlot();
@@ -77,10 +92,10 @@ public class InventorySlotUI : MonoBehaviour /*IPointerDownHandler*/
         itemIcon.color = Color.clear;
     }
 
-    //public void OnPointerDown(PointerEventData eventData)
-    //{
-    //   // Debug.Log("slot dragged");
-    //        parentInventory?.SlotClicked(this);
-        
-    //}
+    public void OnPointerDown(PointerEventData eventData)
+    {
+        if (eventData.button == PointerEventData.InputButton.Right)
+            UseItemSlot();
+
+    }
 }

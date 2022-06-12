@@ -8,4 +8,5 @@ public interface IInterectable
     public void Interact(Interactor interactor, out bool interactSucessful);
     public void EndInteraction();
 
+
 }

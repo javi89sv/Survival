@@ -11,7 +11,7 @@ public enum ItemType
 }
 
 
-public class ItemObject : ScriptableObject
+public abstract class ItemObject : ScriptableObject
 {
 
     public GameObject prefab;
@@ -23,5 +23,5 @@ public class ItemObject : ScriptableObject
     public string description;
     public int maxStackSize;
 
-
+    public virtual void UseItem() { }
 }

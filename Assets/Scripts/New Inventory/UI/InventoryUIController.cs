@@ -76,7 +76,7 @@ public class InventoryUIController : MonoBehaviour
             playerInventoryPanel.gameObject.SetActive(false);
             Cursor.lockState = CursorLockMode.Locked;
             Cursor.visible = false;
-            //Interactor.isInteraction = false;
+            Interactor.isInteraction = false;
         }
         if (furnaceInventoryPanel.gameObject.activeInHierarchy && Input.GetKey(KeyCode.Escape))
         {

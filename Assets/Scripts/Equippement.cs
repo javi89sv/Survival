@@ -16,12 +16,8 @@ public class Equippement : MonoBehaviour
     private float currentcoolDown;
     public GameObject camera_player;
 
-    public float distanceMelee = 2f;
     public LayerMask ignoreLayers;
 
-    public int health;
-    public float cooldown;
-    public int damage;
 
     RaycastHit hit;
 
@@ -82,11 +78,6 @@ public class Equippement : MonoBehaviour
         Destroy(newEqquipment.GetComponent<Rigidbody>());
         Destroy(newEqquipment.GetComponent<BoxCollider>());
 
-    }
-
-    public void Dregrade(int amount)
-    {
-        health -= amount;
     }
 
 
@@ -155,7 +146,7 @@ public class Equippement : MonoBehaviour
 
         int damageWeapon = eqquipmentList[currentIndex].damage;
 
-        if (Physics.Raycast(camera_player.transform.position, camera_player.transform.forward, out hit, distanceMelee, ~ignoreLayers))
+        if (Physics.Raycast(camera_player.transform.position, camera_player.transform.forward, out hit, ~ignoreLayers))
         {
             Vector3 impact = hit.point;
 

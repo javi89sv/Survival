@@ -13,7 +13,6 @@ GameObject:
   - component: {fileID: 754174574291657064}
   - component: {fileID: 2066876697309988791}
   - component: {fileID: 3470527945030345588}
-  - component: {fileID: 5445686284649917749}
   m_Layer: 0
   m_Name: Wooden Box_cell.004
   m_TagString: Untagged
@@ -31,6 +30,7 @@ Transform:
   m_LocalRotation: {x: 0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0.4075819, y: 0.8212949, z: -0.3809775}
   m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 7238832492793665036}
   m_RootOrder: 4
@@ -54,6 +54,7 @@ MeshRenderer:
   m_CastShadows: 1
   m_ReceiveShadows: 1
   m_DynamicOccludee: 1
+  m_StaticShadowCaster: 0
   m_MotionVectors: 1
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
@@ -114,19 +115,6 @@ MeshCollider:
   m_Convex: 1
   m_CookingOptions: 30
   m_Mesh: {fileID: 4343140997003531849, guid: 5510cb25e144b414398d0e3d68f4bc9f, type: 3}
---- !u!114 &5445686284649917749
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 384927658097467837}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8638d8f826cb077498f6ee94480b8623, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  timeToDestroy: 5
 --- !u!1 &3613872516532831092
 GameObject:
   m_ObjectHideFlags: 0
@@ -140,7 +128,6 @@ GameObject:
   - component: {fileID: 3877550432112114872}
   - component: {fileID: 267822943908122769}
   - component: {fileID: 6105365876736371355}
-  - component: {fileID: 4623302276623882194}
   m_Layer: 0
   m_Name: Wooden Box_cell.002
   m_TagString: Untagged
@@ -158,6 +145,7 @@ Transform:
   m_LocalRotation: {x: 0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: -0.36055243, y: 0.66578466, z: -0.39191952}
   m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 7238832492793665036}
   m_RootOrder: 2
@@ -181,6 +169,7 @@ MeshRenderer:
   m_CastShadows: 1
   m_ReceiveShadows: 1
   m_DynamicOccludee: 1
+  m_StaticShadowCaster: 0
   m_MotionVectors: 1
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
@@ -241,19 +230,6 @@ MeshCollider:
   m_Convex: 1
   m_CookingOptions: 30
   m_Mesh: {fileID: 7253764608035075142, guid: 5510cb25e144b414398d0e3d68f4bc9f, type: 3}
---- !u!114 &4623302276623882194
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3613872516532831092}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8638d8f826cb077498f6ee94480b8623, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  timeToDestroy: 5
 --- !u!1 &4199482828334876161
 GameObject:
   m_ObjectHideFlags: 0
@@ -267,7 +243,6 @@ GameObject:
   - component: {fileID: 1622653888944452936}
   - component: {fileID: 2808296174500640106}
   - component: {fileID: 2248251110114391784}
-  - component: {fileID: 4074293007246622666}
   m_Layer: 0
   m_Name: Wooden Box_cell.005
   m_TagString: Untagged
@@ -285,6 +260,7 @@ Transform:
   m_LocalRotation: {x: 0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: -0.0010063052, y: 0.27991137, z: 0.4714202}
   m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 7238832492793665036}
   m_RootOrder: 5
@@ -308,6 +284,7 @@ MeshRenderer:
   m_CastShadows: 1
   m_ReceiveShadows: 1
   m_DynamicOccludee: 1
+  m_StaticShadowCaster: 0
   m_MotionVectors: 1
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
@@ -368,19 +345,6 @@ MeshCollider:
   m_Convex: 1
   m_CookingOptions: 30
   m_Mesh: {fileID: 7712748266444105905, guid: 5510cb25e144b414398d0e3d68f4bc9f, type: 3}
---- !u!114 &4074293007246622666
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4199482828334876161}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8638d8f826cb077498f6ee94480b8623, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  timeToDestroy: 5
 --- !u!1 &5001164627269515076
 GameObject:
   m_ObjectHideFlags: 0
@@ -394,7 +358,6 @@ GameObject:
   - component: {fileID: 2130594146877801688}
   - component: {fileID: 388368963311717965}
   - component: {fileID: 7947167939568060638}
-  - component: {fileID: 8068774359807958249}
   m_Layer: 0
   m_Name: Wooden Box_cell.001
   m_TagString: Untagged
@@ -412,6 +375,7 @@ Transform:
   m_LocalRotation: {x: 0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0.4054335, y: 1.1593019, z: 0.45335925}
   m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 7238832492793665036}
   m_RootOrder: 1
@@ -435,6 +399,7 @@ MeshRenderer:
   m_CastShadows: 1
   m_ReceiveShadows: 1
   m_DynamicOccludee: 1
+  m_StaticShadowCaster: 0
   m_MotionVectors: 1
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
@@ -495,19 +460,6 @@ MeshCollider:
   m_Convex: 1
   m_CookingOptions: 30
   m_Mesh: {fileID: 1100704568245306374, guid: 5510cb25e144b414398d0e3d68f4bc9f, type: 3}
---- !u!114 &8068774359807958249
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5001164627269515076}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8638d8f826cb077498f6ee94480b8623, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  timeToDestroy: 5
 --- !u!1 &7997823232043145159
 GameObject:
   m_ObjectHideFlags: 0
@@ -521,7 +473,6 @@ GameObject:
   - component: {fileID: 8064359543741404592}
   - component: {fileID: 917663543865949009}
   - component: {fileID: 5877636937873086860}
-  - component: {fileID: 2709649741077724909}
   m_Layer: 0
   m_Name: Wooden Box_cell
   m_TagString: Untagged
@@ -539,6 +490,7 @@ Transform:
   m_LocalRotation: {x: 0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0.39261058, y: 0.2535874, z: 0.008416712}
   m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 7238832492793665036}
   m_RootOrder: 0
@@ -562,6 +514,7 @@ MeshRenderer:
   m_CastShadows: 1
   m_ReceiveShadows: 1
   m_DynamicOccludee: 1
+  m_StaticShadowCaster: 0
   m_MotionVectors: 1
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
@@ -622,19 +575,6 @@ MeshCollider:
   m_Convex: 1
   m_CookingOptions: 30
   m_Mesh: {fileID: 1062330054914426426, guid: 5510cb25e144b414398d0e3d68f4bc9f, type: 3}
---- !u!114 &2709649741077724909
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7997823232043145159}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8638d8f826cb077498f6ee94480b8623, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  timeToDestroy: 5
 --- !u!1 &8016037213671640246
 GameObject:
   m_ObjectHideFlags: 0
@@ -646,7 +586,6 @@ GameObject:
   - component: {fileID: 7238832492793665036}
   - component: {fileID: -1425778165246964853}
   - component: {fileID: 7722875123927910872}
-  - component: {fileID: 8555284543062570125}
   m_Layer: 0
   m_Name: Wood Box Broken
   m_TagString: Untagged
@@ -664,6 +603,7 @@ Transform:
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0.1, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 8787140643892013661}
   - {fileID: 8186398552851356475}
@@ -703,19 +643,6 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
---- !u!114 &8555284543062570125
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8016037213671640246}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8638d8f826cb077498f6ee94480b8623, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  timeToDestroy: 5
 --- !u!1 &8689923053485189275
 GameObject:
   m_ObjectHideFlags: 0
@@ -729,7 +656,6 @@ GameObject:
   - component: {fileID: 2013884621507468868}
   - component: {fileID: 7663688807201202911}
   - component: {fileID: 4470083434024957211}
-  - component: {fileID: 6949715631760917560}
   m_Layer: 0
   m_Name: Wooden Box_cell.003
   m_TagString: Untagged
@@ -747,6 +673,7 @@ Transform:
   m_LocalRotation: {x: 0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: -0.42553127, y: 0.7307577, z: 0.31471115}
   m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 7238832492793665036}
   m_RootOrder: 3
@@ -770,6 +697,7 @@ MeshRenderer:
   m_CastShadows: 1
   m_ReceiveShadows: 1
   m_DynamicOccludee: 1
+  m_StaticShadowCaster: 0
   m_MotionVectors: 1
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
@@ -830,16 +758,3 @@ MeshCollider:
   m_Convex: 1
   m_CookingOptions: 30
   m_Mesh: {fileID: 5553074734620984122, guid: 5510cb25e144b414398d0e3d68f4bc9f, type: 3}
---- !u!114 &6949715631760917560
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8689923053485189275}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8638d8f826cb077498f6ee94480b8623, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  timeToDestroy: 5

@@ -12,15 +12,16 @@ public class ConsumableObject : ItemObject
 
     public void Awake()
     {
-        type = ItemType.Consumable;
-
-        
+        type = ItemType.Consumable; 
     }
 
-    //public void Use()
-    //{
-    //    restoreHealth += Player.instance.healthPlayer;
-    //    restoreHungry += Player.instance.hungryPlayer;
-    //    restoreThirst += Player.instance.thirstPlayer;
-    //}
+    public override void UseItem()
+    {
+        var player = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerManager>();
+        player.currentHealth += restoreHealth;
+        player.currentFood += restoreHungry;
+        player.currentDrink += restoreThirst;
+        Debug.Log("Usamos item");
+    }
+
 }

@@ -137,8 +137,11 @@ public class PlayerManager : MonoBehaviour
 
         if (Physics.Raycast(Camera.main.transform.position, Camera.main.transform.forward, out hit, distanceInteract))
         {
+
             if (hit.collider.GetComponent<ItemPickUp>())
             {
+                InfoUI.Instance.SetTooltipItem(hit.collider.name);
+
                 var itemPickUp = hit.collider.GetComponent<ItemPickUp>();
                 
                 if (Input.GetKeyDown(KeyCode.E))
@@ -156,6 +159,11 @@ public class PlayerManager : MonoBehaviour
                     }
                 }   
             }
+            
+        }
+        else
+        {
+            InfoUI.Instance.HideText();
         }
     }
 

@@ -10,6 +10,13 @@ public class EquipmentObject : ItemObject
     public int defBonus;
     public int durability;
 
+    public override void UseItem()
+    {
+        //Equipar este item
+        
+        Debug.Log("Equipamos " + this.name);
+    }
+
     private void Awake()
     {
         type = ItemType.Equipment;

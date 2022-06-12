@@ -33,7 +33,7 @@ public abstract class InventoryDisplay : MonoBehaviour
     {
         bool isShiftPressed = Input.GetKey(KeyCode.LeftShift);
 
-       
+
         //Si el slot que hacemos click tiene item asignado, y el mouse slot no tiene item asignado
         if (clickedSlot.asiggnedInventorySlot.item != null && mouseItemData.assignedInventorySlot.item == null)
         {
