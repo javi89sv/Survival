@@ -19,6 +19,6 @@ MonoBehaviour:
   itemName: Stone Pick
   description: 
   maxStackSize: 1
-  atkBonus: 0
+  atkBonus: 5
   defBonus: 0
-  durability: 0
+  durability: 100

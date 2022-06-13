@@ -10,15 +10,15 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: f7bc20745d77bb1439103a5fb2f97d53, type: 3}
-  m_Name: Stone Pick
+  m_Name: Iron Axe
   m_EditorClassIdentifier: 
-  prefab: {fileID: 4825881343226066103, guid: cce308429506f6646b9faebc18be09a1, type: 3}
+  prefab: {fileID: 350802365891504493, guid: 53f3a6a35afdbea42b9466d7429f98d7, type: 3}
   type: 1
-  icon: {fileID: 21300000, guid: 63b11d88907192541bb821fac8cabc5c, type: 3}
+  icon: {fileID: 0}
   id: 0
-  itemName: Stone Pick
+  itemName: Iron Axe
   description: 
   maxStackSize: 1
-  atkBonus: 25
+  atkBonus: 0
   defBonus: 0
-  durability: 100
+  durability: 0

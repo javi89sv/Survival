@@ -19,6 +19,6 @@ MonoBehaviour:
   itemName: Stone Axe
   description: 
   maxStackSize: 1
-  atkBonus: 0
+  atkBonus: 10
   defBonus: 0
-  durability: 0
+  durability: 100

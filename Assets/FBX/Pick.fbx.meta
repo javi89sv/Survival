@@ -15,6 +15,9 @@ ModelImporter:
   - first:
       74: -3575987535182398358
     second: Pick|Shot (1)
+  - first:
+      74: -3100369314251171874
+    second: Idle
   externalObjects:
   - first:
       type: UnityEngine:Material
