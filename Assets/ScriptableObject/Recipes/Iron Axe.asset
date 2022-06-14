@@ -12,11 +12,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 93e3cf0961baa834a9d2239712d4b863, type: 3}
   m_Name: Iron Axe
   m_EditorClassIdentifier: 
-  Material:
-  - item: {fileID: 11400000, guid: 40565dbab1a663a478286dd741bf2826, type: 2}
-    amount: 100
-  - item: {fileID: 11400000, guid: 41243673a9f474f488227e48381f3f19, type: 2}
-    amount: 100
-  result: {fileID: 11400000, guid: 3bead5074ed68154795a81487554de73, type: 2}
+  Requirements:
+  - item: {fileID: 11400000, guid: 4f6cb6cd1d8ca6c40b52598358c7ebc0, type: 2}
+    amount: 150
+  - item: {fileID: 11400000, guid: d08fc8d7dcda2084198c23a499508a02, type: 2}
+    amount: 200
+  result: {fileID: 11400000, guid: 95d79a3127822db448f5cc160c5b4d4f, type: 2}
   amountResult: 1
   time: 10

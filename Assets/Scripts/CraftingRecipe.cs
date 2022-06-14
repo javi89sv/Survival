@@ -16,7 +16,7 @@ public struct ItemAmount
 [CreateAssetMenu]
 public class CraftingRecipe : ScriptableObject
 {
-    public List<ItemAmount> Material;
+    public List<ItemAmount> Requirements;
     public ItemObject result;
     public int amountResult;
     public float time;

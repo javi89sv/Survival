@@ -18,9 +18,33 @@ public class ConsumableObject : ItemObject
     public override void UseItem()
     {
         var player = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerManager>();
-        player.currentHealth += restoreHealth;
-        player.currentFood += restoreHungry;
-        player.currentDrink += restoreThirst;
+        if(player.currentHealth + restoreHealth > player.maxHealth)
+        {
+            player.currentHealth = player.maxHealth;
+        }
+        else
+        {
+            player.currentHealth += restoreHealth;
+        }  
+        
+        if(player.currentHungry + restoreHungry > player.maxHungry)
+        {
+            player.currentHungry = player.maxHungry;
+        }
+        else
+        {
+            player.currentHungry += restoreHungry;
+        } 
+
+        if(player.currentThirst + restoreThirst > player.maxThirst)
+        {
+            player.currentThirst = player.maxThirst;
+        }
+        else
+        {
+            player.currentThirst += restoreThirst;
+        }
+        
         Debug.Log("Usamos item");
     }
 

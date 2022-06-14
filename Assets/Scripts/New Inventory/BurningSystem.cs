@@ -9,6 +9,8 @@ public class BurningSystem : MonoBehaviour
     public ItemObject[] itemAccepted;
     public ItemObject coal;
 
+    public ParticleSystem fireParticle;
+
     public float speedBurn;
 
     private InventorySlot gettedItem;
@@ -52,6 +54,7 @@ public class BurningSystem : MonoBehaviour
         {
             Debug.Log("Start Corrutina");
             StartCoroutine("Burn");
+            fireParticle.Play();
             return true;
         }
         return false;
@@ -60,5 +63,6 @@ public class BurningSystem : MonoBehaviour
     public void Stop()
     {
         StopAllCoroutines();
+        fireParticle.Stop();
     }
 }

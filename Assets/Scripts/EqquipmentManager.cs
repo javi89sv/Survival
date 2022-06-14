@@ -123,7 +123,7 @@ public class EqquipmentManager : MonoBehaviour
 
     void Hit()
     {
-
+        
         int damageWeapon = currentWeapon.GetComponent<EquippmentStats>().itemObject.atkBonus;
 
         if (Physics.Raycast(camera_player.transform.position, camera_player.transform.forward, out hit, 2f, ~ignoreLayers))
@@ -137,10 +137,6 @@ public class EqquipmentManager : MonoBehaviour
                 hit.collider.GetComponent<Resources>().particlesGather.Play();
 
                 hit.collider.GetComponent<Resources>().TakeDamage(damageWeapon);
-
-                // Inventory.instance.DamageItem(GameManager.instance.weapon.GetComponent<InteractiveItem>().item);
-
-                // Gathering();
 
             }
 

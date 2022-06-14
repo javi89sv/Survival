@@ -31,17 +31,13 @@ public class PlayerManager : MonoBehaviour
     private float distanceInteract = 2f;
 
 
-    [HideInInspector]
-    public float currentHealth, currentFood, currentDrink;
+    
+    public float currentHealth, currentHungry, currentThirst;
     [Header("--Player Stats--")]
     public float maxHealth;
-    public float maxFood, maxDrink;
+    public float maxHungry, maxThirst;
     public float healthIncreaseRate, drinkIncreaseRate, foodIncreaseRate;
 
-    //UI
-    private GameObject ui_healthbar;
-    private GameObject ui_foodbar;
-    private GameObject ui_drinkbar;
 
     private void Awake()
     {
@@ -52,22 +48,19 @@ public class PlayerManager : MonoBehaviour
     {
 
         currentHealth = maxHealth;
-        currentFood = maxFood;
-        currentDrink = maxDrink;
-
-        ui_healthbar = GameObject.Find("StatusPlayer/HealthBar");
-        ui_foodbar = GameObject.Find("StatusPlayer/FoodBar");
-        ui_drinkbar = GameObject.Find("StatusPlayer/DrinkBar");
-
+        currentHungry = maxHungry;
+        currentThirst = maxThirst;
 
         baseFOV = normalCam.fieldOfView;
 
     }
+
+    private void Update()
+    {
+        ManagerStatesPlayer();
+    }
     private void FixedUpdate()
     {
-
-
-        ManagerStatesPlayer();
 
         //Axies
         float hmove = Input.GetAxisRaw("Horizontal");
@@ -143,7 +136,7 @@ public class PlayerManager : MonoBehaviour
                 InfoUI.Instance.SetTooltipItem(hit.collider.name);
 
                 var itemPickUp = hit.collider.GetComponent<ItemPickUp>();
-                
+
                 if (Input.GetKeyDown(KeyCode.E))
                 {
                     var inventory = GetComponent<PlayerInventoryHolder>();
@@ -157,9 +150,9 @@ public class PlayerManager : MonoBehaviour
                     {
                         Destroy(itemPickUp.gameObject);
                     }
-                }   
+                }
             }
-            
+
         }
         else
         {
@@ -182,14 +175,10 @@ public class PlayerManager : MonoBehaviour
 
     private void ManagerStatesPlayer()
     {
-        ui_healthbar.GetComponent<Image>().fillAmount = currentHealth / maxHealth;
-        ui_drinkbar.GetComponent<Image>().fillAmount = currentDrink / maxDrink;
-        ui_foodbar.GetComponent<Image>().fillAmount = currentFood / maxFood;
+        currentHungry -= foodIncreaseRate * Time.deltaTime;
+        currentThirst -= drinkIncreaseRate * Time.deltaTime;
 
-        currentFood -= foodIncreaseRate * Time.deltaTime;
-        currentDrink -= drinkIncreaseRate * Time.deltaTime;
-
-        if (currentFood <= 0 || currentDrink < 0)
+        if (currentHungry <= 0 || currentThirst < 0)
         {
             currentHealth -= healthIncreaseRate * Time.deltaTime;
         }
