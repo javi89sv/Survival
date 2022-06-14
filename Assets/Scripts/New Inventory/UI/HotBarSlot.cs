@@ -56,6 +56,7 @@ public class HotBarSlot : MonoBehaviour
                     if (eqquipment[i].name == slots[index].asiggnedInventorySlot.item.name)
                     {
                         eqquipment[i].gameObject.SetActive(true);
+                        EqquipmentManager.Instance.currentWeapon = eqquipment[i];
                     }
 
                 }

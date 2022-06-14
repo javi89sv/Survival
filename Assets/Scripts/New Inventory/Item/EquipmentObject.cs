@@ -9,6 +9,13 @@ public class EquipmentObject : ItemObject
     public int atkBonus;
     public int defBonus;
     public int durability;
+    public float fireRate;
+
+    [Header("Farming")]
+    public int farmWood;
+    public int farmStone;
+    public int farmIron;
+
 
     public override void UseItem()
     {

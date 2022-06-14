@@ -22,6 +22,7 @@ public class LootSystem : MonoBehaviour
             if (random <= lootTable.chance[i].chanceLoot)
             {
                 GameObject lootPrefab = Instantiate(lootTable.chance[i].prefabLoot, transformSpawn + lootTable.chance[i].SpawnOffset, Quaternion.identity);
+                lootPrefab.name = lootPrefab.name.Replace("(Clone)", "");
                 lootPrefab.GetComponent<ItemPickUp>().amount = (int)Random.Range(lootTable.chance[i].minAmount, lootTable.chance[i].maxAmount);
                 print("Drop!!" + lootTable.chance[i].prefabLoot.name);
             }

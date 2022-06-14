@@ -1,9 +1,12 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.EventSystems;
 using System;
-using Random = UnityEngine.Random;
+
+public enum typeResources
+{
+    wood,stone,iron
+}
 
 [Serializable]
 public struct Loot
@@ -16,7 +19,7 @@ public struct Loot
 
 public class Resources : MonoBehaviour
 {
-
+    public typeResources typeResources;
     public int hardness;
     public float health;
     public float maxhealth;
@@ -40,26 +43,21 @@ public class Resources : MonoBehaviour
 
     }
 
-    // Update is called once per frame
+
     void Update()
     {
-
         if (health <= 0)
         {
-
             LootSystem.instance.Loot(lootTable,transform.position);
             particlesDestroy.Play();
             Destroy(this.gameObject);
-
         }
     }
 
 
     public void TakeDamage(int damage)
-    {
-        
+    { 
         health -= damage;
-
     }
 
 

@@ -3,9 +3,10 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.EventSystems;
 
-public class WeaponAnim : MonoBehaviour
+public class EquippmentStats : MonoBehaviour
 {
     Animator anim;
+    public EquipmentObject itemObject;
 
     // Start is called before the first frame update
     void Start()
@@ -13,7 +14,7 @@ public class WeaponAnim : MonoBehaviour
         anim = GetComponent<Animator>();
     }
 
-    private void Update()
+    public void PlayAnim()
     {
         //IGNORA LOS CLICKS EN LA UI
         if (!EventSystem.current.IsPointerOverGameObject())

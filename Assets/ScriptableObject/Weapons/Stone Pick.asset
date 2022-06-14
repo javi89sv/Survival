@@ -19,6 +19,10 @@ MonoBehaviour:
   itemName: Stone Pick
   description: 
   maxStackSize: 1
-  atkBonus: 25
+  atkBonus: 5
   defBonus: 0
   durability: 100
+  fireRate: 1
+  farmWood: 5
+  farmStone: 10
+  farmIron: 10

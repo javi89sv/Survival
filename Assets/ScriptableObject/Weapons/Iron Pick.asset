@@ -10,19 +10,19 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: f7bc20745d77bb1439103a5fb2f97d53, type: 3}
-  m_Name: Torch
+  m_Name: Iron Pick
   m_EditorClassIdentifier: 
-  prefab: {fileID: 919132149155446097, guid: 3c409e4ba4b2996448d6c88b4f1e86f5, type: 3}
+  prefab: {fileID: 7236702112384662688, guid: 252a8b5189ddae841a2f7788a4c68d46, type: 3}
   type: 1
-  icon: {fileID: 21300000, guid: 989254263d5cfee4f9cc910bba980775, type: 3}
+  icon: {fileID: 21300000, guid: 39a139286161c744184f565aab0eb1eb, type: 3}
   id: 0
-  itemName: Stone Pick
+  itemName: Iron Pick
   description: 
   maxStackSize: 1
-  atkBonus: 5
+  atkBonus: 15
   defBonus: 0
   durability: 100
   fireRate: 1
-  farmWood: 0
-  farmStone: 0
-  farmIron: 0
+  farmWood: 10
+  farmStone: 20
+  farmIron: 20

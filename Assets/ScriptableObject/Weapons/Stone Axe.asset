@@ -22,3 +22,7 @@ MonoBehaviour:
   atkBonus: 10
   defBonus: 0
   durability: 100
+  fireRate: 1
+  farmWood: 10
+  farmStone: 5
+  farmIron: 5
