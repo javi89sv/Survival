@@ -18,7 +18,7 @@ MonoBehaviour:
   id: 0
   itemName: Apple
   description: 
-  maxStackSize: 5
+  maxStackSize: 10
   restoreHealth: 5
   restoreHungry: 10
   restoreThirst: 0

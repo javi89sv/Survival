@@ -77,7 +77,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   nameContainer: Chest
-  sizeInventory: 10
+  sizeInventory: 20
   primaryInventorySystem:
     inventorySlots: []
 --- !u!1001 &4915924776664629254
@@ -93,7 +93,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 4f315b58c2124fd468f2956535006e70, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -0
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 4f315b58c2124fd468f2956535006e70, type: 3}
       propertyPath: m_LocalPosition.y
@@ -113,11 +113,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 4f315b58c2124fd468f2956535006e70, type: 3}
       propertyPath: m_LocalRotation.y
-      value: -0
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 4f315b58c2124fd468f2956535006e70, type: 3}
       propertyPath: m_LocalRotation.z
-      value: -0
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 4f315b58c2124fd468f2956535006e70, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
