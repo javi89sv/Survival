@@ -29,8 +29,6 @@ public class Resources : MonoBehaviour
 
     public LootTable lootTable;
 
-    private int penalty;
-
     // Start is called before the first frame update
     void Start()
     {

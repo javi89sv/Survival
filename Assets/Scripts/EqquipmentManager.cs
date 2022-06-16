@@ -16,9 +16,7 @@ public class EqquipmentManager : MonoBehaviour
     public GameObject camera_player;
 
     public LayerMask ignoreLayers;
-
-
-    RaycastHit hit;
+    private RaycastHit hit;
 
 
     private void Awake()
@@ -123,7 +121,7 @@ public class EqquipmentManager : MonoBehaviour
 
     void Hit()
     {
-        
+
         int damageWeapon = currentWeapon.GetComponent<EquippmentStats>().itemObject.atkBonus;
 
         if (Physics.Raycast(camera_player.transform.position, camera_player.transform.forward, out hit, 2f, ~ignoreLayers))
@@ -143,10 +141,10 @@ public class EqquipmentManager : MonoBehaviour
             if (hit.transform.CompareTag("Container"))
             {
 
-                hit.collider.GetComponent<Container>().particles.transform.position = impact;
-                hit.collider.GetComponent<Container>().particles.Play();
+                hit.collider.GetComponent<LootBox>().particles.transform.position = impact;
+                hit.collider.GetComponent<LootBox>().particles.Play();
 
-                hit.collider.GetComponent<Container>().TakeDamage(damageWeapon);
+                hit.collider.GetComponent<LootBox>().TakeDamage(damageWeapon);
 
             }
             if (hit.transform.CompareTag("Enemy"))

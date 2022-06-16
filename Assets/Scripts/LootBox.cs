@@ -2,7 +2,6 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using System;
-using Random = UnityEngine.Random;
 
 [Serializable]
 public struct LootContainer
@@ -14,7 +13,7 @@ public struct LootContainer
     public Vector3 offsetSpawn;
 }
 
-public class Container : MonoBehaviour
+public class LootBox : MonoBehaviour
 {
 
     public int health;
@@ -45,7 +44,6 @@ public class Container : MonoBehaviour
             LootSystem.instance.Loot(lootTable, transform.position);
             Destroy(this.gameObject);
             
-
         }
     }
 
