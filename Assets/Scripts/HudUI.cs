@@ -6,6 +6,7 @@ using TMPro;
 
 public class HudUI : MonoBehaviour
 {
+    public static HudUI instance;
 
     public Image barHealthPlayer;
     public Image barHungryPlayer;
@@ -16,6 +17,7 @@ public class HudUI : MonoBehaviour
 
     private void Awake()
     {
+        instance = this;
         player = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerManager>();
     }
 

@@ -80,6 +80,7 @@ MonoBehaviour:
   sizeInventory: 20
   primaryInventorySystem:
     inventorySlots: []
+  textInfo: Pulsa E para abrir
 --- !u!1001 &4915924776664629254
 PrefabInstance:
   m_ObjectHideFlags: 0

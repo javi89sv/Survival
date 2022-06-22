@@ -6,7 +6,7 @@ using UnityEngine.UI;
 using UnityEngine.EventSystems;
 using System;
 
-public class InventorySlotUI : MonoBehaviour, IPointerDownHandler
+public class InventorySlotUI : MonoBehaviour, IPointerDownHandler, IBeginDragHandler, IDragHandler, IEndDragHandler
 {
     public Image itemIcon;
     public TextMeshProUGUI itemAmount;
@@ -22,7 +22,7 @@ public class InventorySlotUI : MonoBehaviour, IPointerDownHandler
     {
         ClearSLot();
         button = GetComponent<Button>();
-        button.onClick.AddListener(OnUiSlotClick);
+        //button.onClick.AddListener(OnUiSlotClick);
         parentInventory = transform.parent.GetComponent<InventoryDisplay>();
     }
     public void Init(InventorySlot invSlot)
@@ -64,10 +64,10 @@ public class InventorySlotUI : MonoBehaviour, IPointerDownHandler
         }
     }
 
-    public void OnUiSlotClick()
-    {
-        parentInventory?.SlotClicked(this);
-    }
+    //public void OnUiSlotClick()
+    //{
+    //    parentInventory?.SlotClicked(this);
+    //}
 
     public void UseItemSlot()
     {
@@ -75,7 +75,7 @@ public class InventorySlotUI : MonoBehaviour, IPointerDownHandler
         {
             asiggnedInventorySlot.item.UseItem();
             asiggnedInventorySlot.RemoveFromStack(1);
-            if(asiggnedInventorySlot.amount < 1)
+            if (asiggnedInventorySlot.amount < 1)
             {
                 asiggnedInventorySlot.ClearSlot();
             }
@@ -98,4 +98,34 @@ public class InventorySlotUI : MonoBehaviour, IPointerDownHandler
             UseItemSlot();
 
     }
+
+    public void OnBeginDrag(PointerEventData eventData)
+    {
+        if (asiggnedInventorySlot.item != null)
+        {
+            Debug.Log("OnBeginDrag");
+            MouseItemData.instance.UpdateMouseSlot(this.asiggnedInventorySlot);
+            //ClearSLot();
+        }
+
+    }
+    public void OnDrag(PointerEventData eventData)
+    {
+        if (asiggnedInventorySlot.item != null)
+        {
+            Debug.Log("OnDrag");
+        }
+
+
+    }
+    public void OnEndDrag(PointerEventData eventData)
+    {
+        if (asiggnedInventorySlot.item != null)
+        {
+            Debug.Log("OnEndDrag");
+            MouseItemData.instance.ClearSlot();
+        }
+            
+    }
 }
+

@@ -8,17 +8,26 @@ using System;
 
 public class MouseItemData : MonoBehaviour
 {
+    public static MouseItemData instance;
 
     public TextMeshProUGUI itemCount;
     public Image itemIcon;
+
+    private Transform playerTransform;
 
     public InventorySlot assignedInventorySlot;
 
     private void Awake()
     {
+
+        instance = this;
+
         itemCount.text = "";
         itemIcon.sprite = null;
         itemIcon.color = Color.clear;
+
+        playerTransform = GameObject.FindGameObjectWithTag("Player").GetComponent<Transform>();
+
     }
     public void UpdateMouseSlot(InventorySlot invSlot)
     {
@@ -38,16 +47,20 @@ public class MouseItemData : MonoBehaviour
     }
     private void Update()
     {
-        if (assignedInventorySlot != null) // Si tiene un item asignado que siga al cursor
+        if (assignedInventorySlot.item != null) // Si tiene un item asignado que siga al cursor
         {
             this.gameObject.transform.position = Input.mousePosition;
 
-            if (Input.GetMouseButton(0) && !isPointerOverUIObject())
-            {
-                ClearSlot();
-                //Añadir el drop del objeto al suelo
-            }
+            //if (Input.GetMouseButton(0) && !isPointerOverUIObject())
+            //{
+            //    if (assignedInventorySlot.item.prefab != null)
+            //    {
+            //        GameObject go = Instantiate(assignedInventorySlot.item.prefab, playerTransform.position + playerTransform.forward * 3f, Quaternion.identity);
+            //        go.name = go.name.Replace("(Clone)", ""); 
 
+            //        ClearSlot();
+            //    }
+            //}
         }
     }
 

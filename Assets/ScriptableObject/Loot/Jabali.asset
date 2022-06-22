@@ -10,16 +10,16 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 31cfbd7226a54f94d926fa1f25c263a2, type: 3}
-  m_Name: Enemy
+  m_Name: Jabali
   m_EditorClassIdentifier: 
-  chance:
+  drop:
   - chanceLoot: 100
-    prefabLoot: {fileID: 5157859071150991556, guid: 9fac695a178c18b4b8fbff5b0aabfc49, type: 3}
-    minAmount: 1
-    maxAmount: 5
-    SpawnOffset: {x: 0, y: 0.5, z: 0}
+    prefabLoot: {fileID: 1681005778286227430, guid: c3698dc6515409648861a40bc4dc36c6, type: 3}
+    minAmount: 5
+    maxAmount: 10
+    SpawnOffset: {x: 0, y: 0, z: 0}
   - chanceLoot: 100
     prefabLoot: {fileID: 4203427089207493090, guid: fab2b77c641d43144bd981f1d8bdf3b1, type: 3}
-    minAmount: 1
+    minAmount: 5
     maxAmount: 10
-    SpawnOffset: {x: 0, y: 0.5, z: 0}
+    SpawnOffset: {x: 0, y: 0, z: 0}

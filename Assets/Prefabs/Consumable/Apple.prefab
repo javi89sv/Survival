@@ -12,11 +12,11 @@ GameObject:
   - component: {fileID: 7742594682008292765}
   - component: {fileID: 5519108148947728727}
   - component: {fileID: 2213714366735082214}
-  - component: {fileID: 3742197790100445729}
+  - component: {fileID: 6487622233963234951}
   - component: {fileID: -8509463076476909954}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Apple
-  m_TagString: Item
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -102,8 +102,8 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
---- !u!135 &3742197790100445729
-SphereCollider:
+--- !u!64 &6487622233963234951
+MeshCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -112,9 +112,10 @@ SphereCollider:
   m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_Enabled: 1
-  serializedVersion: 2
-  m_Radius: 0.20000002
-  m_Center: {x: 0, y: 0.2049362, z: 0}
+  serializedVersion: 4
+  m_Convex: 1
+  m_CookingOptions: 30
+  m_Mesh: {fileID: -472147775963580301, guid: 0d66f7754ca183141a03ecf3f900269c, type: 3}
 --- !u!114 &-8509463076476909954
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -129,3 +130,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   item: {fileID: 11400000, guid: f970d7933ee63964f86313c5cb3fe485, type: 2}
   amount: 1
+  textInfo: Pulsa E para recoger

@@ -12,9 +12,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 31cfbd7226a54f94d926fa1f25c263a2, type: 3}
   m_Name: Tree
   m_EditorClassIdentifier: 
-  chance:
+  drop:
   - chanceLoot: 100
     prefabLoot: {fileID: 5887120300090589467, guid: f33719816df54f6439b46cad0ccae95c, type: 3}
     minAmount: 100
-    maxAmount: 250
-    SpawnOffset: {x: 0, y: 0.5, z: 0}
+    maxAmount: 200
+    SpawnOffset: {x: 0, y: 0, z: 0}

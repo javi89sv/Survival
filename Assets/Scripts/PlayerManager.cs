@@ -28,7 +28,6 @@ public class PlayerManager : MonoBehaviour
     private float baseFOV;
     private float sprintFOVModifier = 1.2f;
 
-    private float distanceInteract = 2f;
 
 
     
@@ -124,40 +123,6 @@ public class PlayerManager : MonoBehaviour
             normalCam.fieldOfView = Mathf.Lerp(normalCam.fieldOfView, baseFOV, Time.deltaTime * 8f);
         }
 
-        //Recoge Items
-
-        RaycastHit hit;
-
-        if (Physics.Raycast(Camera.main.transform.position, Camera.main.transform.forward, out hit, distanceInteract))
-        {
-
-            if (hit.collider.GetComponent<ItemPickUp>())
-            {
-                InfoUI.Instance.SetTooltipItem(hit.collider.name);
-
-                var itemPickUp = hit.collider.GetComponent<ItemPickUp>();
-
-                if (Input.GetKeyDown(KeyCode.E))
-                {
-                    var inventory = GetComponent<PlayerInventoryHolder>();
-
-                    if (!inventory)
-                    {
-                        return;
-                    }
-
-                    if (inventory.AddToInventory(itemPickUp.item, itemPickUp.amount))
-                    {
-                        Destroy(itemPickUp.gameObject);
-                    }
-                }
-            }
-
-        }
-        else
-        {
-            InfoUI.Instance.HideText();
-        }
     }
 
 

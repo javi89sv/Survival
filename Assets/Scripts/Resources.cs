@@ -17,7 +17,7 @@ public struct Loot
     public Vector3 spawn;
 }
 
-public class Resources : MonoBehaviour
+public class Resources : MonoBehaviour, IHitable
 {
     public typeResources typeResources;
     public int hardness;
@@ -53,9 +53,12 @@ public class Resources : MonoBehaviour
     }
 
 
-    public void TakeDamage(int damage)
+    public void TakeDamage(int damage, Vector3 pointHit)
     { 
         health -= damage;
+        particlesGather.transform.position = pointHit;
+        particlesGather.Play();
+
     }
 
 

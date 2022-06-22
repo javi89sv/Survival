@@ -1,0 +1,25 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 31cfbd7226a54f94d926fa1f25c263a2, type: 3}
+  m_Name: Chicken
+  m_EditorClassIdentifier: 
+  drop:
+  - chanceLoot: 100
+    prefabLoot: {fileID: 4203427089207493090, guid: fab2b77c641d43144bd981f1d8bdf3b1, type: 3}
+    minAmount: 5
+    maxAmount: 10
+    SpawnOffset: {x: 0, y: 0, z: 0}
+  - chanceLoot: 100
+    prefabLoot: {fileID: 1681005778286227430, guid: c3698dc6515409648861a40bc4dc36c6, type: 3}
+    minAmount: 1
+    maxAmount: 5
+    SpawnOffset: {x: 0, y: 0, z: 0}

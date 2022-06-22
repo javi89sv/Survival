@@ -5,19 +5,24 @@ using UnityEngine.Events;
 
 public class Chest : InventoryHolder, IInterectable
 {
+    public string textInfo;
+
     public static UnityAction<InventorySystem> OnChestInventoryDisplayRequested;
 
     public UnityAction<IInterectable> OnInteractionComplete { get; set; }
 
-    public void Interact(Interactor interactor, out bool interactSucessful)
+    public void Interact(Interactor interactor)
     {
         OnChestInventoryDisplayRequested?.Invoke(primaryInventorySystem);
-        interactSucessful = true;
-
+        InventoryUIController.instance.namePanelText.text = nameContainer.ToUpper();
+        PlayerInventoryHolder.OnPlayerInventoryDisplayRequested?.Invoke(PlayerInventoryHolder.instance.SecondaryInventorySystem);
+        Interactor.isInteraction = true;
+        Cursor.lockState = CursorLockMode.None;
+        Cursor.visible = true;
     }
-    public void EndInteraction()
+
+    public string TextInfo()
     {
-        
+        return textInfo;
     }
-
 }

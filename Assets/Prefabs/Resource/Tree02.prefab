@@ -4883,7 +4883,7 @@ GameObject:
   - component: {fileID: 8932577025752395402}
   - component: {fileID: 5044517065291089861}
   - component: {fileID: 8084979542778774460}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Tree02
   m_TagString: Resource
   m_Icon: {fileID: 0}
@@ -4983,13 +4983,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 786eb1cc5f0a6a64e808b025a44f5ca7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  typeResources: 0
   hardness: 10
   health: 0
   maxhealth: 100
   healthBar: {fileID: 0}
   particlesGather: {fileID: 1823191864671603449, guid: 3bac236df9361194a89b53ae307e4a8f, type: 3}
   particlesDestroy: {fileID: 0}
-  lootTable: {fileID: 0}
+  lootTable: {fileID: 11400000, guid: 0e320bf5988d82240a0ac644e0cfe12f, type: 2}
 --- !u!1001 &2611797748083106287
 PrefabInstance:
   m_ObjectHideFlags: 0

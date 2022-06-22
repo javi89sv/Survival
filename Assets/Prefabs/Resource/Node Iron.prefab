@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 3699355172231130964}
   - component: {fileID: 5888528048137584639}
   - component: {fileID: 4792512676359623028}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Node Iron
   m_TagString: Resource
   m_Icon: {fileID: 0}
@@ -30,8 +30,9 @@ Transform:
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
   m_Children:
-  - {fileID: 3322200822996597120}
+  - {fileID: 3776460296640237560}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -111,15 +112,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 786eb1cc5f0a6a64e808b025a44f5ca7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  type: Iron
-  quantity: 500
+  typeResources: 0
   hardness: 30
+  health: 0
   maxhealth: 100
-  drop: []
   healthBar: {fileID: 0}
-  typeResource: {fileID: 3919197475435746164, guid: 0843d0158218b7a4d816f0a287022154, type: 3}
-  particles: {fileID: 1823191864671603449, guid: ded84a00ff0b89d4eaad133086e7afc5, type: 3}
-  offset: {x: 0, y: 0.5, z: 0}
+  particlesGather: {fileID: 0}
+  particlesDestroy: {fileID: 0}
+  lootTable: {fileID: 0}
 --- !u!1001 &3283732895025697937
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -217,8 +217,8 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 02b1f702b03df974099e806a2a3ea592, type: 3}
---- !u!224 &3322200822996597120 stripped
+--- !u!224 &3776460296640237560 stripped
 RectTransform:
-  m_CorrespondingSourceObject: {fileID: 254732244705176849, guid: 02b1f702b03df974099e806a2a3ea592, type: 3}
+  m_CorrespondingSourceObject: {fileID: 1871957072428276585, guid: 02b1f702b03df974099e806a2a3ea592, type: 3}
   m_PrefabInstance: {fileID: 3283732895025697937}
   m_PrefabAsset: {fileID: 0}

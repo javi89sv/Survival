@@ -14,9 +14,9 @@ GameObject:
   - component: {fileID: 4274675726428202182}
   - component: {fileID: 8932087647575466609}
   - component: {fileID: -1767783022320330293}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Stone Axe
-  m_TagString: Item
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -116,6 +116,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   item: {fileID: 11400000, guid: 583186d29babfec4eacf312e204edee3, type: 2}
   amount: 1
+  textInfo: Pulsa E para recoger
 --- !u!64 &-1767783022320330293
 MeshCollider:
   m_ObjectHideFlags: 0

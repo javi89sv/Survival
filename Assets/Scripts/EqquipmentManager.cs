@@ -29,33 +29,34 @@ public class EqquipmentManager : MonoBehaviour
 
         currentcoolDown += Time.deltaTime;
 
-        //Preguntar si tenemos el arma al inventario y si pulsamos x tecla, eqquiparlo;
-        //if (photonView.IsMine && Input.GetKeyDown(KeyCode.Alpha1))
-        //{
-        //    { photonView.RPC("Equip", RpcTarget.All, 0); }
-        //}
-
-        //if (Input.GetKeyDown(KeyCode.Alpha2))
-        //{
-        //    //Equip();
-        //}
-
-
         if (currentWeapon != null)
         {
             var currWeapon = currentWeapon.GetComponent<EquippmentStats>();
 
             if (Input.GetMouseButtonDown(0) && currentcoolDown >= currWeapon.itemObject.fireRate)
-            {
-
-                Debug.Log("Hit!!");
+            {            
                 Invoke("Hit", 0.6f);
                 currentWeapon.GetComponent<EquippmentStats>().PlayAnim();
                 currentcoolDown = 0f;
-
             }
         }
+    }
 
+    void Hit()
+    {
+        int damageWeapon = currentWeapon.GetComponent<EquippmentStats>().itemObject.atkBonus;
+
+        if (Physics.Raycast(camera_player.transform.position, camera_player.transform.forward, out hit, 2f, ~ignoreLayers))
+        {
+            Vector3 hitPoint = hit.point;
+
+            var impact = hit.collider.GetComponent<IHitable>();
+
+            if (impact != null)
+            {
+                impact.TakeDamage(damageWeapon, hitPoint);
+            }
+        }
     }
 
 
@@ -119,45 +120,6 @@ public class EqquipmentManager : MonoBehaviour
     //}
 
 
-    void Hit()
-    {
-
-        int damageWeapon = currentWeapon.GetComponent<EquippmentStats>().itemObject.atkBonus;
-
-        if (Physics.Raycast(camera_player.transform.position, camera_player.transform.forward, out hit, 2f, ~ignoreLayers))
-        {
-            Vector3 impact = hit.point;
-
-            if (hit.transform.CompareTag("Resource"))
-            {
-
-                hit.collider.GetComponent<Resources>().particlesGather.transform.position = impact;
-                hit.collider.GetComponent<Resources>().particlesGather.Play();
-
-                hit.collider.GetComponent<Resources>().TakeDamage(damageWeapon);
-
-            }
-
-            if (hit.transform.CompareTag("Container"))
-            {
-
-                hit.collider.GetComponent<LootBox>().particles.transform.position = impact;
-                hit.collider.GetComponent<LootBox>().particles.Play();
-
-                hit.collider.GetComponent<LootBox>().TakeDamage(damageWeapon);
-
-            }
-            if (hit.transform.CompareTag("Enemy"))
-            {
-
-                hit.collider.GetComponent<EnemyIA>().particles.transform.position = impact;
-                hit.collider.GetComponent<EnemyIA>().particles.Play();
-
-                hit.collider.GetComponent<EnemyIA>().TakeDamage(damageWeapon);
-
-            }
-        }
-    }
 
 }
 

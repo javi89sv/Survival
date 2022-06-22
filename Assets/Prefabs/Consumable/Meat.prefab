@@ -14,9 +14,9 @@ GameObject:
   - component: {fileID: 5428258870237315018}
   - component: {fileID: 2988941943308161996}
   - component: {fileID: 1929109842180763710}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Meat
-  m_TagString: Item
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -129,3 +129,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   item: {fileID: 11400000, guid: f113a37bd8991dd4db803100a355585d, type: 2}
   amount: 1
+  textInfo: Pulsa E para recoger

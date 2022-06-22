@@ -14,9 +14,9 @@ GameObject:
   - component: {fileID: 2470636734070263584}
   - component: {fileID: 7826102919353290409}
   - component: {fileID: -1655924068185921277}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Mushrom
-  m_TagString: Item
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -130,3 +130,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   item: {fileID: 11400000, guid: 693679e10d3f9d2439ff117b40f6965c, type: 2}
   amount: 1
+  textInfo: Pulsa E para recoger

@@ -19,7 +19,7 @@ MonoBehaviour:
   itemName: Iron Axe
   description: 
   maxStackSize: 1
-  atkBonus: 0
+  atkBonus: 20
   defBonus: 0
   durability: 0
   fireRate: 1

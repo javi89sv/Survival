@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class EnemyIA : MonoBehaviour
+public class EnemyIA : MonoBehaviour, IHitable
 {
     public int health;
     public int maxhealth;
@@ -42,15 +42,18 @@ public class EnemyIA : MonoBehaviour
 
     Vector3 initialPosition;
 
-    public void TakeDamage(int damage)
-    {
-        health -= damage;
-      //  healthBar.UpdateHealth((float)health / (float)maxhealth);
-    }
+    //public void TakeDamage(int damage)
+    //{
+    //    health -= damage;
+    //  //  healthBar.UpdateHealth((float)health / (float)maxhealth);
+    //}
 
 
     void Start()
     {
+
+        health = maxhealth;
+
         walkTime = Random.Range(3, 6);
         waitTime = Random.Range(5, 7);
 
@@ -90,7 +93,7 @@ public class EnemyIA : MonoBehaviour
             isDead = true;
             LootSystem.instance.Loot(lootTable, transform.position);
             health = 1;
-            healthImage.SetActive(false);
+           // healthImage.SetActive(false);
             Destroy(this.gameObject, 3f);
         }
 
@@ -102,7 +105,7 @@ public class EnemyIA : MonoBehaviour
         }
 
         //MOVEMENT
-        if (isWalking)
+        if (!isDead && isWalking)
         {
 
             walkCounter -= Time.deltaTime;
@@ -168,5 +171,12 @@ public class EnemyIA : MonoBehaviour
         isWalking = true;
         walkCounter = walkTime;
 
+    }
+
+    public void TakeDamage(int damage, Vector3 pointhit)
+    {
+        health -= damage;
+        particles.transform.position = pointhit;
+        particles.Play();
     }
 }

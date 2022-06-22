@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 201295702269203059}
   - component: {fileID: 1516218830435531077}
   - component: {fileID: 1516218830435531098}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Tree01
   m_TagString: Resource
   m_Icon: {fileID: 0}
@@ -114,10 +114,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 786eb1cc5f0a6a64e808b025a44f5ca7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  typeResources: 0
   hardness: 10
   health: 0
   maxhealth: 100
-  healthBar: {fileID: 1452357945726760390}
+  healthBar: {fileID: 0}
   particlesGather: {fileID: 1417856270213788962}
   particlesDestroy: {fileID: 6573519529092309697}
   lootTable: {fileID: 11400000, guid: 0e320bf5988d82240a0ac644e0cfe12f, type: 2}
@@ -328,11 +329,6 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 72ca71b825c0b4343aafa2d39e30d854, type: 3}
---- !u!1 &1452357945726760390 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 7427510818301481438, guid: 72ca71b825c0b4343aafa2d39e30d854, type: 3}
-  m_PrefabInstance: {fileID: 8301293444169032728}
-  m_PrefabAsset: {fileID: 0}
 --- !u!4 &1452357945726760391 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 7427510818301481439, guid: 72ca71b825c0b4343aafa2d39e30d854, type: 3}

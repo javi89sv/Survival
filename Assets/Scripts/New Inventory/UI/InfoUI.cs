@@ -10,7 +10,7 @@ public class InfoUI : MonoBehaviour
     public static InfoUI Instance;
 
     public TextMeshProUGUI tooltipText;
-    public Image tooltipImage;
+    public Image pointCenter;
     public bool isHovering;
 
     private void Awake()
@@ -21,23 +21,32 @@ public class InfoUI : MonoBehaviour
     {
         isHovering = true;
         tooltipText.text = itemName;
+        pointCenter.enabled = false;
     }   
-    public void SetTooltipInteractable(string itemName)
-    {
-        isHovering = true;
-        tooltipText.text = itemName + "\n Pulsa E para interactuar";
-    }
-    public void HideText()
+
+    public void ClearText()
     {
         isHovering = false;
         tooltipText.text = string.Empty;
+        pointCenter.enabled = true;
+    }
+
+    public void ShowText()
+    {
+        tooltipText.alpha = 1;
+    }
+
+    public void HideText()
+    {
+        tooltipText.alpha = 0;
     }
 
     private void Update()
     {
-        if (!isHovering)
+        if (isHovering == false)
         {
             tooltipText.text = string.Empty;
+            pointCenter.enabled = true;
         }
     }
 }

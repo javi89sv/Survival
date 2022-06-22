@@ -15,16 +15,16 @@ public class LootSystem : MonoBehaviour
 
     public void Loot(LootTable lootTable, Vector3 transformSpawn)
     {
-        for (int i = 0; i < lootTable.chance.Length; i++)
+        for (int i = 0; i < lootTable.drop.Length; i++)
         {
             random = Random.Range(0, 100);
             print(random);
-            if (random <= lootTable.chance[i].chanceLoot)
+            if (random <= lootTable.drop[i].chanceLoot)
             {
-                GameObject lootPrefab = Instantiate(lootTable.chance[i].prefabLoot, transformSpawn + lootTable.chance[i].SpawnOffset, Quaternion.identity);
+                GameObject lootPrefab = Instantiate(lootTable.drop[i].prefabLoot, transformSpawn + lootTable.drop[i].SpawnOffset, Quaternion.identity);
                 lootPrefab.name = lootPrefab.name.Replace("(Clone)", "");
-                lootPrefab.GetComponent<ItemPickUp>().amount = (int)Random.Range(lootTable.chance[i].minAmount, lootTable.chance[i].maxAmount);
-                print("Drop!!" + lootTable.chance[i].prefabLoot.name);
+                lootPrefab.GetComponent<ItemPickUp>().amount = (int)Random.Range(lootTable.drop[i].minAmount, lootTable.drop[i].maxAmount);
+                print("Drop!!" + lootTable.drop[i].prefabLoot.name);
             }
         }
     }

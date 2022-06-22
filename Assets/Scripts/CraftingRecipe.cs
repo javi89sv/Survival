@@ -4,7 +4,7 @@ using UnityEngine;
 using System;
 
 [Serializable]
-public struct ItemAmount
+public struct Requirements
 {
     public ItemObject item;
     [Range(1, 999)]
@@ -16,7 +16,7 @@ public struct ItemAmount
 [CreateAssetMenu]
 public class CraftingRecipe : ScriptableObject
 {
-    public List<ItemAmount> Requirements;
+    public List<Requirements> Requirements;
     public ItemObject result;
     public int amountResult;
     public float time;

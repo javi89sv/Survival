@@ -14,9 +14,9 @@ GameObject:
   - component: {fileID: -1512688923762616284}
   - component: {fileID: 8018783399819740885}
   - component: {fileID: -7769793460174050580}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Iron
-  m_TagString: Item
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -129,3 +129,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   item: {fileID: 11400000, guid: d08fc8d7dcda2084198c23a499508a02, type: 2}
   amount: 1
+  textInfo: Pulsa E para recoger

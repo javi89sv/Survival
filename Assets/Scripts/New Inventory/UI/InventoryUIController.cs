@@ -63,7 +63,6 @@ public class InventoryUIController : MonoBehaviour
 
     void Update()
     {
-
         if (chestInventoryPanel.gameObject.activeInHierarchy && Input.GetKey(KeyCode.Escape))
         {
             chestInventoryPanel.gameObject.SetActive(false);

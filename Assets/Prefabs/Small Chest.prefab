@@ -131,3 +131,4 @@ MonoBehaviour:
   sizeInventory: 10
   primaryInventorySystem:
     inventorySlots: []
+  textInfo: Pulsa E para abrir

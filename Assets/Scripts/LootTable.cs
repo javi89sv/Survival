@@ -8,7 +8,7 @@ using System;
 public class LootTable : ScriptableObject
 {
     [Serializable]
-    public struct Chance
+    public struct Drop
     {
         public int chanceLoot;
         public GameObject prefabLoot;
@@ -17,6 +17,6 @@ public class LootTable : ScriptableObject
         public Vector3 SpawnOffset;
     }
 
-    public Chance[] chance;
+    public Drop[] drop;
 
 }

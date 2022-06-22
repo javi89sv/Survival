@@ -13,41 +13,36 @@ public class Interactor : MonoBehaviour
 
     private void Update()
     {
-        var collider = Physics.OverlapSphere(interactionPoint.position, interactionPointRadius, interactionLayer);
         RaycastHit hit;
 
-        if (Physics.Raycast(Camera.main.transform.position, Camera.main.transform.forward, out hit, interactionPointRadius))
+        if (Physics.Raycast(Camera.main.transform.position, Camera.main.transform.forward, out hit, interactionPointRadius, interactionLayer))
         {
-            if (hit.collider.GetComponent<InventoryHolder>())
+            var interactable = hit.collider.GetComponent<IInterectable>();
+
+            if (interactable != null)
             {
-                var interactable = hit.collider.GetComponent<IInterectable>();
-                var invHolder = hit.collider.GetComponent<InventoryHolder>();
+                InfoUI.Instance.SetTooltipItem(hit.collider.name + "\n" + interactable.TextInfo());
+            }
 
-                if (Input.GetKey(KeyCode.E))
+            if (Input.GetKey(KeyCode.E))
+            {
+                if (interactable != null)
                 {
-                    if (interactable != null)
-                    {
-                        StartInteraction(interactable);
-                        InventoryUIController.instance.namePanelText.text = invHolder.nameContainer.ToUpper();
-                        PlayerInventoryHolder.OnPlayerInventoryDisplayRequested?.Invoke(PlayerInventoryHolder.instance.SecondaryInventorySystem);
-                        Cursor.lockState = CursorLockMode.None;
-                        Cursor.visible = true;
+                    
+                    interactable.Interact(this);
+                    InfoUI.Instance.HideText();
 
-                    }
+
                 }
             }
+
+        }
+        else
+        {
+            InfoUI.Instance.ClearText();
+            InfoUI.Instance.ShowText();
         }
 
     }
 
-    private void StartInteraction(IInterectable interactable)
-    {
-        interactable.Interact(this, out bool interactSucessful);
-        isInteraction = true;
-    }
-
-    void EndInteraction()
-    {
-        isInteraction = false;
-    }
 }

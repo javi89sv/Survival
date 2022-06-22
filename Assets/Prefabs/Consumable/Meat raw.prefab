@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 2754878308671879982}
   - component: {fileID: 184981998869368031}
   - component: {fileID: 2372753700950650963}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Meat Raw
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -130,3 +130,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   item: {fileID: 11400000, guid: ab6775d5670a9cd43843ac05a81f1669, type: 2}
   amount: 1
+  textInfo: Pulsa E para recoger

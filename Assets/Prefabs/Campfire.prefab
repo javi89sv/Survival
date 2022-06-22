@@ -4963,6 +4963,7 @@ MonoBehaviour:
   sizeInventory: 5
   primaryInventorySystem:
     inventorySlots: []
+  textInfo: Pulsa E para abrir
 --- !u!1 &4075447249704345843
 GameObject:
   m_ObjectHideFlags: 0

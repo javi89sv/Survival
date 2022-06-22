@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 7372066326838263372}
   - component: {fileID: 3309436150641303432}
   - component: {fileID: 408603525844027930}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Charcoal
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -129,3 +129,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   item: {fileID: 11400000, guid: c8b71e12059b8fd44b62aba3b5cd0166, type: 2}
   amount: 1
+  textInfo: Pulsa E para recoger
