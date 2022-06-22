@@ -6,7 +6,7 @@ using UnityEngine.UI;
 using UnityEngine.EventSystems;
 using System;
 
-public class InventorySlotUI : MonoBehaviour, IPointerDownHandler, IBeginDragHandler, IDragHandler, IEndDragHandler
+public class InventorySlotUI : MonoBehaviour, IPointerDownHandler, IBeginDragHandler, IDragHandler, IEndDragHandler, IDropHandler, IPointerClickHandler
 {
     public Image itemIcon;
     public TextMeshProUGUI itemAmount;
@@ -92,40 +92,128 @@ public class InventorySlotUI : MonoBehaviour, IPointerDownHandler, IBeginDragHan
         itemIcon.color = Color.clear;
     }
 
+    public void OnPointerClick(PointerEventData eventData)
+    {
+
+    }
+
     public void OnPointerDown(PointerEventData eventData)
     {
-        if (eventData.button == PointerEventData.InputButton.Right)
-            UseItemSlot();
-
+        if (MouseItemData.instance.assignedInventorySlot.item != null && asiggnedInventorySlot.item == null)
+        {
+            asiggnedInventorySlot.AssignItem(MouseItemData.instance.assignedInventorySlot);
+            UpdateSlotUI();
+            MouseItemData.instance.ClearSlot();
+        }
+        //if (eventData.button == PointerEventData.InputButton.Right)
+        //    UseItemSlot();
     }
 
     public void OnBeginDrag(PointerEventData eventData)
     {
         if (asiggnedInventorySlot.item != null)
         {
-            Debug.Log("OnBeginDrag");
-            MouseItemData.instance.UpdateMouseSlot(this.asiggnedInventorySlot);
-            //ClearSLot();
-        }
+            if (Input.GetKey(KeyCode.Mouse0))
+            {
+                MouseItemData.instance.UpdateMouseSlot(this.asiggnedInventorySlot);
+                asiggnedInventorySlot.ClearSlot();
+                UpdateSlotUI();
+            }
+            else if (Input.GetKey(KeyCode.Mouse1)) //grab half of stack
+            {
+                asiggnedInventorySlot.SplitStack(out InventorySlot halfStack);
+                MouseItemData.instance.UpdateMouseSlot(halfStack);
+                UpdateSlotUI();
+            }
 
+        }
     }
+
     public void OnDrag(PointerEventData eventData)
     {
-        if (asiggnedInventorySlot.item != null)
-        {
-            Debug.Log("OnDrag");
-        }
-
 
     }
+
     public void OnEndDrag(PointerEventData eventData)
     {
-        if (asiggnedInventorySlot.item != null)
+        if (Input.GetKeyUp(KeyCode.Mouse1))
         {
-            Debug.Log("OnEndDrag");
-            MouseItemData.instance.ClearSlot();
+            return;
         }
-            
+        else if (Input.GetKeyUp(KeyCode.Mouse2))
+        {
+
+            return;
+        }
+
+        //MouseItemData.instance.ClearSlot();
+
     }
+
+    public void OnDrop(PointerEventData eventData)
+    {
+        if (asiggnedInventorySlot.item == null)
+        {
+            asiggnedInventorySlot.AssignItem(MouseItemData.instance.assignedInventorySlot);
+            UpdateSlotUI();
+            MouseItemData.instance.ClearSlot();
+            return;
+        }
+
+        //Si ambas ranuras tienen un item...
+        if (asiggnedInventorySlot != null)
+        {
+            bool isSameItem = asiggnedInventorySlot.item == MouseItemData.instance.assignedInventorySlot.item;
+
+            //Si ambos items son iguales, los apilamos
+            if (isSameItem && asiggnedInventorySlot.CheckStack(MouseItemData.instance.assignedInventorySlot.amount))
+            {
+                asiggnedInventorySlot.AssignItem(MouseItemData.instance.assignedInventorySlot);
+                UpdateSlotUI();
+                MouseItemData.instance.ClearSlot();
+                return;
+            }
+            else if (isSameItem && !asiggnedInventorySlot.CheckStack(MouseItemData.instance.assignedInventorySlot.amount, out int leftInStack))
+            {
+                if (leftInStack < 1) // Si el stack esta full, intercambiamos items.
+                {
+                    SwapSlots();
+                }
+                else // Si el stack no esta full, tomamos lo que nos falta del mouse slot y lo agregamos al stack del click slot, dejamos el resto en el mouse slot
+                {
+                    int remainingOnMouse = MouseItemData.instance.assignedInventorySlot.amount - leftInStack;
+                    asiggnedInventorySlot.AddToStack(leftInStack);
+                    UpdateSlotUI();
+
+                    var newItem = new InventorySlot(MouseItemData.instance.assignedInventorySlot.item, remainingOnMouse);
+                    MouseItemData.instance.ClearSlot();
+                    MouseItemData.instance.UpdateMouseSlot(newItem);
+                    return;
+
+                }
+            }
+
+            else if (!isSameItem) // si no es el mismo item, itercambiamos uno por otro
+            {
+                SwapSlots();
+                return;
+            }
+        }
+    }
+
+    public void SwapSlots()
+    {
+        var cloneSlot = new InventorySlot(MouseItemData.instance.assignedInventorySlot.item, MouseItemData.instance.assignedInventorySlot.amount);
+        MouseItemData.instance.ClearSlot();
+
+        MouseItemData.instance.UpdateMouseSlot(asiggnedInventorySlot);
+
+        ClearSLot();
+        asiggnedInventorySlot.AssignItem(cloneSlot);
+        UpdateSlotUI();
+
+    }
+
+
 }
 

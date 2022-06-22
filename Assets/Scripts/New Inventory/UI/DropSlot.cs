@@ -10,24 +10,16 @@ public class DropSlot : MonoBehaviour, IDropHandler
 
     private void Awake()
     {
-       // clickedSlot = this.GetComponent<InventorySlotUI>();
+        // clickedSlot = this.GetComponent<InventorySlotUI>();
         mouseItemData = MouseItemData.instance;
     }
 
     public void OnDrop(PointerEventData eventData)
     {
+        var draggedSLot = eventData.pointerDrag.GetComponent<InventorySlotUI>() != null;
+       
         Debug.Log("Drop!!");
-        bool isShiftPressed = Input.GetKey(KeyCode.LeftShift);
 
-        clickedSlot = eventData.pointerDrag.GetComponent<InventorySlotUI>();
-
-        if(mouseItemData.assignedInventorySlot.item != null && this.GetComponent<InventorySlotUI>().asiggnedInventorySlot.item == null)
-        {
-            this.GetComponent<InventorySlotUI>().asiggnedInventorySlot = mouseItemData.assignedInventorySlot;
-            this.GetComponent<InventorySlotUI>().UpdateSlotUI();
-            clickedSlot.asiggnedInventorySlot.ClearSlot();
-        }
-        
 
     }
     public void SwapSlots(InventorySlotUI clickedUISlot)
