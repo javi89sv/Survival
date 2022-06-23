@@ -17,31 +17,37 @@ public class HotBarSlot : MonoBehaviour
         {
             Deseqquip();
             Eqquip(0);
+            ActionSlot(0);
         }
         if (Input.GetKey(KeyCode.Alpha2))
         {
             Deseqquip();
             Eqquip(1);
+            ActionSlot(1);
         }
         if (Input.GetKey(KeyCode.Alpha3))
         {
             Deseqquip();
             Eqquip(2);
+            ActionSlot(2);
         }
         if (Input.GetKey(KeyCode.Alpha4))
         {
             Deseqquip();
             Eqquip(3);
+            ActionSlot(3);
         }
         if (Input.GetKey(KeyCode.Alpha5))
         {
             Deseqquip();
             Eqquip(4);
+            ActionSlot(4);
         }
         if (Input.GetKey(KeyCode.Alpha6))
         {
             Deseqquip();
             Eqquip(5);
+            ActionSlot(5);
         }
     }
 
@@ -73,6 +79,18 @@ public class HotBarSlot : MonoBehaviour
             {
                 eqquipment[i].SetActive(false);
             }
+        }
+    }
+
+    private void ActionSlot(int index)
+    {
+        for (int i = 0; i < slots.Length; i++)
+        {
+            if(slots[index].asiggnedInventorySlot.item != null && slots[index].asiggnedInventorySlot.item.type == ItemType.Consumable)
+            {
+                slots[index].UseItemSlot();
+            }
+
         }
     }
 }

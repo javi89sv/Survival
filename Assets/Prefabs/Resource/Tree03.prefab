@@ -69,6 +69,7 @@ MonoBehaviour:
   healthBar: {fileID: 0}
   particlesGather: {fileID: 7520524080916607730}
   particlesDestroy: {fileID: 4093451507779114426}
+  destroyPrefab: {fileID: 4172708858485762765, guid: 3329dfb23590a5641b1805b93ec9f6f2, type: 3}
   lootTable: {fileID: 11400000, guid: 0e320bf5988d82240a0ac644e0cfe12f, type: 2}
 --- !u!1001 &2414944395688419139
 PrefabInstance:

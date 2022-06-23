@@ -50,19 +50,25 @@ public class MouseItemData : MonoBehaviour
         if (assignedInventorySlot.item != null) // Si tiene un item asignado que siga al cursor
         {
             this.gameObject.transform.position = Input.mousePosition;
-
-            //if (Input.GetMouseButton(0) && !isPointerOverUIObject())
-            //{
-            //    if (assignedInventorySlot.item.prefab != null)
-            //    {
-            //        GameObject go = Instantiate(assignedInventorySlot.item.prefab, playerTransform.position + playerTransform.forward * 3f, Quaternion.identity);
-            //        go.name = go.name.Replace("(Clone)", ""); 
-
-            //        ClearSlot();
-            //    }
-            //}
         }
     }
+
+    public void DropItem()
+    {
+
+        if (!isPointerOverUIObject())
+        {
+            if (assignedInventorySlot.item.prefab != null)
+            {
+                GameObject go = Instantiate(assignedInventorySlot.item.prefab, playerTransform.position + playerTransform.forward * 3f, Quaternion.identity);
+                go.name = go.name.Replace("(Clone)", "");
+
+                ClearSlot();
+            }
+        }
+
+    }
+
 
     public void ClearSlot()
     {

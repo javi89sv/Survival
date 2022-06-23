@@ -13,7 +13,7 @@ public struct LootContainer
     public Vector3 offsetSpawn;
 }
 
-public class LootBox : MonoBehaviour
+public class LootBox : MonoBehaviour, IHitable
 {
 
     public int health;
@@ -23,10 +23,12 @@ public class LootBox : MonoBehaviour
     public float forceBrokenBox;
     public LootTable lootTable;
 
-    public void TakeDamage(int damage)
+
+    public void TakeDamage(int damage, Vector3 pointHit)
     {
         health -= damage;
-
+        particles.transform.position = pointHit;
+        particles.Play();
     }
 
     private void Update()

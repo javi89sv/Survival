@@ -94,7 +94,10 @@ public class InventorySlotUI : MonoBehaviour, IPointerDownHandler, IBeginDragHan
 
     public void OnPointerClick(PointerEventData eventData)
     {
-
+        if (asiggnedInventorySlot.item != null)
+        {
+            Debug.Log("SHOW INFO");
+        }
     }
 
     public void OnPointerDown(PointerEventData eventData)
@@ -105,8 +108,6 @@ public class InventorySlotUI : MonoBehaviour, IPointerDownHandler, IBeginDragHan
             UpdateSlotUI();
             MouseItemData.instance.ClearSlot();
         }
-        //if (eventData.button == PointerEventData.InputButton.Right)
-        //    UseItemSlot();
     }
 
     public void OnBeginDrag(PointerEventData eventData)
@@ -136,17 +137,10 @@ public class InventorySlotUI : MonoBehaviour, IPointerDownHandler, IBeginDragHan
 
     public void OnEndDrag(PointerEventData eventData)
     {
-        if (Input.GetKeyUp(KeyCode.Mouse1))
+        if (Input.GetKeyUp(KeyCode.Mouse0))
         {
-            return;
+            MouseItemData.instance.DropItem();
         }
-        else if (Input.GetKeyUp(KeyCode.Mouse2))
-        {
-
-            return;
-        }
-
-        //MouseItemData.instance.ClearSlot();
 
     }
 

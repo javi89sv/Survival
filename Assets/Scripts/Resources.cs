@@ -5,7 +5,7 @@ using System;
 
 public enum typeResources
 {
-    wood,stone,iron
+    wood, stone, iron
 }
 
 [Serializable]
@@ -26,6 +26,7 @@ public class Resources : MonoBehaviour, IHitable
     public GameObject healthBar;
     public ParticleSystem particlesGather;
     public ParticleSystem particlesDestroy;
+    public GameObject destroyPrefab;
 
     public LootTable lootTable;
 
@@ -46,15 +47,23 @@ public class Resources : MonoBehaviour, IHitable
     {
         if (health <= 0)
         {
-            LootSystem.instance.Loot(lootTable,transform.position);
-            particlesDestroy.Play();
+            if (destroyPrefab)
+            {
+                GameObject go = Instantiate(destroyPrefab, transform.position, transform.rotation);
+                go.GetComponent<Rigidbody>().AddExplosionForce(1f, transform.position, 1f);
+                LootSystem.instance.Loot(lootTable, transform.position);
+                Destroy(go, 3f);
+            }
+
+           
+          //  particlesDestroy.Play();
             Destroy(this.gameObject);
         }
     }
 
 
     public void TakeDamage(int damage, Vector3 pointHit)
-    { 
+    {
         health -= damage;
         particlesGather.transform.position = pointHit;
         particlesGather.Play();
