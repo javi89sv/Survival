@@ -16,7 +16,7 @@ public struct Requirements
 [CreateAssetMenu]
 public class CraftingRecipe : ScriptableObject
 {
-    public List<Requirements> Requirements;
+    public List<Requirements> _requirements;
     public ItemObject result;
     public int amountResult;
     public float time;

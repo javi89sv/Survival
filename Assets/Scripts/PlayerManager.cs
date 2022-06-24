@@ -11,7 +11,7 @@ public class PlayerManager : MonoBehaviour
     public float jumpPower = 10f;
 
     public float gravityFactor = -9.81f;
-    public float currentVelY = 0;
+
 
     public bool isSprinting = false;
     public float sprintingMultiplier;
@@ -28,9 +28,9 @@ public class PlayerManager : MonoBehaviour
 
     public bool isGrounded;
 
+    Vector3 velocity;
 
-
-
+    [HideInInspector]
     public float currentHealth, currentHungry, currentThirst;
     [Header("--Player Stats--")]
     public float maxHealth;
@@ -50,49 +50,39 @@ public class PlayerManager : MonoBehaviour
         currentHungry = maxHungry;
         currentThirst = maxThirst;
 
-      //  baseFOV = normalCam.fieldOfView;
+        //  baseFOV = normalCam.fieldOfView;
 
     }
 
     private void Update()
     {
         ManagerStatesPlayer();
-    }
 
-    public void CheckIsGrounded()
-    {
-        Collider[] cols = Physics.OverlapSphere(groundDetectionTransform.position, 0.5f, groundMask);
+        isGrounded = Physics.CheckSphere(groundDetectionTransform.position, 0.3f, groundMask);
 
-        if (cols.Length > 0)
+        if (isGrounded && velocity.y < 0)
         {
-            isGrounded = true;
+            velocity.y = -2f;
+        }
+
+        float inputX = Input.GetAxis("Horizontal");
+        float inputY = Input.GetAxis("Vertical");
+
+        Vector3 move = transform.right * inputX + transform.forward * inputY;
+
+        if (isCrouching == true)
+        {
+            controller.height = crouchingHeight;
+            move *= crouchingMulitplier;
         }
         else
         {
-            isGrounded = false;
-        }
-    }
-
-    private void FixedUpdate()
-    {
-
-        float inputX = Input.GetAxisRaw("Horizontal");
-        float inputY = Input.GetAxisRaw("Vertical");
-
-        CheckIsGrounded();
-
-        if (isGrounded == false)
-        {
-            currentVelY += gravityFactor * Time.deltaTime;
-        }
-        else if (isGrounded == true)
-        {
-            currentVelY = -2f;
+            controller.height = standingHeight;
         }
 
-        if (Input.GetKeyDown("space") && isGrounded == true)
+        if (Input.GetKeyDown(KeyCode.Space) && isGrounded == true)
         {
-            currentVelY = jumpPower;
+            velocity.y = Mathf.Sqrt(jumpPower * -2f * gravityFactor);
         }
 
         if (Input.GetKey(KeyCode.LeftControl))
@@ -104,36 +94,22 @@ public class PlayerManager : MonoBehaviour
             isCrouching = false;
         }
 
-        if (Input.GetKey(KeyCode.LeftShift) && isCrouching == false)
+        if (Input.GetKey(KeyCode.LeftShift) && isGrounded == true)
         {
             isSprinting = true;
+            move *= sprintingMultiplier;
         }
         else
         {
             isSprinting = false;
         }
 
-        Vector3 movement = new Vector3();
+        controller.Move(move * movementSpeed * Time.deltaTime);
 
-        movement = inputX * transform.right + inputY * transform.forward;
+        velocity.y += gravityFactor * Time.deltaTime;
 
-        if (isCrouching == true)
-        {
-            controller.height = crouchingHeight;
-            movement *= crouchingMulitplier;
-        }
-        else
-        {
-            controller.height = standingHeight;
-        }
+        controller.Move(velocity * Time.deltaTime);
 
-        if (isSprinting == true)
-        {
-            movement *= sprintingMultiplier;
-        }
-
-        controller.Move(movement * movementSpeed * Time.deltaTime);
-        controller.Move(new Vector3(0, currentVelY * Time.deltaTime, 0));
 
         ////Field of View
         //if (sprint)
@@ -145,7 +121,6 @@ public class PlayerManager : MonoBehaviour
         //{
         //    normalCam.fieldOfView = Mathf.Lerp(normalCam.fieldOfView, baseFOV, Time.deltaTime * 8f);           
         //}
-
     }
 
 

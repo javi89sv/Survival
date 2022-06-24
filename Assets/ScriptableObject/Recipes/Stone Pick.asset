@@ -12,11 +12,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 93e3cf0961baa834a9d2239712d4b863, type: 3}
   m_Name: Stone Pick
   m_EditorClassIdentifier: 
-  Requirements:
-  - item: {fileID: 11400000, guid: 24909fa2f4e4a6341b6d495904f077a6, type: 2}
-    amount: 100
+  _requirements:
   - item: {fileID: 11400000, guid: 4f6cb6cd1d8ca6c40b52598358c7ebc0, type: 2}
-    amount: 150
+    amount: 100
+  - item: {fileID: 11400000, guid: 24909fa2f4e4a6341b6d495904f077a6, type: 2}
+    amount: 200
   result: {fileID: 11400000, guid: 7b0bba16e5ce8634f8b9e27a57ab0550, type: 2}
   amountResult: 1
   time: 10

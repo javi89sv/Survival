@@ -14,7 +14,7 @@ public class InventorySystem
     public List<InventorySlot> InventorySlots => inventorySlots;
     public int inventorySize => InventorySlots.Count;
 
-    public UnityAction<InventorySlot> OnInventorySlotChanged; 
+    public UnityAction<InventorySlot> OnInventorySlotChanged;
 
 
 
@@ -69,13 +69,25 @@ public class InventorySystem
     {
         for (int i = 0; i < inventorySlots.Count; i++)
         {
-            if(inventorySlots[i].item == item)
+            if (inventorySlots[i].item == item)
             {
                 getItem = inventorySlots[i];
                 return true;
             }
         }
         getItem = null;
+        return false;
+    }
+
+    public bool ContainIngredients(ItemObject item, int amount)
+    {
+        for (int i = 0; i < inventorySlots.Count; i++)
+        {
+            if (inventorySlots[i].item == item && inventorySlots[i].amount >= amount)
+            {
+                return true;
+            }
+        }
         return false;
     }
 

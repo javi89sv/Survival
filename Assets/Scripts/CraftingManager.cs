@@ -4,9 +4,9 @@ using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
 
-public class UICrafting : MonoBehaviour
+public class CraftingManager : MonoBehaviour
 {
-    public static UICrafting instance;
+    public static CraftingManager instance;
 
     public GameObject uiRecipe;
     public GameObject slotMaterial;
@@ -51,19 +51,23 @@ public class UICrafting : MonoBehaviour
     //}
 
 
-    //private bool CanCraft()
-    //{
-    //    foreach (ItemAmount itemAmount in recipe.Material)
-    //    {
-    //        if (!InventoryManager.instance.ContainItem(itemAmount.item, itemAmount.amount))
-    //        {
-    //            return false;
-    //        }
+    public bool CanCraft()
+    {
+        foreach (var item in recipe._requirements)
+        {
+            if (!PlayerInventoryHolder.instance.PrimaryInventorySystem.ContainIngredients(item.item, item.amount) || !PlayerInventoryHolder.instance.SecondaryInventorySystem.ContainIngredients(item.item, item.amount))
+            {
+                Debug.Log("FALSE");
+                return false;
 
-    //    }
-    //    return true;
+            }
 
-    //}
+
+        }
+        Debug.Log("TRUE");
+        return true;
+
+    }
 
     //public void Craft()
     //{
@@ -97,7 +101,7 @@ public class UICrafting : MonoBehaviour
     //{
     //    while(remainingTime >= 0)
     //    {
-            
+
     //        countDownBar.fillAmount = Mathf.InverseLerp(0, recipe.time, remainingTime);
     //        remainingTime--;
     //        yield return new WaitForSeconds(1f);
@@ -106,7 +110,7 @@ public class UICrafting : MonoBehaviour
 
     //private void Crafting()
     //{
-        
+
     //    GameObject go = Instantiate(recipe.result.prefab);
     //    go.GetComponent<MeshRenderer>().enabled = false;
     //    go.GetComponent<Collider>().enabled = false;
@@ -114,6 +118,10 @@ public class UICrafting : MonoBehaviour
     //    InventoryManager.instance.AddItem(go, recipe.result, recipe.result.id, recipe.amountResult);
     //}
 
+    public void Test()
+    {
+        CanCraft();
+    }
 
 }
 
