@@ -13,37 +13,37 @@ public class HotBarSlot : MonoBehaviour
     private void Update()
     {
 
-        if (Input.GetKey(KeyCode.Alpha1))
+        if (Input.GetKeyDown(KeyCode.Alpha1))
         {
             Deseqquip();
             Eqquip(0);
             ActionSlot(0);
         }
-        if (Input.GetKey(KeyCode.Alpha2))
+        if (Input.GetKeyDown(KeyCode.Alpha2))
         {
             Deseqquip();
             Eqquip(1);
             ActionSlot(1);
         }
-        if (Input.GetKey(KeyCode.Alpha3))
+        if (Input.GetKeyDown(KeyCode.Alpha3))
         {
             Deseqquip();
             Eqquip(2);
             ActionSlot(2);
         }
-        if (Input.GetKey(KeyCode.Alpha4))
+        if (Input.GetKeyDown(KeyCode.Alpha4))
         {
             Deseqquip();
             Eqquip(3);
             ActionSlot(3);
         }
-        if (Input.GetKey(KeyCode.Alpha5))
+        if (Input.GetKeyDown(KeyCode.Alpha5))
         {
             Deseqquip();
             Eqquip(4);
             ActionSlot(4);
         }
-        if (Input.GetKey(KeyCode.Alpha6))
+        if (Input.GetKeyDown(KeyCode.Alpha6))
         {
             Deseqquip();
             Eqquip(5);
@@ -89,6 +89,7 @@ public class HotBarSlot : MonoBehaviour
             if(slots[index].asiggnedInventorySlot.item != null && slots[index].asiggnedInventorySlot.item.type == ItemType.Consumable)
             {
                 slots[index].UseItemSlot();
+                return;
             }
 
         }

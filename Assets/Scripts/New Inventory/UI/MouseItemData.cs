@@ -62,6 +62,7 @@ public class MouseItemData : MonoBehaviour
             {
                 GameObject go = Instantiate(assignedInventorySlot.item.prefab, playerTransform.position + playerTransform.forward * 3f, Quaternion.identity);
                 go.name = go.name.Replace("(Clone)", "");
+                go.GetComponent<ItemPickUp>().amount = assignedInventorySlot.amount;
 
                 ClearSlot();
             }

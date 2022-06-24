@@ -55,8 +55,6 @@ public class Resources : MonoBehaviour, IHitable
                 Destroy(go, 3f);
             }
 
-           
-          //  particlesDestroy.Play();
             Destroy(this.gameObject);
         }
     }
