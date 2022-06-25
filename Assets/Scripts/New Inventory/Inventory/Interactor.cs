@@ -18,10 +18,17 @@ public class Interactor : MonoBehaviour
         if (Physics.Raycast(Camera.main.transform.position, Camera.main.transform.forward, out hit, interactionPointRadius, interactionLayer))
         {
             var interactable = hit.collider.GetComponent<IInterectable>();
+            var hitable = hit.collider.GetComponent<IHitable>();
 
             if (interactable != null)
             {
                 InfoUI.Instance.SetTooltipItem(hit.collider.name + "\n" + interactable.TextInfo());
+            }
+
+            if(hitable != null)
+            {
+                Debug.Log("show health bar");
+                InfoUI.Instance.ShowBarHealth();
             }
 
             if (Input.GetKey(KeyCode.E))
@@ -41,6 +48,7 @@ public class Interactor : MonoBehaviour
         {
             InfoUI.Instance.ClearText();
             InfoUI.Instance.ShowText();
+            InfoUI.Instance.HideBarHealth();
         }
 
     }

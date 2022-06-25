@@ -13,8 +13,8 @@ GameObject:
   - component: {fileID: 4112325881380040305}
   - component: {fileID: 7989893556175830829}
   - component: {fileID: 1697227926406986653}
-  - component: {fileID: 1638492821984400582}
-  m_Layer: 0
+  - component: {fileID: 3286988179455019019}
+  m_Layer: 3
   m_Name: Wood Box
   m_TagString: Container
   m_Icon: {fileID: 0}
@@ -32,9 +32,7 @@ Transform:
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
-  m_Children:
-  - {fileID: 509133692604973236}
-  - {fileID: 1601319956270075698}
+  m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -45,7 +43,7 @@ MeshFilter:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2454768465482010532}
-  m_Mesh: {fileID: 3511704399212770276, guid: fa61a313136a26449935331764c291c0, type: 3}
+  m_Mesh: {fileID: 4262205447530158335, guid: fa61a313136a26449935331764c291c0, type: 3}
 --- !u!23 &4112325881380040305
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -115,9 +113,9 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 0.9, y: 0.9, z: 0.9}
-  m_Center: {x: 0, y: 0.4531809, z: 0}
---- !u!114 &1638492821984400582
+  m_Size: {x: 0.69353354, y: 0.6935336, z: 0.69353354}
+  m_Center: {x: 0, y: 0.35766807, z: 0}
+--- !u!114 &3286988179455019019
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -126,151 +124,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 2454768465482010532}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ce523bd8ef4a9c2459b3d62413980b9d, type: 3}
+  m_Script: {fileID: 11500000, guid: 26cba66f1d68a5b468373dcba86de176, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  health: 100
-  drop:
-  - {fileID: 5157859071150991556, guid: 9fac695a178c18b4b8fbff5b0aabfc49, type: 3}
-  - {fileID: 3419646254672889039, guid: 88e8c6f57bed3b54a80634d490ffb0fd, type: 3}
-  - {fileID: 7874142519221677958, guid: d0849252f1e64304399ad6ec8cccfe0b, type: 3}
-  - {fileID: 6311570502231103618, guid: d0680103a16a32b40a2fb1f652f8388f, type: 3}
-  - {fileID: 5965492570146472687, guid: dcb1f12e9351e364e99e8f744b7baa5d, type: 3}
-  - {fileID: 3419646254672889039, guid: 88e8c6f57bed3b54a80634d490ffb0fd, type: 3}
-  boxBroken: {fileID: 8016037213671640246, guid: 59cd9fc5b2798a243919c25810bdf684, type: 3}
-  particles: {fileID: 1601319956270075699}
-  forceBrokenBox: 0
-  lootTable: {fileID: 11400000, guid: 47e81348b991f334cab9084ea583d64d, type: 2}
---- !u!1001 &1113602226944394698
-PrefabInstance:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    m_TransformParent: {fileID: 2979912104394528030}
-    m_Modifications:
-    - target: {fileID: 1823191864671603448, guid: 3bac236df9361194a89b53ae307e4a8f, type: 3}
-      propertyPath: m_RootOrder
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 1823191864671603448, guid: 3bac236df9361194a89b53ae307e4a8f, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: -0.2157597
-      objectReference: {fileID: 0}
-    - target: {fileID: 1823191864671603448, guid: 3bac236df9361194a89b53ae307e4a8f, type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 1.7930086
-      objectReference: {fileID: 0}
-    - target: {fileID: 1823191864671603448, guid: 3bac236df9361194a89b53ae307e4a8f, type: 3}
-      propertyPath: m_LocalPosition.z
-      value: 10.822456
-      objectReference: {fileID: 0}
-    - target: {fileID: 1823191864671603448, guid: 3bac236df9361194a89b53ae307e4a8f, type: 3}
-      propertyPath: m_LocalRotation.w
-      value: 0.7071068
-      objectReference: {fileID: 0}
-    - target: {fileID: 1823191864671603448, guid: 3bac236df9361194a89b53ae307e4a8f, type: 3}
-      propertyPath: m_LocalRotation.x
-      value: -0.7071068
-      objectReference: {fileID: 0}
-    - target: {fileID: 1823191864671603448, guid: 3bac236df9361194a89b53ae307e4a8f, type: 3}
-      propertyPath: m_LocalRotation.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1823191864671603448, guid: 3bac236df9361194a89b53ae307e4a8f, type: 3}
-      propertyPath: m_LocalRotation.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1823191864671603448, guid: 3bac236df9361194a89b53ae307e4a8f, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.x
-      value: -90
-      objectReference: {fileID: 0}
-    - target: {fileID: 1823191864671603448, guid: 3bac236df9361194a89b53ae307e4a8f, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1823191864671603448, guid: 3bac236df9361194a89b53ae307e4a8f, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1823191864671603455, guid: 3bac236df9361194a89b53ae307e4a8f, type: 3}
-      propertyPath: m_Name
-      value: Particles Wood Gather
-      objectReference: {fileID: 0}
-    m_RemovedComponents: []
-  m_SourcePrefab: {fileID: 100100000, guid: 3bac236df9361194a89b53ae307e4a8f, type: 3}
---- !u!4 &1601319956270075698 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 1823191864671603448, guid: 3bac236df9361194a89b53ae307e4a8f, type: 3}
-  m_PrefabInstance: {fileID: 1113602226944394698}
-  m_PrefabAsset: {fileID: 0}
---- !u!198 &1601319956270075699 stripped
-ParticleSystem:
-  m_CorrespondingSourceObject: {fileID: 1823191864671603449, guid: 3bac236df9361194a89b53ae307e4a8f, type: 3}
-  m_PrefabInstance: {fileID: 1113602226944394698}
-  m_PrefabAsset: {fileID: 0}
---- !u!1001 &2188055841842989644
-PrefabInstance:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    m_TransformParent: {fileID: 2979912104394528030}
-    m_Modifications:
-    - target: {fileID: 1823191864671603448, guid: 6f67dfa421c3d874babc94325eed8e11, type: 3}
-      propertyPath: m_RootOrder
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1823191864671603448, guid: 6f67dfa421c3d874babc94325eed8e11, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1823191864671603448, guid: 6f67dfa421c3d874babc94325eed8e11, type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 1.6
-      objectReference: {fileID: 0}
-    - target: {fileID: 1823191864671603448, guid: 6f67dfa421c3d874babc94325eed8e11, type: 3}
-      propertyPath: m_LocalPosition.z
-      value: -0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1823191864671603448, guid: 6f67dfa421c3d874babc94325eed8e11, type: 3}
-      propertyPath: m_LocalRotation.w
-      value: 0.7071068
-      objectReference: {fileID: 0}
-    - target: {fileID: 1823191864671603448, guid: 6f67dfa421c3d874babc94325eed8e11, type: 3}
-      propertyPath: m_LocalRotation.x
-      value: -0.7071068
-      objectReference: {fileID: 0}
-    - target: {fileID: 1823191864671603448, guid: 6f67dfa421c3d874babc94325eed8e11, type: 3}
-      propertyPath: m_LocalRotation.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1823191864671603448, guid: 6f67dfa421c3d874babc94325eed8e11, type: 3}
-      propertyPath: m_LocalRotation.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1823191864671603448, guid: 6f67dfa421c3d874babc94325eed8e11, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.x
-      value: -90
-      objectReference: {fileID: 0}
-    - target: {fileID: 1823191864671603448, guid: 6f67dfa421c3d874babc94325eed8e11, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1823191864671603448, guid: 6f67dfa421c3d874babc94325eed8e11, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1823191864671603454, guid: 6f67dfa421c3d874babc94325eed8e11, type: 3}
-      propertyPath: m_Materials.Array.data[0]
-      value: 
-      objectReference: {fileID: 2100000, guid: a4302fa07e4315a46bb898a78dd714cb, type: 2}
-    - target: {fileID: 1823191864671603455, guid: 6f67dfa421c3d874babc94325eed8e11, type: 3}
-      propertyPath: m_Name
-      value: Particles Box
-      objectReference: {fileID: 0}
-    m_RemovedComponents: []
-  m_SourcePrefab: {fileID: 100100000, guid: 6f67dfa421c3d874babc94325eed8e11, type: 3}
---- !u!4 &509133692604973236 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 1823191864671603448, guid: 6f67dfa421c3d874babc94325eed8e11, type: 3}
-  m_PrefabInstance: {fileID: 2188055841842989644}
-  m_PrefabAsset: {fileID: 0}
+  nameContainer: Wood Box
+  sizeInventory: 24
+  primaryInventorySystem:
+    inventorySlots: []
+  textInfo: Pulsa E para abrir

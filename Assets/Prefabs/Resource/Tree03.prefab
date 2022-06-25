@@ -46,7 +46,7 @@ CapsuleCollider:
   m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_Enabled: 1
-  m_Radius: 0.5
+  m_Radius: 0.3
   m_Height: 5
   m_Direction: 1
   m_Center: {x: 0, y: 2.5, z: 0}
@@ -68,7 +68,6 @@ MonoBehaviour:
   maxhealth: 100
   healthBar: {fileID: 0}
   particlesGather: {fileID: 7520524080916607730}
-  particlesDestroy: {fileID: 4093451507779114426}
   destroyPrefab: {fileID: 4172708858485762765, guid: 3329dfb23590a5641b1805b93ec9f6f2, type: 3}
   lootTable: {fileID: 11400000, guid: 0e320bf5988d82240a0ac644e0cfe12f, type: 2}
 --- !u!1001 &2414944395688419139
@@ -128,11 +127,6 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 3f34a65fae2ea9f44a3b687726c12fae, type: 3}
---- !u!198 &4093451507779114426 stripped
-ParticleSystem:
-  m_CorrespondingSourceObject: {fileID: 1823191864671603449, guid: 3f34a65fae2ea9f44a3b687726c12fae, type: 3}
-  m_PrefabInstance: {fileID: 2414944395688419139}
-  m_PrefabAsset: {fileID: 0}
 --- !u!4 &4093451507779114427 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 1823191864671603448, guid: 3f34a65fae2ea9f44a3b687726c12fae, type: 3}

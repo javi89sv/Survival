@@ -25,7 +25,6 @@ public class Resources : MonoBehaviour, IHitable
     public float maxhealth;
     public GameObject healthBar;
     public ParticleSystem particlesGather;
-    public ParticleSystem particlesDestroy;
     public GameObject destroyPrefab;
 
     public LootTable lootTable;

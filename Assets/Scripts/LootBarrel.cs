@@ -19,7 +19,6 @@ public class LootBarrel : MonoBehaviour, IHitable
     public int health;
     public GameObject brokenPrefab;
     public ParticleSystem hitParticles;
-    public float forceBrokeItem;
     public LootTable lootTable;
 
 
@@ -38,7 +37,7 @@ public class LootBarrel : MonoBehaviour, IHitable
             if (brokenPrefab)
             {
                 GameObject go = Instantiate(brokenPrefab, transform.position, transform.rotation);
-                go.GetComponent<Rigidbody>().AddExplosionForce(forceBrokeItem, transform.position, 1f);
+                go.GetComponent<Rigidbody>().AddExplosionForce(1f, transform.position, 1f);
                 LootSystem.instance.Loot(lootTable, transform.position);
                 Destroy(go, 3f);
             }

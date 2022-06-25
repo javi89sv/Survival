@@ -12,17 +12,29 @@ public class InfoUI : MonoBehaviour
     public TextMeshProUGUI tooltipText;
     public Image pointCenter;
     public bool isHovering;
+    public GameObject healthBar;
 
     private void Awake()
     {
         Instance = this;
     }
+
+    public void ShowBarHealth()
+    {
+        healthBar.SetActive(true);
+    }
+
+    public void HideBarHealth()
+    {
+        healthBar.SetActive(false);
+    }
+
     public void SetTooltipItem(string itemName)
     {
         isHovering = true;
         tooltipText.text = itemName;
         pointCenter.enabled = false;
-    }   
+    }
 
     public void ClearText()
     {

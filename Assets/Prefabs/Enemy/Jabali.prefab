@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 5285547090136078373}
   - component: {fileID: 3109903445529155012}
   - component: {fileID: 9207893911872413026}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Jabali
   m_TagString: Untagged
   m_Icon: {fileID: 0}

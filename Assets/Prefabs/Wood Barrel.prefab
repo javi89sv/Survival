@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: -2041543387474234894}
   - component: {fileID: -7453893178017694811}
   - component: {fileID: -2886945891570762330}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Wood Barrel
   m_TagString: Container
   m_Icon: {fileID: 0}
@@ -130,9 +130,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   health: 100
-  brokenPrefab: {fileID: 5914057573221410974, guid: 38ffbdd4db588dd42a5cc3f92f104464, type: 3}
+  brokenPrefab: {fileID: 5750814199496048576, guid: 38ffbdd4db588dd42a5cc3f92f104464, type: 3}
   hitParticles: {fileID: 7939564380831421301}
-  forceBrokeItem: 1
   lootTable: {fileID: 11400000, guid: 47e81348b991f334cab9084ea583d64d, type: 2}
 --- !u!1001 &8602923029542934924
 PrefabInstance:
