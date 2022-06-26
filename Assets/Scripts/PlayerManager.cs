@@ -111,6 +111,9 @@ public class PlayerManager : MonoBehaviour
         controller.Move(velocity * Time.deltaTime);
 
 
+
+
+
         ////Field of View
         //if (sprint)
         //{
@@ -145,6 +148,16 @@ public class PlayerManager : MonoBehaviour
         {
             currentHealth -= healthIncreaseRate * Time.deltaTime;
         }
+
+        if (currentThirst <= 0)
+        {
+            sprintingMultiplier = 0;
+        }
+        else
+        {
+            sprintingMultiplier = 2;
+        }
+
     }
 
 }

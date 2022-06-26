@@ -58,26 +58,30 @@ public class InventoryUIController : MonoBehaviour
     public void RefreshUIChest(InventorySystem invToDisplay)
     {
         chestInventoryPanel.RefreshDynamicInventory(invToDisplay);
+    } 
+    public void RefreshUIFurnace(InventorySystem invToDisplay)
+    {
+        furnaceInventoryPanel.RefreshDynamicInventory(invToDisplay);
     }
 
 
     void Update()
     {
-        if (chestInventoryPanel.gameObject.activeInHierarchy && Input.GetKey(KeyCode.Escape))
+        if (chestInventoryPanel.gameObject.activeInHierarchy && Input.GetKeyDown(KeyCode.Escape))
         {
             chestInventoryPanel.gameObject.SetActive(false);
             Cursor.lockState = CursorLockMode.Locked;
             Cursor.visible = false;
             Interactor.isInteraction = false;
         }
-        if (playerInventoryPanel.gameObject.activeInHierarchy && Input.GetKey(KeyCode.Escape))
+        if (playerInventoryPanel.gameObject.activeInHierarchy && Input.GetKeyDown(KeyCode.Escape))
         {
             playerInventoryPanel.gameObject.SetActive(false);
             Cursor.lockState = CursorLockMode.Locked;
             Cursor.visible = false;
             Interactor.isInteraction = false;
         }
-        if (furnaceInventoryPanel.gameObject.activeInHierarchy && Input.GetKey(KeyCode.Escape))
+        if (furnaceInventoryPanel.gameObject.activeInHierarchy && Input.GetKeyDown(KeyCode.Escape))
         {
             furnaceInventoryPanel.gameObject.SetActive(false);
             Cursor.lockState = CursorLockMode.Locked;

@@ -13,6 +13,7 @@ public class InfoUI : MonoBehaviour
     public Image pointCenter;
     public bool isHovering;
     public GameObject healthBar;
+    public Image barImage;
 
     private void Awake()
     {
@@ -60,5 +61,14 @@ public class InfoUI : MonoBehaviour
             tooltipText.text = string.Empty;
             pointCenter.enabled = true;
         }
+    }
+
+    public void UpdateBarHealth(int value)
+    {
+        if (healthBar.activeInHierarchy)
+        {
+            barImage.fillAmount = (float)value / 100f;
+        }
+        
     }
 }

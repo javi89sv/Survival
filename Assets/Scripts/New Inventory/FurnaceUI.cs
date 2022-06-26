@@ -14,12 +14,12 @@ public class FurnaceUI : MonoBehaviour
 
     public void Update()
     {
-        if (isRun)
+        if (furnaceCurrent.GetComponent<BurningSystem>().isRun)
         {
             buttonOn.gameObject.SetActive(false);
             buttonOff.gameObject.SetActive(true);
         }
-        if (!isRun)
+        if (!furnaceCurrent.GetComponent<BurningSystem>().isRun)
         {
             buttonOn.gameObject.SetActive(true);
             buttonOff.gameObject.SetActive(false);
@@ -41,6 +41,7 @@ public class FurnaceUI : MonoBehaviour
 
     public void StopFurnace()
     {
+
         furnaceCurrent.GetComponent<BurningSystem>().Stop();
         isRun = false;
     }

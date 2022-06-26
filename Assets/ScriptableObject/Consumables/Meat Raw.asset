@@ -21,4 +21,4 @@ MonoBehaviour:
   maxStackSize: 10
   restoreHealth: 10
   restoreHungry: 10
-  restoreThirst: 0
+  restoreThirst: -20

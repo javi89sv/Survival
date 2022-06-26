@@ -26,9 +26,9 @@ public class Interactor : MonoBehaviour
             }
 
             if(hitable != null)
-            {
-                Debug.Log("show health bar");
+            {             
                 InfoUI.Instance.ShowBarHealth();
+                InfoUI.Instance.UpdateBarHealth(hitable.health());
             }
 
             if (Input.GetKey(KeyCode.E))

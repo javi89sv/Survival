@@ -29,6 +29,11 @@ public class LootBarrel : MonoBehaviour, IHitable
         hitParticles.Play();
     }
 
+    int IHitable.health()
+    {
+        return health;
+    }
+
     private void Update()
     {
 

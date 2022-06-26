@@ -9,6 +9,8 @@ public class BurningSystem : MonoBehaviour
     public ItemObject[] itemAccepted;
     public ItemObject coal;
 
+    public bool isRun;
+
     public ParticleSystem fireParticle;
 
     public float speedBurn;
@@ -34,17 +36,18 @@ public class BurningSystem : MonoBehaviour
 
     IEnumerator Burn()
     {
-        while(gettedItem.amount >= 1f)
+        while(gettedItem.amount > 0)
         {
             yield return new WaitForSeconds(speedBurn);
             gettedItem.RemoveFromStack(3);
-            this.GetComponent<Furnace>().PrimaryInventorySystem.AddItem(coal,3);
+            this.GetComponent<Furnace>().PrimaryInventorySystem.AddItem(coal,1);
             this.GetComponent<Furnace>().PrimaryInventorySystem.UpdateUISlots();
 
         }
         gettedItem.ClearSlot();
-        InventoryUIController.instance.RefreshUIChest(this.GetComponent<Chest>().PrimaryInventorySystem);
-        Run();
+        InventoryUIController.instance.RefreshUIFurnace(this.GetComponent<Furnace>().PrimaryInventorySystem);
+        isRun = false;
+        Stop();
 
     }
 
@@ -55,9 +58,12 @@ public class BurningSystem : MonoBehaviour
             Debug.Log("Start Corrutina");
             StartCoroutine("Burn");
             fireParticle.Play();
+            isRun = true;
             return true;
         }
+        
         return false;
+
     }
 
     public void Stop()

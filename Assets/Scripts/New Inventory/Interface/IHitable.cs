@@ -6,4 +6,6 @@ public interface IHitable
 {
 
     public void TakeDamage(int damage, Vector3 pointHit);
+
+    public int health();
 }

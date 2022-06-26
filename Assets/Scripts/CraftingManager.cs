@@ -8,120 +8,93 @@ public class CraftingManager : MonoBehaviour
 {
     public static CraftingManager instance;
 
-    public GameObject uiRecipe;
-    public GameObject slotMaterial;
-    public TextMeshProUGUI[] uiMaterial;
-    public TextMeshProUGUI textMaterial;
-    public TextMeshProUGUI textCraftingItem;
-    public Image countDownBar;
-    public CraftingRecipe recipe;
-    public Button buttonCraft;
+    private InventorySystem inventorySelected;
+    private CraftingRecipe recipeSelected;
 
-    float remainingTime;
+    private float remainingTime;
 
 
-    //private void Start()
-    //{
-    //    instance = this;
-    //    uiMaterial = slotMaterial.GetComponentsInChildren<TextMeshProUGUI>();
-    //}
-
-    //public void UpdateSlot()
-    //{
-    //    if (recipe)
-    //    {
-    //        CleanText();
-
-    //        for (int i = 0; i < recipe.Material.Count; i++)
-    //        {
-
-    //            uiMaterial[i].text = recipe.Material[i].item.name + " " + recipe.Material[i].amount;
-
-    //        }
-    //    }
-    //}
-
-    //public void CleanText()
-    //{
-    //    for (int i = 0; i < uiMaterial.Length; i++)
-    //    {
-    //        uiMaterial[i].text = "";
-
-    //    }
-    //}
-
-
-    public bool CanCraft()
+    private void Awake()
     {
+        instance = this;
+    }
+
+    public bool CanCraft(CraftingRecipe recipe)
+    {
+
+
         foreach (var item in recipe._requirements)
         {
-            if (!PlayerInventoryHolder.instance.PrimaryInventorySystem.ContainIngredients(item.item, item.amount) || !PlayerInventoryHolder.instance.SecondaryInventorySystem.ContainIngredients(item.item, item.amount))
+            if (PlayerInventoryHolder.instance.PrimaryInventorySystem.ContainIngredients(item.item, item.amount, out InventorySystem inv1))
             {
-                Debug.Log("FALSE");
-                return false;
+                inventorySelected = inv1;
+                Craft(recipe, inventorySelected);
+                Debug.Log("Can Craft!");
+                return true;
 
+            }
+            else if (PlayerInventoryHolder.instance.SecondaryInventorySystem.ContainIngredients(item.item, item.amount, out InventorySystem inv2))
+            {
+                inventorySelected = inv2;
+                Craft(recipe, inventorySelected);
+                Debug.Log("Can Craft!");
+                return true;
             }
 
 
         }
-        Debug.Log("TRUE");
-        return true;
 
+        Debug.Log("Not enought material");
+        return false;
     }
 
-    //public void Craft()
-    //{
-    //    if (CanCraft() == true)
-    //    {
-
-    //        foreach (ItemAmount itemAmount in recipe.Material)
-    //        {
-    //            InventoryManager.instance.RemoveItemsCraft(itemAmount.item, itemAmount.amount);
-    //        }
-    //        textCraftingItem.text = recipe.name;
-    //        remainingTime = recipe.time;
-    //        StartCoroutine(Countdown(recipe.time));
-    //        StartCoroutine(Timer());
-    //    }
-    //    else
-    //    {
-    //        Debug.Log("Not enought material");
-    //    }
-
-    //}
-
-    //IEnumerator Countdown(float value)
-    //{
-    //    yield return new WaitForSeconds(value);
-    //    Crafting();
-    //    textCraftingItem.text = "";
-    //}
-
-    //IEnumerator Timer()
-    //{
-    //    while(remainingTime >= 0)
-    //    {
-
-    //        countDownBar.fillAmount = Mathf.InverseLerp(0, recipe.time, remainingTime);
-    //        remainingTime--;
-    //        yield return new WaitForSeconds(1f);
-    //    }      
-    //}
-
-    //private void Crafting()
-    //{
-
-    //    GameObject go = Instantiate(recipe.result.prefab);
-    //    go.GetComponent<MeshRenderer>().enabled = false;
-    //    go.GetComponent<Collider>().enabled = false;
-    //    go.GetComponent<Rigidbody>().isKinematic = true;
-    //    InventoryManager.instance.AddItem(go, recipe.result, recipe.result.id, recipe.amountResult);
-    //}
-
-    public void Test()
+    public void Craft(CraftingRecipe recipe, InventorySystem inventory)
     {
-        CanCraft();
+        recipeSelected = recipe;
+        foreach (var item in recipe._requirements)
+        {
+            inventory.RemoveItems(item.item, item.amount);
+        }
+
+        StartCoroutine("Countdown");
+
     }
+
+    IEnumerator Countdown()
+    {
+        yield return new WaitForSeconds(recipeSelected.time);
+        Crafting();
+    }
+
+    private void Crafting()
+    {
+        var inventoryHolder = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerInventoryHolder>();
+
+        if (!inventoryHolder)
+        {
+            //Drop item
+            return;
+        }
+        if (inventoryHolder.AddToInventory(recipeSelected.result, recipeSelected.amountResult))
+        {
+            HudUI.instance.UpdateText(recipeSelected.result.itemName, recipeSelected.amountResult);
+
+        }
+    }
+
+    public IEnumerator Timer(TextMeshProUGUI text)
+    {
+        remainingTime = recipeSelected.time;
+
+        while(remainingTime >= 0)
+        {
+
+        }
+        remainingTime--;
+        text.text = remainingTime.ToString();
+        yield return new WaitForSeconds(1f);
+    }
+
 
 }
 

@@ -79,16 +79,30 @@ public class InventorySystem
         return false;
     }
 
-    public bool ContainIngredients(ItemObject item, int amount)
+    public bool ContainIngredients(ItemObject item, int amount, out InventorySystem inv)
     {
         for (int i = 0; i < inventorySlots.Count; i++)
         {
             if (inventorySlots[i].item == item && inventorySlots[i].amount >= amount)
             {
+                inv = this;
                 return true;
             }
         }
+        inv = null;
         return false;
+    }
+
+    public void RemoveItems(ItemObject item, int amount)
+    {
+        for(int i = 0; i < inventorySlots.Count; i++)
+        {
+            if(inventorySlots[i].item == item)
+            {
+                inventorySlots[i].RemoveFromStack(amount);
+                OnInventorySlotChanged?.Invoke(inventorySlots[i]);
+            }
+        }
     }
 
 

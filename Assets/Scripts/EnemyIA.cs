@@ -29,16 +29,11 @@ public class EnemyIA : MonoBehaviour, IHitable
     public bool isWalking;
     public bool isDead;
 
-    public HealthBar healthBar;
-
     public ParticleSystem particles;
 
     public LootTable lootTable;
 
-    public GameObject healthImage;
-
     GameObject playerPrefab;
-    Rigidbody rb;
 
     Vector3 initialPosition;
 
@@ -63,7 +58,7 @@ public class EnemyIA : MonoBehaviour, IHitable
         ChooseDirection();
 
         playerPrefab = GameObject.FindGameObjectWithTag("Player");
-        rb = GetComponent<Rigidbody>();
+
     }
 
 
@@ -93,7 +88,6 @@ public class EnemyIA : MonoBehaviour, IHitable
             isDead = true;
             LootSystem.instance.Loot(lootTable, transform.position);
             health = 1;
-           // healthImage.SetActive(false);
             Destroy(this.gameObject, 3f);
         }
 
@@ -178,5 +172,10 @@ public class EnemyIA : MonoBehaviour, IHitable
         health -= damage;
         particles.transform.position = pointhit;
         particles.Play();
+    }
+
+    int IHitable.health()
+    {
+        return health;
     }
 }

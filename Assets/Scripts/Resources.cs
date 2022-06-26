@@ -21,8 +21,8 @@ public class Resources : MonoBehaviour, IHitable
 {
     public typeResources typeResources;
     public int hardness;
-    public float health;
-    public float maxhealth;
+    public int health;
+    public int maxhealth;
     public GameObject healthBar;
     public ParticleSystem particlesGather;
     public GameObject destroyPrefab;
@@ -67,5 +67,8 @@ public class Resources : MonoBehaviour, IHitable
 
     }
 
-
+    int IHitable.health()
+    {
+        return health;
+    }
 }
