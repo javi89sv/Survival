@@ -17,12 +17,13 @@ MonoBehaviour:
   icon: {fileID: 21300000, guid: 63b11d88907192541bb821fac8cabc5c, type: 3}
   id: 0
   itemName: Stone Pick
-  description: 
+  description: 'Pico rudimentario de piedra.
+
+    Sirve para picar distintos minerales.'
   maxStackSize: 1
-  atkBonus: 5
+  atkBonus: 15
   defBonus: 0
   durability: 100
   fireRate: 1
-  farmWood: 5
-  farmStone: 10
-  farmIron: 10
+  farmWood: 0
+  farmMineral: 0

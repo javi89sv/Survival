@@ -78,6 +78,7 @@ public class HotBarSlot : MonoBehaviour
             if (eqquipment[i].activeInHierarchy)
             {
                 eqquipment[i].SetActive(false);
+                EqquipmentManager.Instance.currentWeapon = null;
             }
         }
     }

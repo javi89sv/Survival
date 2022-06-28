@@ -11,9 +11,9 @@ GameObject:
   - component: {fileID: 5540836351937202061}
   - component: {fileID: 7089838482924906399}
   - component: {fileID: 408056892676505347}
+  - component: {fileID: -1767783022320330293}
   - component: {fileID: 4274675726428202182}
   - component: {fileID: 8932087647575466609}
-  - component: {fileID: -1767783022320330293}
   m_Layer: 7
   m_Name: Stone Axe
   m_TagString: Untagged
@@ -43,7 +43,7 @@ MeshFilter:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7766254603189957790}
-  m_Mesh: {fileID: -5495902117074765545, guid: 49718b2c8f8e20149a7f776ec657716f, type: 3}
+  m_Mesh: {fileID: -6444406169117844559, guid: 49718b2c8f8e20149a7f776ec657716f, type: 3}
 --- !u!23 &408056892676505347
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -86,6 +86,20 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!64 &-1767783022320330293
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7766254603189957790}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 4
+  m_Convex: 1
+  m_CookingOptions: 30
+  m_Mesh: {fileID: -5495902117074765545, guid: 49718b2c8f8e20149a7f776ec657716f, type: 3}
 --- !u!54 &4274675726428202182
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -117,17 +131,3 @@ MonoBehaviour:
   item: {fileID: 11400000, guid: 583186d29babfec4eacf312e204edee3, type: 2}
   amount: 1
   textInfo: Pulsa E para recoger
---- !u!64 &-1767783022320330293
-MeshCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7766254603189957790}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 4
-  m_Convex: 1
-  m_CookingOptions: 30
-  m_Mesh: {fileID: -5495902117074765545, guid: 49718b2c8f8e20149a7f776ec657716f, type: 3}

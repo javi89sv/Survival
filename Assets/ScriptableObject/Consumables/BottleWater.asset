@@ -17,7 +17,7 @@ MonoBehaviour:
   icon: {fileID: 21300000, guid: 90ba1f9bcc72bc7418d8b050ad981788, type: 3}
   id: 0
   itemName: Bottle Water
-  description: 
+  description: Botella de agua para reponer tu sed.
   maxStackSize: 1
   restoreHealth: 0
   restoreHungry: 0

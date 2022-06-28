@@ -17,5 +17,7 @@ MonoBehaviour:
   icon: {fileID: 21300000, guid: 688a6ffdd0b3bb848abe0b22bc1e4e19, type: 3}
   id: 0
   itemName: Furnace
-  description: 
+  description: 'Horno de piedra.
+
+    Sirve para fundir minerales.'
   maxStackSize: 1

@@ -13,10 +13,8 @@ MonoBehaviour:
   m_Name: Furnace
   m_EditorClassIdentifier: 
   _requirements:
-  - item: {fileID: 11400000, guid: 4f6cb6cd1d8ca6c40b52598358c7ebc0, type: 2}
-    amount: 150
-  - item: {fileID: 0}
-    amount: 0
-  result: {fileID: 11400000, guid: 3579d6cc7eb9ef84b878e8485ef1b824, type: 2}
+  - item: {fileID: 11400000, guid: 24909fa2f4e4a6341b6d495904f077a6, type: 2}
+    amount: 500
+  result: {fileID: 11400000, guid: be51b3ccff5207447aa5022aa214e05a, type: 2}
   amountResult: 1
   time: 30

@@ -17,7 +17,7 @@ MonoBehaviour:
   icon: {fileID: 21300000, guid: f64a21dc78e27794ea8c7e11092e8885, type: 3}
   id: 0
   itemName: Meat Raw
-  description: 
+  description: Carne cruda de cerdo, cocinala antes si no queires potar.
   maxStackSize: 10
   restoreHealth: 10
   restoreHungry: 10

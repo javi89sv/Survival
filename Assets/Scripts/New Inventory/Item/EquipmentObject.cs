@@ -13,14 +13,12 @@ public class EquipmentObject : ItemObject
 
     [Header("Farming")]
     public int farmWood;
-    public int farmStone;
-    public int farmIron;
+    public int farmMineral;
 
 
     public override void UseItem()
     {
-        //Equipar este item
-        
+        //Equipar este item     
         Debug.Log("Equipamos " + this.name);
     }
 

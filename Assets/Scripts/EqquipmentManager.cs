@@ -6,7 +6,6 @@ using UnityEngine;
 public class EqquipmentManager : MonoBehaviour
 {
     public static EqquipmentManager Instance;
-    public Weapon[] eqquipmentList;
     public GameObject bulletPrefab;
     public LayerMask canBeshot;
 
@@ -34,7 +33,7 @@ public class EqquipmentManager : MonoBehaviour
             var currWeapon = currentWeapon.GetComponent<EquippmentStats>();
 
             if (Input.GetMouseButtonDown(0) && currentcoolDown >= currWeapon.itemObject.fireRate)
-            {            
+            {
                 Invoke("Hit", 0.6f);
                 currentWeapon.GetComponent<EquippmentStats>().PlayAnim();
                 currentcoolDown = 0f;
@@ -45,18 +44,38 @@ public class EqquipmentManager : MonoBehaviour
     void Hit()
     {
         int damageWeapon = currentWeapon.GetComponent<EquippmentStats>().itemObject.atkBonus;
-
-        if (Physics.Raycast(camera_player.transform.position, camera_player.transform.forward, out hit, 2f, ~ignoreLayers))
+        if (currentWeapon == true)
         {
-            Vector3 hitPoint = hit.point;
-
-            var impact = hit.collider.GetComponent<IHitable>();
-
-            if (impact != null)
+            if (Physics.Raycast(camera_player.transform.position, camera_player.transform.forward, out hit, 2f, ~ignoreLayers))
             {
-                impact.TakeDamage(damageWeapon, hitPoint);
+                Vector3 hitPoint = hit.point;
+
+                var hitable = hit.collider.GetComponent<IHitable>();
+
+                var wood = hit.collider.GetComponent<Resources>();
+
+                if (wood.typeResources == typeResources.wood)
+                {
+                    damageWeapon = currentWeapon.GetComponent<EquippmentStats>().itemObject.farmWood;
+                    hitable.TakeDamage(damageWeapon, hitPoint);
+                }
+                else if(wood.typeResources == typeResources.mineral)
+                {
+                    damageWeapon = currentWeapon.GetComponent<EquippmentStats>().itemObject.farmMineral;
+                    hitable.TakeDamage(damageWeapon, hitPoint);
+                }
+                else
+                {
+                    hitable.TakeDamage(damageWeapon, hitPoint);
+                }
+
+                //if (hitable != null)
+                //{
+                //    hitable.TakeDamage(damageWeapon, hitPoint);
+                //}
             }
         }
+
     }
 
 

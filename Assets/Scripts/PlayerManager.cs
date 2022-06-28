@@ -151,12 +151,28 @@ public class PlayerManager : MonoBehaviour
 
         if (currentThirst <= 0)
         {
-            sprintingMultiplier = 0;
+            sprintingMultiplier = 1;
         }
         else
         {
             sprintingMultiplier = 2;
         }
+
+        if(currentHealth < 0)
+        {
+            currentHealth = 0;
+        }
+        if(currentHungry < 0)
+        {
+            currentHungry = 0;
+        }
+        if(currentThirst < 0)
+        {
+            currentThirst = 0;
+        }
+
+
+
 
     }
 

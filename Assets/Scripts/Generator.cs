@@ -31,7 +31,7 @@ public class Generator : MonoBehaviour
                     {
 
                         // Add random elements to element placement.
-                        Vector3 position = new Vector3(Random.Range(-300,300), 10f, Random.Range(-300, 300));
+                        Vector3 position = new Vector3(Random.Range(-100,100), 0f, Random.Range(-100, 100));
                         Vector3 offset = new Vector3(Random.Range(-0.75f, 0.75f), 0f, Random.Range(-0.75f, 0.75f));
                         Vector3 rotation = new Vector3(Random.Range(0, 2f), Random.Range(0, 360f), Random.Range(0, 2f));
                         //  Vector3 scale = Vector3.one * Random.Range(0.75f, 1.25f);
@@ -56,7 +56,7 @@ public class Generator : MonoBehaviour
 
                         }
 
-                        newElement.transform.position = new Vector3(newElement.transform.position.x ,  hit.point.y - 0.5f , newElement.transform.position.z);
+                        newElement.transform.position = new Vector3(newElement.transform.position.x ,  hit.point.y - 0.1f , newElement.transform.position.z);
 
                         // newElement.transform.localScale = scale;
 

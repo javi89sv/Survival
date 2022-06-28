@@ -17,12 +17,13 @@ MonoBehaviour:
   icon: {fileID: 21300000, guid: 5b9460d1358739d41a343cca8db24f9b, type: 3}
   id: 0
   itemName: Stone Axe
-  description: 
+  description: 'Hacha rudimentaria de piedra.
+
+    Sirve para talar madera.'
   maxStackSize: 1
-  atkBonus: 10
+  atkBonus: 15
   defBonus: 0
   durability: 100
   fireRate: 1
   farmWood: 10
-  farmStone: 5
-  farmIron: 5
+  farmMineral: 0

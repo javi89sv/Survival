@@ -12,11 +12,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 93e3cf0961baa834a9d2239712d4b863, type: 3}
   m_Name: Stone Axe
   m_EditorClassIdentifier: 
-  Requirements:
+  _requirements:
   - item: {fileID: 11400000, guid: 4f6cb6cd1d8ca6c40b52598358c7ebc0, type: 2}
-    amount: 150
-  - item: {fileID: 11400000, guid: 24909fa2f4e4a6341b6d495904f077a6, type: 2}
     amount: 100
+  - item: {fileID: 11400000, guid: 24909fa2f4e4a6341b6d495904f077a6, type: 2}
+    amount: 200
   result: {fileID: 11400000, guid: 583186d29babfec4eacf312e204edee3, type: 2}
   amountResult: 1
-  time: 10
+  time: 15

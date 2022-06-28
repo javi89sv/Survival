@@ -19,4 +19,4 @@ MonoBehaviour:
     amount: 200
   result: {fileID: 11400000, guid: 7b0bba16e5ce8634f8b9e27a57ab0550, type: 2}
   amountResult: 1
-  time: 10
+  time: 15

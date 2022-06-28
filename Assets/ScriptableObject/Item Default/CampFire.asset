@@ -17,5 +17,5 @@ MonoBehaviour:
   icon: {fileID: 21300000, guid: e9e32737c40bb594b9e60e1e205ba6e3, type: 3}
   id: 0
   itemName: Camp Fire
-  description: 
+  description: Una hoguera basica para cocinar o calentarte.
   maxStackSize: 1

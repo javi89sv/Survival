@@ -26,7 +26,7 @@ public class PlayerInventoryHolder : InventoryHolder
 
     void Update()
     {
-        if (Input.GetKey(KeyCode.Tab))
+        if (Input.GetKeyDown(KeyCode.Tab))
         {
             OnPlayerInventoryDisplayRequested?.Invoke(secondaryInventorySystem);
             Interactor.isInteraction = true;
@@ -48,4 +48,5 @@ public class PlayerInventoryHolder : InventoryHolder
 
         return false;
     }
+
 }

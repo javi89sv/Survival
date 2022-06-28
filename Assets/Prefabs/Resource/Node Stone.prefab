@@ -114,13 +114,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 786eb1cc5f0a6a64e808b025a44f5ca7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  typeResources: 0
+  typeResources: 1
   hardness: 15
   health: 0
   maxhealth: 100
   healthBar: {fileID: 0}
   particlesGather: {fileID: 5981591672045907831}
-  particlesDestroy: {fileID: 4066479522829764594}
   destroyPrefab: {fileID: 3268708850718101693, guid: 65d5d72f14ed4e648abe2e5a1f8a7b98, type: 3}
   lootTable: {fileID: 11400000, guid: f02e9dc0e85d378468f6383aa3fee91b, type: 2}
 --- !u!1001 &458094394168458123
@@ -250,11 +249,6 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 51b7e823fa205a143b31d00d2737d2fa, type: 3}
---- !u!198 &4066479522829764594 stripped
-ParticleSystem:
-  m_CorrespondingSourceObject: {fileID: 1823191864671603449, guid: 51b7e823fa205a143b31d00d2737d2fa, type: 3}
-  m_PrefabInstance: {fileID: 2387557355904109835}
-  m_PrefabAsset: {fileID: 0}
 --- !u!4 &4066479522829764595 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 1823191864671603448, guid: 51b7e823fa205a143b31d00d2737d2fa, type: 3}

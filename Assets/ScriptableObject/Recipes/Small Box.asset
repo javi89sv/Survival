@@ -12,7 +12,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 93e3cf0961baa834a9d2239712d4b863, type: 3}
   m_Name: Small Box
   m_EditorClassIdentifier: 
-  _requirements: []
-  result: {fileID: 0}
-  amountResult: 0
-  time: 0
+  _requirements:
+  - item: {fileID: 11400000, guid: 4f6cb6cd1d8ca6c40b52598358c7ebc0, type: 2}
+    amount: 300
+  result: {fileID: 11400000, guid: 5ea912601a2ef654a98e8c29301445dd, type: 2}
+  amountResult: 1
+  time: 1

@@ -19,10 +19,9 @@ MonoBehaviour:
   itemName: Iron Pick
   description: 
   maxStackSize: 1
-  atkBonus: 15
+  atkBonus: 20
   defBonus: 0
   durability: 100
   fireRate: 1
-  farmWood: 10
-  farmStone: 20
-  farmIron: 20
+  farmWood: 0
+  farmMineral: 0

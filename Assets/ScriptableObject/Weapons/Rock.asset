@@ -17,12 +17,11 @@ MonoBehaviour:
   icon: {fileID: 21300000, guid: 141f102bab1e8a246a289d665dddb08c, type: 3}
   id: 0
   itemName: Rock
-  description: 
+  description: Roca basica.
   maxStackSize: 1
-  atkBonus: 5
+  atkBonus: 10
   defBonus: 0
   durability: 100
   fireRate: 1
-  farmWood: 0
-  farmStone: 0
-  farmIron: 0
+  farmWood: 10
+  farmMineral: 10

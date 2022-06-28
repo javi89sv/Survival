@@ -5,7 +5,7 @@ using System;
 
 public enum typeResources
 {
-    wood, stone, iron
+    wood, mineral
 }
 
 [Serializable]
@@ -34,13 +34,6 @@ public class Resources : MonoBehaviour, IHitable
     {
         health = maxhealth;
     }
-
-    public float GetHealth()
-    {
-        return health / maxhealth;
-
-    }
-
 
     void Update()
     {

@@ -105,6 +105,21 @@ public class InventorySystem
         }
     }
 
+    public int GetTotal (ItemObject item)
+    {
+        var total = 0;
+
+        for (int i = 0; i < inventorySlots.Count; i++)
+        {
+            if (inventorySlots[i].item == item)
+            {
+              total = inventorySlots[i].amount;
+            }
+        }
+
+        return total;
+    }
+
 
 }
 
