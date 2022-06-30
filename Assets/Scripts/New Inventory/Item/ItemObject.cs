@@ -7,7 +7,8 @@ public enum ItemType
 {
     Consumable,
     Equipment,
-    Default
+    Default,
+    Placeable
 }
 
 

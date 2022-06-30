@@ -12,11 +12,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 93e3cf0961baa834a9d2239712d4b863, type: 3}
   m_Name: Bow
   m_EditorClassIdentifier: 
-  Material:
-  - item: {fileID: 11400000, guid: 964bc07b7dfd8894390dbdd89c78eedd, type: 2}
-    amount: 100
-  - item: {fileID: 11400000, guid: 389312d9921363c4aaa54b59767d978b, type: 2}
-    amount: 100
-  result: {fileID: 11400000, guid: 9508f08431691fb43b69abe8de938f7c, type: 2}
+  _requirements:
+  - item: {fileID: 11400000, guid: 4f6cb6cd1d8ca6c40b52598358c7ebc0, type: 2}
+    amount: 300
+  - item: {fileID: 11400000, guid: a7ce0005055eba148b4de6c555e93a34, type: 2}
+    amount: 50
+  result: {fileID: 0}
   amountResult: 1
-  time: 10
+  time: 30

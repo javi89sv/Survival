@@ -13,6 +13,11 @@ public class ItemPickUp : MonoBehaviour, IInterectable
 
     public UnityAction<IInterectable> OnInteractionComplete { get; set; }
 
+    private void Start()
+    {
+        
+    }
+
     public void Interact(Interactor interactor)
     {
 

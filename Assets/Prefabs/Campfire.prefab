@@ -4827,6 +4827,7 @@ GameObject:
   - component: {fileID: 6510455694288024888}
   - component: {fileID: 2536158940315391394}
   - component: {fileID: 6067490176213014869}
+  - component: {fileID: 2437389032620872052}
   m_Layer: 7
   m_Name: Campfire
   m_TagString: Untagged
@@ -4946,6 +4947,7 @@ MonoBehaviour:
   wood: {fileID: 11400000, guid: 4f6cb6cd1d8ca6c40b52598358c7ebc0, type: 2}
   itemAccepted: []
   coal: {fileID: 11400000, guid: c8b71e12059b8fd44b62aba3b5cd0166, type: 2}
+  isRun: 0
   fireParticle: {fileID: 303496609946103488}
   speedBurn: 10
 --- !u!114 &6067490176213014869
@@ -4965,6 +4967,21 @@ MonoBehaviour:
   primaryInventorySystem:
     inventorySlots: []
   textInfo: Pulsa E para abrir
+--- !u!114 &2437389032620872052
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3658696349845148164}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7fb392a13f1b74248afdd06cf3b0d225, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  item: {fileID: 11400000, guid: 368bdc2b6d0e63d4dac8a9f3d6e79c0f, type: 2}
+  amount: 1
+  textInfo: Pulsa E para recoger
 --- !u!1 &4075447249704345843
 GameObject:
   m_ObjectHideFlags: 0

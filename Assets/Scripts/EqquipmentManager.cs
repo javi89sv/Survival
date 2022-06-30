@@ -43,36 +43,35 @@ public class EqquipmentManager : MonoBehaviour
 
     void Hit()
     {
-        int damageWeapon = currentWeapon.GetComponent<EquippmentStats>().itemObject.atkBonus;
+        int damageWeapon;
         if (currentWeapon == true)
         {
             if (Physics.Raycast(camera_player.transform.position, camera_player.transform.forward, out hit, 2f, ~ignoreLayers))
             {
                 Vector3 hitPoint = hit.point;
 
+                Resources resources = hit.collider.GetComponent<Resources>();
+
                 var hitable = hit.collider.GetComponent<IHitable>();
 
-                var wood = hit.collider.GetComponent<Resources>();
-
-                if (wood.typeResources == typeResources.wood)
+                if (resources)
                 {
-                    damageWeapon = currentWeapon.GetComponent<EquippmentStats>().itemObject.farmWood;
-                    hitable.TakeDamage(damageWeapon, hitPoint);
-                }
-                else if(wood.typeResources == typeResources.mineral)
-                {
-                    damageWeapon = currentWeapon.GetComponent<EquippmentStats>().itemObject.farmMineral;
-                    hitable.TakeDamage(damageWeapon, hitPoint);
+                    if(resources.typeResources == typeResources.wood)
+                    {
+                        damageWeapon = currentWeapon.GetComponent<EquippmentStats>().itemObject.farmWood;
+                        hitable.TakeDamage(damageWeapon, hitPoint);
+                    }
+                    if(resources.typeResources == typeResources.mineral)
+                    {
+                        damageWeapon = currentWeapon.GetComponent<EquippmentStats>().itemObject.farmMineral;
+                        hitable.TakeDamage(damageWeapon, hitPoint);
+                    }
                 }
                 else
                 {
+                    damageWeapon = currentWeapon.GetComponent<EquippmentStats>().itemObject.atkBonus;
                     hitable.TakeDamage(damageWeapon, hitPoint);
                 }
-
-                //if (hitable != null)
-                //{
-                //    hitable.TakeDamage(damageWeapon, hitPoint);
-                //}
             }
         }
 

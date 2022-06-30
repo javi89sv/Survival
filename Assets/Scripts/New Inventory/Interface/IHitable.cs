@@ -4,8 +4,7 @@ using UnityEngine;
 
 public interface IHitable
 {
-
     public void TakeDamage(int damage, Vector3 pointHit);
 
-    public int health();
+    public int Health();
 }

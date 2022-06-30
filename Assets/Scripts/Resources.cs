@@ -23,10 +23,8 @@ public class Resources : MonoBehaviour, IHitable
     public int hardness;
     public int health;
     public int maxhealth;
-    public GameObject healthBar;
     public ParticleSystem particlesGather;
     public GameObject destroyPrefab;
-
     public LootTable lootTable;
 
     // Start is called before the first frame update
@@ -35,7 +33,8 @@ public class Resources : MonoBehaviour, IHitable
         health = maxhealth;
     }
 
-    void Update()
+
+    private void Die()
     {
         if (health <= 0)
         {
@@ -51,17 +50,18 @@ public class Resources : MonoBehaviour, IHitable
         }
     }
 
-
     public void TakeDamage(int damage, Vector3 pointHit)
     {
         health -= damage;
         particlesGather.transform.position = pointHit;
         particlesGather.Play();
+        Die();
 
     }
 
-    int IHitable.health()
+    public int Health()
     {
         return health;
     }
+
 }

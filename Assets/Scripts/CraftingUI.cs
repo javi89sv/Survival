@@ -25,6 +25,8 @@ public class CraftingUI : MonoBehaviour
     public TextMeshProUGUI textamount3;
     public TextMeshProUGUI textTotal3;
 
+    public TextMeshProUGUI noMaterial;
+
     private GameObject panelItems;
     private CraftingRecipe selectRecipe;
 
@@ -106,9 +108,13 @@ public class CraftingUI : MonoBehaviour
 
         if(requirement.Count > 1)
         {
+            Amount1 = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerInventoryHolder>().PrimaryInventorySystem.GetTotal(requirement[1].item);
+            Amount2 = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerInventoryHolder>().SecondaryInventorySystem.GetTotal(requirement[1].item);
+            totalAmount = Amount1 + Amount2;
+
             textIngredient2.text = requirement[1].item.itemName;
             textamount2.text = requirement[1].amount.ToString();
-          //  textTotal2.text = totalAmount2;
+            textTotal2.text = totalAmount.ToString();
         }
         else
         {
@@ -117,9 +123,13 @@ public class CraftingUI : MonoBehaviour
         }
         if(requirement.Count > 2)
         {
+            Amount1 = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerInventoryHolder>().PrimaryInventorySystem.GetTotal(requirement[2].item);
+            Amount2 = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerInventoryHolder>().SecondaryInventorySystem.GetTotal(requirement[2].item);
+            totalAmount = Amount1 + Amount2;
+
             textIngredient3.text = requirement[2].item.itemName;
             textamount3.text = requirement[2].amount.ToString();
-          //  textTotal3.text
+            textTotal3.text = totalAmount.ToString();
         }
         else
         {
@@ -154,7 +164,12 @@ public class CraftingUI : MonoBehaviour
         itemCraftingIcon.enabled = false;
     }
 
-
+    public void ShowTextNoMaterial()
+    {
+        noMaterial.CrossFadeAlpha(1f, 0f, false);
+        noMaterial.text = "Faltan Materiales";
+        noMaterial.CrossFadeAlpha(0.0f, 3f, false);
+    }
 
 
 }

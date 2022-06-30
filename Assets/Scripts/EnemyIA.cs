@@ -37,13 +37,6 @@ public class EnemyIA : MonoBehaviour, IHitable
 
     Vector3 initialPosition;
 
-    //public void TakeDamage(int damage)
-    //{
-    //    health -= damage;
-    //  //  healthBar.UpdateHealth((float)health / (float)maxhealth);
-    //}
-
-
     void Start()
     {
 
@@ -81,14 +74,6 @@ public class EnemyIA : MonoBehaviour, IHitable
             Quaternion rotation = Quaternion.LookRotation(position);
             transform.rotation = rotation;
 
-        }
-
-        if (health <= 0)
-        {
-            isDead = true;
-            LootSystem.instance.Loot(lootTable, transform.position);
-            health = 1;
-            Destroy(this.gameObject, 3f);
         }
 
         if (dist < rangeAttack && timerAttack >= cooldownAttack)
@@ -151,6 +136,17 @@ public class EnemyIA : MonoBehaviour, IHitable
 
     }
 
+    private void Die()
+    {
+        if (health <= 0)
+        {
+            isDead = true;
+            LootSystem.instance.Loot(lootTable, transform.position);
+            GetComponent<Rigidbody>().AddForce(this.transform.forward * 5f, ForceMode.Impulse);
+            Destroy(this.gameObject, 3f);
+        }
+    }
+
     private void OnDrawGizmos()
     {
         Gizmos.color = Color.red;
@@ -172,9 +168,10 @@ public class EnemyIA : MonoBehaviour, IHitable
         health -= damage;
         particles.transform.position = pointhit;
         particles.Play();
+        Die();
     }
 
-    int IHitable.health()
+    public int Health()
     {
         return health;
     }

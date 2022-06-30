@@ -1,0 +1,27 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f7bc20745d77bb1439103a5fb2f97d53, type: 3}
+  m_Name: Stone Spear
+  m_EditorClassIdentifier: 
+  prefab: {fileID: 4661335255288259063, guid: 8a7642ce4a643604bb20492dc81d48d3, type: 3}
+  type: 1
+  icon: {fileID: 21300000, guid: 1d0de45995f6c5444865d6c707d2a6d1, type: 3}
+  id: 0
+  itemName: Stone Spear
+  description: 
+  maxStackSize: 1
+  atkBonus: 20
+  defBonus: 0
+  durability: 0
+  fireRate: 0
+  farmWood: 0
+  farmMineral: 0

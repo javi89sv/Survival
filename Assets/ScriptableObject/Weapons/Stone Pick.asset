@@ -26,4 +26,4 @@ MonoBehaviour:
   durability: 100
   fireRate: 1
   farmWood: 0
-  farmMineral: 0
+  farmMineral: 10

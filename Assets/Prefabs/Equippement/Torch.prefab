@@ -12,8 +12,8 @@ GameObject:
   - component: {fileID: 7154711513736438238}
   - component: {fileID: 4948984845666129172}
   - component: {fileID: 1696341074098050377}
-  - component: {fileID: -1832072742133347074}
   - component: {fileID: 8788319733864072413}
+  - component: {fileID: -1832072742133347074}
   m_Layer: 7
   m_Name: Torch
   m_TagString: Untagged
@@ -102,6 +102,20 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
+--- !u!64 &8788319733864072413
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6894640559484777665}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 4
+  m_Convex: 1
+  m_CookingOptions: 30
+  m_Mesh: {fileID: 4749707353668628313, guid: 3c409e4ba4b2996448d6c88b4f1e86f5, type: 3}
 --- !u!114 &-1832072742133347074
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -117,17 +131,3 @@ MonoBehaviour:
   item: {fileID: 11400000, guid: 81f117d915b1a4f4c8e23ce9f088c9bb, type: 2}
   amount: 1
   textInfo: Pulsa E para recoger
---- !u!64 &8788319733864072413
-MeshCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6894640559484777665}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 4
-  m_Convex: 1
-  m_CookingOptions: 30
-  m_Mesh: {fileID: 4749707353668628313, guid: 3c409e4ba4b2996448d6c88b4f1e86f5, type: 3}

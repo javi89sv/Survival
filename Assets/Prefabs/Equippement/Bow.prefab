@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 2042291880026603970}
   - component: {fileID: 4193383308667946906}
   - component: {fileID: 6716446420262044321}
+  - component: {fileID: 4478785765093837228}
   m_Layer: 7
   m_Name: Bow
   m_TagString: Untagged
@@ -112,5 +113,20 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 2.0431433, y: 0.0742909, z: 0.49957275}
-  m_Center: {x: -0.039137904, y: 0.038163397, z: 0.19699755}
+  m_Size: {x: 1.6006536, y: 0.054926887, z: 0.25258547}
+  m_Center: {x: 0.000000029802322, y: 0.043822974, z: 0.026289407}
+--- !u!114 &4478785765093837228
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 528981455469617175}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7fb392a13f1b74248afdd06cf3b0d225, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  item: {fileID: 11400000, guid: 5b60cd84d52f0c3429bb6acdd8df5075, type: 2}
+  amount: 1
+  textInfo: Pulsa E para recoger

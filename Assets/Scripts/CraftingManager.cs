@@ -17,19 +17,12 @@ public class CraftingManager : MonoBehaviour
     public Queue<CraftingRecipe> craftQueue = new Queue<CraftingRecipe>();
     private bool isCrafting = false;
 
-    private IEnumerator coroutineCraft;
-    private IEnumerator coroutineTimer;
+    private InventorySlot returnItem;
 
     private void Awake()
     {
         instance = this;
 
-    }
-
-    private void Start()
-    {
-        coroutineCraft = CraftItem();
-        coroutineTimer = Timer();
     }
 
     public bool CanCraft(CraftingRecipe recipe)
@@ -53,7 +46,7 @@ public class CraftingManager : MonoBehaviour
 
         }
 
-        Debug.Log("Not enought material");
+        CraftingUI.instance.ShowTextNoMaterial();
         return false;
     }
 
@@ -63,23 +56,11 @@ public class CraftingManager : MonoBehaviour
         foreach (var item in recipe._requirements)
         {
             inventory.RemoveItems(item.item, item.amount);
+            returnItem = new InventorySlot(item.item, item.amount);
         }
 
-        // StartCoroutine("Countdown");
-        StartCoroutine(Timer());
+        StartCoroutine("Timer");
 
-    }
-
-    IEnumerator Countdown()
-    {
-        currentRecipe = craftQueue.Dequeue();
-        yield return new WaitForSeconds(currentRecipe.time);
-        Crafting();
-        isCrafting = false;
-        if (craftQueue.Count > 0)
-        {
-            CanCraft(currentRecipe);
-        }
     }
 
     private void Crafting()
@@ -153,7 +134,7 @@ public class CraftingManager : MonoBehaviour
 
         if (craftQueue.Count > 0)
         {
-            yield return StartCoroutine(CraftItem());
+            yield return StartCoroutine("CraftItem");
         }
         else
         {
@@ -166,9 +147,11 @@ public class CraftingManager : MonoBehaviour
     {
         if (isCrafting)
         {
-            StopCoroutine(coroutineCraft);
-            StopCoroutine(coroutineTimer);
+            StopCoroutine("CraftItem");
+            StopCoroutine("Timer");
+            GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerInventoryHolder>().AddToInventory(returnItem.item, returnItem.amount);
             textTimer.text = "";
+            CraftingUI.instance.HideItemImage();
             isCrafting = false;
         }
         if (craftQueue.Count > 0)
