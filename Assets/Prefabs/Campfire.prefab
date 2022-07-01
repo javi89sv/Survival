@@ -4824,11 +4824,11 @@ GameObject:
   - component: {fileID: 1018455406385989403}
   - component: {fileID: 3010287473992823761}
   - component: {fileID: 4432681904671598865}
-  - component: {fileID: 6510455694288024888}
   - component: {fileID: 2536158940315391394}
   - component: {fileID: 6067490176213014869}
   - component: {fileID: 2437389032620872052}
-  m_Layer: 7
+  - component: {fileID: 5032412278669372755}
+  m_Layer: 0
   m_Name: Campfire
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -4843,7 +4843,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3658696349845148164}
   m_LocalRotation: {x: 0, y: 0, z: 0.7071068, w: 0.7071068}
-  m_LocalPosition: {x: 3.47, y: 0, z: 0}
+  m_LocalPosition: {x: 15.769572, y: 0.00000011920929, z: -14.504318}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -4880,7 +4880,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: a4302fa07e4315a46bb898a78dd714cb, type: 2}
+  - {fileID: 2100000, guid: 6e8621a8e7b21264a9ac561b9aa855f1, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -4918,20 +4918,6 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
---- !u!64 &6510455694288024888
-MeshCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3658696349845148164}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 4
-  m_Convex: 1
-  m_CookingOptions: 30
-  m_Mesh: {fileID: -4188331113201836802, guid: 92775d4dc73064e4aa0e8200bfe3c7b9, type: 3}
 --- !u!114 &2536158940315391394
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4982,6 +4968,19 @@ MonoBehaviour:
   item: {fileID: 11400000, guid: 368bdc2b6d0e63d4dac8a9f3d6e79c0f, type: 2}
   amount: 1
   textInfo: Pulsa E para recoger
+--- !u!65 &5032412278669372755
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3658696349845148164}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.13610217, y: 0.7285114, z: 0.69256085}
+  m_Center: {x: 0.069906294, y: 0.011256549, z: 0.007826537}
 --- !u!1 &4075447249704345843
 GameObject:
   m_ObjectHideFlags: 0

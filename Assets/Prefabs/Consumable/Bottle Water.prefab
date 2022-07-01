@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 6828974826934861341}
   - component: {fileID: 7297515590184261848}
   - component: {fileID: 6018322056404428894}
-  m_Layer: 7
+  m_Layer: 0
   m_Name: Bottle Water
   m_TagString: Untagged
   m_Icon: {fileID: 0}

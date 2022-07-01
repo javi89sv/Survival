@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 3439915236289822061}
   - component: {fileID: -5513968095461142772}
   - component: {fileID: 8196020386227007450}
-  m_Layer: 7
+  m_Layer: 0
   m_Name: Node Iron
   m_TagString: Resource
   m_Icon: {fileID: 0}

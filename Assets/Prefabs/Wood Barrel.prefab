@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: -2041543387474234894}
   - component: {fileID: -7453893178017694811}
   - component: {fileID: -2886945891570762330}
-  m_Layer: 3
+  m_Layer: 0
   m_Name: Wood Barrel
   m_TagString: Container
   m_Icon: {fileID: 0}

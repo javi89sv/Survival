@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 5108197212951827859}
   - component: {fileID: 5108197212951827858}
   - component: {fileID: 5108197212951827860}
-  m_Layer: 7
+  m_Layer: 0
   m_Name: Chicken
   m_TagString: Enemy
   m_Icon: {fileID: 0}
@@ -138,10 +138,8 @@ MonoBehaviour:
   moveSpeed: 0.2
   isWalking: 0
   isDead: 0
-  healthBar: {fileID: 8884762742104344296, guid: 72ca71b825c0b4343aafa2d39e30d854, type: 3}
   particles: {fileID: 6177509014352989984}
   lootTable: {fileID: 11400000, guid: 8d704699d22c3414e88bfd7ee08683c2, type: 2}
-  healthImage: {fileID: 0}
 --- !u!1001 &5546091546994705881
 PrefabInstance:
   m_ObjectHideFlags: 0

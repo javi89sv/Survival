@@ -7,7 +7,6 @@ using UnityEngine.UI;
 public class Interactor : MonoBehaviour
 {
     public Transform interactionPoint;
-    public LayerMask interactionLayer;
     public float interactionPointRadius = 1f;
     public static bool isInteraction;
 
@@ -15,7 +14,7 @@ public class Interactor : MonoBehaviour
     {
         RaycastHit hit;
 
-        if (Physics.Raycast(Camera.main.transform.position, Camera.main.transform.forward, out hit, interactionPointRadius, interactionLayer))
+        if (Physics.Raycast(Camera.main.transform.position, Camera.main.transform.forward, out hit, interactionPointRadius))
         {
             var interactable = hit.collider.GetComponent<IInterectable>();
             var hitable = hit.collider.GetComponent<IHitable>();

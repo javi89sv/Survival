@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 5933877156244899895}
   - component: {fileID: 1022508975488722412}
   - component: {fileID: 7373036933765438081}
-  m_Layer: 7
+  m_Layer: 0
   m_Name: Bone Knife
   m_TagString: Untagged
   m_Icon: {fileID: 0}

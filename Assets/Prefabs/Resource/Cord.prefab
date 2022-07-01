@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 1481218372841648278}
   - component: {fileID: 7166020944634876698}
   - component: {fileID: 7725997303292084224}
-  m_Layer: 7
+  m_Layer: 0
   m_Name: Cord
   m_TagString: Untagged
   m_Icon: {fileID: 0}

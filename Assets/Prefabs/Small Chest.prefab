@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 7536817227261837948}
   - component: {fileID: 2932074463393884515}
   - component: {fileID: 2602250523655115917}
-  m_Layer: 7
+  m_Layer: 0
   m_Name: Small Chest
   m_TagString: Storage
   m_Icon: {fileID: 0}
@@ -64,7 +64,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: a4302fa07e4315a46bb898a78dd714cb, type: 2}
+  - {fileID: 2100000, guid: 6e8621a8e7b21264a9ac561b9aa855f1, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -94,7 +94,7 @@ BoxCollider:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2600801057576250896}
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
   m_Size: {x: 0.8000001, y: 0.4, z: 0.6000001}

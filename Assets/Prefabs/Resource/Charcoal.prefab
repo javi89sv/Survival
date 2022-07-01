@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 7372066326838263372}
   - component: {fileID: 3309436150641303432}
   - component: {fileID: 408603525844027930}
-  m_Layer: 7
+  m_Layer: 0
   m_Name: Charcoal
   m_TagString: Untagged
   m_Icon: {fileID: 0}

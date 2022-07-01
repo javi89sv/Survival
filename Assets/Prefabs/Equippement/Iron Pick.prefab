@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 6340818830703069870}
   - component: {fileID: 3516321925282176636}
   - component: {fileID: 569028343382379883}
-  m_Layer: 7
+  m_Layer: 0
   m_Name: Iron Pick
   m_TagString: Untagged
   m_Icon: {fileID: 0}

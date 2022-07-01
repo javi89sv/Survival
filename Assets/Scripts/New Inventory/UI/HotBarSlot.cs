@@ -87,7 +87,7 @@ public class HotBarSlot : MonoBehaviour
     {
         for (int i = 0; i < slots.Length; i++)
         {
-            if(slots[index].asiggnedInventorySlot.item != null && slots[index].asiggnedInventorySlot.item.type == ItemType.Consumable)
+            if(slots[index].asiggnedInventorySlot.item != null)
             {
                 slots[index].UseItemSlot();
                 return;
