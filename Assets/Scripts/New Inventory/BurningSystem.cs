@@ -1,12 +1,22 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
 public class BurningSystem : MonoBehaviour
 {
+    [Serializable]
+    public struct ListItemsCooked
+    {
+        public ItemObject normalObject;
+        public ItemObject cookedObject;
+        public ItemObject burnObject;
+
+    }
+
+    public List<ListItemsCooked> listItems;
 
     public ItemObject wood;
-    public ItemObject[] itemAccepted;
     public ItemObject coal;
 
     public bool isRun;
@@ -17,7 +27,8 @@ public class BurningSystem : MonoBehaviour
 
     private InventorySlot gettedItem;
 
-    public bool ContainItems()
+
+    public bool ContainWood()
     {
         var inventorySystem = this.GetComponent<Furnace>().PrimaryInventorySystem;
 
@@ -36,11 +47,11 @@ public class BurningSystem : MonoBehaviour
 
     IEnumerator Burn()
     {
-        while(gettedItem.amount > 0)
+        while (gettedItem.amount > 0)
         {
             yield return new WaitForSeconds(speedBurn);
             gettedItem.RemoveFromStack(3);
-            this.GetComponent<Furnace>().PrimaryInventorySystem.AddItem(coal,1);
+            this.GetComponent<Furnace>().PrimaryInventorySystem.AddItem(coal, 1);
             this.GetComponent<Furnace>().PrimaryInventorySystem.UpdateUISlots();
 
         }
@@ -51,24 +62,50 @@ public class BurningSystem : MonoBehaviour
 
     }
 
+    IEnumerator Timer()
+    {
+        while (isRun)
+        {
+            yield return new WaitForSeconds(10f);
+
+            var inventorySystem = this.GetComponent<Furnace>().PrimaryInventorySystem;
+
+            for (int i = 0; i < listItems.Count; i++)
+            {
+                if (listItems[i].normalObject == inventorySystem.ContainItem(listItems[i].normalObject, out InventorySlot myItem))
+                {
+                    StartCoroutine("Timer");
+                    myItem.item = listItems[i].cookedObject;
+
+                }
+            }
+
+            StartCoroutine("Timer");
+        }
+
+    }
+
     public bool Run()
     {
-        if (ContainItems())
+        if (ContainWood())
         {
-            Debug.Log("Start Corrutina");
-            StartCoroutine("Burn");
-            fireParticle.Play();
             isRun = true;
+            StartCoroutine("Burn");
+            StartCoroutine("Timer");
+            fireParticle.Play();
+            
             return true;
         }
-        
+
         return false;
 
     }
 
     public void Stop()
     {
+        isRun = false;
         StopAllCoroutines();
         fireParticle.Stop();
     }
+
 }

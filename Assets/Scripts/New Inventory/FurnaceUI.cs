@@ -36,14 +36,14 @@ public class FurnaceUI : MonoBehaviour
         {
             Debug.LogWarning("Need Wood");
         }
-        
+
     }
 
     public void StopFurnace()
     {
 
         furnaceCurrent.GetComponent<BurningSystem>().Stop();
-        isRun = false;
+
     }
 
 }

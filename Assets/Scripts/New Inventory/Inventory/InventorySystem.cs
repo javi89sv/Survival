@@ -95,9 +95,9 @@ public class InventorySystem
 
     public void RemoveItems(ItemObject item, int amount)
     {
-        for(int i = 0; i < inventorySlots.Count; i++)
+        for (int i = 0; i < inventorySlots.Count; i++)
         {
-            if(inventorySlots[i].item == item)
+            if (inventorySlots[i].item == item)
             {
                 inventorySlots[i].RemoveFromStack(amount);
                 OnInventorySlotChanged?.Invoke(inventorySlots[i]);
@@ -105,7 +105,7 @@ public class InventorySystem
         }
     }
 
-    public int GetTotal (ItemObject item)
+    public int GetTotal(ItemObject item)
     {
         var total = 0;
 
@@ -113,12 +113,13 @@ public class InventorySystem
         {
             if (inventorySlots[i].item == item)
             {
-              total = inventorySlots[i].amount;
+                total = inventorySlots[i].amount;
             }
         }
 
         return total;
     }
+
 
 
 }
