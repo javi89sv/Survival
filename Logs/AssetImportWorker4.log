@@ -3343,3 +3343,193 @@ AssetImportParameters requested are different than current active one (requested
   custom:container-demuxer-ogg: 62fdf1f143b41e24485cea50d1cbac27 -> 
   custom:video-decoder-webm-vp8: 9c59270c3fd7afecdb556c50c9e8de78 -> 
   custom:audio-decoder-ogg-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
+========================================================================
+Received Import Request.
+  Time since last request: 2346.362624 seconds.
+  path: Assets/FBX/wood floor.fbx
+  artifactKey: Guid(d8c981ac104ae5248a01ec8c5b29e9ed) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/FBX/wood floor.fbx using Guid(d8c981ac104ae5248a01ec8c5b29e9ed) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'abe119748e99ae48fb330cf2efd385de') in 0.138666 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 4.693442 seconds.
+  path: Assets/FBX/wood floor.fbx
+  artifactKey: Guid(d8c981ac104ae5248a01ec8c5b29e9ed) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/FBX/wood floor.fbx using Guid(d8c981ac104ae5248a01ec8c5b29e9ed) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '279d5078ab57108fbecb083cfe6b668a') in 0.015658 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 48.853589 seconds.
+  path: Assets/Prefabs/Campfire.prefab
+  artifactKey: Guid(ad4a721ea46e5d04f95eda6a401fb415) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Prefabs/Campfire.prefab using Guid(ad4a721ea46e5d04f95eda6a401fb415) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '3b1b62fba6dd45187203b5e703c766e1') in 0.020313 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 7.745469 seconds.
+  path: Assets/Prefabs/Placeable
+  artifactKey: Guid(9026116cc2223364d84ff23ca3116d30) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Prefabs/Placeable using Guid(9026116cc2223364d84ff23ca3116d30) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '9559a45c7e318ad4f350cef65182a3fc') in 0.006029 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 10.849082 seconds.
+  path: Assets/Prefabs/Placeable/Edge
+  artifactKey: Guid(4dbbb79951e3dff4f90c029ba33d9ebd) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Prefabs/Placeable/Edge using Guid(4dbbb79951e3dff4f90c029ba33d9ebd) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '346d80a71be8bd95c9d7c43a356e885c') in 0.005757 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 5.669746 seconds.
+  path: Assets/Prefabs/Placeable/Edge/wood floor.prefab
+  artifactKey: Guid(0e651f2c74012f34aa8bc856cd3b691d) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Prefabs/Placeable/Edge/wood floor.prefab using Guid(0e651f2c74012f34aa8bc856cd3b691d) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '23dd2ec6a997fb298efc0bce8569f624') in 0.011032 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 5.355652 seconds.
+  path: Assets/Prefabs/Placeable/Edge/Wood Floor.prefab
+  artifactKey: Guid(0e651f2c74012f34aa8bc856cd3b691d) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Prefabs/Placeable/Edge/Wood Floor.prefab using Guid(0e651f2c74012f34aa8bc856cd3b691d) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'd9faa40e96e6e0785672bb3a507fb33c') in 0.011171 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 3.457040 seconds.
+  path: Assets/Prefabs/Placeable/Edge/Wood Floor.prefab
+  artifactKey: Guid(0e651f2c74012f34aa8bc856cd3b691d) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Prefabs/Placeable/Edge/Wood Floor.prefab using Guid(0e651f2c74012f34aa8bc856cd3b691d) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '4322d5bc39816a993d11f52cd57783bf') in 0.007245 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 5.190894 seconds.
+  path: Assets/Prefabs/Placeable/Edge/Wood Floor.prefab
+  artifactKey: Guid(0e651f2c74012f34aa8bc856cd3b691d) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Prefabs/Placeable/Edge/Wood Floor.prefab using Guid(0e651f2c74012f34aa8bc856cd3b691d) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'b841945c21e0fc3830335b78b01e7536') in 0.009310 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 121.519654 seconds.
+  path: Assets/ScriptableObject/Placeable/Wood Floor.asset
+  artifactKey: Guid(dc99c5bcf3486514285dab6b79610846) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/ScriptableObject/Placeable/Wood Floor.asset using Guid(dc99c5bcf3486514285dab6b79610846) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'e867eb883470aa332c43db7e2028bfd3') in 0.002638 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 3.301453 seconds.
+  path: Assets/Prefabs/Consumable/Apple.prefab
+  artifactKey: Guid(d0680103a16a32b40a2fb1f652f8388f) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Prefabs/Consumable/Apple.prefab using Guid(d0680103a16a32b40a2fb1f652f8388f) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'b137fbd55a2e98c18f7ee05287d79cda') in 0.015317 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000034 seconds.
+  path: Assets/Prefabs/Resource/Cloth.prefab
+  artifactKey: Guid(6bca81b34399661499ea9bc836604f27) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Prefabs/Resource/Cloth.prefab using Guid(6bca81b34399661499ea9bc836604f27) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '0b29cdf3414d60c1293bffac799a0a96') in 0.013570 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000017 seconds.
+  path: Assets/Prefabs/Equippement/Bone Knife.prefab
+  artifactKey: Guid(26d232b034997624b9400884b95780a2) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Prefabs/Equippement/Bone Knife.prefab using Guid(26d232b034997624b9400884b95780a2) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'eb1af4f6e591785d80b384cb31c7b591') in 0.013347 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000018 seconds.
+  path: Assets/Prefabs/Equippement/Bow.prefab
+  artifactKey: Guid(5551396a75f7d344493cd44625afa0a3) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Prefabs/Equippement/Bow.prefab using Guid(5551396a75f7d344493cd44625afa0a3) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '434945d4c99fe6e53a7a9c37577e6195') in 0.021109 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000015 seconds.
+  path: Assets/Prefabs/Enemy/Chicken.prefab
+  artifactKey: Guid(03cb502780ddd4c4b8763ffa67fdee52) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Prefabs/Enemy/Chicken.prefab using Guid(03cb502780ddd4c4b8763ffa67fdee52) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'd45a34ed1023bdddcf1f250bbb10460e') in 0.017199 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000019 seconds.
+  path: Assets/Prefabs/Resource/Charcoal.prefab
+  artifactKey: Guid(a17f67919e088124dbf521206d0eaa7d) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Prefabs/Resource/Charcoal.prefab using Guid(a17f67919e088124dbf521206d0eaa7d) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '530a54d58ca0708793669c7a163551c2') in 0.013302 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000020 seconds.
+  path: Assets/Prefabs/Consumable/Bottle Water.prefab
+  artifactKey: Guid(88e8c6f57bed3b54a80634d490ffb0fd) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Prefabs/Consumable/Bottle Water.prefab using Guid(88e8c6f57bed3b54a80634d490ffb0fd) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '5042aecb2c8c4551d9f617da155973f2') in 0.013727 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000031 seconds.
+  path: Assets/Prefabs/Resource/Cord.prefab
+  artifactKey: Guid(71ec983a8634ce94ba6202a2ffd49222) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Prefabs/Resource/Cord.prefab using Guid(71ec983a8634ce94ba6202a2ffd49222) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '3d8139f78bf1c7de829449dc48322877') in 0.012561 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.535095 seconds.
+  path: Assets/Prefabs/Resource/Iron.prefab
+  artifactKey: Guid(0843d0158218b7a4d816f0a287022154) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Prefabs/Resource/Iron.prefab using Guid(0843d0158218b7a4d816f0a287022154) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '5c4bfb28fce93687c2f2ec32b2a6ccbe') in 0.013695 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.223821 seconds.
+  path: Assets/Prefabs/Equippement/Iron Pick.prefab
+  artifactKey: Guid(252a8b5189ddae841a2f7788a4c68d46) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Prefabs/Equippement/Iron Pick.prefab using Guid(252a8b5189ddae841a2f7788a4c68d46) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'a75c6d99b3c44bfc475fce95ae802be9') in 0.014463 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000041 seconds.
+  path: Assets/Prefabs/Consumable/Meat.prefab
+  artifactKey: Guid(9fac695a178c18b4b8fbff5b0aabfc49) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Prefabs/Consumable/Meat.prefab using Guid(9fac695a178c18b4b8fbff5b0aabfc49) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'c606dd7e81fff3bbf6551a8f2fd50f42') in 0.015857 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.018746 seconds.
+  path: Assets/Prefabs/Consumable/Mushrom.prefab
+  artifactKey: Guid(dcb1f12e9351e364e99e8f744b7baa5d) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Prefabs/Consumable/Mushrom.prefab using Guid(dcb1f12e9351e364e99e8f744b7baa5d) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'c52793111155f2b115c72095bd67f10a') in 0.009872 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000022 seconds.
+  path: Assets/Prefabs/Resource/Farmeable/Node Stone.prefab
+  artifactKey: Guid(a731e834c8501f34eb9a3f4a0a471a52) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Prefabs/Resource/Farmeable/Node Stone.prefab using Guid(a731e834c8501f34eb9a3f4a0a471a52) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '946e1e5632cbd384539d23b8f709e6ac') in 0.023652 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.216370 seconds.
+  path: Assets/Prefabs/Equippement/Pistol.prefab
+  artifactKey: Guid(84117ef27dac1c9419eb97dfecd80f56) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Prefabs/Equippement/Pistol.prefab using Guid(84117ef27dac1c9419eb97dfecd80f56) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '58076ed9cb3165cf0d1b122020bb67dd') in 0.009417 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.032701 seconds.
+  path: Assets/Prefabs/Resource/Stone.prefab
+  artifactKey: Guid(22360521201890343b7021a3354f18aa) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Prefabs/Resource/Stone.prefab using Guid(22360521201890343b7021a3354f18aa) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'f0d899e5d16fa68b95e3eafa6adf71c7') in 0.009526 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000017 seconds.
+  path: Assets/Prefabs/Equippement/Stone Spear.prefab
+  artifactKey: Guid(8a7642ce4a643604bb20492dc81d48d3) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Prefabs/Equippement/Stone Spear.prefab using Guid(8a7642ce4a643604bb20492dc81d48d3) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '6892d8f7bb650a6192c7a2d18a3ec3f6') in 0.014642 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.187144 seconds.
+  path: Assets/Prefabs/Equippement/Sword.prefab
+  artifactKey: Guid(0b1aa3749e804fd4c828dea0a3736f72) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Prefabs/Equippement/Sword.prefab using Guid(0b1aa3749e804fd4c828dea0a3736f72) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'a5f656353d496e9cf5f6b63602dc6b5a') in 0.012614 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000886 seconds.
+  path: Assets/Prefabs/Equippement/Torch.prefab
+  artifactKey: Guid(5c6850fcb3e067649a5a8c7f61485475) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Prefabs/Equippement/Torch.prefab using Guid(5c6850fcb3e067649a5a8c7f61485475) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '197b61e8d6c518e6243e182d919f2706') in 0.012414 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.015616 seconds.
+  path: Assets/Prefabs/Resource/Farmeable/Tree02.prefab
+  artifactKey: Guid(f37ff43935cb5dc46b1b6c94fef8edef) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Prefabs/Resource/Farmeable/Tree02.prefab using Guid(f37ff43935cb5dc46b1b6c94fef8edef) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'eab1ea01a02d099b005e5500cc323437') in 0.016355 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.006819 seconds.
+  path: Assets/Prefabs/Wood Barrel.prefab
+  artifactKey: Guid(71171abd9f056a54fae2aa71b86d26d6) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Prefabs/Wood Barrel.prefab using Guid(71171abd9f056a54fae2aa71b86d26d6) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '9661efd9f3fb604e004dce54784b697b') in 0.014153 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.005595 seconds.
+  path: Assets/Prefabs/Placeable/Edge/Wood Floor.prefab
+  artifactKey: Guid(0e651f2c74012f34aa8bc856cd3b691d) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Prefabs/Placeable/Edge/Wood Floor.prefab using Guid(0e651f2c74012f34aa8bc856cd3b691d) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '57be277101fcd2d9800c3b1abadb1879') in 0.007717 seconds 
+Editor requested this worker to shutdown with reason: Scaling down because of idle timeout
+AssetImportWorker is now disconnected from the server
+Process exiting
+Exiting without the bug reporter. Application will terminate with return code 0

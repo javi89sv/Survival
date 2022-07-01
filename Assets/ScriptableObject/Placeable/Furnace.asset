@@ -12,11 +12,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 175e18f8d8218404f9dc5f671717fb1e, type: 3}
   m_Name: Furnace
   m_EditorClassIdentifier: 
-  prefab: {fileID: 0}
+  prefab: {fileID: 1185642689985916262, guid: a534d44005cb47c49806324ba02c71d3, type: 3}
   type: 0
-  icon: {fileID: 0}
+  icon: {fileID: 21300000, guid: 688a6ffdd0b3bb848abe0b22bc1e4e19, type: 3}
   id: 0
-  itemName: 
-  description: 
-  maxStackSize: 0
-  durability: 0
+  itemName: Furnace
+  description: Sirve para fundir minerales.
+  maxStackSize: 1
+  typePlace: 0
+  durability: 100

@@ -12,11 +12,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 175e18f8d8218404f9dc5f671717fb1e, type: 3}
   m_Name: Small Box
   m_EditorClassIdentifier: 
-  prefab: {fileID: 0}
+  prefab: {fileID: 2600801057576250896, guid: ca151546d41ae644299b3558007748f1, type: 3}
   type: 0
-  icon: {fileID: 0}
+  icon: {fileID: 21300000, guid: 06ec8accab4539a4bb926b82f5edb557, type: 3}
   id: 0
-  itemName: 
-  description: 
-  maxStackSize: 0
-  durability: 0
+  itemName: Small Box
+  description: Sirve para almacenar tus objetos.
+  maxStackSize: 1
+  typePlace: 0
+  durability: 100

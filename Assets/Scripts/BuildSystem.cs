@@ -10,7 +10,7 @@ public class BuildSystem : MonoBehaviour
 
     [SerializeField] Transform floorBuild;
     public PlaceableObject currentGO;
-    public PlaceableObject tempGO;
+    public GameObject tempGO;
     public bool isBuilding;
     public bool existTemp;
     public bool hasObstacle;
@@ -34,10 +34,11 @@ public class BuildSystem : MonoBehaviour
         {
             if (!existTemp)
             {
-                tempGO = Instantiate(currentGO, currentGO.prefab.transform.position, Quaternion.identity);
-                tempGO.prefab.AddComponent<TempBuildObject>();
-                tempGO.prefab.GetComponent<TempBuildObject>().green = canBuild;
-                tempGO.prefab.GetComponent<TempBuildObject>().red = cantBuild;
+                tempGO = Instantiate(currentGO.prefab, currentGO.prefab.transform.position, Quaternion.identity);
+                tempGO.GetComponent<BoxCollider>().isTrigger = true;
+                tempGO.AddComponent<TempBuildObject>();
+                tempGO.GetComponent<TempBuildObject>().green = canBuild;
+                tempGO.GetComponent<TempBuildObject>().red = cantBuild;
                 existTemp = true;
             }
 
@@ -58,16 +59,16 @@ public class BuildSystem : MonoBehaviour
     {
         if (Physics.Raycast(Camera.main.transform.position, Camera.main.transform.forward, out hit, rangeBuild, layer))
         {
-            tempGO.prefab.transform.position = new Vector3(hit.point.x, hit.point.y, hit.point.z);
+            tempGO.transform.position = new Vector3(hit.point.x, hit.point.y, hit.point.z);
 
             if (Input.GetKeyDown(KeyCode.R))
             {
-                tempGO.prefab.transform.Rotate(0, 90, 0, Space.World);
+                tempGO.transform.Rotate(0, 90, 0, Space.World);
             }
 
-            if (Input.GetMouseButtonDown(0) && tempGO.prefab.GetComponent<TempBuildObject>().isBuildable)
+            if (Input.GetMouseButtonDown(0) && tempGO.GetComponent<TempBuildObject>().isBuildable)
             {
-                var go = Instantiate(currentGO.prefab, tempGO.prefab.transform.position, tempGO.prefab.transform.rotation);
+                var go = Instantiate(currentGO.prefab, tempGO.transform.position, tempGO.transform.rotation);
                 go.GetComponent<MeshRenderer>().material = successBuild;
                 go.GetComponent<BoxCollider>().isTrigger = false;
                 isBuilding = false;
