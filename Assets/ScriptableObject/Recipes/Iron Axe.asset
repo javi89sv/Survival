@@ -15,8 +15,8 @@ MonoBehaviour:
   _requirements:
   - item: {fileID: 11400000, guid: 4f6cb6cd1d8ca6c40b52598358c7ebc0, type: 2}
     amount: 200
-  - item: {fileID: 11400000, guid: d08fc8d7dcda2084198c23a499508a02, type: 2}
-    amount: 300
+  - item: {fileID: 11400000, guid: f113a37bd8991dd4db803100a355585d, type: 2}
+    amount: 200
   result: {fileID: 11400000, guid: 95d79a3127822db448f5cc160c5b4d4f, type: 2}
   amountResult: 1
   time: 10

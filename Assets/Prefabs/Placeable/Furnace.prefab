@@ -4908,7 +4908,7 @@ BoxCollider:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1185642689985916262}
   m_Material: {fileID: 0}
-  m_IsTrigger: 1
+  m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
   m_Size: {x: 1.0189288, y: 1.8879718, z: 1.0195363}
@@ -4945,9 +4945,11 @@ MonoBehaviour:
   - normalObject: {fileID: 11400000, guid: ab6775d5670a9cd43843ac05a81f1669, type: 2}
     cookedObject: {fileID: 11400000, guid: f113a37bd8991dd4db803100a355585d, type: 2}
     burnObject: {fileID: 0}
+    timeBurned: 5
   - normalObject: {fileID: 11400000, guid: d08fc8d7dcda2084198c23a499508a02, type: 2}
-    cookedObject: {fileID: 0}
+    cookedObject: {fileID: 11400000, guid: a180927ae7120324d93017d65d93fe02, type: 2}
     burnObject: {fileID: 0}
+    timeBurned: 5
   wood: {fileID: 11400000, guid: 4f6cb6cd1d8ca6c40b52598358c7ebc0, type: 2}
   coal: {fileID: 11400000, guid: c8b71e12059b8fd44b62aba3b5cd0166, type: 2}
   isRun: 0

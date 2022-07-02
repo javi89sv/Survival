@@ -12,6 +12,8 @@ public class BurningSystem : MonoBehaviour
         public ItemObject cookedObject;
         public ItemObject burnObject;
 
+        public float timeBurned;
+
     }
 
     public List<ListItemsCooked> listItems;
@@ -51,7 +53,7 @@ public class BurningSystem : MonoBehaviour
         {
             yield return new WaitForSeconds(speedBurn);
             gettedItem.RemoveFromStack(3);
-            this.GetComponent<Furnace>().PrimaryInventorySystem.AddItem(coal, 1);
+            this.GetComponent<Furnace>().PrimaryInventorySystem.AddItem(coal, 2);
             this.GetComponent<Furnace>().PrimaryInventorySystem.UpdateUISlots();
 
         }
@@ -66,7 +68,7 @@ public class BurningSystem : MonoBehaviour
     {
         while (isRun)
         {
-            yield return new WaitForSeconds(10f);
+            
 
             var inventorySystem = this.GetComponent<Furnace>().PrimaryInventorySystem;
 
@@ -74,13 +76,21 @@ public class BurningSystem : MonoBehaviour
             {
                 if (listItems[i].normalObject == inventorySystem.ContainItem(listItems[i].normalObject, out InventorySlot myItem))
                 {
-                    StartCoroutine("Timer");
-                    myItem.item = listItems[i].cookedObject;
+                    yield return new WaitForSeconds(listItems[i].timeBurned);
+
+                    inventorySystem.RemoveItems(listItems[i].normalObject, 1);
+                    if(myItem.amount < 1)
+                    {
+                        myItem.ClearSlot();
+                    }
+                    inventorySystem.AddItem(listItems[i].cookedObject, 1);
+                    this.GetComponent<Furnace>().PrimaryInventorySystem.UpdateUISlots();
+
 
                 }
             }
 
-            StartCoroutine("Timer");
+          //  StartCoroutine("Timer");
         }
 
     }
@@ -93,7 +103,7 @@ public class BurningSystem : MonoBehaviour
             StartCoroutine("Burn");
             StartCoroutine("Timer");
             fireParticle.Play();
-            
+
             return true;
         }
 

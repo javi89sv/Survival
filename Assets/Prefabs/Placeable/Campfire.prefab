@@ -4943,8 +4943,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 974fd7ef256cc4447abc5e5b406b9b0d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  listItems:
+  - normalObject: {fileID: 11400000, guid: ab6775d5670a9cd43843ac05a81f1669, type: 2}
+    cookedObject: {fileID: 11400000, guid: f113a37bd8991dd4db803100a355585d, type: 2}
+    burnObject: {fileID: 0}
+    timeBurned: 10
   wood: {fileID: 11400000, guid: 4f6cb6cd1d8ca6c40b52598358c7ebc0, type: 2}
-  itemAccepted: []
   coal: {fileID: 11400000, guid: c8b71e12059b8fd44b62aba3b5cd0166, type: 2}
   isRun: 0
   fireParticle: {fileID: 303496609946103488}

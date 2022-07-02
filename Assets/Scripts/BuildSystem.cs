@@ -36,9 +36,9 @@ public class BuildSystem : MonoBehaviour
             {
                 tempGO = Instantiate(currentGO.prefab, currentGO.prefab.transform.position, Quaternion.identity);
                 tempGO.GetComponent<BoxCollider>().isTrigger = true;
-                tempGO.AddComponent<TempBuildObject>();
-                tempGO.GetComponent<TempBuildObject>().green = canBuild;
-                tempGO.GetComponent<TempBuildObject>().red = cantBuild;
+                tempGO.AddComponent<TempPlaceObject>();
+                tempGO.GetComponent<TempPlaceObject>().green = canBuild;
+                tempGO.GetComponent<TempPlaceObject>().red = cantBuild;
                 existTemp = true;
             }
 
@@ -66,12 +66,17 @@ public class BuildSystem : MonoBehaviour
                 tempGO.transform.Rotate(0, 90, 0, Space.World);
             }
 
-            if (Input.GetMouseButtonDown(0) && tempGO.GetComponent<TempBuildObject>().isBuildable)
+            if (Input.GetMouseButtonDown(0) && tempGO.GetComponent<TempPlaceObject>().isBuildable)
             {
                 var go = Instantiate(currentGO.prefab, tempGO.transform.position, tempGO.transform.rotation);
                 go.GetComponent<MeshRenderer>().material = successBuild;
                 go.GetComponent<BoxCollider>().isTrigger = false;
+                if (go.GetComponent<ItemPickUp>())
+                {
+                    go.GetComponent<ItemPickUp>().enabled = false;
+                }
                 isBuilding = false;
+                Destroy(tempGO.gameObject);
                 tempGO = null;
                 existTemp = false;
             }
