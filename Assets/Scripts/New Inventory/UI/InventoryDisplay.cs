@@ -29,94 +29,94 @@ public abstract class InventoryDisplay : MonoBehaviour
         }
     }
 
-    public void SlotClicked(InventorySlotUI clickedSlot)
-    {
-        bool isShiftPressed = Input.GetKey(KeyCode.LeftShift);
+    //public void SlotClicked(InventorySlotUI clickedSlot)
+    //{
+    //    bool isShiftPressed = Input.GetKey(KeyCode.LeftShift);
 
 
-        //Si el slot que hacemos click tiene item asignado, y el mouse slot no tiene item asignado
-        if (clickedSlot.asiggnedInventorySlot.item != null && mouseItemData.assignedInventorySlot.item == null)
-        {
-            //Si presionamos SHIFT hacemos split del stack
-            if (isShiftPressed && clickedSlot.asiggnedInventorySlot.SplitStack(out InventorySlot halfStack))
-            {
-                mouseItemData.UpdateMouseSlot(halfStack);
-                clickedSlot.UpdateSlotUI();
-                return;
-            }
-            else //Colocamos el item del slot que clickamos en el mouse slot
-            {
-                mouseItemData.UpdateMouseSlot(clickedSlot.asiggnedInventorySlot);
-                clickedSlot.ClearSLot();
-                return;
-            }
+    //    //Si el slot que hacemos click tiene item asignado, y el mouse slot no tiene item asignado
+    //    if (clickedSlot.asiggnedInventorySlot.item != null && mouseItemData.assignedInventorySlot.item == null)
+    //    {
+    //        //Si presionamos SHIFT hacemos split del stack
+    //        if (isShiftPressed && clickedSlot.asiggnedInventorySlot.SplitStack(out InventorySlot halfStack))
+    //        {
+    //            mouseItemData.UpdateMouseSlot(halfStack);
+    //            clickedSlot.UpdateSlotUI();
+    //            return;
+    //        }
+    //        else //Colocamos el item del slot que clickamos en el mouse slot
+    //        {
+    //            mouseItemData.UpdateMouseSlot(clickedSlot.asiggnedInventorySlot);
+    //            clickedSlot.ClearSLot();
+    //            return;
+    //        }
 
-        }
+    //    }
 
-        //Si el slot clickado tiene el slot vacio y en el mouse slot llevamos un slot
-        if (clickedSlot.asiggnedInventorySlot.item == null && mouseItemData.assignedInventorySlot.item != null)
-        {
-            clickedSlot.asiggnedInventorySlot.AssignItem(mouseItemData.assignedInventorySlot);
-            clickedSlot.UpdateSlotUI();
-            mouseItemData.ClearSlot();
-            return;
+    //    //Si el slot clickado tiene el slot vacio y en el mouse slot llevamos un slot
+    //    if (clickedSlot.asiggnedInventorySlot.item == null && mouseItemData.assignedInventorySlot.item != null)
+    //    {
+    //        clickedSlot.asiggnedInventorySlot.AssignItem(mouseItemData.assignedInventorySlot);
+    //        clickedSlot.UpdateSlotUI();
+    //        mouseItemData.ClearSlot();
+    //        return;
 
-        }
+    //    }
 
-        //Si ambas ranuras tienen un item...
-        if (clickedSlot.asiggnedInventorySlot.item != null && mouseItemData.assignedInventorySlot.item != null)
-        {
-            bool isSameItem = clickedSlot.asiggnedInventorySlot.item == mouseItemData.assignedInventorySlot.item;
+    //    //Si ambas ranuras tienen un item...
+    //    if (clickedSlot.asiggnedInventorySlot.item != null && mouseItemData.assignedInventorySlot.item != null)
+    //    {
+    //        bool isSameItem = clickedSlot.asiggnedInventorySlot.item == mouseItemData.assignedInventorySlot.item;
 
-            //Si ambos items son iguales, los apilamos
-            if (isSameItem && clickedSlot.asiggnedInventorySlot.CheckStack(mouseItemData.assignedInventorySlot.amount))
-            {
-                clickedSlot.asiggnedInventorySlot.AssignItem(mouseItemData.assignedInventorySlot);
-                clickedSlot.UpdateSlotUI();
-                mouseItemData.ClearSlot();
-                return;
-            }
+    //        //Si ambos items son iguales, los apilamos
+    //        if (isSameItem && clickedSlot.asiggnedInventorySlot.CheckStack(mouseItemData.assignedInventorySlot.amount))
+    //        {
+    //            clickedSlot.asiggnedInventorySlot.AssignItem(mouseItemData.assignedInventorySlot);
+    //            clickedSlot.UpdateSlotUI();
+    //            mouseItemData.ClearSlot();
+    //            return;
+    //        }
            
-            else if (isSameItem && !clickedSlot.asiggnedInventorySlot.CheckStack(mouseItemData.assignedInventorySlot.amount, out int leftInStack))
-            {
-                if (leftInStack < 1) // Si el stack esta full, intercambiamos items.
-                {
-                    SwapSlots(clickedSlot);
-                }
-                else // Si el stack no esta full, tomamos lo que nos falta del mouse slot y lo agregamos al stack del click slot, dejamos el resto en el mouse slot
-                {
-                    int remainingOnMouse = mouseItemData.assignedInventorySlot.amount - leftInStack;
-                    clickedSlot.asiggnedInventorySlot.AddToStack(leftInStack);
-                    clickedSlot.UpdateSlotUI();
+    //        else if (isSameItem && !clickedSlot.asiggnedInventorySlot.CheckStack(mouseItemData.assignedInventorySlot.amount, out int leftInStack))
+    //        {
+    //            if (leftInStack < 1) // Si el stack esta full, intercambiamos items.
+    //            {
+    //                SwapSlots(clickedSlot);
+    //            }
+    //            else // Si el stack no esta full, tomamos lo que nos falta del mouse slot y lo agregamos al stack del click slot, dejamos el resto en el mouse slot
+    //            {
+    //                int remainingOnMouse = mouseItemData.assignedInventorySlot.amount - leftInStack;
+    //                clickedSlot.asiggnedInventorySlot.AddToStack(leftInStack);
+    //                clickedSlot.UpdateSlotUI();
 
-                    var newItem = new InventorySlot(mouseItemData.assignedInventorySlot.item, remainingOnMouse);
-                    mouseItemData.ClearSlot();
-                    mouseItemData.UpdateMouseSlot(newItem);
-                    return;
+    //                var newItem = new InventorySlot(mouseItemData.assignedInventorySlot.item, remainingOnMouse);
+    //                mouseItemData.ClearSlot();
+    //                mouseItemData.UpdateMouseSlot(newItem);
+    //                return;
 
-                }
-            }
+    //            }
+    //        }
 
-            else if (!isSameItem) // si no es el mismo item, itercambiamos uno por otro
-            {
-                SwapSlots(clickedSlot);
-                return;
-            }
+    //        else if (!isSameItem) // si no es el mismo item, itercambiamos uno por otro
+    //        {
+    //            SwapSlots(clickedSlot);
+    //            return;
+    //        }
 
-        }
+    //    }
 
-    }
+    //}
 
-    public void SwapSlots(InventorySlotUI clickedUISlot)
-    {
-        var cloneSlot = new InventorySlot(mouseItemData.assignedInventorySlot.item, mouseItemData.assignedInventorySlot.amount);
-        mouseItemData.ClearSlot();
+    //public void SwapSlots(InventorySlotUI clickedUISlot)
+    //{
+    //    var cloneSlot = new InventorySlot(mouseItemData.assignedInventorySlot.item, mouseItemData.assignedInventorySlot.amount);
+    //    mouseItemData.ClearSlot();
 
-        mouseItemData.UpdateMouseSlot(clickedUISlot.asiggnedInventorySlot);
+    //    mouseItemData.UpdateMouseSlot(clickedUISlot.asiggnedInventorySlot);
 
-        clickedUISlot.ClearSLot();
-        clickedUISlot.asiggnedInventorySlot.AssignItem(cloneSlot);
-        clickedUISlot.UpdateSlotUI();
+    //    clickedUISlot.ClearSLot();
+    //    clickedUISlot.asiggnedInventorySlot.AssignItem(cloneSlot);
+    //    clickedUISlot.UpdateSlotUI();
 
-    }
+    //}
 }

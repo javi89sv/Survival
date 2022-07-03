@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Wood Floor
   m_EditorClassIdentifier: 
   prefab: {fileID: 1764723466109818789, guid: 0e651f2c74012f34aa8bc856cd3b691d, type: 3}
-  type: 0
+  type: 3
   icon: {fileID: 0}
   id: 0
   itemName: Wood Floor

@@ -127,8 +127,29 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 26cba66f1d68a5b468373dcba86de176, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  nameContainer: Wood Box
-  sizeInventory: 24
+  nameContainer: Loot Box
+  sizeInventory: 10
   primaryInventorySystem:
     inventorySlots: []
+  loot:
+  - chanceLoot: 10
+    prefabLoot: {fileID: 11400000, guid: 95d79a3127822db448f5cc160c5b4d4f, type: 2}
+    minAmount: 1
+    maxAmount: 1
+    SpawnOffset: {x: 0, y: 0, z: 0}
+  - chanceLoot: 40
+    prefabLoot: {fileID: 11400000, guid: 974d803ea69f6b442b215f1f26b8b013, type: 2}
+    minAmount: 1
+    maxAmount: 1
+    SpawnOffset: {x: 0, y: 0, z: 0}
+  - chanceLoot: 60
+    prefabLoot: {fileID: 11400000, guid: a7ce0005055eba148b4de6c555e93a34, type: 2}
+    minAmount: 1
+    maxAmount: 10
+    SpawnOffset: {x: 0, y: 0, z: 0}
+  - chanceLoot: 60
+    prefabLoot: {fileID: 11400000, guid: 331ddfde4cdf4ce4c8e12a4ea2864824, type: 2}
+    minAmount: 1
+    maxAmount: 10
+    SpawnOffset: {x: 0, y: 0, z: 0}
   textInfo: Pulsa E para abrir

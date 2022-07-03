@@ -1,0 +1,22 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 93e3cf0961baa834a9d2239712d4b863, type: 3}
+  m_Name: Big Box
+  m_EditorClassIdentifier: 
+  _requirements:
+  - item: {fileID: 11400000, guid: 4f6cb6cd1d8ca6c40b52598358c7ebc0, type: 2}
+    amount: 500
+  - item: {fileID: 11400000, guid: a180927ae7120324d93017d65d93fe02, type: 2}
+    amount: 300
+  result: {fileID: 11400000, guid: a18bdfb92a2f48e4ea517b56c2cb12bb, type: 2}
+  amountResult: 1
+  time: 25

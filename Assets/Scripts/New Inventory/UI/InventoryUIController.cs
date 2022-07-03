@@ -11,6 +11,7 @@ public class InventoryUIController : MonoBehaviour
     public DynamicInventoryDisplay chestInventoryPanel;
     public DynamicInventoryDisplay furnaceInventoryPanel;
     public DynamicInventoryDisplay playerInventoryPanel;
+    public DynamicInventoryDisplay lootBoxInventoryPanel;
 
     public TextMeshProUGUI namePanelText;
 
@@ -20,6 +21,7 @@ public class InventoryUIController : MonoBehaviour
         chestInventoryPanel.gameObject.SetActive(false);
         playerInventoryPanel.gameObject.SetActive(false);
         furnaceInventoryPanel.gameObject.SetActive(false);
+       // lootBoxInventoryPanel.gameObject.SetActive(false);
     }
 
     private void OnEnable()
@@ -27,6 +29,7 @@ public class InventoryUIController : MonoBehaviour
         Furnace.OnFurnaceInventoryDisplayRequested += DisplayFurnaceInventory;
         PlayerInventoryHolder.OnPlayerInventoryDisplayRequested += DisplayPlayerInventory;
         Chest.OnChestInventoryDisplayRequested += DisplayInventory;
+        BoxLoot.OnBoxInventoryDisplayRequested += DisplayInventory;
     }
 
 
@@ -35,6 +38,7 @@ public class InventoryUIController : MonoBehaviour
         Furnace.OnFurnaceInventoryDisplayRequested -= DisplayFurnaceInventory;
         PlayerInventoryHolder.OnPlayerInventoryDisplayRequested -= DisplayPlayerInventory;
         Chest.OnChestInventoryDisplayRequested -= DisplayInventory;
+        BoxLoot.OnBoxInventoryDisplayRequested -= DisplayInventory;
     }
 
     public void DisplayInventory(InventorySystem invToDisplay)
@@ -80,6 +84,7 @@ public class InventoryUIController : MonoBehaviour
             Cursor.lockState = CursorLockMode.Locked;
             Cursor.visible = false;
             Interactor.isInteraction = false;
+            HudUI.instance.panelInfo.SetActive(false);
         }
         if (furnaceInventoryPanel.gameObject.activeInHierarchy && Input.GetKeyDown(KeyCode.Escape))
         {

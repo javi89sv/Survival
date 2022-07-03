@@ -96,7 +96,8 @@ public class InventorySlotUI : MonoBehaviour, IPointerDownHandler, IBeginDragHan
     {
         if (asiggnedInventorySlot.item != null)
         {
-            Debug.Log("SHOW INFO");
+            HudUI.instance.panelInfo.SetActive(true);
+            HudUI.instance.UpdateInfo(asiggnedInventorySlot.item.name, asiggnedInventorySlot.item.description, itemIcon);
         }
     }
 

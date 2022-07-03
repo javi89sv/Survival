@@ -11,7 +11,15 @@ public class HudUI : MonoBehaviour
     public Image barHealthPlayer;
     public Image barHungryPlayer;
     public Image barThirstPlayer;
+
     public TextMeshProUGUI textGettedItem;
+
+    public GameObject panelInfo;
+    public TextMeshProUGUI nameItem;
+    public TextMeshProUGUI descriptionItem;
+    public Image iconItem;
+
+    [SerializeField] Button exit;
 
     PlayerManager player;
 
@@ -39,4 +47,17 @@ public class HudUI : MonoBehaviour
         textGettedItem.text = "+ " + amount + " " + name;
         textGettedItem.CrossFadeAlpha(0.0f, 5f, false);
     }
+
+    public void UpdateInfo(string name, string descr, Image icon)
+    {
+        nameItem.text = name;
+        descriptionItem.text = descr;
+        iconItem.sprite = icon.sprite;
+    }
+
+    public void ExitGame()
+    {
+        Application.Quit();
+    }
+
 }

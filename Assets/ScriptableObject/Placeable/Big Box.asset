@@ -1,0 +1,23 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 175e18f8d8218404f9dc5f671717fb1e, type: 3}
+  m_Name: Big Box
+  m_EditorClassIdentifier: 
+  prefab: {fileID: 4314006651321892035, guid: e12d626a41117d3428ca360bb8672a0f, type: 3}
+  type: 3
+  icon: {fileID: 21300000, guid: ae3d36e32d8c3a44691e3a715eac2d0c, type: 3}
+  id: 0
+  itemName: Big Box
+  description: "Cofre de gran tama\xF1o para almacenar objetos"
+  maxStackSize: 1
+  typePlace: 0
+  durability: 100

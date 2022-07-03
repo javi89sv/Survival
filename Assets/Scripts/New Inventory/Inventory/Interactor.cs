@@ -23,14 +23,24 @@ public class Interactor : MonoBehaviour
             {
                 InfoUI.Instance.SetTooltipItem(hit.collider.name + "\n" + interactable.TextInfo());
             }
+            else
+            {
+                InfoUI.Instance.ClearText();
+                InfoUI.Instance.ShowText();
+            }
 
             if(hitable != null)
             {             
                 InfoUI.Instance.ShowBarHealth();
                 InfoUI.Instance.UpdateBarHealth(hitable.Health());
             }
+            else
+            {
 
-            if (Input.GetKey(KeyCode.E))
+                InfoUI.Instance.HideBarHealth();
+            }
+
+            if (Input.GetKeyDown(KeyCode.E))
             {
                 if (interactable != null)
                 {
@@ -43,12 +53,7 @@ public class Interactor : MonoBehaviour
             }
 
         }
-        else
-        {
-            InfoUI.Instance.ClearText();
-            InfoUI.Instance.ShowText();
-            InfoUI.Instance.HideBarHealth();
-        }
+
 
     }
 

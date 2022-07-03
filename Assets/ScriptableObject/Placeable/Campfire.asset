@@ -13,10 +13,11 @@ MonoBehaviour:
   m_Name: Campfire
   m_EditorClassIdentifier: 
   prefab: {fileID: 3658696349845148164, guid: ad4a721ea46e5d04f95eda6a401fb415, type: 3}
-  type: 0
+  type: 3
   icon: {fileID: 21300000, guid: e9e32737c40bb594b9e60e1e205ba6e3, type: 3}
   id: 0
   itemName: Campfire
   description: 
   maxStackSize: 1
+  typePlace: 0
   durability: 100

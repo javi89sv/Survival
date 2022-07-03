@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Furnace
   m_EditorClassIdentifier: 
   prefab: {fileID: 1185642689985916262, guid: a534d44005cb47c49806324ba02c71d3, type: 3}
-  type: 0
+  type: 3
   icon: {fileID: 21300000, guid: 688a6ffdd0b3bb848abe0b22bc1e4e19, type: 3}
   id: 0
   itemName: Furnace

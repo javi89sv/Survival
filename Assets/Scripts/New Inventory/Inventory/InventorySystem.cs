@@ -120,6 +120,18 @@ public class InventorySystem
         return total;
     }
 
+    public bool CheckEmpty()
+    {
+        for (int i = 0; i < inventorySlots.Count; i++)
+        {
+            if(inventorySlots[i].item != null)
+            {
+                return false;
+            }
+        }
+
+        return true;
+    }
 
 
 }
