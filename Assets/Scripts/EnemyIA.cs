@@ -27,6 +27,7 @@ public class EnemyIA : MonoBehaviour, IHitable
     int WalkDirection;
 
     public bool isWalking;
+    public bool isAttack;
     public bool isDead;
 
     public ParticleSystem particles;
@@ -36,6 +37,8 @@ public class EnemyIA : MonoBehaviour, IHitable
     GameObject playerPrefab;
 
     Vector3 initialPosition;
+
+    Animator animator;
 
     void Start()
     {
@@ -51,6 +54,7 @@ public class EnemyIA : MonoBehaviour, IHitable
         ChooseDirection();
 
         playerPrefab = GameObject.FindGameObjectWithTag("Player");
+        animator = GetComponent<Animator>();
 
     }
 
@@ -78,9 +82,14 @@ public class EnemyIA : MonoBehaviour, IHitable
 
         if (dist < rangeAttack && timerAttack >= cooldownAttack)
         {
+            isAttack = true;
             Debug.Log("Attacking");
             playerPrefab.GetComponent<PlayerManager>().TakeDamage(damage);
             timerAttack = 0;
+        }
+        else
+        {
+            isAttack = false;
         }
 
         //MOVEMENT
@@ -131,6 +140,20 @@ public class EnemyIA : MonoBehaviour, IHitable
                 ChooseDirection();
             }
 
+        }
+
+        if (isWalking)
+        {
+            animator.SetFloat("Speed",1f);
+        }
+        else
+        {
+            animator.SetFloat("Speed", 0f);
+        }
+
+        if (isAttack)
+        {
+            animator.SetTrigger("Attack");
         }
 
 
