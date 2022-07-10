@@ -15,6 +15,9 @@ public class BuildSystem : MonoBehaviour
     public bool existTemp;
     public bool hasObstacle;
 
+    [HideInInspector]
+    public InventorySlotUI itemAssignedSlot;
+
     [SerializeField] Material canBuild;
     [SerializeField] Material cantBuild;
     [SerializeField] Material successBuild;
@@ -46,10 +49,10 @@ public class BuildSystem : MonoBehaviour
             {
                 NormalPlace();
             }
-            if(currentGO.typePlace == typePlace.edge)
-            {
+            //if(currentGO.typePlace == typePlace.edge)
+            //{
 
-            }
+            //}
             
         }
     }
@@ -66,6 +69,14 @@ public class BuildSystem : MonoBehaviour
                 tempGO.transform.Rotate(0, 90, 0, Space.World);
             }
 
+            if (Input.GetKeyDown(KeyCode.Escape))
+            {
+                existTemp = false;
+                isBuilding = false;
+                tempGO = null;
+                currentGO = null;  
+            }
+
             if (Input.GetMouseButtonDown(0) && tempGO.GetComponent<TempPlaceObject>().isBuildable)
             {
                 var go = Instantiate(currentGO.prefab, tempGO.transform.position, tempGO.transform.rotation);
@@ -79,6 +90,7 @@ public class BuildSystem : MonoBehaviour
                 Destroy(tempGO.gameObject);
                 tempGO = null;
                 existTemp = false;
+                itemAssignedSlot.ClearSLot();
             }
 
         }

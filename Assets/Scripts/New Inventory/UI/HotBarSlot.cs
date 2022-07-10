@@ -5,9 +5,17 @@ using UnityEngine;
 
 public class HotBarSlot : MonoBehaviour
 {
+    public static HotBarSlot instance;
+
     public GameObject[] eqquipment;
     public InventorySlotUI[] slots;
+   
+    public ItemObject invSlotEquipp;
 
+    private void Awake()
+    {
+        instance = this;
+    }
     //public KeyCode key;
 
     private void Update()
@@ -63,6 +71,8 @@ public class HotBarSlot : MonoBehaviour
                     {
                         eqquipment[i].gameObject.SetActive(true);
                         EqquipmentManager.Instance.currentWeapon = eqquipment[i];
+                        invSlotEquipp = slots[index].asiggnedInventorySlot.item;
+                        EqquipmentManager.Instance.GetComponentInChildren<Animator>().SetInteger("SelectWeapon", eqquipment[i].GetComponent<EquippmentStats>().numberWeapon);
                     }
 
                 }
@@ -71,7 +81,7 @@ public class HotBarSlot : MonoBehaviour
         }
  
     }
-    private void Deseqquip()
+    public void Deseqquip()
     {
         for (int i = 0; i < eqquipment.Length; i++)
         {
@@ -79,6 +89,7 @@ public class HotBarSlot : MonoBehaviour
             {
                 eqquipment[i].SetActive(false);
                 EqquipmentManager.Instance.currentWeapon = null;
+                EqquipmentManager.Instance.GetComponentInChildren<Animator>().SetInteger("SelectWeapon", 0);
             }
         }
     }

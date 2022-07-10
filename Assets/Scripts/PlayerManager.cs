@@ -30,6 +30,8 @@ public class PlayerManager : MonoBehaviour
 
     Vector3 velocity;
 
+    Animator anim;
+
     [HideInInspector]
     public float currentHealth, currentHungry, currentThirst;
     [Header("--Player Stats--")]
@@ -41,6 +43,7 @@ public class PlayerManager : MonoBehaviour
     private void Awake()
     {
         instance = this;
+        anim = GetComponentInChildren<Animator>();
     }
 
     void Start()
@@ -98,6 +101,7 @@ public class PlayerManager : MonoBehaviour
         {
             isSprinting = true;
             move *= sprintingMultiplier;
+            anim.SetFloat("Speed", 1);
         }
         else
         {
@@ -110,9 +114,14 @@ public class PlayerManager : MonoBehaviour
 
         controller.Move(velocity * Time.deltaTime);
 
-
-
-
+        if(move == Vector3.zero)
+        {
+            anim.SetFloat("Speed", 0);
+        }
+        else if (move != Vector3.zero && !Input.GetKey(KeyCode.LeftShift))
+        {
+            anim.SetFloat("Speed", 0.5f);
+        }
 
         ////Field of View
         //if (sprint)
@@ -134,7 +143,8 @@ public class PlayerManager : MonoBehaviour
         Debug.Log(currentHealth);
         if (currentHealth < 0)
         {
-            Destroy(gameObject);
+            transform.Rotate(new Vector3(90f, 0, 0));
+            movementSpeed = 0;
         }
 
     }

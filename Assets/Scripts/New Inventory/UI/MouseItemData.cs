@@ -17,6 +17,8 @@ public class MouseItemData : MonoBehaviour
 
     public InventorySlot assignedInventorySlot;
 
+    public EquipmentObject itemEqquiped;
+
     private void Awake()
     {
 
@@ -58,6 +60,12 @@ public class MouseItemData : MonoBehaviour
 
         if (!isPointerOverUIObject())
         {
+            if (HotBarSlot.instance.invSlotEquipp == this.assignedInventorySlot.item)
+            {
+                Debug.Log("Desequipamos el item");
+                HotBarSlot.instance.Deseqquip();
+            }
+ 
             if (assignedInventorySlot.item.prefab != null)
             {
                 GameObject go = Instantiate(assignedInventorySlot.item.prefab, playerTransform.position + playerTransform.forward * 1f, Quaternion.identity);

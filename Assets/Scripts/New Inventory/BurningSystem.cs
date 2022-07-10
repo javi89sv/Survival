@@ -49,15 +49,20 @@ public class BurningSystem : MonoBehaviour
 
     IEnumerator Burn()
     {
-        while (gettedItem.amount > 0)
+        //Si hay madera en el horno entra
+        while (ContainWood())
         {
             yield return new WaitForSeconds(speedBurn);
             gettedItem.RemoveFromStack(3);
+            if(gettedItem.amount < 0)
+            {
+                gettedItem.ClearSlot();
+            }
             this.GetComponent<Furnace>().PrimaryInventorySystem.AddItem(coal, 2);
             this.GetComponent<Furnace>().PrimaryInventorySystem.UpdateUISlots();
 
         }
-        gettedItem.ClearSlot();
+
         InventoryUIController.instance.RefreshUIFurnace(this.GetComponent<Furnace>().PrimaryInventorySystem);
         isRun = false;
         Stop();
@@ -69,11 +74,11 @@ public class BurningSystem : MonoBehaviour
         while (isRun)
         {
             
-
             var inventorySystem = this.GetComponent<Furnace>().PrimaryInventorySystem;
 
             for (int i = 0; i < listItems.Count; i++)
             {
+                // Si hay item para quemar entra
                 if (listItems[i].normalObject == inventorySystem.ContainItem(listItems[i].normalObject, out InventorySlot myItem))
                 {
                     yield return new WaitForSeconds(listItems[i].timeBurned);
@@ -88,9 +93,10 @@ public class BurningSystem : MonoBehaviour
 
 
                 }
+                //Si no hay item para quemar rompe el bucle
+                yield return null;
             }
 
-          //  StartCoroutine("Timer");
         }
 
     }

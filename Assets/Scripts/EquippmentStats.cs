@@ -7,6 +7,7 @@ public class EquippmentStats : MonoBehaviour
 {
     Animator anim;
     public EquipmentObject itemObject;
+    public int numberWeapon;
 
     // Start is called before the first frame update
     void Start()

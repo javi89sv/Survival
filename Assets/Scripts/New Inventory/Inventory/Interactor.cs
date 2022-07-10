@@ -25,8 +25,7 @@ public class Interactor : MonoBehaviour
             }
             else
             {
-                InfoUI.Instance.ClearText();
-                InfoUI.Instance.ShowText();
+
             }
 
             if(hitable != null)
@@ -37,7 +36,7 @@ public class Interactor : MonoBehaviour
             else
             {
 
-                InfoUI.Instance.HideBarHealth();
+                
             }
 
             if (Input.GetKeyDown(KeyCode.E))
@@ -52,6 +51,13 @@ public class Interactor : MonoBehaviour
                 }
             }
 
+
+        }
+        else
+        {
+            InfoUI.Instance.ClearText();
+            InfoUI.Instance.ShowText();
+            InfoUI.Instance.HideBarHealth();
         }
 
 

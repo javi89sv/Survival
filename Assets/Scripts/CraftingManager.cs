@@ -104,7 +104,7 @@ public class CraftingManager : MonoBehaviour
         if (!isCrafting)
         {
             isCrafting = true;
-            StartCoroutine(CraftItem());
+            StartCoroutine("CraftItem");
         }
     }
 

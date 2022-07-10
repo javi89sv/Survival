@@ -15,7 +15,7 @@ public class EnemyIA : MonoBehaviour, IHitable
     public float rangeDetection;
     public float rangeAttack;
 
-    public float moveSpeed = 0.2f;
+    public float moveSpeed;
 
     Vector3 stopPosition;
 
@@ -26,6 +26,7 @@ public class EnemyIA : MonoBehaviour, IHitable
 
     int WalkDirection;
 
+    public bool isPatrol;
     public bool isWalking;
     public bool isAttack;
     public bool isDead;
@@ -34,18 +35,16 @@ public class EnemyIA : MonoBehaviour, IHitable
 
     public LootTable lootTable;
 
-    GameObject playerPrefab;
+    private Transform playerTransform;
 
-    Vector3 initialPosition;
-
-    Animator animator;
+    private Animator animator;
 
     void Start()
     {
 
         health = maxhealth;
 
-        walkTime = Random.Range(3, 6);
+        walkTime = Random.Range(10, 20);
         waitTime = Random.Range(5, 7);
 
         waitCounter = waitTime;
@@ -53,7 +52,7 @@ public class EnemyIA : MonoBehaviour, IHitable
 
         ChooseDirection();
 
-        playerPrefab = GameObject.FindGameObjectWithTag("Player");
+        playerTransform = GameObject.FindGameObjectWithTag("Player").GetComponent<Transform>();
         animator = GetComponent<Animator>();
 
     }
@@ -65,35 +64,36 @@ public class EnemyIA : MonoBehaviour, IHitable
 
         timerAttack += Time.deltaTime;
 
-        Vector3 target = initialPosition;
+        Vector3 posPlayer = new Vector3(playerTransform.position.x, transform.position.y, playerTransform.position.z);
 
-        float dist = Vector3.Distance(playerPrefab.transform.position, transform.position);
+        float dist = Vector3.Distance(playerTransform.transform.position, transform.position);
 
         if (dist < rangeDetection && !isDead)
         {
-            target = playerPrefab.transform.position;
-            float fixSpeed = moveSpeed * Time.deltaTime;
-            transform.position = Vector3.MoveTowards(transform.position, playerPrefab.transform.position, fixSpeed);
-            Vector3 position = playerPrefab.transform.position - transform.position;
-            Quaternion rotation = Quaternion.LookRotation(position);
-            transform.rotation = rotation;
+            animator.SetFloat("Speed", 1);
+            isPatrol = false;
+            isAttack = true;
+            transform.position = Vector3.MoveTowards(transform.position, posPlayer, moveSpeed * Time.deltaTime);
+            transform.LookAt(posPlayer);
+            
 
+        }
+        else
+        {
+            isPatrol = true;
+            isAttack = false;
         }
 
         if (dist < rangeAttack && timerAttack >= cooldownAttack)
         {
-            isAttack = true;
-            Debug.Log("Attacking");
-            playerPrefab.GetComponent<PlayerManager>().TakeDamage(damage);
-            timerAttack = 0;
-        }
-        else
-        {
-            isAttack = false;
+            
+            GetDamage();
+
         }
 
+
         //MOVEMENT
-        if (!isDead && isWalking)
+        if (!isDead && isPatrol)
         {
 
             walkCounter -= Time.deltaTime;
@@ -142,19 +142,12 @@ public class EnemyIA : MonoBehaviour, IHitable
 
         }
 
-        if (isWalking)
+        if (isPatrol)
         {
-            animator.SetFloat("Speed",1f);
-        }
-        else
-        {
-            animator.SetFloat("Speed", 0f);
+            animator.SetFloat("Speed", 0.5f);
         }
 
-        if (isAttack)
-        {
-            animator.SetTrigger("Attack");
-        }
+
 
 
     }
@@ -192,6 +185,15 @@ public class EnemyIA : MonoBehaviour, IHitable
         particles.transform.position = pointhit;
         particles.Play();
         Die();
+    }
+
+    public void GetDamage()
+    {
+
+        playerTransform.GetComponent<PlayerManager>().TakeDamage(damage);
+        timerAttack = 0;
+        animator.SetTrigger("Attack");
+
     }
 
     public int Health()

@@ -11,8 +11,8 @@ GameObject:
   - component: {fileID: 4608911341655016962}
   - component: {fileID: 601793394956749223}
   - component: {fileID: 3439915236289822061}
-  - component: {fileID: -5513968095461142772}
   - component: {fileID: 8196020386227007450}
+  - component: {fileID: 996856548063352145}
   m_Layer: 0
   m_Name: Node Iron
   m_TagString: Resource
@@ -86,19 +86,6 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!135 &-5513968095461142772
-SphereCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3800462897611381944}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Radius: 0.76
-  m_Center: {x: -0.0024728775, y: 0.61820996, z: 0.05752507}
 --- !u!114 &8196020386227007450
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -118,6 +105,19 @@ MonoBehaviour:
   particlesGather: {fileID: 2400005318940285523}
   destroyPrefab: {fileID: 3268708850718101693, guid: 65d5d72f14ed4e648abe2e5a1f8a7b98, type: 3}
   lootTable: {fileID: 11400000, guid: b0a77c2b2edfbdf4fb2dabab51f55f8a, type: 2}
+--- !u!65 &996856548063352145
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3800462897611381944}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 2.1287205, y: 1.5318568, z: 1.8710372}
+  m_Center: {x: -0.0024728775, y: 0.61820996, z: 0.05752507}
 --- !u!1001 &3488857843305377375
 PrefabInstance:
   m_ObjectHideFlags: 0

@@ -16,11 +16,13 @@ public class EqquipmentManager : MonoBehaviour
 
     public LayerMask ignoreLayers;
     private RaycastHit hit;
+    private Animator anim;
 
 
     private void Awake()
     {
         Instance = this;
+        anim = GetComponentInChildren<Animator>();
     }
 
     private void Update()
@@ -35,7 +37,7 @@ public class EqquipmentManager : MonoBehaviour
             if (Input.GetMouseButtonDown(0) && currentcoolDown >= currWeapon.itemObject.fireRate)
             {
                 Invoke("Hit", 0.6f);
-                currentWeapon.GetComponent<EquippmentStats>().PlayAnim();
+                anim.SetTrigger("Hit");
                 currentcoolDown = 0f;
             }
         }

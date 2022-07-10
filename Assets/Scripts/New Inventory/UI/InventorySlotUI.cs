@@ -9,21 +9,17 @@ using System;
 public class InventorySlotUI : MonoBehaviour, IPointerDownHandler, IBeginDragHandler, IDragHandler, IEndDragHandler, IDropHandler, IPointerClickHandler
 {
     public Image itemIcon;
+    public Image durability;
     public TextMeshProUGUI itemAmount;
 
     public InventorySlot asiggnedInventorySlot;
-
-    private Button button;
-    private InventoryDisplay parentInventory;
 
     public bool empty;
 
     private void Awake()
     {
         ClearSLot();
-        button = GetComponent<Button>();
-        //button.onClick.AddListener(OnUiSlotClick);
-        parentInventory = transform.parent.GetComponent<InventoryDisplay>();
+
     }
     public void Init(InventorySlot invSlot)
     {
@@ -46,6 +42,16 @@ public class InventorySlotUI : MonoBehaviour, IPointerDownHandler, IBeginDragHan
             {
                 itemAmount.text = "";
             }
+
+            if(invslot.item.type == ItemType.Equipment)
+            {
+                durability.enabled = true;
+            }
+            else
+            {
+               
+            }
+
         }
 
         else
@@ -53,6 +59,7 @@ public class InventorySlotUI : MonoBehaviour, IPointerDownHandler, IBeginDragHan
             itemAmount.text = "";
             itemIcon.sprite = null;
             itemIcon.color = Color.clear;
+            durability.enabled = false;
         }
     }
 
@@ -71,15 +78,25 @@ public class InventorySlotUI : MonoBehaviour, IPointerDownHandler, IBeginDragHan
 
     public void UseItemSlot()
     {
-        if (asiggnedInventorySlot.item != null && asiggnedInventorySlot.item.type == ItemType.Consumable)
+        if (asiggnedInventorySlot.item != null)
         {
             asiggnedInventorySlot.item.UseItem();
-            asiggnedInventorySlot.RemoveFromStack(1);
+            if(asiggnedInventorySlot.item.type == ItemType.Consumable)
+            {
+                asiggnedInventorySlot.RemoveFromStack(1);
+
+            }
+            if(asiggnedInventorySlot.item.type == ItemType.Placeable)
+            {
+                BuildSystem.instance.itemAssignedSlot = this;
+            }
             if (asiggnedInventorySlot.amount < 1)
             {
                 asiggnedInventorySlot.ClearSlot();
+                UpdateSlotUI();
             }
-            UpdateSlotUI();
+
+
         }
 
     }
@@ -90,6 +107,7 @@ public class InventorySlotUI : MonoBehaviour, IPointerDownHandler, IBeginDragHan
         itemAmount.text = "";
         itemIcon.sprite = null;
         itemIcon.color = Color.clear;
+        durability.enabled = false;
     }
 
     public void OnPointerClick(PointerEventData eventData)
