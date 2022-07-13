@@ -36,7 +36,7 @@ public class EqquipmentManager : MonoBehaviour
 
             if (Input.GetMouseButtonDown(0) && currentcoolDown >= currWeapon.itemObject.fireRate)
             {
-                Invoke("Hit", 0.6f);
+                Invoke("Hit", 0.5f);
                 anim.SetTrigger("Hit");
                 currentcoolDown = 0f;
             }
