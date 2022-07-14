@@ -111,7 +111,7 @@ public class PlayerController : MonoBehaviour
 
     private void GetAnim()
     {
-        if (moveInput == Vector3.zero)
+        if (moveInput.x == 0)
         {
             animator.SetFloat("Speed", 0f);
         }

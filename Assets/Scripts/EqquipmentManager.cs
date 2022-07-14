@@ -6,15 +6,16 @@ using UnityEngine;
 public class EqquipmentManager : MonoBehaviour
 {
     public static EqquipmentManager Instance;
-    public GameObject bulletPrefab;
-    public LayerMask canBeshot;
+
+
+    [SerializeField] LayerMask ignoreLayers;
+    [SerializeField] float timeDelayAnim;
+    [SerializeField] GameObject camera_player;
 
     [HideInInspector]
     public GameObject currentWeapon;
+    
     private float currentcoolDown;
-    public GameObject camera_player;
-
-    public LayerMask ignoreLayers;
     private RaycastHit hit;
     private Animator anim;
 
@@ -36,7 +37,7 @@ public class EqquipmentManager : MonoBehaviour
 
             if (Input.GetMouseButtonDown(0) && currentcoolDown >= currWeapon.itemObject.fireRate)
             {
-                Invoke("Hit", 0.5f);
+                Invoke("Hit", timeDelayAnim);
                 anim.SetTrigger("Hit");
                 currentcoolDown = 0f;
             }

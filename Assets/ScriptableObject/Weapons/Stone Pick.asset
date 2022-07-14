@@ -24,6 +24,6 @@ MonoBehaviour:
   atkBonus: 15
   defBonus: 0
   durability: 100
-  fireRate: 0.5
+  fireRate: 1
   farmWood: 0
   farmMineral: 10
