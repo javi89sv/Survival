@@ -7,31 +7,6 @@ public class PlayerManager : MonoBehaviour
 {
     public static PlayerManager instance;
 
-    public float movementSpeed = 1f;
-    public float jumpPower = 10f;
-
-    public float gravityFactor = -9.81f;
-
-
-    public bool isSprinting = false;
-    public float sprintingMultiplier;
-
-    public bool isCrouching = false;
-    public float crouchingMulitplier;
-
-    public CharacterController controller;
-    public float standingHeight = 1.8f;
-    public float crouchingHeight = 1.25f;
-
-    public LayerMask groundMask;
-    public Transform groundDetectionTransform;
-
-    public bool isGrounded;
-
-    Vector3 velocity;
-
-    Animator anim;
-
     [HideInInspector]
     public float currentHealth, currentHungry, currentThirst;
     [Header("--Player Stats--")]
@@ -39,11 +14,14 @@ public class PlayerManager : MonoBehaviour
     public float maxHungry, maxThirst;
     public float healthIncreaseRate, drinkIncreaseRate, foodIncreaseRate;
 
+    private PlayerController playerController;
+
 
     private void Awake()
     {
         instance = this;
-        anim = GetComponentInChildren<Animator>();
+        playerController = GetComponent<PlayerController>();
+
     }
 
     void Start()
@@ -53,7 +31,6 @@ public class PlayerManager : MonoBehaviour
         currentHungry = maxHungry;
         currentThirst = maxThirst;
 
-        //  baseFOV = normalCam.fieldOfView;
 
     }
 
@@ -61,78 +38,6 @@ public class PlayerManager : MonoBehaviour
     {
         ManagerStatesPlayer();
 
-        isGrounded = Physics.CheckSphere(groundDetectionTransform.position, 0.3f, groundMask);
-
-        if (isGrounded && velocity.y < 0)
-        {
-            velocity.y = -2f;
-        }
-
-        float inputX = Input.GetAxis("Horizontal");
-        float inputY = Input.GetAxis("Vertical");
-
-        Vector3 move = transform.right * inputX + transform.forward * inputY;
-
-        if (isCrouching == true)
-        {
-            controller.height = crouchingHeight;
-            move *= crouchingMulitplier;
-        }
-        else
-        {
-            controller.height = standingHeight;
-        }
-
-        if (Input.GetKeyDown(KeyCode.Space) && isGrounded == true)
-        {
-            velocity.y = Mathf.Sqrt(jumpPower * -2f * gravityFactor);
-        }
-
-        if (Input.GetKey(KeyCode.LeftControl))
-        {
-            isCrouching = true;
-        }
-        else
-        {
-            isCrouching = false;
-        }
-
-        if (Input.GetKey(KeyCode.LeftShift) && isGrounded == true)
-        {
-            isSprinting = true;
-            move *= sprintingMultiplier;
-            anim.SetFloat("Speed", 1);
-        }
-        else
-        {
-            isSprinting = false;
-        }
-
-        controller.Move(move * movementSpeed * Time.deltaTime);
-
-        velocity.y += gravityFactor * Time.deltaTime;
-
-        controller.Move(velocity * Time.deltaTime);
-
-        if(move == Vector3.zero)
-        {
-            anim.SetFloat("Speed", 0);
-        }
-        else if (move != Vector3.zero && !Input.GetKey(KeyCode.LeftShift))
-        {
-            anim.SetFloat("Speed", 0.5f);
-        }
-
-        ////Field of View
-        //if (sprint)
-        //{
-        //    normalCam.fieldOfView = Mathf.Lerp(normalCam.fieldOfView, baseFOV * sprintFOVModifier, Time.deltaTime * 8f);
-        //    movementSpeed *= sprintModifier;
-        //}
-        //else
-        //{
-        //    normalCam.fieldOfView = Mathf.Lerp(normalCam.fieldOfView, baseFOV, Time.deltaTime * 8f);           
-        //}
     }
 
 
@@ -143,8 +48,9 @@ public class PlayerManager : MonoBehaviour
         Debug.Log(currentHealth);
         if (currentHealth < 0)
         {
-            transform.Rotate(new Vector3(90f, 0, 0));
-            movementSpeed = 0;
+            
+            //MUERE
+
         }
 
     }
@@ -161,11 +67,11 @@ public class PlayerManager : MonoBehaviour
 
         if (currentThirst <= 0)
         {
-            sprintingMultiplier = 1;
+            playerController.runSpeed = playerController.walkSpeed;
         }
         else
         {
-            sprintingMultiplier = 2;
+            //playerController.runSpeed
         }
 
         if(currentHealth < 0)
