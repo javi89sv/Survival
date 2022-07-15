@@ -25,6 +25,8 @@ public class BurningSystem : MonoBehaviour
 
     public ParticleSystem fireParticle;
 
+    public Light lightEffect;
+
     public float speedBurn;
 
     private InventorySlot gettedItem;
@@ -106,6 +108,7 @@ public class BurningSystem : MonoBehaviour
         if (ContainWood())
         {
             isRun = true;
+            lightEffect.enabled = true;
             StartCoroutine("Burn");
             StartCoroutine("Timer");
             fireParticle.Play();
@@ -120,6 +123,7 @@ public class BurningSystem : MonoBehaviour
     public void Stop()
     {
         isRun = false;
+        lightEffect.enabled = false;
         StopAllCoroutines();
         fireParticle.Stop();
     }

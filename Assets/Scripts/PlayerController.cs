@@ -33,6 +33,13 @@ public class PlayerController : MonoBehaviour
     float xRotation = 0f;
     float YRotation = 0f;
 
+    [Header("RingMenu")]
+    public RingMenu menuPrefab;
+    protected RingMenu menuInstanced;
+
+    [HideInInspector]
+    public ControllerMode Mode;
+
     private void Awake()
     {
         characterController = GetComponent<CharacterController>();
@@ -41,6 +48,7 @@ public class PlayerController : MonoBehaviour
 
     private void Start()
     {
+        SetMode(ControllerMode.Play);
         Cursor.lockState = CursorLockMode.Locked;
     }
 
@@ -49,6 +57,7 @@ public class PlayerController : MonoBehaviour
         Look();
         Move();
         GetAnim();
+        GetRadialMenu();
     }
 
     private void Move()
@@ -58,24 +67,22 @@ public class PlayerController : MonoBehaviour
             moveInput = new Vector3(Input.GetAxis("Horizontal"), 0f, Input.GetAxis("Vertical"));
             moveInput = Vector3.ClampMagnitude(moveInput, 1f);
 
-            if (Input.GetKey(KeyCode.LeftShift))
+
+            if (Input.GetKey(KeyCode.LeftShift) && !Input.GetKey(KeyCode.LeftControl))
             {
                 moveInput = transform.TransformDirection(moveInput) * runSpeed;
             }
-            else
-            {
-                moveInput = transform.TransformDirection(moveInput) * walkSpeed;
-            }
-
-            if (Input.GetKey(KeyCode.LeftControl))
+            else if (Input.GetKey(KeyCode.LeftControl) && !Input.GetKey(KeyCode.LeftShift))
             {
                 characterController.height = crouchingHeight;
                 moveInput = transform.TransformDirection(moveInput) * crouchSpeed;
             }
             else
             {
+                moveInput = transform.TransformDirection(moveInput) * walkSpeed;
                 characterController.height = standingHeight;
             }
+
 
             if (Input.GetKeyDown(KeyCode.Space))
             {
@@ -122,6 +129,63 @@ public class PlayerController : MonoBehaviour
         else if (Input.GetKey(KeyCode.LeftShift))
         {
             animator.SetFloat("Speed", 1f);
+        }
+    }
+
+    private void GetRadialMenu()
+    {
+        if (Mode == ControllerMode.Play)
+        {
+            if (Input.GetMouseButtonDown(2))
+            {
+                SetMode(ControllerMode.Menu);
+                menuInstanced = Instantiate(menuPrefab, FindObjectOfType<Canvas>().transform);
+                menuInstanced.callback = MenuClick;
+            }
+        }
+
+    }
+
+    private void MenuClick(string path)
+    {
+
+        Debug.Log("Instanciamos el objeto");
+        Interactor.isInteraction = false;
+        SetMode(ControllerMode.Play);
+        //Debug.Log(path);
+        //var paths = path.Split('/');
+        //GetComponent<>().SetPrefab(int.Parse(paths[1]), int.Parse(paths[2]));
+        //SetMode(ControllerMode.Build);
+    }
+
+    public enum ControllerMode
+    {
+        Play,
+        Build,
+        Menu
+    }
+
+    public void SetMode(ControllerMode mode)
+    {
+        Mode = mode;
+        if (mode != ControllerMode.Menu && menuInstanced != null)
+            Destroy(menuInstanced);
+
+        switch (mode)
+        {
+            case ControllerMode.Build:
+                Cursor.lockState = CursorLockMode.Locked;
+                Cursor.visible = false;
+                break;
+            case ControllerMode.Menu:
+                Interactor.isInteraction = true;
+                Cursor.lockState = CursorLockMode.None;
+                Cursor.visible = true;
+                break;
+            case ControllerMode.Play:
+                Cursor.lockState = CursorLockMode.Locked;
+                Cursor.visible = false;
+                break;
         }
     }
 
