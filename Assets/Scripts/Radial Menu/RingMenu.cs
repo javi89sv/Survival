@@ -72,6 +72,8 @@ public class RingMenu : MonoBehaviour
             {
                 callback?.Invoke(path);
                 Debug.Log("gastamos: " + data.elements[activeElement].itemObject.name + " " + data.elements[activeElement].amount);
+                PlaceObjectSystem.instance.currentGO = data.elements[activeElement].buildObject;
+                PlaceObjectSystem.instance.isBuilding = true;
             }
             gameObject.SetActive(false);
         }

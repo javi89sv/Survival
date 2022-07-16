@@ -136,12 +136,6 @@ public class CraftingUI : MonoBehaviour
             textIngredient3.text = "";
             textamount3.text = "";
         }
-
-        //foreach(var item in selectRecipe._requirements)
-        //{
-        //    textIngredient1.text = item.item.itemName;
-        //    textamount1.text = item.amount.ToString();
-        //}
         
     }
 

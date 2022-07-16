@@ -16,7 +16,7 @@ public class RingElement : ScriptableObject
     public int amount;
 
     [Header("Build Spawn")]
-    public BuildObject buildObject;
+    public PlaceableObject buildObject;
 
 
 }

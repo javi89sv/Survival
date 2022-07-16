@@ -88,7 +88,7 @@ public class InventorySlotUI : MonoBehaviour, IPointerDownHandler, IBeginDragHan
             }
             if(asiggnedInventorySlot.item.type == ItemType.Placeable)
             {
-                BuildSystem.instance.itemAssignedSlot = this;
+                PlaceObjectSystem.instance.itemAssignedSlot = this;
             }
             if (asiggnedInventorySlot.amount < 1)
             {

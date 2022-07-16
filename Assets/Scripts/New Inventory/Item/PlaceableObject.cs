@@ -12,8 +12,8 @@ public class PlaceableObject : ItemObject
 
     public override void UseItem()
     {
-        BuildSystem.instance.currentGO = this;
-        BuildSystem.instance.isBuilding = true;
+        PlaceObjectSystem.instance.currentGO = this;
+        PlaceObjectSystem.instance.isBuilding = true;
 
     }
 

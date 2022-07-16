@@ -49,7 +49,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8944bba1afc85d04ab79a1c6e4ceac3a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  data: {fileID: 11400000, guid: 26474919cf2baff4c9ca3ee98f57c7a4, type: 2}
+  data: {fileID: 11400000, guid: 1dc29b7a3a0bceb4396a9d8192e093bf, type: 2}
   ringCakePrefab: {fileID: -6098182008671491101, guid: 96262eb4b5292ac458ead7cabf4e2c40, type: 3}
-  GapWidtDegree: 1
+  GapWidthDegree: 1
   path: 
