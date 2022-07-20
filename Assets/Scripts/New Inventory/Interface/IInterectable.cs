@@ -4,7 +4,7 @@ using UnityEngine;
 using UnityEngine.Events;
 public interface IInterectable
 {
-    public UnityAction<IInterectable> OnInteractionComplete { get; set; }
+    
     public void Interact(Interactor interactor);
 
     public string TextInfo();

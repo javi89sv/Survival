@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 175e18f8d8218404f9dc5f671717fb1e, type: 3}
   m_Name: Slot Door
   m_EditorClassIdentifier: 
-  prefab: {fileID: 4789598207625480720, guid: e014f8020ab77c84eb6a42de93179f32, type: 3}
+  prefab: {fileID: 6974619525256510366, guid: 6144ba512130ec143a0f858d9d060482, type: 3}
   type: 3
   icon: {fileID: 0}
   id: 0

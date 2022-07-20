@@ -156,9 +156,10 @@ public class EnemyIA : MonoBehaviour, IHitable
     {
         if (health <= 0)
         {
+            animator.SetTrigger("Death");
             isDead = true;
             LootSystem.instance.Loot(lootTable, transform.position);
-            GetComponent<Rigidbody>().AddForce(this.transform.forward * 5f, ForceMode.Impulse);
+            //GetComponent<Rigidbody>().AddForce(this.transform.forward * 5f, ForceMode.Impulse);
             Destroy(this.gameObject, 3f);
         }
     }

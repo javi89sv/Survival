@@ -183,6 +183,7 @@ public class PlayerController : MonoBehaviour
                 Cursor.visible = true;
                 break;
             case ControllerMode.Play:
+                Interactor.isInteraction = false;
                 Cursor.lockState = CursorLockMode.Locked;
                 Cursor.visible = false;
                 break;

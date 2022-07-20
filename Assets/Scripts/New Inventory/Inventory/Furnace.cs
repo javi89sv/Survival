@@ -7,7 +7,6 @@ using UnityEngine.UI;
 public class Furnace : InventoryHolder, IInterectable
 {
     public string textInfo;
-    public UnityAction<IInterectable> OnInteractionComplete { get; set; }
 
     public static UnityAction<InventorySystem> OnFurnaceInventoryDisplayRequested;
 

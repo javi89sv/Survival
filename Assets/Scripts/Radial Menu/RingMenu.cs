@@ -54,6 +54,12 @@ public class RingMenu : MonoBehaviour
                 pieces[i].cakePiece.color = new Color(1f, 1f, 1f, 0.5f);
         }
 
+        if (Input.GetKeyDown(KeyCode.Escape))
+        {
+            Destroy(gameObject);
+            PlayerInventoryHolder.instance.GetComponent<PlayerController>().SetMode(PlayerController.ControllerMode.Play);
+        }
+
 
         if (Input.GetMouseButtonDown(0))
         {
@@ -68,14 +74,21 @@ public class RingMenu : MonoBehaviour
                 newSubRing.path = path;
                 newSubRing.callback = callback;
             }
-            else
+            else if(PlayerInventoryHolder.instance.PrimaryInventorySystem.ContainItem(data.elements[activeElement].itemObject,data.elements[activeElement].amount, out InventorySlot item))
             {
                 callback?.Invoke(path);
                 Debug.Log("gastamos: " + data.elements[activeElement].itemObject.name + " " + data.elements[activeElement].amount);
                 PlaceObjectSystem.instance.currentGO = data.elements[activeElement].buildObject;
                 PlaceObjectSystem.instance.isBuilding = true;
+                PlayerInventoryHolder.instance.PrimaryInventorySystem.RemoveItems(data.elements[activeElement].itemObject, data.elements[activeElement].amount);
             }
+            else
+            {
+                Debug.Log("No tienes material");
+            }
+            PlayerInventoryHolder.instance.GetComponent<PlayerController>().SetMode(PlayerController.ControllerMode.Play);
             gameObject.SetActive(false);
+            Destroy(gameObject);
         }
     }
 

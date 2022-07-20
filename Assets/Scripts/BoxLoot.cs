@@ -19,7 +19,6 @@ public class BoxLoot : InventoryHolder, IInterectable
     public RandomItem[] loot;
 
     public string textInfo;
-    public UnityAction<IInterectable> OnInteractionComplete { get; set; }
 
     public static UnityAction<InventorySystem> OnBoxInventoryDisplayRequested;
 

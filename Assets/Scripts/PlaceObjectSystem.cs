@@ -40,7 +40,10 @@ public class PlaceObjectSystem : MonoBehaviour
             if (!existTemp)
             {
                 tempGO = Instantiate(currentGO.prefab, currentGO.prefab.transform.position, Quaternion.identity);
-                tempGO.GetComponent<BoxCollider>().isTrigger = true;
+                if(tempGO.GetComponent<BoxCollider>())
+                    tempGO.GetComponent<BoxCollider>().isTrigger = true;
+                if(tempGO.GetComponent<MeshCollider>())
+                    tempGO.GetComponent<MeshCollider>().isTrigger = true;
                 tempGO.AddComponent<TempPlaceObject>();
                 tempGO.GetComponent<TempPlaceObject>().green = canBuild;
                 tempGO.GetComponent<TempPlaceObject>().red = cantBuild;
@@ -100,7 +103,7 @@ public class PlaceObjectSystem : MonoBehaviour
 
     private void EdgePlace()
     {
-        if (Physics.Raycast(Camera.main.transform.position, Camera.main.transform.forward, out hit, rangeBuild, layer))
+        if (Physics.Raycast(Camera.main.transform.position, Camera.main.transform.forward, out hit, rangeBuild))
         {
             tempGO.transform.position = new Vector3(Mathf.Round(hit.point.x / grid.x) * grid.x, Mathf.Round(hit.point.y / grid.y) * grid.y, Mathf.Round(hit.point.z / grid.z) * grid.z);
 
@@ -123,7 +126,14 @@ public class PlaceObjectSystem : MonoBehaviour
             {
                 var go = Instantiate(currentGO.prefab, tempGO.transform.position, tempGO.transform.rotation);
                 go.GetComponent<MeshRenderer>().material = successBuild;
-                go.GetComponent<BoxCollider>().isTrigger = false;
+                if (go.GetComponent<BoxCollider>())
+                {
+                    go.GetComponent<BoxCollider>().isTrigger = false;
+                }                
+                if (go.GetComponent<MeshCollider>())
+                {
+                    go.GetComponent<MeshCollider>().isTrigger = false;
+                }              
                 if (go.GetComponent<ItemPickUp>())
                 {
                     go.GetComponent<ItemPickUp>().enabled = false;

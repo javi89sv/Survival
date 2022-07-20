@@ -6,7 +6,6 @@ using UnityEngine.Events;
 public class OpenContainers : InventoryHolder, IInterectable
 {
     public string textInfo;
-    public UnityAction<IInterectable> OnInteractionComplete { get => throw new System.NotImplementedException(); set => throw new System.NotImplementedException(); }
 
     public void Interact(Interactor interactor)
     {

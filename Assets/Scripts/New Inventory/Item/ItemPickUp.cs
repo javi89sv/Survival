@@ -11,8 +11,6 @@ public class ItemPickUp : MonoBehaviour, IInterectable
 
     public string textInfo;
 
-    public UnityAction<IInterectable> OnInteractionComplete { get; set; }
-
     private void Start()
     {
         

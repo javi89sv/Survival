@@ -9,8 +9,6 @@ public class Chest : InventoryHolder, IInterectable
 
     public static UnityAction<InventorySystem> OnChestInventoryDisplayRequested;
 
-    public UnityAction<IInterectable> OnInteractionComplete { get; set; }
-
     public void Interact(Interactor interactor)
     {
         OnChestInventoryDisplayRequested?.Invoke(primaryInventorySystem);

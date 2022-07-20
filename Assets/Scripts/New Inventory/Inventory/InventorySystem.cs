@@ -79,6 +79,20 @@ public class InventorySystem
         return false;
     }
 
+    public bool ContainItem(ItemObject item, int amount, out InventorySlot getItem) // Checkeamos si el item que estamos pasando es el mismo del slot
+    {
+        for (int i = 0; i < inventorySlots.Count; i++)
+        {
+            if (inventorySlots[i].item == item && inventorySlots[i].amount >= amount)
+            {
+                getItem = inventorySlots[i];
+                return true;
+            }
+        }
+        getItem = null;
+        return false;
+    }
+
     public bool ContainIngredients(ItemObject item, int amount, out InventorySystem inv)
     {
         for (int i = 0; i < inventorySlots.Count; i++)
@@ -101,6 +115,7 @@ public class InventorySystem
             {
                 inventorySlots[i].RemoveFromStack(amount);
                 OnInventorySlotChanged?.Invoke(inventorySlots[i]);
+
             }
         }
     }
@@ -124,7 +139,7 @@ public class InventorySystem
     {
         for (int i = 0; i < inventorySlots.Count; i++)
         {
-            if(inventorySlots[i].item != null)
+            if (inventorySlots[i].item != null)
             {
                 return false;
             }
