@@ -125,10 +125,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 4608911341655016962}
     m_Modifications:
-    - target: {fileID: 1235219565151433740, guid: 29d11ad3e37a95147a9e7094c03b99e5, type: 3}
-      propertyPath: TrailModule.lifetime.scalar
-      value: 0.1
-      objectReference: {fileID: 0}
     - target: {fileID: 5078376028932411181, guid: 29d11ad3e37a95147a9e7094c03b99e5, type: 3}
       propertyPath: m_RootOrder
       value: 0
@@ -172,18 +168,6 @@ PrefabInstance:
     - target: {fileID: 5078376028932411181, guid: 29d11ad3e37a95147a9e7094c03b99e5, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 6923381046711311571, guid: 29d11ad3e37a95147a9e7094c03b99e5, type: 3}
-      propertyPath: looping
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 6923381046711311571, guid: 29d11ad3e37a95147a9e7094c03b99e5, type: 3}
-      propertyPath: InitialModule.startSize.scalar
-      value: 0.3
-      objectReference: {fileID: 0}
-    - target: {fileID: 6923381046711311571, guid: 29d11ad3e37a95147a9e7094c03b99e5, type: 3}
-      propertyPath: InitialModule.startSize.minScalar
-      value: 0.1
       objectReference: {fileID: 0}
     - target: {fileID: 9046757643976731762, guid: 29d11ad3e37a95147a9e7094c03b99e5, type: 3}
       propertyPath: m_Name
