@@ -26,7 +26,10 @@ public class PlayerController : MonoBehaviour
     public float crouchingHeight = 1.25f;
 
     private float cameraVerticalAngle;
-    Vector3 moveInput = Vector3.zero;
+
+    [HideInInspector]
+    public Vector3 moveInput = Vector3.zero;
+
     Vector3 rotationinput = Vector3.zero;
     CharacterController characterController;
     Animator animator;

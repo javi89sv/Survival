@@ -138,7 +138,8 @@ GameObject:
   - component: {fileID: 6261460235434913099}
   - component: {fileID: 2732555304555530116}
   - component: {fileID: 2296371746974091850}
-  - component: {fileID: 4597162064486358428}
+  - component: {fileID: 8352357127931233381}
+  - component: {fileID: 6960869671909956447}
   m_Layer: 0
   m_Name: Wolf
   m_TagString: Untagged
@@ -174,7 +175,7 @@ Animator:
   m_GameObject: {fileID: 814817902910336395}
   m_Enabled: 1
   m_Avatar: {fileID: 9000000, guid: 80522737b49003f41a80bfb5c6087179, type: 3}
-  m_Controller: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 5860d692025265d4cba2fac5cfd81498, type: 2}
   m_CullingMode: 1
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
@@ -213,7 +214,29 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 0.35747242, y: 0.8740142, z: 1.4535489}
   m_Center: {x: -0.0062994957, y: 0.4325513, z: -0.033596277}
---- !u!114 &4597162064486358428
+--- !u!195 &8352357127931233381
+NavMeshAgent:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 814817902910336395}
+  m_Enabled: 1
+  m_AgentTypeID: 0
+  m_Radius: 0.5
+  m_Speed: 3.5
+  m_Acceleration: 8
+  avoidancePriority: 50
+  m_AngularSpeed: 120
+  m_StoppingDistance: 0
+  m_AutoTraverseOffMeshLink: 1
+  m_AutoBraking: 1
+  m_AutoRepath: 1
+  m_Height: 2
+  m_BaseOffset: 0
+  m_WalkableMask: 4294967295
+  m_ObstacleAvoidanceType: 4
+--- !u!114 &6960869671909956447
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -222,22 +245,19 @@ MonoBehaviour:
   m_GameObject: {fileID: 814817902910336395}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 391eb3fdecb469743bc38976d45cffab, type: 3}
+  m_Script: {fileID: 11500000, guid: 1af0c6758e369c04390bc639e8edf063, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  health: 0
   maxhealth: 100
   damage: 10
-  cooldownAttack: 2
+  walkSpeed: 2
+  runSpeed: 4
+  timeAttack: 1
   rangeDetection: 10
-  rangeAttack: 3
-  moveSpeed: 3
-  isPatrol: 0
-  isWalking: 0
-  isAttack: 0
-  isDead: 0
-  particles: {fileID: 7964979734811949048}
-  lootTable: {fileID: 11400000, guid: 7ddb88ccdc642f84e9e243b9eb22ec25, type: 2}
+  rangeAttack: 2
+  walkDirection: 5
+  particlesHit: {fileID: 7964979734811949048}
+  loot: {fileID: 0}
 --- !u!1 &883933610281432056
 GameObject:
   m_ObjectHideFlags: 0

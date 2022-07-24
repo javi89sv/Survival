@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 482335493485810941}
   - component: {fileID: 2401947861233705015}
   - component: {fileID: -20671816469911692}
-  - component: {fileID: 1816961576432335931}
+  - component: {fileID: -2851778154676835782}
   - component: {fileID: 7674459855786442811}
   m_Layer: 0
   m_Name: Bone
@@ -102,8 +102,8 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
---- !u!64 &1816961576432335931
-MeshCollider:
+--- !u!65 &-2851778154676835782
+BoxCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -112,10 +112,9 @@ MeshCollider:
   m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_Enabled: 1
-  serializedVersion: 4
-  m_Convex: 1
-  m_CookingOptions: 30
-  m_Mesh: {fileID: -7587030971442298145, guid: 9f92058df549d834289a0fe05301b1cf, type: 3}
+  serializedVersion: 2
+  m_Size: {x: 0.40005958, y: 0.065652974, z: 0.08891683}
+  m_Center: {x: 0.0031706765, y: 0.020431032, z: -0.00041053444}
 --- !u!114 &7674459855786442811
 MonoBehaviour:
   m_ObjectHideFlags: 0

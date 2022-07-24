@@ -3,32 +3,38 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
 
-public class EnemyAI : MonoBehaviour
+public class EnemyAI : MonoBehaviour, IHitable
 {
-    public int health;
+    private int health;
     public int maxhealth;
     public int damage;
 
     public float walkSpeed;
     public float runSpeed;
 
-    private float timerAttack;
-    public float cooldownAttack;
+    private float waitAttack;
+    public float timeAttack;
 
     public float rangeDetection;
     public float rangeAttack;
 
-    public float waitTime;
-    public float waitCounter;
+    private float waitTime;
+    private float waitCounter;
 
     public float walkDirection;
 
-    bool isPatrol;
-    bool isChase;
+    private bool isPatrol;
+    private bool isChase;
+    private bool isAttack;
+    private bool isDead;
+
+    public ParticleSystem particlesHit;
+    public LootTable loot;
 
     Transform playerTransform;
     Animator animator;
     NavMeshAgent agent;
+
 
     Vector3 wayPoint;
 
@@ -37,21 +43,50 @@ public class EnemyAI : MonoBehaviour
         playerTransform = GameObject.FindGameObjectWithTag("Player").GetComponent<Transform>();
         animator = GetComponentInChildren<Animator>();
         agent = GetComponent<NavMeshAgent>();
-        
+
     }
 
     private void Start()
     {
+        health = maxhealth;
         SetWaypoint();
         waitTime = Random.Range(5, 7);
         waitCounter = waitTime;
+        waitAttack = timeAttack;
     }
 
     private void Update()
     {
-        Patrol();
-        Chasing();
+        if (!isDead)
+        {
+            if (Vector3.Distance(transform.position, playerTransform.position) <= rangeDetection)
+            {
+                isChase = true;
+                isPatrol = false;
+            }
+            else
+            {
+                isChase = false;
+                isPatrol = true;
+            }
 
+            if (Vector3.Distance(transform.position, playerTransform.position) <= rangeAttack)
+            {
+                isPatrol = false;
+                isChase = false;
+
+                if (waitAttack <= 0)
+                {
+                    //Attack
+                    Stop();
+                    GetDamage();
+                }
+
+            }
+
+            Patrol();
+            Chasing();
+        }
 
     }
 
@@ -59,7 +94,7 @@ public class EnemyAI : MonoBehaviour
     {
         if (isChase)
         {
-            timerAttack += Time.deltaTime;
+            waitAttack -= Time.deltaTime;
 
             Move(runSpeed);
 
@@ -68,13 +103,6 @@ public class EnemyAI : MonoBehaviour
             Vector3 distancePlayer = transform.position - playerTransform.position;
             animator.SetFloat("Speed", 1);
 
-            if (distancePlayer.magnitude < 1f)
-            {
-                //Attack
-                agent.speed = 0;
-                agent.isStopped = true;
-
-            }
         }
     }
 
@@ -124,7 +152,7 @@ public class EnemyAI : MonoBehaviour
     public void GetDamage()
     {
 
-        timerAttack = 0;
+        waitAttack = timeAttack;
         playerTransform.GetComponent<PlayerManager>().TakeDamage(damage);
         animator.SetTrigger("Attack");
 
@@ -140,16 +168,17 @@ public class EnemyAI : MonoBehaviour
         isPatrol = true;
     }
 
-    //private void Die()
-    //{
-    //    if (health <= 0)
-    //    {
-    //        animator.SetTrigger("Death");
-    //        isDead = true;
-    //        LootSystem.instance.Loot(lootTable, transform.position);
-    //        Destroy(this.gameObject, 3f);
-    //    }
-    //}
+    private void Die()
+    {
+        if (health <= 0)
+        {
+            isDead = true;
+            Stop();
+            animator.SetTrigger("Death");
+            LootSystem.instance.Loot(loot, transform.position);
+            Destroy(this.gameObject, 2f);
+        }
+    }
 
     private void OnDrawGizmos()
     {
@@ -159,5 +188,16 @@ public class EnemyAI : MonoBehaviour
         Gizmos.DrawWireSphere(transform.position, rangeAttack);
     }
 
+    public void TakeDamage(int damage, Vector3 pointHit)
+    {
+        health -= damage;
+        particlesHit.transform.position = pointHit;
+        particlesHit.Play();
+        Die();
+    }
 
+    public int Health()
+    {
+        return health;
+    }
 }

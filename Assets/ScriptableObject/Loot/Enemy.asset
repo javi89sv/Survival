@@ -1,0 +1,35 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 31cfbd7226a54f94d926fa1f25c263a2, type: 3}
+  m_Name: Enemy
+  m_EditorClassIdentifier: 
+  drop:
+  - chanceLoot: 30
+    prefabLoot: {fileID: 350802365891504493, guid: 53f3a6a35afdbea42b9466d7429f98d7, type: 3}
+    minAmount: 1
+    maxAmount: 1
+    SpawnOffset: {x: 0, y: 0, z: 0}
+  - chanceLoot: 50
+    prefabLoot: {fileID: 1163803680051722539, guid: 6bca81b34399661499ea9bc836604f27, type: 3}
+    minAmount: 5
+    maxAmount: 20
+    SpawnOffset: {x: 0, y: 0, z: 0}
+  - chanceLoot: 50
+    prefabLoot: {fileID: 4203427089207493090, guid: fab2b77c641d43144bd981f1d8bdf3b1, type: 3}
+    minAmount: 1
+    maxAmount: 10
+    SpawnOffset: {x: 0, y: 0, z: 0}
+  - chanceLoot: 80
+    prefabLoot: {fileID: 6311570502231103618, guid: d0680103a16a32b40a2fb1f652f8388f, type: 3}
+    minAmount: 1
+    maxAmount: 5
+    SpawnOffset: {x: 0, y: 0, z: 0}

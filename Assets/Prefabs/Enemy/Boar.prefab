@@ -9542,9 +9542,10 @@ GameObject:
   m_Component:
   - component: {fileID: 7598478584638206212}
   - component: {fileID: 7996564995405744005}
-  - component: {fileID: 7996564995405744002}
   - component: {fileID: 3705130277144473723}
   - component: {fileID: 3144518778407500046}
+  - component: {fileID: 8950992772263418915}
+  - component: {fileID: 6758741571078289564}
   m_Layer: 0
   m_Name: Boar
   m_TagString: Untagged
@@ -9590,31 +9591,6 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
---- !u!114 &7996564995405744002
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7077662653743999934}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 391eb3fdecb469743bc38976d45cffab, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  health: 0
-  maxhealth: 100
-  damage: 10
-  cooldownAttack: 2
-  rangeDetection: 5
-  rangeAttack: 2
-  moveSpeed: 1
-  isPatrol: 0
-  isWalking: 0
-  isAttack: 0
-  isDead: 0
-  particles: {fileID: 2534005077519254618}
-  lootTable: {fileID: 11400000, guid: 7ddb88ccdc642f84e9e243b9eb22ec25, type: 2}
 --- !u!65 &3705130277144473723
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -9644,6 +9620,50 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
+--- !u!195 &8950992772263418915
+NavMeshAgent:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7077662653743999934}
+  m_Enabled: 1
+  m_AgentTypeID: 0
+  m_Radius: 0.5
+  m_Speed: 3.5
+  m_Acceleration: 8
+  avoidancePriority: 50
+  m_AngularSpeed: 120
+  m_StoppingDistance: 0
+  m_AutoTraverseOffMeshLink: 1
+  m_AutoBraking: 1
+  m_AutoRepath: 1
+  m_Height: 2
+  m_BaseOffset: 0
+  m_WalkableMask: 4294967295
+  m_ObstacleAvoidanceType: 4
+--- !u!114 &6758741571078289564
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7077662653743999934}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1af0c6758e369c04390bc639e8edf063, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  maxhealth: 100
+  damage: 10
+  walkSpeed: 1
+  runSpeed: 3
+  timeAttack: 1
+  rangeDetection: 10
+  rangeAttack: 2
+  walkDirection: 10
+  particlesHit: {fileID: 2534005077519254618}
+  loot: {fileID: 0}
 --- !u!1 &7109310050239922329
 GameObject:
   m_ObjectHideFlags: 0

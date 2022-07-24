@@ -78,7 +78,7 @@ public class Element
 {
 
     public string name;
-    [Range(1, 100)]
+    [Range(1, 10000)]
     public int density;
 
     public GameObject[] prefabs;

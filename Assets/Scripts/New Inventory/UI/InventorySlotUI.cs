@@ -81,6 +81,7 @@ public class InventorySlotUI : MonoBehaviour, IPointerDownHandler, IBeginDragHan
         if (asiggnedInventorySlot.item != null)
         {
             asiggnedInventorySlot.item.UseItem();
+
             if(asiggnedInventorySlot.item.type == ItemType.Consumable)
             {
                 asiggnedInventorySlot.RemoveFromStack(1);
