@@ -169,6 +169,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6923381046711311571, guid: 29d11ad3e37a95147a9e7094c03b99e5, type: 3}
+      propertyPath: InitialModule.startLifetime.scalar
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 9046757643976731762, guid: 29d11ad3e37a95147a9e7094c03b99e5, type: 3}
       propertyPath: m_Name
       value: Sparks
