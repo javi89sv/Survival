@@ -21,6 +21,7 @@ public class PlaceObjectSystem : MonoBehaviour
     [SerializeField] Material canBuild;
     [SerializeField] Material cantBuild;
     [SerializeField] Material successBuild;
+    [SerializeField] ParticleSystem particleBuildSuccess;
 
     RaycastHit hit;
     [SerializeField] float rangeBuild;
@@ -124,8 +125,13 @@ public class PlaceObjectSystem : MonoBehaviour
 
             if (Input.GetMouseButtonDown(0) && tempGO.GetComponent<TempPlaceObject>().isBuildable)
             {
+               
                 var go = Instantiate(currentGO.prefab, tempGO.transform.position, tempGO.transform.rotation);
+                particleBuildSuccess.transform.position = go.transform.position;
+                particleBuildSuccess.Play();
                 go.GetComponent<MeshRenderer>().material = successBuild;
+                go.AddComponent<BuildObject>();
+                go.GetComponent<BuildObject>().durability = 100;
                 if (go.GetComponent<BoxCollider>())
                 {
                     go.GetComponent<BoxCollider>().isTrigger = false;

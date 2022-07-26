@@ -28,15 +28,14 @@ public class Interactor : MonoBehaviour
 
             }
 
-            if(hitable != null)
+            if(hitable != null && hitable.Health() >= 0)
             {             
                 InfoUI.Instance.ShowBarHealth();
                 InfoUI.Instance.UpdateBarHealth(hitable.Health());
             }
             else
             {
-
-                
+                InfoUI.Instance.HideBarHealth();
             }
 
             if (Input.GetKeyDown(KeyCode.E))

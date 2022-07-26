@@ -1,0 +1,27 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f7bc20745d77bb1439103a5fb2f97d53, type: 3}
+  m_Name: Hammer
+  m_EditorClassIdentifier: 
+  prefab: {fileID: 419368306563459652, guid: c1aa258b15bb21f4f83e47e158ad38ff, type: 3}
+  type: 1
+  icon: {fileID: 21300000, guid: ceaaf79be8d1f28468cb6234faf675ef, type: 3}
+  id: 0
+  itemName: Hammer
+  description: Necesario para construir.
+  maxStackSize: 1
+  atkBonus: 0
+  defBonus: 0
+  durability: 100
+  fireRate: 1
+  farmWood: 0
+  farmMineral: 0

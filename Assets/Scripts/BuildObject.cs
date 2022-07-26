@@ -1,13 +1,35 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-[CreateAssetMenu(fileName = "New Build Object", menuName = "Build")]
-public class BuildObject : ScriptableObject
+
+public class BuildObject : MonoBehaviour, IHitable
 {
 
-    [SerializeField] string nameObject;
     public GameObject prefab;
     public int durability;
 
+    public void TakeDamage(int damage, Vector3 pointHit)
+    {
+        durability -= damage;
+        //particlesGather.transform.position = pointHit;
+        //particlesGather.Play();
+        Remove();
+    }
+
+    private void Remove()
+    {
+        if(durability <= 0)
+        {
+            Destroy(gameObject);
+        }
+    }
+
+    public int Health()
+    {
+        return durability;
+    }
 }
+
+

@@ -27,9 +27,9 @@ public class PlayerManager : MonoBehaviour
     void Start()
     {
 
-        currentHealth = maxHealth;
-        currentHungry = maxHungry;
-        currentThirst = maxThirst;
+        currentHealth = maxHealth / 2;
+        currentHungry = maxHungry / 2;
+        currentThirst = maxThirst / 2;
 
 
     }

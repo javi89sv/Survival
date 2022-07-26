@@ -25,5 +25,5 @@ MonoBehaviour:
   defBonus: 0
   durability: 100
   fireRate: 1
-  farmWood: 5
+  farmWood: 10
   farmMineral: 0

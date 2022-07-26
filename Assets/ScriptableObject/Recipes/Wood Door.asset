@@ -17,4 +17,4 @@ MonoBehaviour:
     amount: 300
   result: {fileID: 11400000, guid: 9dcf4346daa4ce84790671dbc4292abb, type: 2}
   amountResult: 1
-  time: 10
+  time: 30
