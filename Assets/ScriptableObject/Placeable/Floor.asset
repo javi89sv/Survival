@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 175e18f8d8218404f9dc5f671717fb1e, type: 3}
   m_Name: Floor
   m_EditorClassIdentifier: 
-  prefab: {fileID: 2949421649687571125, guid: f270cd6a581bb384bbe9201e9c820442, type: 3}
+  prefab: {fileID: 9145656658878457954, guid: 883adc9116040a84da67d1c0f3bafe24, type: 3}
   type: 3
   icon: {fileID: 0}
   id: 0
