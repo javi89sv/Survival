@@ -2,6 +2,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.EventSystems;
 
 public class EqquipmentManager : MonoBehaviour
 {
@@ -14,7 +15,7 @@ public class EqquipmentManager : MonoBehaviour
 
     [HideInInspector]
     public GameObject currentWeapon;
-    
+
     private float currentcoolDown;
     private RaycastHit hit;
     private Animator anim;
@@ -35,21 +36,24 @@ public class EqquipmentManager : MonoBehaviour
         {
             var currWeapon = currentWeapon.GetComponent<EquippmentStats>();
 
-            if (Input.GetMouseButtonDown(0) && currentcoolDown >= currWeapon.itemObject.fireRate)
+            if (Input.GetMouseButton(0) && currentcoolDown >= currWeapon.itemObject.fireRate && !EventSystem.current.IsPointerOverGameObject())
             {
-                Invoke("Hit", timeDelayAnim);
+                Invoke("HitMelee", timeDelayAnim);
                 anim.SetTrigger("Hit");
                 currentcoolDown = 0f;
             }
         }
     }
 
-    void Hit()
+    private void HitMelee()
     {
-        int damageWeapon;
+        
         if (currentWeapon == true)
         {
-            if (Physics.Raycast(camera_player.transform.position, camera_player.transform.forward, out hit, 2f, ~ignoreLayers))
+            int damageWeapon;
+            float range = currentWeapon.GetComponent<EquippmentStats>().itemObject.range;
+
+            if (Physics.Raycast(camera_player.transform.position, camera_player.transform.forward, out hit, range, ~ignoreLayers))
             {
                 Vector3 hitPoint = hit.point;
 
@@ -59,14 +63,15 @@ public class EqquipmentManager : MonoBehaviour
 
                 if (resources)
                 {
-                    if(resources.typeResources == typeResources.wood)
+
+                    if (resources.typeResources == typeResources.wood)
                     {
-                        damageWeapon = currentWeapon.GetComponent<EquippmentStats>().itemObject.farmWood;
+                        damageWeapon = currentWeapon.GetComponent<EquippmentStats>().itemObject.CalculateDamageWood();
                         hitable.TakeDamage(damageWeapon, hitPoint);
                     }
-                    if(resources.typeResources == typeResources.mineral)
+                    if (resources.typeResources == typeResources.mineral)
                     {
-                        damageWeapon = currentWeapon.GetComponent<EquippmentStats>().itemObject.farmMineral;
+                        damageWeapon = currentWeapon.GetComponent<EquippmentStats>().itemObject.CalculateFarmMineral();
                         hitable.TakeDamage(damageWeapon, hitPoint);
                     }
                 }

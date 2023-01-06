@@ -43,8 +43,17 @@ CapsuleCollider:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2316051780580458946}
   m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
   m_IsTrigger: 0
+  m_ProvidesContacts: 0
   m_Enabled: 1
+  serializedVersion: 2
   m_Radius: 0.3
   m_Height: 5
   m_Direction: 1
@@ -63,8 +72,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   typeResources: 0
   hardness: 10
-  health: 0
-  maxhealth: 100
+  amount: 0
+  maxAmount: 200
   particlesGather: {fileID: 7520524080916607730}
   destroyPrefab: {fileID: 4172708858485762765, guid: 3329dfb23590a5641b1805b93ec9f6f2, type: 3}
   lootTable: {fileID: 11400000, guid: 0e320bf5988d82240a0ac644e0cfe12f, type: 2}
@@ -73,6 +82,7 @@ PrefabInstance:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Modification:
+    serializedVersion: 3
     m_TransformParent: {fileID: 8813473154455507842}
     m_Modifications:
     - target: {fileID: -8679921383154817045, guid: 54c765fdd18699e439365daf1ee53fd4, type: 3}
@@ -124,6 +134,9 @@ PrefabInstance:
       value: FBX
       objectReference: {fileID: 0}
     m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 54c765fdd18699e439365daf1ee53fd4, type: 3}
 --- !u!4 &7113911458064822159 stripped
 Transform:
@@ -135,6 +148,7 @@ PrefabInstance:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Modification:
+    serializedVersion: 3
     m_TransformParent: {fileID: 8813473154455507842}
     m_Modifications:
     - target: {fileID: 1823191864671603448, guid: 3bac236df9361194a89b53ae307e4a8f, type: 3}
@@ -214,6 +228,9 @@ PrefabInstance:
       value: Particles Wood Gather
       objectReference: {fileID: 0}
     m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 3bac236df9361194a89b53ae307e4a8f, type: 3}
 --- !u!198 &7520524080916607730 stripped
 ParticleSystem:

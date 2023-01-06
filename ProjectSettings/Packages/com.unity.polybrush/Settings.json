@@ -1,6 +1,4 @@
 {
-    "m_Name": "Settings",
-    "m_Path": "ProjectSettings/Packages/com.unity.polybrush/Settings.json",
     "m_Dictionary": {
         "m_DictionaryValues": [
             {
@@ -106,17 +104,17 @@
             {
                 "type": "System.Int32, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089",
                 "key": "GI.WorkflowMode",
-                "value": "{\"m_Value\":0}"
+                "value": "{\"m_Value\":1}"
             },
             {
                 "type": "System.Int32, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089",
                 "key": "ScatteringEditor.PreviewThumSize",
-                "value": "{\"m_Value\":60}"
+                "value": "{\"m_Value\":68}"
             },
             {
                 "type": "UnityEditor.Polybrush.PrefabLoadout, Unity.Polybrush.Editor, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null",
                 "key": "ScatteringEditor.userLoadout",
-                "value": "{\"m_Value\":{\"infos\":[{\"palette\":{\"fileID\":11400000,\"guid\":\"df16997d3b7f44c4e9db9219d54bf62c\",\"type\":2},\"prefab\":{\"fileID\":1858818070768661414,\"guid\":\"2906c5a4de5f6fa4ea6dec8c78d71d5a\",\"type\":3}},{\"palette\":{\"fileID\":11400000,\"guid\":\"df16997d3b7f44c4e9db9219d54bf62c\",\"type\":2},\"prefab\":{\"fileID\":6976935696124630307,\"guid\":\"a731e834c8501f34eb9a3f4a0a471a52\",\"type\":3}},{\"palette\":{\"fileID\":11400000,\"guid\":\"df16997d3b7f44c4e9db9219d54bf62c\",\"type\":2},\"prefab\":{\"fileID\":2316051780580458946,\"guid\":\"ae135748a01faa249bde84be6d55678e\",\"type\":3}}]}}"
+                "value": "{\"m_Value\":{\"infos\":[{\"palette\":{\"fileID\":11400000,\"guid\":\"df16997d3b7f44c4e9db9219d54bf62c\",\"type\":2},\"prefab\":{\"fileID\":7273223124929517803,\"guid\":\"bf0050477d517424081362589a2df97e\",\"type\":3}}]}}"
             }
         ]
     }

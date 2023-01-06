@@ -74,13 +74,13 @@ public class RingMenu : MonoBehaviour
                 newSubRing.path = path;
                 newSubRing.callback = callback;
             }
-            else if(PlayerInventoryHolder.instance.PrimaryInventorySystem.ContainItem(data.elements[activeElement].itemObject,data.elements[activeElement].amount, out InventorySlot item))
+            else if(PlayerInventoryHolder.instance.ContainInventoryPlayer(data.elements[activeElement].itemObject,data.elements[activeElement].amount))
             {
                 callback?.Invoke(path);
                 Debug.Log("gastamos: " + data.elements[activeElement].itemObject.name + " " + data.elements[activeElement].amount);
                 PlaceObjectSystem.instance.currentGO = data.elements[activeElement].buildObject;
                 PlaceObjectSystem.instance.isBuilding = true;
-                PlayerInventoryHolder.instance.PrimaryInventorySystem.RemoveItems(data.elements[activeElement].itemObject, data.elements[activeElement].amount);
+                PlayerInventoryHolder.instance.RemoveToInventory(data.elements[activeElement].itemObject, data.elements[activeElement].amount);
             }
             else
             {

@@ -26,22 +26,22 @@ ModelImporter:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
       name: belt 2.004
-    second: {fileID: 2100000, guid: b217651385c1c7743bdfa89f5913091d, type: 2}
+    second: {fileID: 2100000, guid: fa6668f31c28422448789850cd2a71fc, type: 2}
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
       name: belt.004
-    second: {fileID: 2100000, guid: 5f9b6780b23dcc84a9b41be6ede09fb0, type: 2}
+    second: {fileID: 2100000, guid: b217651385c1c7743bdfa89f5913091d, type: 2}
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
       name: boots.004
-    second: {fileID: 2100000, guid: 7e2ed5bd7bfdf7f43b0195921253a7bb, type: 2}
+    second: {fileID: 2100000, guid: 921663dfebf9c824f8503f6b137800de, type: 2}
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
       name: bracer.004
-    second: {fileID: 2100000, guid: 017e81f8bd6f5994badfeaa2e70a9646, type: 2}
+    second: {fileID: 2100000, guid: 921663dfebf9c824f8503f6b137800de, type: 2}
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
@@ -51,7 +51,7 @@ ModelImporter:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
       name: legs.004
-    second: {fileID: 2100000, guid: 921663dfebf9c824f8503f6b137800de, type: 2}
+    second: {fileID: 2100000, guid: 7e2ed5bd7bfdf7f43b0195921253a7bb, type: 2}
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
@@ -66,7 +66,7 @@ ModelImporter:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
       name: shulders.004
-    second: {fileID: 2100000, guid: 7e2ed5bd7bfdf7f43b0195921253a7bb, type: 2}
+    second: {fileID: 2100000, guid: 921663dfebf9c824f8503f6b137800de, type: 2}
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule

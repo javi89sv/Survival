@@ -11,11 +11,6 @@ public class ItemPickUp : MonoBehaviour, IInterectable
 
     public string textInfo;
 
-    private void Start()
-    {
-        
-    }
-
     public void Interact(Interactor interactor)
     {
 

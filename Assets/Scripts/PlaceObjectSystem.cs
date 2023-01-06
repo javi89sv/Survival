@@ -41,6 +41,7 @@ public class PlaceObjectSystem : MonoBehaviour
             if (!existTemp)
             {
                 tempGO = Instantiate(currentGO.prefab, currentGO.prefab.transform.position, Quaternion.identity);
+                tempGO.name = currentGO.name;
                 if(tempGO.GetComponent<BoxCollider>())
                     tempGO.GetComponent<BoxCollider>().isTrigger = true;
                 if(tempGO.GetComponent<MeshCollider>())
@@ -86,6 +87,7 @@ public class PlaceObjectSystem : MonoBehaviour
             if (Input.GetMouseButtonDown(0) && tempGO.GetComponent<TempPlaceObject>().isBuildable)
             {
                 var go = Instantiate(currentGO.prefab, tempGO.transform.position, tempGO.transform.rotation);
+                go.name = currentGO.name;
                 go.GetComponent<MeshRenderer>().material = successBuild;
                 go.GetComponent<BoxCollider>().isTrigger = false;
                 if (go.GetComponent<ItemPickUp>())
@@ -127,11 +129,12 @@ public class PlaceObjectSystem : MonoBehaviour
             {
                
                 var go = Instantiate(currentGO.prefab, tempGO.transform.position, tempGO.transform.rotation);
+                go.name = currentGO.name;
                 particleBuildSuccess.transform.position = go.transform.position;
                 particleBuildSuccess.Play();
                 go.GetComponent<MeshRenderer>().material = successBuild;
                 go.AddComponent<BuildObject>();
-                go.GetComponent<BuildObject>().durability = 100;
+                go.GetComponent<BuildObject>().maxDurability = currentGO.durability;
                 if (go.GetComponent<BoxCollider>())
                 {
                     go.GetComponent<BoxCollider>().isTrigger = false;
@@ -148,7 +151,7 @@ public class PlaceObjectSystem : MonoBehaviour
                 Destroy(tempGO.gameObject);
                 tempGO = null;
                 existTemp = false;
-                // itemAssignedSlot.ClearSLot();
+                
             }
 
         }

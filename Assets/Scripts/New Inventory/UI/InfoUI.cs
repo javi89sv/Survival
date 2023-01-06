@@ -63,11 +63,11 @@ public class InfoUI : MonoBehaviour
         }
     }
 
-    public void UpdateBarHealth(int value)
+    public void UpdateBarHealth(int currentValue, int maxValue)
     {
         if (healthBar.activeInHierarchy)
         {
-            barImage.fillAmount = (float)value / 100f;
+            barImage.fillAmount = (float)currentValue / maxValue;
         }
         
     }

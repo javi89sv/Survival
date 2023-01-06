@@ -94,8 +94,17 @@ CapsuleCollider:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1858818070768661414}
   m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
   m_IsTrigger: 0
+  m_ProvidesContacts: 0
   m_Enabled: 1
+  serializedVersion: 2
   m_Radius: 0.4
   m_Height: 3.2190108
   m_Direction: 1
@@ -114,8 +123,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   typeResources: 0
   hardness: 10
-  health: 0
-  maxhealth: 100
+  amount: 0
+  maxAmount: 200
   particlesGather: {fileID: 1417856270213788962}
   destroyPrefab: {fileID: 0}
   lootTable: {fileID: 11400000, guid: 0e320bf5988d82240a0ac644e0cfe12f, type: 2}
@@ -124,6 +133,7 @@ PrefabInstance:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Modification:
+    serializedVersion: 3
     m_TransformParent: {fileID: 1333075949030107420}
     m_Modifications:
     - target: {fileID: 1823191864671603448, guid: 3bac236df9361194a89b53ae307e4a8f, type: 3}
@@ -175,6 +185,9 @@ PrefabInstance:
       value: Particles Wood Gather
       objectReference: {fileID: 0}
     m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 3bac236df9361194a89b53ae307e4a8f, type: 3}
 --- !u!198 &1417856270213788962 stripped
 ParticleSystem:

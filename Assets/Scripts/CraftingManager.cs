@@ -3,18 +3,22 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
+using static UnityEditor.Progress;
+using System.Net;
+using System.Linq;
 
 public class CraftingManager : MonoBehaviour
 {
     public static CraftingManager instance;
 
     private InventorySystem inventorySelected;
+
     private CraftingRecipe currentRecipe;
 
     private float remainingTime;
-    public TextMeshProUGUI textTimer;
 
     public Queue<CraftingRecipe> craftQueue = new Queue<CraftingRecipe>();
+
     private bool isCrafting = false;
 
     private InventorySlot returnItem;
@@ -22,7 +26,6 @@ public class CraftingManager : MonoBehaviour
     private void Awake()
     {
         instance = this;
-
     }
 
     public bool CanCraft(CraftingRecipe recipe)
@@ -30,71 +33,30 @@ public class CraftingManager : MonoBehaviour
 
         foreach (var item in recipe._requirements)
         {
-            if (PlayerInventoryHolder.instance.PrimaryInventorySystem.ContainIngredients(item.item, item.amount, out InventorySystem inv1))
+            if (!PlayerInventoryHolder.instance.PrimaryInventorySystem.ContainIngredients(item.item, item.amount, out InventorySystem inv1))
             {
-                inventorySelected = inv1;
-                Craft(recipe, inventorySelected);
-                return true;
+                if(!PlayerInventoryHolder.instance.SecondaryInventorySystem.ContainIngredients(item.item, item.amount, out InventorySystem inv2))
+                {
+                    CraftingUI.instance.ShowTextNoMaterial();
+                    return false;
+                }
 
             }
-            else if (PlayerInventoryHolder.instance.SecondaryInventorySystem.ContainIngredients(item.item, item.amount, out InventorySystem inv2))
-            {
-                inventorySelected = inv2;
-                Craft(recipe, inventorySelected);
-                return true;
-            }
-
         }
 
-        CraftingUI.instance.ShowTextNoMaterial();
-        return false;
-    }
-
-    public void Craft(CraftingRecipe recipe, InventorySystem inventory)
-    {
-
-        foreach (var item in recipe._requirements)
-        {
-            inventory.RemoveItems(item.item, item.amount);
-            returnItem = new InventorySlot(item.item, item.amount);
-        }
-
-        StartCoroutine("Timer");
+        return true;
 
     }
 
-    private void Crafting()
+    public void StartCraft(CraftingRecipe recipe)
     {
-        var inventoryHolder = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerInventoryHolder>();
-
-        if (!inventoryHolder)
+        if (CanCraft(recipe) == false)
         {
-            //Drop item
             return;
         }
-        if (inventoryHolder.AddToInventory(currentRecipe.result, currentRecipe.amountResult))
-        {
 
-            HudUI.instance.UpdateText(currentRecipe.result.itemName, currentRecipe.amountResult);
-
-        }
-    }
-
-    public IEnumerator Timer()
-    {
-        remainingTime = currentRecipe.time;
-
-        while (remainingTime > 0)
-        {
-            remainingTime--;
-            textTimer.text = remainingTime.ToString();
-            if (remainingTime < 0)
-            {
-                textTimer.text = 0.ToString();
-            }
-            yield return new WaitForSeconds(1f);
-        }
-
+        AddCraftingItem(recipe);
+        Debug.Log(craftQueue.Count);
     }
 
     public void AddCraftingItem(CraftingRecipe recipe)
@@ -104,41 +66,76 @@ public class CraftingManager : MonoBehaviour
         if (!isCrafting)
         {
             isCrafting = true;
-            StartCoroutine("CraftItem");
+            StartCoroutine(CraftCoroutine());
+            StartCoroutine(Timer());
+
         }
     }
 
-    public IEnumerator CraftItem()
+    public IEnumerator CraftCoroutine()
     {
-        if (craftQueue.Count == 0)
-        {
-            isCrafting = false;
-            yield break;
-        }
-
-        currentRecipe = craftQueue.Dequeue();
+        currentRecipe = craftQueue.Peek();
 
         if (!CanCraft(currentRecipe))
         {
-            craftQueue.Clear();
+            craftQueue.Dequeue();
             isCrafting = false;
             yield break;
         }
 
-        CraftingUI.instance.ShowItemImage(currentRecipe);
-        yield return new WaitForSeconds(currentRecipe.time * 1.1f);
+        foreach (var item in currentRecipe._requirements)
+        {
+            PlayerInventoryHolder.instance.RemoveToInventory(item.item, item.amount);
+        }
 
+        while (isCrafting)
+        {
+            CraftingUI.instance.ShowItemImage(currentRecipe);
 
-        Crafting();
-        CraftingUI.instance.HideItemImage();
+            yield return new WaitForSeconds(currentRecipe.time);
+
+            if (PlayerInventoryHolder.instance.PrimaryInventorySystem.AddItem(currentRecipe.result, currentRecipe.amountResult))
+            {
+                HudUI.instance.UpdateText(currentRecipe.result.itemName, currentRecipe.amountResult);
+            }
+
+            craftQueue.Dequeue();
+
+            isCrafting = false;
+
+        }
 
         if (craftQueue.Count > 0)
         {
-            yield return StartCoroutine("CraftItem");
+            isCrafting = true;
+
+            StartCoroutine(CraftCoroutine());
+            remainingTime = currentRecipe.time;
+
         }
         else
         {
+            CraftingUI.instance.HideItemImage();
             isCrafting = false;
+        }
+
+    }
+
+
+    public IEnumerator Timer()
+    {
+        remainingTime = currentRecipe.time;
+
+        while (remainingTime > 0)
+        {
+            remainingTime--;
+            CraftingUI.instance.countdown.text = remainingTime.ToString();
+
+            if (remainingTime < 0)
+            {
+                CraftingUI.instance.countdown.text = 0.ToString();
+            }
+            yield return new WaitForSeconds(1f);
         }
 
     }
@@ -147,17 +144,40 @@ public class CraftingManager : MonoBehaviour
     {
         if (isCrafting)
         {
-            StopCoroutine("CraftItem");
-            StopCoroutine("Timer");
-            GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerInventoryHolder>().AddToInventory(returnItem.item, returnItem.amount);
-            textTimer.text = "";
-            CraftingUI.instance.HideItemImage();
             isCrafting = false;
+            remainingTime = 0;
+            ReturnItems();
+            StopAllCoroutines();
+            CraftingUI.instance.countdown.text = "";
+            CraftingUI.instance.HideItemImage();
+            craftQueue.Dequeue();
         }
         if (craftQueue.Count > 0)
         {
-            StartCoroutine(CraftItem());
+            isCrafting= true;
+            StartCoroutine(CraftCoroutine());
+            StartCoroutine(Timer());
         }
+    }
+
+    private void ReturnItems()
+    {
+        // Obtenemos la cantidad de items necesarios para el crafting
+        int requiredItems = currentRecipe._requirements.Count;
+
+        // Iteramos sobre cada ingrediente
+        for (int i = 0; i < requiredItems; i++)
+        {
+            // Obtenemos el ingrediente y su cantidad necesaria
+            ItemObject ingredient = currentRecipe._requirements[i].item;
+            int quantity = currentRecipe._requirements[i].amount;
+
+            // Devolvemos los items al inventario del jugador
+            
+                PlayerInventoryHolder.instance.AddToInventory(ingredient, quantity);                  
+        }
+
+
     }
 
 

@@ -49,4 +49,31 @@ public class PlayerInventoryHolder : InventoryHolder
         return false;
     }
 
+    public void RemoveToInventory(ItemObject data, int amount)
+    {
+        if (primaryInventorySystem.ContainItem(data, amount))
+        {
+            primaryInventorySystem.RemoveItems(data, amount);
+        }
+        if (secondaryInventorySystem.ContainItem(data, amount))
+        {
+            secondaryInventorySystem.RemoveItems(data, amount); 
+        }
+
+    }
+
+    public bool ContainInventoryPlayer(ItemObject item, int amount)
+    {
+        if (!primaryInventorySystem.ContainItem(item, amount))
+        {
+            if (!secondaryInventorySystem.ContainItem(item, amount))
+            {
+                return false;
+            }
+        }
+
+        return true;
+    }
+
+
 }

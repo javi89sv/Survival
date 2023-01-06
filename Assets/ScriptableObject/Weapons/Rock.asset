@@ -9,19 +9,24 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f7bc20745d77bb1439103a5fb2f97d53, type: 3}
+  m_Script: {fileID: 11500000, guid: 59f0c4ab73e866f429ac0231f4862ac8, type: 3}
   m_Name: Rock
   m_EditorClassIdentifier: 
   prefab: {fileID: 7000951633395391530, guid: e1dec09a43348b34a906f244cda0afd5, type: 3}
   type: 1
   icon: {fileID: 21300000, guid: 141f102bab1e8a246a289d665dddb08c, type: 3}
-  id: 0
-  itemName: Rock
-  description: Roca basica.
+  itemName: 
+  description: 
   maxStackSize: 1
-  atkBonus: 10
+  typeEquiped: 0
+  atkBonus: 15
   defBonus: 0
   durability: 100
   fireRate: 1
-  farmWood: 10
-  farmMineral: 10
+  range: 1
+  minFarmWood: 5
+  maxFarmWood: 10
+  minFarmMineral: 5
+  maxFarmMineral: 10
+  farmWood: 8
+  farmMineral: 0

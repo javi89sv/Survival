@@ -9,19 +9,24 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f7bc20745d77bb1439103a5fb2f97d53, type: 3}
+  m_Script: {fileID: 11500000, guid: 59f0c4ab73e866f429ac0231f4862ac8, type: 3}
   m_Name: Bone Knife
   m_EditorClassIdentifier: 
-  prefab: {fileID: 0}
+  prefab: {fileID: 8372504557597061801, guid: 26d232b034997624b9400884b95780a2, type: 3}
   type: 1
   icon: {fileID: 21300000, guid: 1c8046f0a32e8c446a6b2bd9a7ca3175, type: 3}
-  id: 0
-  itemName: Bone Knife
+  itemName: 
   description: 
   maxStackSize: 1
-  atkBonus: 10
+  typeEquiped: 0
+  atkBonus: 30
   defBonus: 0
-  durability: 0
+  durability: 100
   fireRate: 1
+  range: 1
+  minFarmWood: 0
+  maxFarmWood: 0
+  minFarmMineral: 0
+  maxFarmMineral: 0
   farmWood: 0
   farmMineral: 0

@@ -89,7 +89,7 @@ public class CraftingUI : MonoBehaviour
     {
         if (selectRecipe)
         {
-            CraftingManager.instance.AddCraftingItem(selectRecipe);
+            CraftingManager.instance.StartCraft(selectRecipe);
         }
 
     }
@@ -106,7 +106,7 @@ public class CraftingUI : MonoBehaviour
         textamount1.text = requirement[0].amount.ToString();
         textTotal1.text = totalAmount.ToString();
 
-        if(requirement.Count > 1)
+        if (requirement.Count > 1)
         {
             Amount1 = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerInventoryHolder>().PrimaryInventorySystem.GetTotal(requirement[1].item);
             Amount2 = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerInventoryHolder>().SecondaryInventorySystem.GetTotal(requirement[1].item);
@@ -120,6 +120,7 @@ public class CraftingUI : MonoBehaviour
         {
             textIngredient2.text = "";
             textamount2.text = "";
+            textTotal2.text = "";
         }
         if(requirement.Count > 2)
         {
@@ -135,9 +136,12 @@ public class CraftingUI : MonoBehaviour
         {
             textIngredient3.text = "";
             textamount3.text = "";
+            textTotal3.text = "";
         }
         
     }
+
+    
 
     public void TestQueue()
     {

@@ -17,10 +17,15 @@ public class WoodBarrel : MonoBehaviour, IHitable
 {
 
     public int health;
+    public int maxHealth;
     public GameObject brokenPrefab;
     public ParticleSystem hitParticles;
     public LootTable lootTable;
 
+    private void Start()
+    {
+        health = maxHealth;
+    }
 
     public void TakeDamage(int damage, Vector3 pointHit)
     {
@@ -29,9 +34,14 @@ public class WoodBarrel : MonoBehaviour, IHitable
         hitParticles.Play();
     }
 
-    public int Health()
+    public int CurrentHealth()
     {
         return health;
+    } 
+
+    public int MaxHealth()
+    {
+        return maxHealth;
     }
 
     private void Update()

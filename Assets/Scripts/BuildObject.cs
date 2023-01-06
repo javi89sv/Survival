@@ -7,14 +7,21 @@ using UnityEngine;
 public class BuildObject : MonoBehaviour, IHitable
 {
 
-    public GameObject prefab;
     public int durability;
+    public int maxDurability;
+
+    [SerializeField] private ParticleSystem hitEffect;
+    [SerializeField] private GameObject destroyPrefab;
+
+    private void Start()
+    {
+        durability = maxDurability;
+    }
 
     public void TakeDamage(int damage, Vector3 pointHit)
     {
         durability -= damage;
-        //particlesGather.transform.position = pointHit;
-        //particlesGather.Play();
+        hitEffect.transform.position = pointHit;
         Remove();
     }
 
@@ -26,9 +33,14 @@ public class BuildObject : MonoBehaviour, IHitable
         }
     }
 
-    public int Health()
+    public int CurrentHealth()
     {
         return durability;
+    }
+
+    public int MaxHealth()
+    {
+        return maxDurability;
     }
 }
 
