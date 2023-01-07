@@ -5006,15 +5006,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   nameContainer: Furnace
-  sizeInventory: 5
   primaryInventorySystem:
     inventorySlots:
-    - item: {fileID: 0}
-      amount: 0
-    - item: {fileID: 0}
-      amount: 0
-    - item: {fileID: 0}
-      amount: 0
     - item: {fileID: 0}
       amount: 0
     - item: {fileID: 0}

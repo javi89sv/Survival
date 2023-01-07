@@ -101,7 +101,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   item: {fileID: 11400000, guid: a18bdfb92a2f48e4ea517b56c2cb12bb, type: 2}
   amount: 1
-  textInfo: Pulsa E para abrir
+  textInfo: Pulsa T para recoger
 --- !u!114 &8196590327627834280
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -115,7 +115,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   nameContainer: Chest
-  sizeInventory: 0
   primaryInventorySystem:
     inventorySlots:
     - item: {fileID: 0}
@@ -158,7 +157,7 @@ MonoBehaviour:
       amount: 0
     - item: {fileID: 0}
       amount: 0
-  textInfo: 
+  textInfo: Pulsa E para abrir
 --- !u!54 &-5066230636277102273
 Rigidbody:
   m_ObjectHideFlags: 0

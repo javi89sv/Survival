@@ -36,7 +36,7 @@ public class BurningSystem : MonoBehaviour
     {
         var inventorySystem = this.GetComponent<Furnace>().PrimaryInventorySystem;
 
-        if (inventorySystem.ContainItem(wood, out InventorySlot getItem))
+        if (inventorySystem.ContainItem(wood, 3, out InventorySlot getItem))
         {
             gettedItem = getItem;
             Debug.Log("podemos encender el horno");
@@ -60,7 +60,7 @@ public class BurningSystem : MonoBehaviour
             {
                 gettedItem.ClearSlot();
             }
-            this.GetComponent<Furnace>().PrimaryInventorySystem.AddItem(coal, 2);
+            this.GetComponent<Furnace>().PrimaryInventorySystem.AddItem(coal, 3);
             this.GetComponent<Furnace>().PrimaryInventorySystem.UpdateUISlots();
 
         }
