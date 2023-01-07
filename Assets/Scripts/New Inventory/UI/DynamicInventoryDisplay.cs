@@ -2,7 +2,6 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using System.Linq;
 
 public class DynamicInventoryDisplay : InventoryDisplay
 {
@@ -12,11 +11,6 @@ public class DynamicInventoryDisplay : InventoryDisplay
     protected override void Start()
     {
         base.Start();
-    }
-
-    private void Update()
-    {
-        
     }
 
     public void RefreshDynamicInventory(InventorySystem invSystem)
