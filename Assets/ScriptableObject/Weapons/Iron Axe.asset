@@ -9,19 +9,24 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f7bc20745d77bb1439103a5fb2f97d53, type: 3}
+  m_Script: {fileID: 11500000, guid: 59f0c4ab73e866f429ac0231f4862ac8, type: 3}
   m_Name: Iron Axe
   m_EditorClassIdentifier: 
   prefab: {fileID: 350802365891504493, guid: 53f3a6a35afdbea42b9466d7429f98d7, type: 3}
   type: 1
   icon: {fileID: 21300000, guid: 72caa425d7d99fa4abd70cb7e039d4ee, type: 3}
-  id: 0
-  itemName: Iron Axe
+  itemName: 
   description: 
   maxStackSize: 1
-  atkBonus: 20
+  typeEquiped: 0
+  atkBonus: 10
   defBonus: 0
-  durability: 0
-  fireRate: 1
+  durability: 100
+  fireRate: 0
+  range: 1
+  minFarmWood: 0
+  maxFarmWood: 0
+  minFarmMineral: 0
+  maxFarmMineral: 0
   farmWood: 20
   farmMineral: 0

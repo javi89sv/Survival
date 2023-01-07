@@ -196,8 +196,13 @@ public class EnemyAI : MonoBehaviour, IHitable
         Die();
     }
 
-    public int Health()
+    public int CurrentHealth()
     {
         return health;
+    }
+    
+    public int MaxHealth()
+    {
+        return maxhealth;
     }
 }

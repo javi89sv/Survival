@@ -16,7 +16,6 @@ public class HotBarSlot : MonoBehaviour
     {
         instance = this;
     }
-    //public KeyCode key;
 
     private void Update()
     {

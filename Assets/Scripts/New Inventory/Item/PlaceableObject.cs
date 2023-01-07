@@ -12,6 +12,7 @@ public class PlaceableObject : ItemObject
 
     public override void UseItem()
     {
+        Debug.Log("use Placeable!");
         PlaceObjectSystem.instance.currentGO = this;
         PlaceObjectSystem.instance.isBuilding = true;
 

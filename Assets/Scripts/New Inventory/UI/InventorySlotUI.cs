@@ -47,10 +47,12 @@ public class InventorySlotUI : MonoBehaviour, IPointerDownHandler, IBeginDragHan
             {
                 durability.enabled = true;
             }
-            else
+
+            if(invslot.amount == 0)
             {
-               
+                ClearSLot();
             }
+
 
         }
 
@@ -70,11 +72,6 @@ public class InventorySlotUI : MonoBehaviour, IPointerDownHandler, IBeginDragHan
             UpdateSlotUI(asiggnedInventorySlot);
         }
     }
-
-    //public void OnUiSlotClick()
-    //{
-    //    parentInventory?.SlotClicked(this);
-    //}
 
     public void UseItemSlot()
     {
@@ -118,6 +115,20 @@ public class InventorySlotUI : MonoBehaviour, IPointerDownHandler, IBeginDragHan
             HudUI.instance.panelInfo.SetActive(true);
             HudUI.instance.UpdateInfo(asiggnedInventorySlot.item.name, asiggnedInventorySlot.item.description, itemIcon);
         }
+
+        if(eventData.button == PointerEventData.InputButton.Right)
+        {
+            if(asiggnedInventorySlot != null)
+            {
+                if (transform.parent.name.ToString() != "PlayerInventoryPanel" && transform.parent.name.ToString() != "SlotHolder")
+                {
+                    PlayerInventoryHolder.instance.AddToInventory(asiggnedInventorySlot.item, asiggnedInventorySlot.amount);
+                    ClearSLot();
+                }
+
+            }
+        }
+
     }
 
     public void OnPointerDown(PointerEventData eventData)

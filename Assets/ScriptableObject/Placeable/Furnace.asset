@@ -20,4 +20,4 @@ MonoBehaviour:
   description: Sirve para fundir minerales.
   maxStackSize: 1
   typePlace: 0
-  durability: 100
+  durability: 200

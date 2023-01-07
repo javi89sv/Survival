@@ -93,6 +93,20 @@ public class InventorySystem
         return false;
     }
 
+    public bool ContainItem(ItemObject item, int amount) // Checkeamos si el item que estamos pasando es el mismo del slot
+    {
+        for (int i = 0; i < inventorySlots.Count; i++)
+        {
+            if (inventorySlots[i].item == item && inventorySlots[i].amount >= amount)
+            {
+                
+                return true;
+            }
+        }
+        
+        return false;
+    }
+
     public bool ContainIngredients(ItemObject item, int amount, out InventorySystem inv)
     {
         for (int i = 0; i < inventorySlots.Count; i++)

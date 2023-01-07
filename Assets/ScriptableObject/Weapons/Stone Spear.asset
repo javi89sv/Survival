@@ -9,19 +9,24 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f7bc20745d77bb1439103a5fb2f97d53, type: 3}
+  m_Script: {fileID: 11500000, guid: 59f0c4ab73e866f429ac0231f4862ac8, type: 3}
   m_Name: Stone Spear
   m_EditorClassIdentifier: 
   prefab: {fileID: 4661335255288259063, guid: 8a7642ce4a643604bb20492dc81d48d3, type: 3}
   type: 1
-  icon: {fileID: 21300000, guid: 1d0de45995f6c5444865d6c707d2a6d1, type: 3}
-  id: 0
-  itemName: Stone Spear
+  icon: {fileID: 21300000, guid: fb71beaf1d1e832458731e00d67d0236, type: 3}
+  itemName: 
   description: 
   maxStackSize: 1
-  atkBonus: 20
+  typeEquiped: 0
+  atkBonus: 25
   defBonus: 0
-  durability: 0
+  durability: 100
   fireRate: 1
+  range: 2
+  minFarmWood: 0
+  maxFarmWood: 0
+  minFarmMineral: 0
+  maxFarmMineral: 0
   farmWood: 0
   farmMineral: 0

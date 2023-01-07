@@ -100,8 +100,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   typeResources: 1
   hardness: 0
-  health: 0
-  maxhealth: 100
+  amount: 0
+  maxAmount: 200
   particlesGather: {fileID: 2400005318940285523}
   destroyPrefab: {fileID: 3268708850718101693, guid: 65d5d72f14ed4e648abe2e5a1f8a7b98, type: 3}
   lootTable: {fileID: 11400000, guid: b0a77c2b2edfbdf4fb2dabab51f55f8a, type: 2}
@@ -113,9 +113,17 @@ BoxCollider:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3800462897611381944}
   m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
   m_IsTrigger: 0
+  m_ProvidesContacts: 0
   m_Enabled: 1
-  serializedVersion: 2
+  serializedVersion: 3
   m_Size: {x: 2.1287205, y: 1.5318568, z: 1.8710372}
   m_Center: {x: -0.0024728775, y: 0.61820996, z: 0.05752507}
 --- !u!1001 &3488857843305377375
@@ -123,6 +131,7 @@ PrefabInstance:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Modification:
+    serializedVersion: 3
     m_TransformParent: {fileID: 4608911341655016962}
     m_Modifications:
     - target: {fileID: 5078376028932411181, guid: 29d11ad3e37a95147a9e7094c03b99e5, type: 3}
@@ -178,6 +187,9 @@ PrefabInstance:
       value: Sparks
       objectReference: {fileID: 0}
     m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 29d11ad3e37a95147a9e7094c03b99e5, type: 3}
 --- !u!198 &2400005318940285523 stripped
 ParticleSystem:

@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 7878849092147434500}
   - component: {fileID: 5382853549137567950}
   - component: {fileID: 766814027575045078}
-  - component: {fileID: 5203232967949874066}
+  - component: {fileID: -7864919488853530584}
   - component: {fileID: 7139251761645337052}
   m_Layer: 0
   m_Name: Wood
@@ -102,8 +102,8 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
---- !u!64 &5203232967949874066
-MeshCollider:
+--- !u!65 &-7864919488853530584
+BoxCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -112,10 +112,9 @@ MeshCollider:
   m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_Enabled: 1
-  serializedVersion: 4
-  m_Convex: 1
-  m_CookingOptions: 30
-  m_Mesh: {fileID: -1736622283181914040, guid: 0c420a70ea624d14197df65659e548e9, type: 3}
+  serializedVersion: 2
+  m_Size: {x: 0.49763754, y: 0.24308603, z: 0.26030728}
+  m_Center: {x: 0, y: 0.1258327, z: -0.0058869272}
 --- !u!114 &7139251761645337052
 MonoBehaviour:
   m_ObjectHideFlags: 0
