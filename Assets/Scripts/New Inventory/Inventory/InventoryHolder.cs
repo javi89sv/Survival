@@ -15,7 +15,7 @@ public class InventoryHolder : MonoBehaviour
 
     protected virtual void Awake()
     {
-       // primaryInventorySystem = new InventorySystem(sizeInventory); // Crea un nuevo sistema de inventario con el tamaño que le pasamos
+       
 
     }
 }

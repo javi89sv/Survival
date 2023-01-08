@@ -13,19 +13,25 @@ public class InventoryUIController : MonoBehaviour
     public DynamicInventoryDisplay playerInventoryPanel;
     public DynamicInventoryDisplay lootBoxInventoryPanel;
 
+    [SerializeField] public GameObject panelInventoryPlayer;
+    [SerializeField] public GameObject panelChestInventory;
+    [SerializeField] public GameObject panelFurnaceInventory;
+
     public TextMeshProUGUI namePanelText;
 
     private void Awake()
     {
         instance = this;
-        chestInventoryPanel.gameObject.SetActive(false);
-        playerInventoryPanel.gameObject.SetActive(false);
-        furnaceInventoryPanel.gameObject.SetActive(false);
-       // lootBoxInventoryPanel.gameObject.SetActive(false);
+
+       panelChestInventory.SetActive(false);
+       panelInventoryPlayer.SetActive(false);  
+       panelFurnaceInventory.SetActive(false);
+
     }
 
     private void OnEnable()
     {
+
         Furnace.OnFurnaceInventoryDisplayRequested += DisplayFurnaceInventory;
         PlayerInventoryHolder.OnPlayerInventoryDisplayRequested += DisplayPlayerInventory;
         Chest.OnChestInventoryDisplayRequested += DisplayInventory;
@@ -41,28 +47,33 @@ public class InventoryUIController : MonoBehaviour
         BoxLoot.OnBoxInventoryDisplayRequested -= DisplayInventory;
     }
 
+    public void UpdateDisplay(InventorySystem inventory)
+    {
+        
+    }
+
     public void DisplayInventory(InventorySystem invToDisplay)
     {
-        chestInventoryPanel.gameObject.SetActive(true);
+        panelChestInventory.gameObject.SetActive(true);
         chestInventoryPanel.RefreshDynamicInventory(invToDisplay);
-     
+
     }
     public void DisplayPlayerInventory(InventorySystem invToDisplay)
     {
-        playerInventoryPanel.gameObject.SetActive(true);
+        panelInventoryPlayer.gameObject.SetActive(true);
         playerInventoryPanel.RefreshDynamicInventory(invToDisplay);
     }
 
     public void DisplayFurnaceInventory(InventorySystem invToDisplay)
     {
-        furnaceInventoryPanel.gameObject.SetActive(true);
+        panelFurnaceInventory.gameObject.SetActive(true);
         furnaceInventoryPanel.RefreshDynamicInventory(invToDisplay);
     }
 
     public void RefreshUIChest(InventorySystem invToDisplay)
     {
         chestInventoryPanel.RefreshDynamicInventory(invToDisplay);
-    } 
+    }
     public void RefreshUIFurnace(InventorySystem invToDisplay)
     {
         furnaceInventoryPanel.RefreshDynamicInventory(invToDisplay);
@@ -71,27 +82,17 @@ public class InventoryUIController : MonoBehaviour
 
     void Update()
     {
-        if (chestInventoryPanel.gameObject.activeInHierarchy && Input.GetKeyDown(KeyCode.Escape))
+
+        if (Input.GetKeyDown(KeyCode.Escape))
         {
-            chestInventoryPanel.gameObject.SetActive(false);
-            Cursor.lockState = CursorLockMode.Locked;
-            Cursor.visible = false;
-            Interactor.isInteraction = false;
-        }
-        if (playerInventoryPanel.gameObject.activeInHierarchy && Input.GetKeyDown(KeyCode.Escape))
-        {
-            playerInventoryPanel.gameObject.SetActive(false);
-            Cursor.lockState = CursorLockMode.Locked;
-            Cursor.visible = false;
-            Interactor.isInteraction = false;
+            panelChestInventory.SetActive(false);
+            panelInventoryPlayer.SetActive(false);
+            panelFurnaceInventory.SetActive(false);
             HudUI.instance.panelInfo.SetActive(false);
-        }
-        if (furnaceInventoryPanel.gameObject.activeInHierarchy && Input.GetKeyDown(KeyCode.Escape))
-        {
-            furnaceInventoryPanel.gameObject.SetActive(false);
             Cursor.lockState = CursorLockMode.Locked;
             Cursor.visible = false;
             Interactor.isInteraction = false;
+
         }
 
     }

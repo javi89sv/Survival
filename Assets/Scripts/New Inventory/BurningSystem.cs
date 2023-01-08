@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 
 public class BurningSystem : MonoBehaviour
 {
@@ -30,6 +31,7 @@ public class BurningSystem : MonoBehaviour
     public float speedBurn;
 
     private InventorySlot gettedItem;
+
 
 
     public bool ContainWood()

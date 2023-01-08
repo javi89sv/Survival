@@ -5014,6 +5014,8 @@ MonoBehaviour:
       amount: 0
     - item: {fileID: 0}
       amount: 0
+    - item: {fileID: 0}
+      amount: 0
   textInfo: Pulsa E para abrir
 --- !u!114 &-4040900907680734778
 MonoBehaviour:

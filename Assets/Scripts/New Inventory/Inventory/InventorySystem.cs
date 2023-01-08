@@ -17,7 +17,6 @@ public class InventorySystem
     public UnityAction<InventorySlot> OnInventorySlotChanged;
 
 
-
     public InventorySystem(int size) // Constructor para setear la cantidad de slots de inventario
     {
         inventorySlots = new List<InventorySlot>(size);

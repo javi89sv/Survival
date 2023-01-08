@@ -12,6 +12,12 @@ public class FurnaceUI : MonoBehaviour
 
     public Furnace furnaceCurrent;
 
+    private void Start()
+    {
+        buttonOn.onClick.AddListener(RunFurnace);
+        buttonOff.onClick.AddListener(StopFurnace);
+    }
+
     public void Update()
     {
         if (furnaceCurrent.GetComponent<BurningSystem>().isRun)

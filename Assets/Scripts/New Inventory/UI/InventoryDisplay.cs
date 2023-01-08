@@ -7,16 +7,17 @@ public abstract class InventoryDisplay : MonoBehaviour
     [SerializeField] MouseItemData mouseItemData;
 
     protected InventorySystem inventorySystem;
+
     protected Dictionary<InventorySlotUI, InventorySlot> slotsDictionary = new Dictionary<InventorySlotUI, InventorySlot>(); //Emparejamos el sloUI con el slot del inventario
     public InventorySystem InventorySystem => inventorySystem;
     public Dictionary<InventorySlotUI, InventorySlot> SlotsDictionary => slotsDictionary;
-
-    public abstract void AssignSlot(InventorySystem invToDisplay);
 
     protected virtual void Start()
     {
 
     }
+
+    public abstract void AssignSlot(InventorySystem invToDisplay);
 
     protected virtual void UpdateSlot(InventorySlot updatedSlot)
     {

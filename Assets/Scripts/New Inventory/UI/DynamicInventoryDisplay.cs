@@ -8,11 +8,6 @@ public class DynamicInventoryDisplay : InventoryDisplay
 
     [SerializeField] protected InventorySlotUI slotPrefab;
 
-    protected override void Start()
-    {
-        base.Start();
-    }
-
     public void RefreshDynamicInventory(InventorySystem invSystem)
     {
         ClearSlots();
